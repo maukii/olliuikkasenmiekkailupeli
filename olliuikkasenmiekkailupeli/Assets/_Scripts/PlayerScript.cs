@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
 
-    public float hor;
+    public float hor, ver;
     public float moveSpeed;
 
+    public GameObject pivot, target;
+
     Rigidbody rb;
+
+    public Rigidbody wrist;
+    public float maxHandDistance = 1f;
 
     private void Start()
     {
@@ -17,11 +22,12 @@ public class PlayerScript : MonoBehaviour {
     private void Update()
     {
         hor = Input.GetAxis("Horizontal");
+        ver = Input.GetAxis("Vertical");
 
         rb.velocity = new Vector2(hor * moveSpeed, rb.velocity.y);
 
         Move();
-
+        Sword();
     }
 
     void Move()
@@ -41,4 +47,28 @@ public class PlayerScript : MonoBehaviour {
         }
 
     }
+
+    // use different stances or make swordhand follow some point in object space (virtual joystick)
+    void Sword()
+    {
+
+
+        //Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        //// hand at max range
+        //if(Vector2.Distance(target.transform.position, rb.position) > maxHandDistance)
+        //{
+        //    wrist.position = rb.position + (target.transform.position - rb.transform.position).normalized * maxHandDistance;
+        //}
+
+        if(ver > 0)
+        {
+            // change stance to upper
+        }
+        else if(ver < 0)
+        {
+            // change stance to lower
+        }
+    }
+
 }

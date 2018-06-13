@@ -51,17 +51,25 @@ public class PlayerScript : MonoBehaviour {
     // use different stances or make swordhand follow some point in object space (virtual joystick)
     void Sword()
     {
+        //Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, gameObject.transform.position.z));
+        Ray mousePos = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Plane plane = new Plane(Vector3.up, transform.position);
+        float point = 0;
 
-
-        //Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
+        if (plane.Raycast(mousePos, out point))
+        {
+            //Vector3 targetPos = new Vector3(mousePos.GetPoint(point).x, mousePos.GetPoint(point).y, gameObject.transform.position.z);
+            //target.transform.position = targetPos;
+        }
+       
         //// hand at max range
-        //if(Vector2.Distance(target.transform.position, rb.position) > maxHandDistance)
+        //if(Vector3.Distance(mousePos, rb.position) > maxHandDistance)
         //{
-        //    wrist.position = rb.position + (target.transform.position - rb.transform.position).normalized * maxHandDistance;
+        //    //wrist.position = rb.position + (target.transform.position - rb.transform.position).normalized * maxHandDistance;
+        //    Vector3.MoveTowards(wrist.transform.position, Input.mousePosition, Time.deltaTime);
         //}
 
-        if(ver > 0)
+        if (ver > 0)
         {
             // change stance to upper
         }

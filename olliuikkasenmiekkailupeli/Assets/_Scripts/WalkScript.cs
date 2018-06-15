@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WalkScript : MonoBehaviour {
 
-    public float hor, moveSpeed;
+    public float hor, moveSpeed, minHor, minMoveSpeed; //1, 0.75, 0.5, 0.6
     float defaultMoveSpeed;
     Animator anim;
     Rigidbody rb;
@@ -21,7 +21,7 @@ public class WalkScript : MonoBehaviour {
         hor = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(hor * moveSpeed, rb.velocity.y);
 
-        if (hor <= -0.5f)
+        if (hor <= -minHor)
         {
             moveSpeed = moveSpeed + 0.05f;
             anim.SetBool("WalkForward", true);
@@ -32,7 +32,7 @@ public class WalkScript : MonoBehaviour {
             }
         }
 
-        if (hor >= 0.5f)
+        if (hor >= minHor)
         {
             moveSpeed = moveSpeed + 0.05f;
             anim.SetBool("WalkBackwards", true);
@@ -43,14 +43,14 @@ public class WalkScript : MonoBehaviour {
             }
         }
 
-        if (hor == 0 || hor > -0.5f && hor < 0.5f)
+        if (hor == 0 || hor > -minHor && hor < minHor)
         {
             moveSpeed = 0;
             anim.SetBool("WalkForward", false);
             anim.SetBool("WalkBackwards", false);
         }
 
-        if (moveSpeed < 0.5f && hor < -0.5f || moveSpeed < 0.5f && hor > 0.5f)
+        if (moveSpeed < minMoveSpeed && hor < -minHor || moveSpeed < minMoveSpeed && hor > minHor)
         {
             rb.velocity = Vector3.zero;     //tässä transform.position.x ei saisi muuttua
             anim.SetBool("WalkForward", false);

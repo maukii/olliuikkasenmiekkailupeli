@@ -2000,6 +2000,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hor: 0
   moveSpeed: 0.75
+  minHor: 0.5
+  minMoveSpeed: 0.6
 --- !u!54 &1575713361
 Rigidbody:
   m_ObjectHideFlags: 0

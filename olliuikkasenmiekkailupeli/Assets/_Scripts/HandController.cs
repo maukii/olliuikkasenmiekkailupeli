@@ -53,89 +53,142 @@ public class HandController : MonoBehaviour
 
     //}
 
-    private float velX;
-    private float velY;
-    private float targetVelX;
-    private float targetVelY;
-    public float velMultX;
-    public float velMultY;
-    public float accX;
-    public float accY;
-    private float swordX;
-    private float swordY;
-    private float dist;
-    private Vector3 swordPos;
-    private Vector3 shoulderPos;
-    public GameObject shoulder;
-    public GameObject sword;
-    public float maxDist;
-    public float minDist;
-    private Vector3 collPos;
-    private Vector3 vel;
 
-    private float timer;
-    public int player;
-    public bool flipped;
+    //[Header("--- OLLIN SCRIPTI ALKAA ---")]
 
-    void Start()
+    //private float dist;
+    //private Vector3 swordPos;
+    //private Vector3 shoulderPos;
+    //public GameObject shoulder;
+    //public GameObject sword;
+    //public float maxDist;
+    //public float minDist;
+
+    //public float hor, vel;
+
+    //private float timer;
+    //public int player;
+    //public bool flipped;
+
+    //void FixedUpdate()
+    //{
+
+    //    //swordPos.x += shoulder.transform.position.x - shoulderPos.x;
+    //    //swordPos.y += shoulder.transform.position.y - shoulderPos.y;
+
+    //    if (player == 1)
+    //    {
+    //        hor = Input.GetAxis("Horizontal");
+    //        vel = Input.GetAxis("Vertical");
+    //    }
+
+    //    swordPos.x += hor;
+    //    swordPos.y += vel;
+
+    //    dist = Vector3.Distance(shoulder.transform.position, swordPos);
+    //    if (dist > maxDist)
+    //    {
+    //        swordPos = Vector3.MoveTowards(swordPos, shoulder.transform.position, dist - maxDist);
+    //    }
+    //    if (swordPos.x < shoulder.transform.position.x + minDist && !flipped)
+    //    {
+    //        swordPos.x = shoulder.transform.position.x + minDist;
+    //    }
+    //    if (swordPos.x > shoulder.transform.position.x + minDist && flipped)
+    //    {
+    //        swordPos.x = shoulder.transform.position.x - minDist;
+    //    }
+
+    //    sword.transform.position = swordPos;
+    //    shoulderPos = shoulder.transform.position;
+
+
+    //    if(Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        ChangeStance();
+    //    }
+    //}
+
+    //void ChangeStance()
+    //{
+    //    if(GetComponent<Rigidbody>().isKinematic)
+    //    {
+    //        GetComponent<Rigidbody>().isKinematic = false;
+    //        maxDist = maxDist * 2;
+    //    }
+    //    else
+    //    {
+    //        GetComponent<Rigidbody>().isKinematic = true;
+    //        maxDist = maxDist / 2;
+    //    }
+    //}
+
+    public GameObject sholderPivot, elboPivot;
+    public float rotSpeed = 10f;
+
+    public float elboz;
+    public float sholderz;
+
+    Animator anim;
+
+    public float angle;
+
+    private void Start()
     {
-        velX = 0;
-        velY = 0;
+        anim = GetComponent<Animator>();
     }
 
-    void FixedUpdate()
+    private void Update()
     {
+        elboz = elboPivot.transform.rotation.z;
+        sholderz = sholderPivot.transform.rotation.z;
 
-        swordPos.x += shoulder.transform.position.x - shoulderPos.x;
-        swordPos.y += shoulder.transform.position.y - shoulderPos.y;
 
-        if (player == 1)
+
+        if(Input.GetKey(KeyCode.LeftArrow))
         {
-            velX = Input.GetAxis("Horizontal") * velMultX;
-            velY = Input.GetAxis("Vertical") * velMultY;
+            if (elboPivot.transform.rotation.z > 0.2f)
+            {
+                elboPivot.transform.Rotate(Vector3.back * rotSpeed * Time.deltaTime);
+            }
         }
 
-        
-
-        swordPos.x += velX;
-        swordPos.y += velY;
-
-        dist = Vector3.Distance(shoulder.transform.position, swordPos);
-        if (dist > maxDist)
+        if(Input.GetKey(KeyCode.RightArrow))
         {
-            swordPos = Vector3.MoveTowards(swordPos, shoulder.transform.position, dist - maxDist);
-        }
-        if (swordPos.x < shoulder.transform.position.x + minDist && !flipped)
-        {
-            swordPos.x = shoulder.transform.position.x + minDist;
-        }
-        if (swordPos.x > shoulder.transform.position.x + minDist && flipped)
-        {
-            swordPos.x = shoulder.transform.position.x - minDist;
+            if (elboPivot.transform.rotation.z < -0.45)
+            {
+                elboPivot.transform.Rotate(Vector3.forward * rotSpeed * Time.deltaTime);
+            }
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
-            ChangeStance();
+            if (sholderPivot.transform.rotation.z <= 0f)
+            {
+                sholderPivot.transform.Rotate(Vector3.left * rotSpeed * Time.deltaTime);
+            }
         }
 
-        sword.transform.position = swordPos;
-        shoulderPos = shoulder.transform.position;
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            if (sholderPivot.transform.rotation.z >= -0.45f)
+            {
+                sholderPivot.transform.Rotate(Vector3.right * rotSpeed * Time.deltaTime);
+            }
+        }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(Step());
+        }
     }
 
-    void ChangeStance()
+    IEnumerator Step()
     {
-        if(GetComponent<Rigidbody>().isKinematic)
-        {
-            GetComponent<Rigidbody>().isKinematic = false;
-            maxDist = maxDist * 2;
-        }
-        else
-        {
-            GetComponent<Rigidbody>().isKinematic = true;
-            maxDist = maxDist / 2;
-        }
+        anim.enabled = true;
+        anim.SetTrigger("Step");
+        yield return new WaitForSeconds(1.175f);
+        anim.enabled = false;
     }
 
 }

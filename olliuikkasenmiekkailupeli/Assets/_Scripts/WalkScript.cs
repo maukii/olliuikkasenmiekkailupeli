@@ -54,6 +54,7 @@ public class WalkScript : MonoBehaviour {
         {
             rb.velocity = Vector3.zero;     //tässä transform.position.x ei saisi muuttua
             rb.angularVelocity = Vector3.zero; //ei tod.näk. tarpeellinen
+            rb.Sleep();
             anim.SetBool("WalkForward", false);
             anim.SetBool("WalkBackwards", false);
             hor = 0;

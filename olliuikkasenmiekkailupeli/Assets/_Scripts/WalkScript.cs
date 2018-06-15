@@ -53,6 +53,7 @@ public class WalkScript : MonoBehaviour {
         if (moveSpeed < minMoveSpeed && hor < -minHor || moveSpeed < minMoveSpeed && hor > minHor)
         {
             rb.velocity = Vector3.zero;     //tässä transform.position.x ei saisi muuttua
+            rb.angularVelocity = Vector3.zero; //ei tod.näk. tarpeellinen
             anim.SetBool("WalkForward", false);
             anim.SetBool("WalkBackwards", false);
             hor = 0;

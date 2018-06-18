@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkScript : MonoBehaviour {
+public class PlayerTwoWalk : MonoBehaviour {
 
-    public float horOne, horTwo, timer;
+    public float horTwo, timer, deadZone;
     float defaultTimer;
     Animator anim;
 
@@ -17,40 +17,23 @@ public class WalkScript : MonoBehaviour {
     void Update()
     {
         //horOne = Input.GetAxis("Horizontal");
-        horOne = Input.GetAxis("P1_horizontal");
         horTwo = Input.GetAxis("P2_horizontal");
 
-        if (horOne > 0)
-        {
-            anim.SetBool("WalkForward", true);
-        }
-
-        if (horOne < 0)
+        if (horTwo > deadZone)
         {
             anim.SetBool("WalkBackwards", true);
         }
 
-        if (horOne == 0)
-        {
-            anim.SetBool("WalkForward", false);
-            anim.SetBool("WalkBackwards", false);
-        }
-        /*
-        if (horTwo > 0)
+        if (horTwo < -deadZone)
         {
             anim.SetBool("WalkForward", true);
         }
 
-        if (horTwo < 0)
-        {
-            anim.SetBool("WalkBackwards", true);
-        }
-
-        if (horTwo == 0)
+        if (horTwo == 0 || horTwo < deadZone && horTwo > -deadZone)
         {
             anim.SetBool("WalkForward", false);
             anim.SetBool("WalkBackwards", false);
-        }*/
+        }
     }
 
     /* >>>>>>>>>>>>>>>>>>TÄMÄ SILLOIN KUN ON USEAMPI ANIMAATIO<<<<<<<<<<<<<<<<<<

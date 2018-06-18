@@ -44,12 +44,12 @@ public class CameraScript : MonoBehaviour
 
         if (cameraDistance >= 10)
         {
-            //newCameraPos
+            //kamera ei saa liikkua taaksepäin enempää
         }
         
         if (cameraDistance <= 4.5f)
         {
-            //newCameraPos
+            //kamera ei saa liikkua eteenpäin enempää
         }
     }
 }

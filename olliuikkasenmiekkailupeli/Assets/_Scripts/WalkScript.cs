@@ -4,60 +4,201 @@ using UnityEngine;
 
 public class WalkScript : MonoBehaviour {
 
-    public float hor, moveSpeed, minHor, minMoveSpeed; //1, 0.75, 0.5, 0.6
-    float defaultMoveSpeed;
+    public float horOne, horTwo, timer;
+    float defaultTimer;
     Animator anim;
-    Rigidbody rb;
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
-        defaultMoveSpeed = moveSpeed;
+        defaultTimer = timer;
     }
 
     void Update()
     {
-        hor = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(hor * moveSpeed, rb.velocity.y);
+        horOne = Input.GetAxis("Horizontal");
+        //horOne = Input.GetAxis("P1_horizontal");
+        //horTwo = Input.GetAxis("P2_horizontal");
 
-        if (hor <= -minHor)
+        if (horOne > 0)
         {
-            moveSpeed = moveSpeed + 0.05f;
             anim.SetBool("WalkForward", true);
-
-            if (moveSpeed >= defaultMoveSpeed)
-            {
-                moveSpeed = defaultMoveSpeed;
-            }
         }
 
-        if (hor >= minHor)
+        if (horOne < 0)
         {
-            moveSpeed = moveSpeed + 0.05f;
             anim.SetBool("WalkBackwards", true);
+        }
 
-            if (moveSpeed >= defaultMoveSpeed)
+        if (horOne == 0)
+        {
+            anim.SetBool("WalkForward", false);
+            anim.SetBool("WalkBackwards", false);
+        }
+        /*
+        if (horTwo > 0)
+        {
+            anim.SetBool("WalkForward", true);
+        }
+
+        if (horTwo < 0)
+        {
+            anim.SetBool("WalkBackwards", true);
+        }
+
+        if (horTwo == 0)
+        {
+            anim.SetBool("WalkForward", false);
+            anim.SetBool("WalkBackwards", false);
+        }*/
+    }
+
+    /* >>>>>>>>>>>>>>>>>>TÄMÄ SILLOIN KUN ON USEAMPI ANIMAATIO<<<<<<<<<<<<<<<<<<
+    
+    void Move()
+    {
+        if (horOne < 0) //0 - -1
+        {
+            //timer = timer - jotain
+            //askel-boolit nollataan
+            //aloita askel-animaatio
+
+            if (timer > 0)
             {
-                moveSpeed = defaultMoveSpeed;
+                //jatka lyhyt askel-animaatio
+                timer = defaultTimer;
+            }
+
+            if (timer <= 0)
+            {
+                //jatka pitkä askel-animaatioon
+                timer = defaultTimer;
             }
         }
 
-        if (hor == 0 || hor > -minHor && hor < minHor)
+        if (horOne > 0) //0 - 1
         {
-            moveSpeed = 0;
-            anim.SetBool("WalkForward", false);
-            anim.SetBool("WalkBackwards", false);
+            //timer = timer - jotain
+            //askel-boolit nollataan
+            //aloita askel-animaatio
+
+            if (timer > 0)
+            {
+                //jatka lyhyt askel-animaatio
+                timer = defaultTimer;
+            }
+
+            if (timer <= 0)
+            {
+                //jatka pitkä askel-animaatioon
+                timer = defaultTimer;
+            }
         }
 
-        if (moveSpeed < minMoveSpeed && hor < -minHor || moveSpeed < minMoveSpeed && hor > minHor)
+        if (horOne == 0)
         {
-            rb.velocity = Vector3.zero;     //tässä transform.position.x ei saisi muuttua
-            rb.angularVelocity = Vector3.zero; //ei tod.näk. tarpeellinen
-            rb.Sleep();
-            anim.SetBool("WalkForward", false);
-            anim.SetBool("WalkBackwards", false);
-            hor = 0;
+            //animaatiot falseksi
+        }
+
+        if (horTwo < 0) //0 - -1
+        {
+            //timer = timer - jotain
+            //askel-boolit nollataan
+            //aloita askel-animaatio
+
+            if (timer > 0)
+            {
+                //jatka lyhyt askel-animaatio
+                timer = defaultTimer;
+            }
+
+            if (timer <= 0)
+            {
+                //jatka pitkä askel-animaatioon
+                timer = defaultTimer;
+            }
+        }
+
+        if (horTwo > 0) //0 - 1
+        {
+            //timer = timer - jotain
+            //askel-boolit nollataan
+            //aloita askel-animaatio
+
+            if (timer > 0)
+            {
+                //jatka lyhyt askel-animaatio
+                timer = defaultTimer;
+            }
+
+            if (timer <= 0)
+            {
+                //jatka pitkä askel-animaatioon
+                timer = defaultTimer;
+            }
+        }
+
+        if (horTwo == 0)
+        {
+            //animaatiot falseksi
         }
     }
+    */
+
+
+
+
+
+
+
+
+
+
+
+
+    /* OLD RIBALS
+    public float hor, moveSpeed, minHor, minMoveSpeed; //1, 0.75, 0.5, 0.6
+    float defaultMoveSpeed;
+    defaultMoveSpeed = moveSpeed;
+    rb.velocity = new Vector2(hor * moveSpeed, rb.velocity.y);
+
+    if (hor <= -minHor)
+    {
+        moveSpeed = moveSpeed + 0.05f;
+        anim.SetBool("WalkForward", true);
+
+        if (moveSpeed >= defaultMoveSpeed)
+        {
+            moveSpeed = defaultMoveSpeed;
+        }
+    }
+
+    if (hor >= minHor)
+    {
+        moveSpeed = moveSpeed + 0.05f;
+        anim.SetBool("WalkBackwards", true);
+
+        if (moveSpeed >= defaultMoveSpeed)
+        {
+            moveSpeed = defaultMoveSpeed;
+        }
+    }
+
+    if (hor == 0 || hor > -minHor && hor < minHor)
+    {
+        moveSpeed = 0;
+        anim.SetBool("WalkForward", false);
+        anim.SetBool("WalkBackwards", false);
+    }
+
+    if (moveSpeed < minMoveSpeed && hor < -minHor || moveSpeed < minMoveSpeed && hor > minHor)
+    {
+        rb.velocity = Vector3.zero;     //tässä transform.position.x ei saisi muuttua
+        rb.angularVelocity = Vector3.zero; //ei tod.näk. tarpeellinen
+        rb.Sleep();
+        anim.SetBool("WalkForward", false);
+        anim.SetBool("WalkBackwards", false);
+        hor = 0;
+    }
+    */
 }

@@ -4,52 +4,34 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    public Transform player1;
-    public Transform player2;
+    public Transform player1, player2;
+    public float playerDistance;
+    public static CameraScript cam;
 
-    private const float DISTANCE_MARGIN = 1.0f;
-
-    private Vector3 middlePoint;
-    private float distanceFromMiddlePoint;
-    private float distanceBetweenPlayers;
-    private float cameraDistance;
-    private float aspectRatio;
-    private float fov;
-    private float tanFov;
+    private const float distanceMargin = 1.0f;
+    private Vector3 middle;
+    private float aspectRatio, camDistance, tanFov;
 
     void Start()
     {
+        cam = this;
         aspectRatio = Screen.width / Screen.height;
         tanFov = Mathf.Tan(Mathf.Deg2Rad * Camera.main.fieldOfView / 2.0f);
     }
 
     void Update()
     {
-        // Position the camera in the center.
-        Vector3 newCameraPos = Camera.main.transform.position;
-        newCameraPos.x = middlePoint.x;
-        Camera.main.transform.position = newCameraPos;
+        Vector3 newCamPos = Camera.main.transform.position;
+        newCamPos.x = middle.x;                                                         //Kamera keskitetään
+        Camera.main.transform.position = newCamPos;
 
-        // Find the middle point between players.
-        Vector3 vectorBetweenPlayers = player2.position - player1.position;
-        middlePoint = player1.position + 0.5f * vectorBetweenPlayers;
+        Vector3 vectorBetweenPlayers = player2.position - player1.position;             //Etsitään keskipiste pelaajien väliltä
+        middle = player1.position + 0.5f * vectorBetweenPlayers;
 
-        // Calculate the new distance.
-        distanceBetweenPlayers = vectorBetweenPlayers.magnitude;
-        cameraDistance = (distanceBetweenPlayers / 2.0f / aspectRatio) / tanFov;
+        playerDistance = vectorBetweenPlayers.magnitude;                                //Lasketaan uusi distance
+        camDistance = (playerDistance / 2 / aspectRatio) / tanFov;
 
-        // Set camera to new position.
-        Vector3 dir = (Camera.main.transform.position - middlePoint).normalized;
-        Camera.main.transform.position = middlePoint + dir * (cameraDistance + DISTANCE_MARGIN);
-
-        if (cameraDistance >= 10)
-        {
-            //kamera ei saa liikkua taaksepäin enempää
-        }
-        
-        if (cameraDistance <= 4.5f)
-        {
-            //kamera ei saa liikkua eteenpäin enempää
-        }
+        Vector3 dir = (Camera.main.transform.position - middle).normalized;             //Asetetaan kamera uuteen positioon
+        Camera.main.transform.position = middle + dir * (camDistance + distanceMargin);
     }
 }

@@ -16,7 +16,6 @@ public class PlayerTwoWalk : MonoBehaviour {
 
     void Update()
     {
-        //horOne = Input.GetAxis("Horizontal");
         horTwo = Input.GetAxis("P2_horizontal");
 
         if (horTwo > deadZone)

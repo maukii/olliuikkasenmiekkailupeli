@@ -16,7 +16,6 @@ public class PlayerOneWalk : MonoBehaviour {
 
     void Update()
     {
-        //horOne = Input.GetAxis("Horizontal");
         horOne = Input.GetAxis("P1_horizontal");
 
         if (horOne > deadZone)

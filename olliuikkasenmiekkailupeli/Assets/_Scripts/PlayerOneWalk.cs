@@ -35,14 +35,9 @@ public class PlayerOneWalk : MonoBehaviour {
             anim.SetBool("WalkBackwards", false);
         }
 
-        if (CameraScript.cam.playerDistance >= 10)
+        if (CameraScript.cam.distanceBetweenPlayers >= 10)
         {
             anim.SetBool("WalkBackwards", false);
-        }
-
-        if (CameraScript.cam.playerDistance <= 1)
-        {
-            anim.SetBool("WalkForward", false);
         }
     }
 }

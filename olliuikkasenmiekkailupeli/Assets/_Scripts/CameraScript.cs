@@ -5,18 +5,12 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     public Transform P1, P2;
-    public float zoomIn, zoomOut;
-    public float distanceBetweenPlayers;
+    public float zoomIn, zoomOut, distanceBetweenPlayers;
     public static CameraScript cam;
 
     private const float DISTANCE_MARGIN = 1.0f;
-
     private Vector3 middlePoint, origCameraPos;
-    private float distanceFromMiddlePoint;
-    private float cameraDistance;
-    private float aspectRatio;
-    private float fov;
-    private float tanFov;
+    private float distanceFromMiddlePoint, cameraDistance, aspectRatio, fov, tanFov;
 
     void Start()
     {
@@ -65,114 +59,4 @@ public class CameraScript : MonoBehaviour
 
         Camera.main.transform.position = newCameraZ;
     }
-
-
-
-
-
-
-
-
-
-
-    /*public Transform f1, f2;
-    
-    float margin = 1.5f;
-    private float xL, xR, width, wScene;
-
-    Vector3 origCamPos;
-
-    void Start ()
-    {
-        origCamPos = Camera.main.transform.position;
-
-        CalcScreen();
-        wScene = xR - xL;
-    }
-	
-	void Update ()
-    {
-        Vector3 newCamPos = new Vector3(transform.position.x, transform.position.y, -17.5f);
-        
-        CalcScreen();
-        width = xR - xL;
-
-        if (width > wScene)
-        {
-            transform.position = newCamPos;
-        }
-
-        if (width < wScene)
-        {
-            transform.position = origCamPos;
-        }
-    }
-
-    void CalcScreen()
-    {
-        if (f1.position.x < f2.position.x)
-        {
-            xL = f1.position.x - margin;
-            xR = f2.position.x + margin;
-        }
-
-        else
-        {
-            xL = f2.position.x - margin;
-            xR = f1.position.x + margin;
-        }
-    }*/
-
-
-
-
-
-    /*public Transform p1, p2;
-
-    float margin = 1.5f; // space between screen border and nearest fighter
-
-    private float z0 = 0; // coord z of the fighters plane
-    private float zCam; // camera distance to the fighters plane
-    private float wScene; // scene width
-    private float xL; // left screen X coordinate
-    private float xR; // right screen X coordinate
-
-    void Start()
-    {
-        // initializes scene size and camera distance
-        CalcScreen();
-        wScene = xR - xL;
-        zCam = transform.position.z - z0;
-    }
-
-    void Update()
-    {
-        Vector3 cam = transform.position;
-
-        CalcScreen();
-        float width = xR - xL;
-
-        if (width > wScene)
-        {
-            // if fighters too far adjust camera distance
-            cam.z = zCam * width / wScene + z0;
-        }
-        // centers the camera
-        cam.x = (xR + xL) / 2;
-    }
-
-    void CalcScreen()
-    {
-        // Calculates the xL and xR screen coordinates 
-        if (p1.position.x < p2.position.x)
-        {
-            xL = p1.position.x - margin;
-            xR = p2.position.x + margin;
-        }
-        else
-        {
-            xL = p2.position.x - margin;
-            xR = p1.position.x + margin;
-        }
-    }*/
 }

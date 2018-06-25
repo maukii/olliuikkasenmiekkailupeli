@@ -21,17 +21,35 @@ public class BestHandmovementEU : MonoBehaviour
     public float maxV;
     public float minV;
 
+    public Animator anim;
+
+    public Rigidbody[] rbs;
+    public GameObject ukko;
+
     void Start()
     {
+        ukko = GameObject.Find("UkkoMies").gameObject;
+
         CheckPositions(); // TODO: if player takes step forward need to update hands start position and boundries
         CheckBoundries();
+
+        rbs = ukko.GetComponentsInChildren<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         TakeInput(); // TODO: disable parts of input while player is moving
         MoveHand();
         ClampTargetPosition();
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            foreach (Rigidbody rb in rbs)
+            {
+                rb.isKinematic = true;
+            }
+            anim.SetTrigger("Step");
+        }
     }
 
     void CheckPositions()
@@ -71,6 +89,15 @@ public class BestHandmovementEU : MonoBehaviour
         if (hor == 0 && ver == 0)
         {
             visualizer.transform.position = Vector3.MoveTowards(visualizer.transform.position, handStartPosition, speed * Time.deltaTime);
+        }
+    }
+
+    public void KinematicFalse()
+    {
+        foreach (Rigidbody rb in rbs)
+        {
+            rb.isKinematic = false;
+            ukko.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
 

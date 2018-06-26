@@ -17,6 +17,9 @@ public class AlternativeMovement3 : MonoBehaviour
     public float inputX, inputY;
     public float speed = 3f;
 
+    int handControllLayer = 1, handAttackLayer = 2;
+    float handMovementW, handAttackW;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -24,14 +27,17 @@ public class AlternativeMovement3 : MonoBehaviour
 
     void Update()
     {
+
+
         hor = Input.GetAxis(horizontal);
         ver = Input.GetAxisRaw(vertical);
 
         inputX = Mathf.Clamp(inputX, -1, 1);
         inputY = Mathf.Clamp(inputY, -1, 1);
 
-        Move();
+        GetLayerWeights();
         Action();
+        Move();      
     }
 
     void Move()
@@ -88,29 +94,38 @@ public class AlternativeMovement3 : MonoBehaviour
 
     void Action()
     {
-        // this means attack button is pressed
         if(Input.GetKey(action))
         {
+            anim.SetBool("Holding", true);
+
             if(attackTimer < 1f)
             {
                 attackTimer += Time.deltaTime;
             }
-            anim.SetLayerWeight(2, 1f);
+
+            anim.SetLayerWeight(handAttackLayer, 1);
+            anim.SetLayerWeight(handControllLayer, handMovementW -= Time.deltaTime);
+
         }
         else
         {
+            anim.SetBool("Holding", false);
+
             if(attackTimer > 0f)
             {
                 attackTimer -= Time.deltaTime;
             }
-            anim.SetLayerWeight(2, .75f); // TODO: currentWeight - time.DeltaTime;
+
+            anim.SetLayerWeight(handControllLayer, handMovementW += Time.deltaTime);
+            anim.SetLayerWeight(handAttackLayer, handAttackW -= Time.deltaTime);
+
         }
 
         anim.SetFloat("AttackTimer", attackTimer);
     }
 
     // how to change weight between anim layers
-/*    void GetLayerWeights()
+    void GetLayerWeights()
     {
         handMovementW = anim.GetLayerWeight(1);
         handAttackW = anim.GetLayerWeight(2);
@@ -130,5 +145,5 @@ public class AlternativeMovement3 : MonoBehaviour
     {
         attackTimer = 0f;
     }
-    */
+    
 }

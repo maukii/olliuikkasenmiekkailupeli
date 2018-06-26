@@ -28,7 +28,6 @@ public class AlternativeMovement3 : MonoBehaviour
     void Update()
     {
 
-
         hor = Input.GetAxis(horizontal);
         ver = Input.GetAxisRaw(vertical);
 
@@ -69,7 +68,7 @@ public class AlternativeMovement3 : MonoBehaviour
         if (hor == 0)
         {
             inputX = Mathf.Lerp(inputX, 0, speed * Time.deltaTime);
-            if ((inputX <= 0.02f && inputX > 0) || (inputX >= -0.02f && inputX < 0))
+            if ((inputX <= 0.3f && inputX > 0) || (inputX >= -0.3f && inputX < 0))
             {
                 inputX = 0f;
             }
@@ -81,7 +80,7 @@ public class AlternativeMovement3 : MonoBehaviour
         if (ver == 0)
         {
             inputY = Mathf.Lerp(inputY, 0, speed * Time.deltaTime);
-            if ((inputY <= 0.02f && inputY > 0) || (inputY >= -0.02f && inputY < 0))
+            if ((inputY <= 0.3f && inputY > 0) || (inputY >= -0.3f && inputY < 0))
             {
                 inputY = 0f;
             }
@@ -96,7 +95,7 @@ public class AlternativeMovement3 : MonoBehaviour
     {
         if(Input.GetKey(action))
         {
-            anim.SetBool("Holding", true);
+            //anim.SetBool("Holding", true);
 
             if(attackTimer < 1f)
             {
@@ -104,20 +103,20 @@ public class AlternativeMovement3 : MonoBehaviour
             }
 
             anim.SetLayerWeight(handAttackLayer, 1);
-            anim.SetLayerWeight(handControllLayer, handMovementW -= Time.deltaTime);
+            //anim.SetLayerWeight(handControllLayer, handMovementW -= Time.deltaTime);
 
         }
         else
         {
-            anim.SetBool("Holding", false);
+            //anim.SetBool("Holding", false);
 
             if(attackTimer > 0f)
             {
                 attackTimer -= Time.deltaTime;
             }
 
-            anim.SetLayerWeight(handControllLayer, handMovementW += Time.deltaTime);
-            anim.SetLayerWeight(handAttackLayer, handAttackW -= Time.deltaTime);
+            //anim.SetLayerWeight(handControllLayer, handMovementW += Time.deltaTime);
+            anim.SetLayerWeight(handAttackLayer, 0);
 
         }
 

@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlternativeMovement2 : MonoBehaviour
+public class AlternativeMovement3 : MonoBehaviour
 {
 
     public float hor, ver;
-    float handMovementW = 1f, handAttackW = 1f;
-    int handMovement = 1, handAttack = 2;
     Animator anim;
 
     [Header("----- Player Movement Axis Names -----")]
@@ -33,7 +31,7 @@ public class AlternativeMovement2 : MonoBehaviour
         inputY = Mathf.Clamp(inputY, -1, 1);
 
         Move();
-        GetLayerWeights();
+        Action();
     }
 
     void Move()
@@ -44,12 +42,12 @@ public class AlternativeMovement2 : MonoBehaviour
             inputX += speed * Time.deltaTime;
             anim.SetFloat("InputX", inputX);
         }
-        if( hor <= -0.5f && inputX > -1f)
+        if (hor <= -0.5f && inputX > -1f)
         {
             inputX -= speed * Time.deltaTime;
             anim.SetFloat("InputX", inputX);
         }
-        
+
 
         if (ver >= 0.1f && inputY < 1f)
         {
@@ -62,7 +60,7 @@ public class AlternativeMovement2 : MonoBehaviour
             anim.SetFloat("InputY", inputY);
         }
 
-        if(hor == 0)
+        if (hor == 0)
         {
             inputX = Mathf.Lerp(inputX, 0, speed * Time.deltaTime);
             if ((inputX <= 0.02f && inputX > 0) || (inputX >= -0.02f && inputX < 0))
@@ -86,40 +84,33 @@ public class AlternativeMovement2 : MonoBehaviour
 
         }
 
+    }
+
+    void Action()
+    {
         // this means attack button is pressed
         if(Input.GetKey(action))
         {
-            anim.SetBool("ActionHold", true);
-            anim.SetFloat("ActionTimer", attackTimer);
-
-            attackTimer += Time.deltaTime;
-            if (attackTimer >= 1f)
+            if(attackTimer < 1f)
             {
-                attackTimer = 1f;
-            } 
-
-            anim.SetLayerWeight(handMovement, handMovementW -= Time.deltaTime);
-            anim.SetLayerWeight(handAttack, /* handAttackW += Time.deltaTime */ 0.75f + Time.deltaTime); // TODO: tweak these numbers
-        }
-        else // not attacking
-        {
-            anim.SetBool("ActionHold", false);
-            anim.SetFloat("ActionTimer", attackTimer);
-
-            attackTimer -= Time.deltaTime;
-            if(attackTimer <= 0f)
-            {
-                attackTimer = 0f;
+                attackTimer += Time.deltaTime;
             }
-
-            anim.SetLayerWeight(handMovement, handMovementW += Time.deltaTime);
-            anim.SetLayerWeight(handAttack, handAttackW -= Time.deltaTime);
+            anim.SetLayerWeight(2, 1f);
+        }
+        else
+        {
+            if(attackTimer > 0f)
+            {
+                attackTimer -= Time.deltaTime;
+            }
+            anim.SetLayerWeight(2, .75f); // TODO: currentWeight - time.DeltaTime;
         }
 
+        anim.SetFloat("AttackTimer", attackTimer);
     }
 
     // how to change weight between anim layers
-    void GetLayerWeights()
+/*    void GetLayerWeights()
     {
         handMovementW = anim.GetLayerWeight(1);
         handAttackW = anim.GetLayerWeight(2);
@@ -139,5 +130,5 @@ public class AlternativeMovement2 : MonoBehaviour
     {
         attackTimer = 0f;
     }
-
+    */
 }

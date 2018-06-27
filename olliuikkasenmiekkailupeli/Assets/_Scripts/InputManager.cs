@@ -5,9 +5,11 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public bool isXboxControllerP1, isXboxControllerP2, isPSControllerP1, isPSControllerP2;
+    public static InputManager IM;
 
     void Start()
     {
+        IM = this;
         ControllerCheck();
     }
 
@@ -115,28 +117,9 @@ public class InputManager : MonoBehaviour
         PS = Button 12
         PadPress = Button 13
 
-    Xbox + Xbox
-    Xbox + PS4
-    PS4 + PS4
-    
-    if (isXboxControllerP1 == true)
-    {
-        
-    }
-
-    if (isXboxControllerP2 == true)
-    {
-        
-    }
-
-    if (isPS4ControllerP1 == true)
-    {
-        
-    }
-
-    if (isPS4ControllerP2 == true)
-    {
-        
-    }
-
+    Tarvittavat:
+        - LS horizontal + vertical???
+        - RS horizontal + vertical
+        - Triggerit/L2 & R2
+        - Bumperit/L1 & R1
     */

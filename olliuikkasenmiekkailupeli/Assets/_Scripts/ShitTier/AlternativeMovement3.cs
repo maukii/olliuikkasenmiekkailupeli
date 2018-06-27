@@ -20,6 +20,8 @@ public class AlternativeMovement3 : MonoBehaviour
     int handControllLayer = 1, handAttackLayer = 2;
     float handMovementW, handAttackW;
 
+    Vector3 target;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -27,6 +29,7 @@ public class AlternativeMovement3 : MonoBehaviour
 
     void Update()
     {
+        target = transform.position;
 
         hor = Input.GetAxis(horizontal);
         ver = Input.GetAxisRaw(vertical);
@@ -93,6 +96,16 @@ public class AlternativeMovement3 : MonoBehaviour
 
     void Action()
     {
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            anim.SetTrigger("Step");
+            target = new Vector3(transform.position.x - 5, transform.position.y, transform.position.z);
+        }
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+            anim.SetTrigger("Step2");
+        }
+
         if(Input.GetKey(action))
         {
             //anim.SetBool("Holding", true);
@@ -120,6 +133,7 @@ public class AlternativeMovement3 : MonoBehaviour
 
         }
 
+        transform.position = Vector3.Lerp(transform.position, target, speed * Time.deltaTime);
         anim.SetFloat("AttackTimer", attackTimer);
     }
 

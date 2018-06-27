@@ -2,66 +2,161 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlternativeMovement : MonoBehaviour {
+public class AlternativeMovement : MonoBehaviour
+{
 
     public float hor, ver;
-
-    Vector2 startPosition;
     Animator anim;
 
-    // this way both players can use same script
     [Header("----- Player Movement Axis Names -----")]
     public string horizontal;
     public string vertical;
-    //public string jump;
+    public KeyCode action;
+    public float attackTimer;
+
+    public float inputX, inputY;
+    public float speed = 3f;
+
+    int handControllLayer = 1, handAttackLayer = 2;
+    float handMovementW, handAttackW;
+
+    Vector3 target;
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        startPosition = transform.position;
     }
 
     void Update()
     {
-        hor = Input.GetAxis(horizontal);
-        ver = Input.GetAxis(vertical);
+        target = transform.position;
 
+        hor = Input.GetAxis(horizontal);
+        ver = Input.GetAxisRaw(vertical);
+
+        inputX = Mathf.Clamp(inputX, -1, 1);
+        inputY = Mathf.Clamp(inputY, -1, 1);
+
+        GetLayerWeights();
+        Action();
         Move();
     }
 
     void Move()
     {
-        if (hor >= 0.1f)
+
+        if (hor >= 0.5f && inputX < 1f)
         {
-            // move right
-            //anim.SetBool("WalkForward", true);
-            //anim.SetBool("WalkBackwards", false);
-            anim.SetFloat("InputX", hor);
+            inputX += speed * Time.deltaTime;
+            anim.SetFloat("InputX", inputX);
         }
-        else if(hor <= -0.1f)
+        if (hor <= -0.5f && inputX > -1f)
         {
-            // move left
-            //anim.SetBool("WalkBackwards", true);
-            //anim.SetBool("WalkForward", false);
-            anim.SetFloat("InputX", hor);
+            inputX -= speed * Time.deltaTime;
+            anim.SetFloat("InputX", inputX);
         }
 
-        if(ver >= 0.1f)
+
+        if (ver >= 0.1f && inputY < 1f)
         {
-            anim.SetFloat("InputY", ver);           
+            inputY += speed * Time.deltaTime;
+            anim.SetFloat("InputY", inputY);
         }
-        else if(ver <= -0.1f)
+        if (ver <= -0.1f && inputY > -1f)
         {
-            anim.SetFloat("InputY", ver);
+            inputY -= speed * Time.deltaTime;
+            anim.SetFloat("InputY", inputY);
         }
 
-        if(hor == 0 && ver == 0)
+        if (hor == 0)
         {
-            anim.SetBool("WalkForward", false);
-            anim.SetBool("WalkBackwards", false);
-            anim.SetFloat("InputY", 0);
-            anim.SetFloat("InputX", 0);
+            inputX = Mathf.Lerp(inputX, 0, speed * Time.deltaTime);
+            if ((inputX <= 0.3f && inputX > 0) || (inputX >= -0.3f && inputX < 0))
+            {
+                inputX = 0f;
+            }
+
+            anim.SetFloat("InputX", inputX);
+
         }
+
+        if (ver == 0)
+        {
+            inputY = Mathf.Lerp(inputY, 0, speed * Time.deltaTime);
+            if ((inputY <= 0.3f && inputY > 0) || (inputY >= -0.3f && inputY < 0))
+            {
+                inputY = 0f;
+            }
+
+            anim.SetFloat("InputY", inputY);
+
+        }
+
+    }
+
+    void Action()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            anim.SetTrigger("Step");
+            target = new Vector3(transform.position.x - 5, transform.position.y, transform.position.z);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            anim.SetTrigger("Step2");
+        }
+
+        if (Input.GetKey(action))
+        {
+            //anim.SetBool("Holding", true);
+
+            if (attackTimer < 1f)
+            {
+                attackTimer += Time.deltaTime;
+            }
+
+            anim.SetLayerWeight(handAttackLayer, 1);
+            //anim.SetLayerWeight(handControllLayer, handMovementW -= Time.deltaTime);
+
+        }
+        else
+        {
+            //anim.SetBool("Holding", false);
+
+            if (attackTimer > 0f)
+            {
+                attackTimer -= Time.deltaTime;
+            }
+
+            //anim.SetLayerWeight(handControllLayer, handMovementW += Time.deltaTime);
+            anim.SetLayerWeight(handAttackLayer, 0);
+
+        }
+
+        transform.position = Vector3.Lerp(transform.position, target, speed * Time.deltaTime);
+        anim.SetFloat("AttackTimer", attackTimer);
+    }
+
+    // how to change weight between anim layers
+    void GetLayerWeights()
+    {
+        handMovementW = anim.GetLayerWeight(1);
+        handAttackW = anim.GetLayerWeight(2);
+
+        if (handMovementW >= 1f)
+            handMovementW = 1f;
+        if (handMovementW <= 0f)
+            handMovementW = 0f;
+        if (handAttackW >= 1f)
+            handAttackW = 1f;
+        if (handAttackW <= 0f)
+            handAttackW = 0f;
+    }
+
+    // used for animation event
+    public void ResetAttackTime()
+    {
+        attackTimer = 0f;
     }
 
 }

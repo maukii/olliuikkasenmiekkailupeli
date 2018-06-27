@@ -8,10 +8,18 @@ public class InputManager : MonoBehaviour
 
     void Start()
     {
-
+        ControllerCheck();
     }
 
     void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.F1))
+        {
+            ControllerCheck();
+        }
+    }
+
+    void ControllerCheck()
     {
         string[] names = Input.GetJoystickNames();
 
@@ -44,7 +52,17 @@ public class InputManager : MonoBehaviour
 
         if (names.Length == 0)
         {
-            Debug.Log("No controllers detected");
+            Debug.Log("No controllers found");
+        }
+
+        if (names[0].Length == 0)
+        {
+            Debug.Log("Can't find joystick 1");
+        }
+
+        if (names[1].Length == 0)
+        {
+            Debug.Log("Can't find joystick 2");
         }
     }
 }

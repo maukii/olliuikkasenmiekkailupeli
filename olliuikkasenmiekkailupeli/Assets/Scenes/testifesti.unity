@@ -2591,6 +2591,41 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 621420865}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &628622244 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100084, guid: 41e520d1a5cf2f24ebed4a4f8f4b562b, type: 3}
+  m_PrefabInternal: {fileID: 1588528368}
+--- !u!114 &628622246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 628622244}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a49d5cce426b6f41b5446444346101f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &628622247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 628622244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ecb2adf91b2862458ba538607704be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hor: 0
+  ver: 0
+  horizontal: Horizontal
+  vertical: Vertical
+  action: 0
+  attackTimer: 0
+  inputX: 0
+  inputY: 0
+  speed: 3
 --- !u!4 &636743373 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400008, guid: 30b30746de102df4e87e8db76b0505c3, type: 3}
@@ -5948,6 +5983,11 @@ MonoBehaviour:
   ver: 0
   horizontal: Horizontal
   vertical: Vertical
+  action: 0
+  attackTimer: 0
+  inputX: 0
+  inputY: 0
+  speed: 3
 --- !u!114 &1175837318
 MonoBehaviour:
   m_ObjectHideFlags: 0

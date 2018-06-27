@@ -116,10 +116,4 @@ public class InputManager : MonoBehaviour
         R3 = Button 11
         PS = Button 12
         PadPress = Button 13
-
-    Tarvittavat:
-        - LS horizontal + vertical???
-        - RS horizontal + vertical
-        - Triggerit/L2 & R2
-        - Bumperit/L1 & R1
     */

@@ -4,43 +4,47 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    public bool isXboxControllerP1, isXboxControllerP2, isPS4ControllerP1, isPS4ControllerP2;
+    public bool isXboxControllerP1, isXboxControllerP2, isPSControllerP1, isPSControllerP2;
 
-    private int Xbox_One_Controller = 0;
-    private int PS4_Controller = 0;
+    void Start()
+    {
+
+    }
 
     void Update()
     {
         string[] names = Input.GetJoystickNames();
-        for (int x = 0; x < names.Length; x++)
+
+        if (names.Length > 0)
         {
-            print(names[x].Length);
-            if (names[x].Length == 19)
+            if (names[0].Contains("XBOX 360") || names[0].Contains("Xbox One"))
             {
-                PS4_Controller = 1;
-                Xbox_One_Controller = 0;
+                Debug.Log("Xbox controller detected as joystick 1");
+                isXboxControllerP1 = true;
             }
-            if (names[x].Length == 33)
+
+            if (names[0].Contains("PS3") || names[0].Contains("PS4"))
             {
-                PS4_Controller = 0;
-                Xbox_One_Controller = 1;
+                Debug.Log("PlayStation controller detected as joystick 1");
+                isPSControllerP1 = true;
+            }
+
+            if (names[1].Contains("XBOX 360") || names[1].Contains("Xbox One"))
+            {
+                Debug.Log("Xbox controller detected as joystick 2");
+                isXboxControllerP2 = true;
+            }
+
+            if (names[1].Contains("PS3") || names[1].Contains("PS4"))
+            {
+                Debug.Log("PlayStation controller detected as joystick 2");
+                isPSControllerP2 = true;
             }
         }
-        if (Xbox_One_Controller == 1)
-        {
-            Debug.Log("Xbox controller detected");
-            isXboxControllerP1 = true;
-        }
-        else if (PS4_Controller == 1)
-        {
-            Debug.Log("PS4 controller detected");
-            isPS4ControllerP1 = true;
-        }
-        else
+
+        if (names.Length == 0)
         {
             Debug.Log("No controllers detected");
-            isXboxControllerP1 = false;
-            isPS4ControllerP1 = false;
         }
     }
 }

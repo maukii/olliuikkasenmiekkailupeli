@@ -88,6 +88,12 @@ ModelImporter:
     100164: sormi.R.001_end
     100166: vasen_koipi
     100168: vasen_koipi_end
+    100170: hius1
+    100172: hius2
+    100174: hius3
+    100176: hius4
+    100178: hius5
+    100180: hius5_end
     400000: "alaselk\xE4.L"
     400002: Bone
     400004: Bone 1
@@ -173,6 +179,12 @@ ModelImporter:
     400164: sormi.R.001_end
     400166: vasen_koipi
     400168: vasen_koipi_end
+    400170: hius1
+    400172: hius2
+    400174: hius3
+    400176: hius4
+    400178: hius5
+    400180: hius5_end
     2100000: No Name
     2100002: Material
     2300000: jalkapampula.L
@@ -208,6 +220,11 @@ ModelImporter:
     7400002: FullStep1
     7400004: FullStep2
     7400006: HalfStep
+    7400008: StepStart.move
+    7400010: FullStep1.move
+    7400012: FullStep2.move
+    7400014: HalfStep.move
+    7400016: T-pose
     9500000: //RootNode
     13700000: peruuki
     13700002: ruho
@@ -224,8 +241,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
-      human bone 'Head' not found\n"
+    rigImportErrors: "Avatar creation failed:\n\tParent for 'reisi.L' differs from
+      one found in HumanDescription. 'lantio.L' was found instead of 'LUURANKO'.\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -273,8 +290,574 @@ ModelImporter:
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
-    human: []
-    skeleton: []
+    human:
+    - boneName: LUURANKO
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: reisi.L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: reisi.R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: pohje.L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: pohje.R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: jalkapohja.L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: jalkapohja.R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "alaselk\xE4.L"
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "selk\xE4.L"
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: kaula
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: solisluu.R
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: hauis.L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ranne.L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "k\xE4mmen.L"
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: jalkapohja.L_end
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: jalkapohja.R_end
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "selk\xE4.L.001"
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "p\xE4\xE4"
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: solisluu.L
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: hauis.R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ranne.R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "k\xE4mmen.R"
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: miekkailija_testi(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LUURANKO
+      parentName: miekkailija_testi(Clone)
+      position: {x: -0, y: 0, z: 0.23410869}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 29.987818, y: 29.987818, z: 29.987818}
+    - name: "alaselk\xE4.L"
+      parentName: LUURANKO
+      position: {x: -0.006192101, y: -0.0032817954, z: -0.000496417}
+      rotation: {x: 0.6436768, y: -0.29128525, z: -0.28755224, w: 0.6466427}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: "selk\xE4.L"
+      parentName: "alaselk\xE4.L"
+      position: {x: -1.6530975e-10, y: 0.0062009147, z: 1.3620592e-10}
+      rotation: {x: -0.08360794, y: -0.00037781097, z: 0.01019969, w: 0.9964465}
+      scale: {x: 0.9999999, y: 1.0000002, z: 1}
+    - name: "selk\xE4.L.001"
+      parentName: "selk\xE4.L"
+      position: {x: -1.8626451e-11, y: 0.005529798, z: 0.0000000017881393}
+      rotation: {x: 0.020846367, y: -0.0008970096, z: 0.010396043, w: 0.99972826}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: kaula
+      parentName: "selk\xE4.L.001"
+      position: {x: -1.4901161e-10, y: 0.0055297995, z: -2.2351741e-10}
+      rotation: {x: 0.14518568, y: -0.00047287636, z: 0.005916793, w: 0.9893866}
+      scale: {x: 1, y: 0.9999998, z: 1}
+    - name: kaulakoriste
+      parentName: kaula
+      position: {x: 2.9802322e-10, y: 0.0073640943, z: 0.0025825524}
+      rotation: {x: -0.72612876, y: 0.0000001131037, z: 0.00000008465845, w: 0.6875588}
+      scale: {x: 0.9999999, y: 1.0000001, z: 1.0000004}
+    - name: "p\xE4\xE4"
+      parentName: kaula
+      position: {x: -5.2154064e-10, y: 0.0047163498, z: 5.9604643e-10}
+      rotation: {x: -0.04454734, y: 0.40372786, z: -0.068570316, w: 0.9112176}
+      scale: {x: 0.9999999, y: 0.9999995, z: 1}
+    - name: hius1
+      parentName: "p\xE4\xE4"
+      position: {x: 5.9604643e-10, y: 0.0060459203, z: 8.1956425e-10}
+      rotation: {x: 0.937153, y: -0.0004274934, z: -0.00041087298, w: -0.3489182}
+      scale: {x: 0.99999994, y: 1, z: 1.0000006}
+    - name: hius2
+      parentName: hius1
+      position: {x: -1.15032886e-10, y: 0.004988301, z: -0.0000000016103149}
+      rotation: {x: -0.23257296, y: 0.0018681536, z: -0.118401974, w: 0.9653431}
+      scale: {x: 1.0000001, y: 1.0000005, z: 0.9999998}
+    - name: hius3
+      parentName: hius2
+      position: {x: 1.6763806e-10, y: 0.004470028, z: 7.636845e-10}
+      rotation: {x: -0.15617992, y: 0.0001304534, z: -0.03894381, w: 0.9869606}
+      scale: {x: 0.99999976, y: 1.0000001, z: 1.0000001}
+    - name: hius4
+      parentName: hius3
+      position: {x: -1.8626451e-11, y: 0.0041037397, z: -9.313225e-11}
+      rotation: {x: -0.06002187, y: 0.00008095726, z: -0.015458265, w: 0.9980774}
+      scale: {x: 1.0000001, y: 1, z: 0.9999999}
+    - name: hius5
+      parentName: hius4
+      position: {x: 9.313225e-11, y: 0.003005404, z: 3.7252902e-11}
+      rotation: {x: 0.061535835, y: -0.07736863, z: 0.14864603, w: 0.9839369}
+      scale: {x: 0.9999998, y: 1.0000001, z: 1.0000002}
+    - name: hius5_end
+      parentName: hius5
+      position: {x: -0, y: 0.0019346758, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pulisonki.L
+      parentName: hius1
+      position: {x: -0.002530413, y: 0.0020695184, z: -0.0019932287}
+      rotation: {x: -0.46191525, y: 0.0091242, z: 0.016258102, w: 0.88672817}
+      scale: {x: 0.99999994, y: 1, z: 0.9999999}
+    - name: pulisonki.L_end
+      parentName: pulisonki.L
+      position: {x: -0, y: 0.00184465, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pulisonki.R
+      parentName: hius1
+      position: {x: 0.0025330272, y: 0.0020640083, z: -0.0019956164}
+      rotation: {x: -0.46193266, y: -0.008203269, z: -0.017004862, w: 0.88671404}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: pulisonki.R_end
+      parentName: pulisonki.R
+      position: {x: -0, y: 0.00184465, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leuka
+      parentName: "p\xE4\xE4"
+      position: {x: 5.9604643e-10, y: 2.4214372e-10, z: -7.450537e-11}
+      rotation: {x: 0.00000013876664, y: 0.57033044, z: 0.82141536, w: 0.000000065758705}
+      scale: {x: 1, y: 0.99999976, z: 0.9999999}
+    - name: leuka_end
+      parentName: leuka
+      position: {x: -0, y: 0.0029141766, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: silma
+      parentName: "p\xE4\xE4"
+      position: {x: -0.0011103075, y: 0.002587257, z: 0.0020758563}
+      rotation: {x: 0.9998037, y: 0.000000112762365, z: -0.00000022552494, w: 0.019812888}
+      scale: {x: -0.05570488, y: -0.055704884, z: -0.055704888}
+    - name: kylkiluu.L
+      parentName: "selk\xE4.L.001"
+      position: {x: -1.4901161e-10, y: 0.0055297995, z: -2.2351741e-10}
+      rotation: {x: -0.65586126, y: 0.19491833, z: 0.69419014, w: 0.22350156}
+      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+    - name: kylkiluu.L_end
+      parentName: kylkiluu.L
+      position: {x: -0, y: 0.00836377, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: kylkiluu.R
+      parentName: "selk\xE4.L.001"
+      position: {x: -1.4901161e-10, y: 0.0055297995, z: -2.2351741e-10}
+      rotation: {x: 0.6558615, y: 0.1949177, z: 0.69419014, w: -0.22350134}
+      scale: {x: 0.99999976, y: 0.99999994, z: 1.0000001}
+    - name: kylkiluu.R_end
+      parentName: kylkiluu.R
+      position: {x: -0, y: 0.00836377, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: solisluu.L
+      parentName: "selk\xE4.L.001"
+      position: {x: -1.4901161e-10, y: 0.0055297995, z: -2.2351741e-10}
+      rotation: {x: -0.506008, y: 0.43261167, z: 0.55426776, w: 0.49959004}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1}
+    - name: hauis.L
+      parentName: solisluu.L
+      position: {x: -1.3038516e-10, y: 0.0071006194, z: -0.0000000016763806}
+      rotation: {x: -0.3254783, y: 0.02817137, z: -0.14385474, w: 0.9341178}
+      scale: {x: 1, y: 1.0000002, z: 1}
+    - name: ranne.L
+      parentName: hauis.L
+      position: {x: -4.4703483e-10, y: 0.009140778, z: -5.9604643e-10}
+      rotation: {x: -0.735186, y: -0.002757669, z: 0.008389547, w: 0.6778079}
+      scale: {x: 0.99999994, y: 1.0000005, z: 0.9999997}
+    - name: "k\xE4mmen.L"
+      parentName: ranne.L
+      position: {x: -4.4703483e-10, y: 0.009078083, z: -7.45058e-10}
+      rotation: {x: -0.28531623, y: -0.70377135, z: -0.20774396, w: 0.61655736}
+      scale: {x: 1.0000002, y: 1, z: 1.0000004}
+    - name: pikkusormi.L
+      parentName: "k\xE4mmen.L"
+      position: {x: 0.0015886339, y: 0.0034015295, z: -0.00024969922}
+      rotation: {x: -0.0919891, y: 0.0053219297, z: -0.10119432, w: 0.99059045}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: pikkusormi2.L
+      parentName: pikkusormi.L
+      position: {x: -7.4505804e-11, y: 0.0013813048, z: 6.984919e-11}
+      rotation: {x: -0.15368073, y: -0.0070443708, z: 0.07452001, w: 0.9852814}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: pikkusormi2.L_end
+      parentName: pikkusormi2.L
+      position: {x: -0, y: 0.0010774314, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: sormi.L
+      parentName: "k\xE4mmen.L"
+      position: {x: -1.11758706e-10, y: 0.004278738, z: 2.0023434e-10}
+      rotation: {x: -0.12088019, y: 0.016055146, z: -0.017614577, w: 0.992381}
+      scale: {x: 0.99999976, y: 0.99999976, z: 1}
+    - name: sormi.L.001
+      parentName: sormi.L
+      position: {x: 1.11758706e-10, y: 0.0014271829, z: 0}
+      rotation: {x: -0.05329768, y: 0.00132861, z: -0.021799251, w: 0.99833983}
+      scale: {x: 0.99999994, y: 1.0000001, z: 0.99999994}
+    - name: sormi.L.001_end
+      parentName: sormi.L.001
+      position: {x: -0, y: 0.0013831952, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: solisluu.R
+      parentName: "selk\xE4.L.001"
+      position: {x: -7.4505804e-11, y: 0.005529798, z: -2.2351741e-10}
+      rotation: {x: 0.50600797, y: 0.43261185, z: 0.55426735, w: -0.4995905}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: hauis.R
+      parentName: solisluu.R
+      position: {x: -4.842877e-10, y: 0.007100621, z: -6.3562766e-10}
+      rotation: {x: -0.35552606, y: -0.076331995, z: -0.16216123, w: 0.9173213}
+      scale: {x: 0.99999994, y: 0.9999995, z: 0.99999994}
+    - name: ranne.R
+      parentName: hauis.R
+      position: {x: -7.4505804e-11, y: 0.009140779, z: 0.00000000115484}
+      rotation: {x: 0.14645252, y: -0.00038026075, z: -0.41965747, w: 0.8957897}
+      scale: {x: 1.0000002, y: 1.0000001, z: 0.99999976}
+    - name: "k\xE4mmen.R"
+      parentName: ranne.R
+      position: {x: -6.705522e-10, y: 0.009078084, z: -2.9802322e-10}
+      rotation: {x: 0.117137164, y: -0.4332102, z: 0.28925166, w: 0.845542}
+      scale: {x: 0.99999994, y: 1.0000001, z: 0.9999999}
+    - name: miekka
+      parentName: "k\xE4mmen.R"
+      position: {x: 0.0028904604, y: 0.0059575164, z: -0.0005232629}
+      rotation: {x: -0.0625744, y: 0.017273637, z: 0.917985, w: -0.39126664}
+      scale: {x: 0.94692016, y: 0.9469199, z: 0.9469202}
+    - name: pikkusormi.R
+      parentName: "k\xE4mmen.R"
+      position: {x: -0.0015886369, y: 0.0034015288, z: -0.0002496994}
+      rotation: {x: -0.58251107, y: -0.29630908, z: 0.2553423, w: 0.71251816}
+      scale: {x: 1, y: 1.0000002, z: 1.0000002}
+    - name: pikkusormi2.R
+      parentName: pikkusormi.R
+      position: {x: 0.000000003762543, y: 0.0013813069, z: 7.8231094e-10}
+      rotation: {x: -0.78284603, y: 0.18151481, z: 0.003350774, w: 0.5951413}
+      scale: {x: 0.99999994, y: 1, z: 1.0000001}
+    - name: pikkusormi2.R_end
+      parentName: pikkusormi2.R
+      position: {x: -0, y: 0.0010774314, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: sormi.R
+      parentName: "k\xE4mmen.R"
+      position: {x: -0.0000000016205013, y: 0.0042787376, z: -1.11758706e-10}
+      rotation: {x: -0.5767283, y: -0.35161644, z: 0.18573524, w: 0.71361953}
+      scale: {x: 0.9999999, y: 1, z: 1.0000001}
+    - name: sormi.R.001
+      parentName: sormi.R
+      position: {x: 5.9604643e-10, y: 0.0014271834, z: -0.0000000010430813}
+      rotation: {x: -0.7222244, y: 0.07122643, z: 0.12136765, w: 0.6771917}
+      scale: {x: 0.9999999, y: 1.0000001, z: 1.0000001}
+    - name: sormi.R.001_end
+      parentName: sormi.R.001
+      position: {x: -0, y: 0.0013831952, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: reisi.L
+      parentName: LUURANKO
+      position: {x: -0.008108366, y: -0.00002596191, z: -0.0032077918}
+      rotation: {x: -0.5484252, y: 0.1956071, z: -0.017908208, w: 0.81280196}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pohje.L
+      parentName: reisi.L
+      position: {x: -4.4703483e-10, y: 0.0138383, z: 2.9802322e-10}
+      rotation: {x: -0.11914202, y: 0.007966473, z: -0.37296894, w: 0.9201282}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: jalkapampula.L
+      parentName: pohje.L
+      position: {x: 0.00049935933, y: 0.001436057, z: 0.0034323304}
+      rotation: {x: 0.35608763, y: 0.37964162, z: -0.58294326, w: 0.6238998}
+      scale: {x: 0.22974104, y: 0.22974116, z: 0.22974114}
+    - name: jalkapohja.L
+      parentName: pohje.L
+      position: {x: -7.45058e-10, y: 0.016052889, z: -7.8231094e-10}
+      rotation: {x: 0.31633192, y: -0.41215524, z: 0.5387099, w: 0.6632148}
+      scale: {x: 1.0000002, y: 1.0000001, z: 0.99999964}
+    - name: jalkapohja.L_end
+      parentName: jalkapohja.L
+      position: {x: -0, y: 0.0059102345, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "kenk\xE4pampula.L"
+      parentName: jalkapohja.L
+      position: {x: -0.0006100872, y: 0.0030476337, z: 0.0016180539}
+      rotation: {x: 0.0027698344, y: -0.14394376, z: 0.988437, w: -0.047591317}
+      scale: {x: 0.14360832, y: 0.14360833, z: 0.14360827}
+    - name: "kenk\xE4solki.L"
+      parentName: jalkapohja.L
+      position: {x: -0.0005447343, y: 0.0023763184, z: 0.001403706}
+      rotation: {x: 0.0027699813, y: -0.14394383, z: 0.988437, w: -0.047590625}
+      scale: {x: 0.9999998, y: 1, z: 0.9999996}
+    - name: lantio.L
+      parentName: LUURANKO
+      position: {x: -0.0061921, y: -0.0030927074, z: -0.0004964174}
+      rotation: {x: -0.30391473, y: -0.08714429, z: 0.2614933, w: 0.9119556}
+      scale: {x: 1, y: 0.9999999, z: 0.9999998}
+    - name: reisi.R
+      parentName: LUURANKO
+      position: {x: -0.0047210986, y: -0.006396213, z: -0.0032077932}
+      rotation: {x: 0.5437925, y: -0.36147955, z: 0.6783149, w: -0.33691433}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pohje.R
+      parentName: reisi.R
+      position: {x: 3.72529e-10, y: 0.013838297, z: 1.4901161e-10}
+      rotation: {x: -0.05923543, y: -0.010522685, z: 0.27610892, w: 0.95924157}
+      scale: {x: 0.9999997, y: 0.9999999, z: 0.9999999}
+    - name: jalkapampula.R
+      parentName: pohje.R
+      position: {x: -0.00049936294, y: 0.001436057, z: 0.0034323323}
+      rotation: {x: 0.35608754, y: -0.37964153, z: 0.5829433, w: 0.6238999}
+      scale: {x: 0.2297411, y: 0.22974119, z: 0.22974113}
+    - name: jalkapohja.R
+      parentName: pohje.R
+      position: {x: 2.9802322e-10, y: 0.016052889, z: 3.72529e-10}
+      rotation: {x: 0.3612665, y: 0.3046964, z: -0.4896634, w: 0.7327186}
+      scale: {x: 0.99999994, y: 1, z: 0.99999976}
+    - name: jalkapohja.R_end
+      parentName: jalkapohja.R
+      position: {x: -0, y: 0.0059102345, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "kenk\xE4pampula.R"
+      parentName: jalkapohja.R
+      position: {x: 0.0005448919, y: 0.0023808794, z: 0.0014190006}
+      rotation: {x: -0.0027721692, y: -0.14394109, z: 0.9884373, w: 0.047592442}
+      scale: {x: 0.14360832, y: 0.14360832, z: 0.14360829}
+    - name: "kenk\xE4solki.R"
+      parentName: jalkapohja.R
+      position: {x: 0.0005447328, y: 0.0023763184, z: 0.001403706}
+      rotation: {x: -0.002772489, y: -0.14394102, z: 0.98843735, w: 0.04759186}
+      scale: {x: 0.9999998, y: 0.99999976, z: 0.9999997}
+    - name: lantio.R
+      parentName: LUURANKO
+      position: {x: -0.0061920993, y: -0.0030927074, z: -0.0004964174}
+      rotation: {x: 0.06574096, y: -0.30925146, z: 0.92796916, w: -0.19726868}
+      scale: {x: 1, y: 0.99999994, z: 0.9999998}
+    - name: Move
+      parentName: miekkailija_testi(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 29.987818, y: 29.987818, z: 29.987818}
+    - name: Bone
+      parentName: Move
+      position: {x: -0.0026385388, y: 0.0009919793, z: 0.050086774}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone_end
+      parentName: Bone
+      position: {x: -0, y: 0.033333328, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: IK-helper
+      parentName: Bone
+      position: {x: 0.0069677816, y: -0.041945957, z: 0.05804668}
+      rotation: {x: -0.7071068, y: 7.899326e-10, z: 5.2592947e-17, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: hius
+      parentName: IK-helper
+      position: {x: -0.006939535, y: 0.08146156, z: -0.0072542443}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: hius_end
+      parentName: hius
+      position: {x: -0, y: 0.017514195, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "kyyn\xE4rp\xE4\xE4_oikea"
+      parentName: IK-helper
+      position: {x: 0.005869349, y: 0.03319518, z: -0.018703789}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "kyyn\xE4rp\xE4\xE4_oikea_end"
+      parentName: "kyyn\xE4rp\xE4\xE4_oikea"
+      position: {x: -0, y: 0.010000001, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "kyyn\xE4rp\xE4\xE4_vasen"
+      parentName: IK-helper
+      position: {x: -0.029119872, y: 0.09156265, z: -0.01056051}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "kyyn\xE4rp\xE4\xE4_vasen_end"
+      parentName: "kyyn\xE4rp\xE4\xE4_vasen"
+      position: {x: -0, y: 0.01, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: oikea_koipi
+      parentName: IK-helper
+      position: {x: -0.0005004978, y: -0.021115655, z: 0.0017746186}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: oikea_koipi_end
+      parentName: oikea_koipi
+      position: {x: -0, y: 0.013219563, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: vasen_koipi
+      parentName: IK-helper
+      position: {x: -0.024504356, y: 0.0679833, z: -0.018671403}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: vasen_koipi_end
+      parentName: vasen_koipi
+      position: {x: -0, y: 0.01, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: peruuki
+      parentName: miekkailija_testi(Clone)
+      position: {x: -0.000000007450581, y: 0, z: 0.23410869}
+      rotation: {x: -0.7071068, y: -1.2420156e-15, z: 1.12441184e-14, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: ruho
+      parentName: miekkailija_testi(Clone)
+      position: {x: -0, y: 0, z: 0.23410869}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 29.987818, y: 29.987818, z: 29.987818}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -288,7 +871,7 @@ ModelImporter:
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

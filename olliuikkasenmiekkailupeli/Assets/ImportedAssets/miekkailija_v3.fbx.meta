@@ -239,8 +239,8 @@ ModelImporter:
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
-      does not match position in animation file:\n\t'reisi.L' : position error = 671.666077
-      mm\n\t'reisi.R' : position error = 1073.782349 mm\n"
+      does not match position in animation file:\n\t'reisi.L' : position error = 5.568905
+      mm\n\t'reisi.R' : position error = 8.902923 mm\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'StepStart' has import animation warnings that
       might lower retargeting quality:\nNote: Activate translation DOF on avatar to
@@ -815,8 +815,8 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: LUURANKO
       parentName: Bone
-      position: {x: 0.0026385388, y: -0.050086774, z: 0.0037967416}
-      rotation: {x: -0.7071068, y: 7.899326e-10, z: 5.2592947e-17, w: 0.7071067}
+      position: {x: 0.0061703683, y: -0.0152344955, z: -0.004265934}
+      rotation: {x: -0.6005463, y: 0.33609253, z: 0.33519807, w: 0.6434503}
       scale: {x: 1, y: 1, z: 1}
     - name: "alaselk\xE4.L"
       parentName: LUURANKO
@@ -936,12 +936,12 @@ ModelImporter:
     - name: hauis.L
       parentName: solisluu.L
       position: {x: 6.705522e-10, y: 0.0071006194, z: 0.0000000017881393}
-      rotation: {x: -0.3226788, y: 0.022747006, z: -0.12075608, w: 0.93849826}
+      rotation: {x: 0.050580043, y: -0.007514296, z: -0.07313971, w: 0.99600995}
       scale: {x: 1, y: 1.0000004, z: 1.0000001}
     - name: ranne.L
       parentName: hauis.L
       position: {x: -2.2351741e-10, y: 0.009140781, z: 5.9604643e-10}
-      rotation: {x: -0.719589, y: -0.0025698277, z: 0.03128936, w: 0.69369024}
+      rotation: {x: 0.020768713, y: 0.0005827949, z: 0.0032284432, w: 0.9997789}
       scale: {x: 1, y: 1.0000005, z: 0.99999964}
     - name: "k\xE4mmen.L"
       parentName: ranne.L
@@ -986,12 +986,12 @@ ModelImporter:
     - name: hauis.R
       parentName: solisluu.R
       position: {x: 4.4703483e-10, y: 0.0071006203, z: -9.522773e-10}
-      rotation: {x: -0.36921605, y: -0.15435687, z: -0.16195413, w: 0.9020113}
+      rotation: {x: 0.013675223, y: -0.20759784, z: -0.0941527, w: 0.97357666}
       scale: {x: 0.99999994, y: 0.99999946, z: 0.9999999}
     - name: ranne.R
       parentName: hauis.R
       position: {x: 6.426126e-10, y: 0.009140778, z: 1.4901161e-10}
-      rotation: {x: 0.14275812, y: -0.0012879964, z: -0.37052006, w: 0.91778725}
+      rotation: {x: 0.029813088, y: -0.00986117, z: -0.022996234, w: 0.9992423}
       scale: {x: 1.0000002, y: 1.0000002, z: 0.99999976}
     - name: "k\xE4mmen.R"
       parentName: ranne.R
@@ -1051,12 +1051,12 @@ ModelImporter:
     - name: reisi.L
       parentName: LUURANKO
       position: {x: -0.007950944, y: 0.0031566196, z: -0.0034387624}
-      rotation: {x: -0.62245715, y: 0.19361338, z: -0.045110017, w: 0.75698483}
+      rotation: {x: -0.62780887, y: 0.19019993, z: -0.04847587, w: 0.7532132}
       scale: {x: 1.0000002, y: 1.0000001, z: 1.0000002}
     - name: pohje.L
       parentName: reisi.L
       position: {x: 2.9802322e-10, y: 0.013838298, z: -4.4703483e-10}
-      rotation: {x: -0.08196787, y: 0.008105953, z: -0.3475709, w: 0.9340289}
+      rotation: {x: -0.0660569, y: 0.0075363507, z: -0.28867933, w: 0.95511466}
       scale: {x: 1, y: 0.9999998, z: 0.9999997}
     - name: jalkapampula.L
       parentName: pohje.L
@@ -1066,7 +1066,7 @@ ModelImporter:
     - name: jalkapohja.L
       parentName: pohje.L
       position: {x: -2.2351741e-10, y: 0.016052892, z: 4.842877e-10}
-      rotation: {x: 0.34060714, y: -0.43451285, z: 0.6789246, w: 0.48399046}
+      rotation: {x: 0.23806901, y: -0.559099, z: 0.6745443, w: 0.41919163}
       scale: {x: 1.0000002, y: 1.0000005, z: 0.99999994}
     - name: jalkapohja.L_end
       parentName: jalkapohja.L
@@ -1086,7 +1086,7 @@ ModelImporter:
     - name: reisi.R
       parentName: LUURANKO
       position: {x: -0.004911924, y: -0.0034063351, z: -0.0034387629}
-      rotation: {x: 0.5610803, y: -0.34446934, z: 0.675272, w: -0.33247194}
+      rotation: {x: 0.5273423, y: -0.42965806, z: 0.6200706, w: -0.39091745}
       scale: {x: 1, y: 1.0000004, z: 1.0000001}
     - name: pohje.R
       parentName: reisi.R
@@ -1101,7 +1101,7 @@ ModelImporter:
     - name: jalkapohja.R
       parentName: pohje.R
       position: {x: -7.45058e-10, y: 0.01605289, z: -2.9802322e-10}
-      rotation: {x: 0.34735742, y: 0.32110652, z: -0.4842823, w: 0.7360055}
+      rotation: {x: 0.2491557, y: 0.5686915, z: -0.6288659, w: 0.46801618}
       scale: {x: 1, y: 0.99999994, z: 0.9999999}
     - name: jalkapohja.R_end
       parentName: jalkapohja.R

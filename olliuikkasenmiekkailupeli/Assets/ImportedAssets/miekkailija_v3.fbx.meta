@@ -81,6 +81,14 @@ ModelImporter:
     100150: sormi.R.001_end
     100152: vasen_koipi
     100154: vasen_koipi_end
+    100156: hius4_end
+    100158: kahva
+    100160: kaula_end
+    100162: pohje.L_end
+    100164: pohje.R_end
+    100166: ranne.L_end
+    100168: ranne.R_end
+    100170: "ter\xE4"
     400000: "alaselk\xE4.L"
     400002: Bone
     400004: Bone_end
@@ -159,6 +167,14 @@ ModelImporter:
     400150: sormi.R.001_end
     400152: vasen_koipi
     400154: vasen_koipi_end
+    400156: hius4_end
+    400158: kahva
+    400160: kaula_end
+    400162: pohje.L_end
+    400164: pohje.R_end
+    400166: ranne.L_end
+    400168: ranne.R_end
+    400170: "ter\xE4"
     2100000: No Name
     2100002: Material
     2300000: jalkapampula.L
@@ -170,6 +186,8 @@ ModelImporter:
     2300012: "kenk\xE4solki.R"
     2300014: miekka
     2300016: silma
+    2300018: kahva
+    2300020: "ter\xE4"
     3300000: jalkapampula.L
     3300002: jalkapampula.R
     3300004: kaulakoriste
@@ -179,6 +197,8 @@ ModelImporter:
     3300012: "kenk\xE4solki.R"
     3300014: miekka
     3300016: silma
+    3300018: kahva
+    3300020: "ter\xE4"
     4300000: miekka
     4300002: kaulakoriste
     4300004: silma
@@ -190,6 +210,8 @@ ModelImporter:
     4300016: "kenk\xE4pampula.R"
     4300018: ruho
     4300020: peruuki
+    4300022: "ter\xE4"
+    4300024: kahva
     7400000: StepStart.move
     7400002: FullStep1.move
     7400004: FullStep2.move
@@ -215,27 +237,11 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Avatar creation failed:\n\tTransform 'pohje.L' is not an ancestor
+      of 'jalkapohja.L'\n"
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'StepStart' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
-      improve retargeting quality.\n\t'alaselk\xE4.L' has translation animation that
-      will be discarded.\n\t'lantio.L' has translation animation that will be discarded.\n\t'lantio.R'
-      has translation animation that will be discarded.\n\nClip 'FullStep1' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'alaselk\xE4.L' has translation
-      animation that will be discarded.\n\t'lantio.L' has translation animation that
-      will be discarded.\n\t'lantio.R' has translation animation that will be discarded.\n\nClip
-      'FullStep2' has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'alaselk\xE4.L'
-      has translation animation that will be discarded.\n\t'lantio.L' has translation
-      animation that will be discarded.\n\t'lantio.R' has translation animation that
-      will be discarded.\n\nClip 'HalfStep' has import animation warnings that might
-      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
-      retargeting quality.\n\t'alaselk\xE4.L' has translation animation that will
-      be discarded.\n\t'lantio.L' has translation animation that will be discarded.\n\t'lantio.R'
-      has translation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0

@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Collisiontest : MonoBehaviour {
     public Transform SparkPrefab;
-    
+    public bool DEBUG_RaveMode = false;
 
     Animator anim;
-    HandAnimationControl hac;
     public float animSpeed;
     public bool collide;
 	// Use this for initialization
 	void Start () {
-        hac = gameObject.GetComponent<HandAnimationControl>();
         anim = gameObject.GetComponent<Animator>();
         collide = false;
 	}
@@ -50,10 +48,22 @@ public class Collisiontest : MonoBehaviour {
     }
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("mo");
+        
         ContactPoint contact = collision.contacts[0];
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
         Vector3 pos = contact.point;
         Instantiate(SparkPrefab, pos, rot);
+    }
+    void OnCollisionStay(Collision collision)
+    {
+        if (DEBUG_RaveMode)
+        {
+
+
+            ContactPoint contact = collision.contacts[0];
+            Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+            Vector3 pos = contact.point;
+            Instantiate(SparkPrefab, pos, rot);
+        }
     }
 }

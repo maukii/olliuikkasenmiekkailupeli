@@ -29,7 +29,7 @@ public class HandMove : MonoBehaviour {
     public bool altInput;
     public bool otherAltInput;
     float altInputvalue = 0;
-    float altInputSpeed;
+    float altInputSpeed = 0;
     // Use this for initialization
     void Start () {
         swing = false;
@@ -268,7 +268,7 @@ public class HandMove : MonoBehaviour {
     {
         Quaternion verRot = Quaternion.identity, horRot = Quaternion.identity;
         Vector3 verPos = Vector3.zero, horPos = Vector3.zero;
-        float smooth;
+        //float smooth;
         if (Input.GetButton("Fire3"))
         {
             altInputvalue += 1;

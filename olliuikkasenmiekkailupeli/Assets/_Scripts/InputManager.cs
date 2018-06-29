@@ -93,7 +93,7 @@ public class InputManager : MonoBehaviour
             }
         }
 
-        else
+        if (names[0].Length == 0 && names[1].Length == 0)
         {
             Debug.Log("No controllers found");
             isXboxControllerP1 = false;
@@ -102,14 +102,14 @@ public class InputManager : MonoBehaviour
             isPSControllerP2 = false;
         }
 
-        if (names[0].Length == 0)
+        if (names[0].Length == 0 && names[1].Length > 0)
         {
             Debug.Log("Can't find joystick 1");
             isXboxControllerP1 = false;
             isPSControllerP1 = false;
         }
 
-        if (names[1].Length == 0)
+        if (names[1].Length == 0 && names[0].Length > 0)
         {
             Debug.Log("Can't find joystick 2");
             isXboxControllerP2 = false;

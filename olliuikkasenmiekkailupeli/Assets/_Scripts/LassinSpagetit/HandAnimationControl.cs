@@ -23,6 +23,7 @@ public class HandAnimationControl : MonoBehaviour {
 	void Start () {
         anim = gameObject.GetComponent<Animator>();
         anim.SetFloat("Inside", inside);
+        
 	}
 	
 	// Update is called once per frame

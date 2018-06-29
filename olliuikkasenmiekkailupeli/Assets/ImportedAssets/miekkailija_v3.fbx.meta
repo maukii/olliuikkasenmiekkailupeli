@@ -89,6 +89,7 @@ ModelImporter:
     100166: ranne.L_end
     100168: ranne.R_end
     100170: "ter\xE4"
+    100172: ROOT
     400000: "alaselk\xE4.L"
     400002: Bone
     400004: Bone_end
@@ -175,6 +176,7 @@ ModelImporter:
     400166: ranne.L_end
     400168: ranne.R_end
     400170: "ter\xE4"
+    400172: ROOT
     2100000: No Name
     2100002: Material
     2300000: jalkapampula.L
@@ -238,9 +240,7 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
-      does not match position in animation file:\n\t'reisi.L' : position error = 5.568905
-      mm\n\t'reisi.R' : position error = 8.902923 mm\n"
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: "\nClip 'StepStart' has import animation warnings that
       might lower retargeting quality:\nNote: Activate translation DOF on avatar to
@@ -264,8 +264,112 @@ ModelImporter:
       DOF on avatar to improve retargeting quality.\n\t'alaselk\xE4.L' has translation
       animation that will be discarded.\n\t'reisi.L' has translation animation that
       will be discarded.\n\t'reisi.R' has translation animation that will be discarded.\n"
-    animationRetargetingWarnings: 
-    animationDoRetargetingWarnings: 0
+    animationRetargetingWarnings: "\nRetargeting quality report for clip 'StepStart.move':\n\tRetargeting
+      quality is good. No significant differences with original animation were found.\n\nRetargeting
+      quality report for clip 'FullStep1.move':\n\tRetargeting quality is good. No
+      significant differences with original animation were found.\n\nRetargeting quality
+      report for clip 'FullStep2.move':\n\tRetargeting quality is good. No significant
+      differences with original animation were found.\n\nRetargeting quality report
+      for clip 'HalfStep.move':\n\tRetargeting quality is good. No significant differences
+      with original animation were found.\n\nRetargeting quality report for clip 'T-pose':\n\tLeftLowerLeg
+      average position error 132.7 mm and maximum position error 132.7 mm at time
+      0: 3 (75.0%) Frame 3\n\tLeftFoot average position error 180.1 mm and maximum
+      position error 180.1 mm at time 0: 3 (75.0%) Frame 3\n\tRightLowerLeg average
+      position error 345.2 mm and maximum position error 345.2 mm at time 0: 1 (25.0%)
+      Frame 1\n\tRightFoot average position error 290.7 mm and maximum position error
+      290.7 mm at time 0: 1 (25.0%) Frame 1\n\tLeftUpperArm average position error
+      202.7 mm and maximum position error 202.7 mm at time 0: 2 (50.0%) Frame 2\n\tLeftLowerArm
+      average position error 187.2 mm and maximum position error 187.2 mm at time
+      0: 4 (100.0%) Frame 4\n\tLeftHand average position error 191.3 mm and maximum
+      position error 191.3 mm at time 0: 2 (50.0%) Frame 2\n\tRightUpperArm average
+      position error 202.7 mm and maximum position error 202.7 mm at time 0: 2 (50.0%)
+      Frame 2\n\tRightLowerArm average position error 200.5 mm and maximum position
+      error 200.5 mm at time 0: 4 (100.0%) Frame 4\n\tRightHand average position error
+      214.3 mm and maximum position error 214.3 mm at time 0: 4 (100.0%) Frame 4\n\tHead
+      average position error 202.7 mm and maximum position error 202.7 mm at time
+      0: 2 (50.0%) Frame 2\n\nRetargeting quality report for clip 'StepStart':\n\tLeftLowerLeg
+      average position error 7.0 mm and maximum position error 10.4 mm at time 0:
+      3 (100.0%) Frame 3\n\tLeftFoot average position error 6.7 mm and maximum position
+      error 10.1 mm at time 0: 3 (100.0%) Frame 3\n\tRightLowerLeg average position
+      error 10.4 mm and maximum position error 19.5 mm at time 0: 3 (100.0%) Frame
+      3\n\tRightFoot average position error 10.2 mm and maximum position error 19.4
+      mm at time 0: 3 (100.0%) Frame 3\n\tLeftUpperArm average position error 10.0
+      mm and maximum position error 16.1 mm at time 0: 2 (66.7%) Frame 2\n\tLeftLowerArm
+      average position error 10.0 mm and maximum position error 15.9 mm at time 0:
+      2 (66.7%) Frame 2\n\tLeftHand average position error 10.1 mm and maximum position
+      error 16.1 mm at time 0: 2 (66.7%) Frame 2\n\tRightUpperArm average position
+      error 10.0 mm and maximum position error 16.1 mm at time 0: 2 (66.7%) Frame
+      2\n\tRightLowerArm average position error 10.2 mm and maximum position error
+      16.3 mm at time 0: 2 (66.7%) Frame 2\n\tRightHand average position error 10.2
+      mm and maximum position error 16.2 mm at time 0: 2 (66.7%) Frame 2\n\tHead average
+      position error 10.0 mm and maximum position error 16.1 mm at time 0: 2 (66.7%)
+      Frame 2\n\nRetargeting quality report for clip 'FullStep1':\n\tLeftLowerLeg
+      average position error 66.5 mm and maximum position error 132.4 mm at time 0:
+      9 (100.0%) Frame 9\n\tLeftFoot average position error 65.4 mm and maximum position
+      error 124.5 mm at time 0: 9 (100.0%) Frame 9\n\tRightLowerLeg average position
+      error 82.6 mm and maximum position error 125.3 mm at time 0: 9 (100.0%) Frame
+      9\n\tRightFoot average position error 82.6 mm and maximum position error 125.1
+      mm at time 0: 9 (100.0%) Frame 9\n\tLeftUpperArm average position error 57.7
+      mm and maximum position error 119.8 mm at time 0: 9 (100.0%) Frame 9\n\tLeftLowerArm
+      average position error 57.7 mm and maximum position error 119.9 mm at time 0:
+      9 (100.0%) Frame 9\n\tLeftHand average position error 57.7 mm and maximum position
+      error 119.8 mm at time 0: 9 (100.0%) Frame 9\n\tRightUpperArm average position
+      error 57.7 mm and maximum position error 119.8 mm at time 0: 9 (100.0%) Frame
+      9\n\tRightLowerArm average position error 57.7 mm and maximum position error
+      119.6 mm at time 0: 9 (100.0%) Frame 9\n\tRightHand average position error 57.7
+      mm and maximum position error 119.7 mm at time 0: 9 (100.0%) Frame 9\n\tHead
+      average position error 57.7 mm and maximum position error 119.8 mm at time 0:
+      9 (100.0%) Frame 9\n\nRetargeting quality report for clip 'FullStep2':\n\tLeftLowerLeg
+      average position error 79.3 mm and maximum position error 132.4 mm at time 0:
+      0 (0.0%) Frame 0\n\tLeftFoot average position error 78.7 mm and maximum position
+      error 124.5 mm at time 0: 0 (0.0%) Frame 0\n\tRightLowerLeg average position
+      error 82.7 mm and maximum position error 125.3 mm at time 0: 0 (0.0%) Frame
+      0\n\tRightFoot average position error 82.6 mm and maximum position error 125.1
+      mm at time 0: 0 (0.0%) Frame 0\n\tLeftUpperArm average position error 79.6 mm
+      and maximum position error 123.3 mm at time 0: 2 (22.2%) Frame 2\n\tLeftLowerArm
+      average position error 79.7 mm and maximum position error 123.4 mm at time 0:
+      2 (22.2%) Frame 2\n\tLeftHand average position error 79.6 mm and maximum position
+      error 123.3 mm at time 0: 2 (22.2%) Frame 2\n\tRightUpperArm average position
+      error 79.6 mm and maximum position error 123.3 mm at time 0: 2 (22.2%) Frame
+      2\n\tRightLowerArm average position error 79.5 mm and maximum position error
+      123.2 mm at time 0: 2 (22.2%) Frame 2\n\tRightHand average position error 79.5
+      mm and maximum position error 123.2 mm at time 0: 2 (22.2%) Frame 2\n\tHead
+      average position error 79.6 mm and maximum position error 123.3 mm at time 0:
+      2 (22.2%) Frame 2\n\nRetargeting quality report for clip 'HalfStep':\n\tLeftLowerLeg
+      average position error 82.4 mm and maximum position error 133.2 mm at time 0:
+      5 (62.5%) Frame 5\n\tLeftFoot average position error 82.6 mm and maximum position
+      error 133.5 mm at time 0: 5 (62.5%) Frame 5\n\tRightLowerLeg average position
+      error 68.4 mm and maximum position error 104.9 mm at time 0: 4 (50.0%) Frame
+      4\n\tRightFoot average position error 68.4 mm and maximum position error 104.9
+      mm at time 0: 4 (50.0%) Frame 4\n\tLeftUpperArm average position error 81.5
+      mm and maximum position error 127.3 mm at time 0: 5 (62.5%) Frame 5\n\tLeftLowerArm
+      average position error 81.7 mm and maximum position error 127.4 mm at time 0:
+      5 (62.5%) Frame 5\n\tLeftHand average position error 81.6 mm and maximum position
+      error 127.3 mm at time 0: 5 (62.5%) Frame 5\n\tRightUpperArm average position
+      error 81.5 mm and maximum position error 127.3 mm at time 0: 5 (62.5%) Frame
+      5\n\tRightLowerArm average position error 81.5 mm and maximum position error
+      127.1 mm at time 0: 5 (62.5%) Frame 5\n\tRightHand average position error 81.5
+      mm and maximum position error 127.2 mm at time 0: 5 (62.5%) Frame 5\n\tHead
+      average position error 81.5 mm and maximum position error 127.3 mm at time 0:
+      5 (62.5%) Frame 5\n\nRetargeting quality report for clip 'Idle':\n\tLeftLowerLeg
+      average position error 22.1 mm and maximum position error 39.5 mm at time 0:
+      7 (24.1%) Frame 7\n\tLeftFoot average position error 22.1 mm and maximum position
+      error 39.7 mm at time 0: 7 (24.1%) Frame 7\n\tRightLowerLeg average position
+      error 17.5 mm and maximum position error 30.4 mm at time 0:22 (75.9%) Frame
+      22\n\tRightFoot average position error 17.4 mm and maximum position error 30.5
+      mm at time 0:22 (75.9%) Frame 22\n\tLeftUpperArm average position error 21.6
+      mm and maximum position error 42.7 mm at time 0:19 (65.5%) Frame 19\n\tLeftLowerArm
+      average position error 63.7 mm and maximum position error 77.1 mm at time 0:19
+      (65.5%) Frame 19\n\tLeftHand average position error 28.0 mm and maximum position
+      error 52.2 mm at time 0:19 (65.5%) Frame 19\n\tRightUpperArm average position
+      error 21.6 mm and maximum position error 42.7 mm at time 0:19 (65.5%) Frame
+      19\n\tRightLowerArm average position error 62.3 mm and maximum position error
+      72.8 mm at time 0:19 (65.5%) Frame 19\n\tRightHand average position error 21.7
+      mm and maximum position error 34.5 mm at time 0:19 (65.5%) Frame 19\n\tHead
+      average position error 21.6 mm and maximum position error 42.7 mm at time 0:19
+      (65.5%) Frame 19\n\tRightFoot average orientation error 11.5 deg and maximum
+      orientation error 11.5 deg at time 0: 0 (0.0%) Frame 0\n"
+    animationDoRetargetingWarnings: 1
     importAnimatedCustomProperties: 0
     importConstraints: 0
     animationCompression: 3
@@ -429,8 +533,8 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
@@ -457,8 +561,8 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
@@ -483,10 +587,10 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
@@ -513,8 +617,8 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
@@ -561,7 +665,7 @@ ModelImporter:
   humanDescription:
     serializedVersion: 2
     human:
-    - boneName: LUURANKO
+    - boneName: ROOT
       humanName: Hips
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -673,7 +777,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: jalkapohja.L_end
+    - boneName: "kenk\xE4pampula.L"
       humanName: LeftToes
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -681,7 +785,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: jalkapohja.R_end
+    - boneName: "kenk\xE4pampula.R"
       humanName: RightToes
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -743,26 +847,11 @@ ModelImporter:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: Move
+    - name: IK-helper
       parentName: miekkailija_v3(Clone)
-      position: {x: -0, y: 0, z: 0}
+      position: {x: 0.12982455, y: 0.2441253, z: 1.8609458}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 29.987818, y: 29.987818, z: 29.987818}
-    - name: Bone
-      parentName: Move
-      position: {x: -0.0026385388, y: 0.0009919793, z: 0.050086774}
-      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Bone_end
-      parentName: Bone
-      position: {x: -0, y: 0.033333328, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: IK-helper
-      parentName: Bone
-      position: {x: 0.0069677816, y: -0.041945957, z: 0.05804668}
-      rotation: {x: -0.7071068, y: 7.899326e-10, z: 5.2592947e-17, w: 0.7071067}
-      scale: {x: 1, y: 1, z: 1}
     - name: hius
       parentName: IK-helper
       position: {x: -0.006939535, y: 0.08146156, z: -0.0072542443}
@@ -814,105 +903,145 @@ ModelImporter:
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: LUURANKO
-      parentName: Bone
-      position: {x: 0.0061703683, y: -0.0152344955, z: -0.004265934}
-      rotation: {x: -0.6005463, y: 0.33609253, z: 0.33519807, w: 0.6434503}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "alaselk\xE4.L"
+      parentName: miekkailija_v3(Clone)
+      position: {x: 0.000000007450581, y: 0, z: 0.23410869}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 29.987818, y: 29.987818, z: 29.987818}
+    - name: ROOT
       parentName: LUURANKO
-      position: {x: -0.0061921007, y: -0.0005853952, z: -0.0004964174}
-      rotation: {x: 0.62104, y: -0.2993035, z: -0.27847216, w: 0.6687152}
-      scale: {x: 0.99999994, y: 0.9999999, z: 0.99999994}
+      position: {x: 0.006431434, y: 0.0014200668, z: -0.0012924911}
+      rotation: {x: -0, y: -5.977531e-21, z: -6.821732e-22, w: 1}
+      scale: {x: 1, y: 0.99999905, z: 0.99999905}
+    - name: "alaselk\xE4.L"
+      parentName: ROOT
+      position: {x: -0.0061921007, y: 0.0059261904, z: 0.03290605}
+      rotation: {x: 0.7071068, y: -0.00000007899326, z: -0.00000007899325, w: 0.7071068}
+      scale: {x: 1, y: 1.0000007, z: 1.0000008}
     - name: "selk\xE4.L"
       parentName: "alaselk\xE4.L"
-      position: {x: 3.7252902e-11, y: 0.006200916, z: -2.5145708e-10}
-      rotation: {x: -0.009709539, y: 0.00035220114, z: 0.002052476, w: 0.9999507}
-      scale: {x: 1, y: 1.0000002, z: 0.9999999}
+      position: {x: -7.4505804e-11, y: 0.0062009166, z: 5.122274e-10}
+      rotation: {x: -0.056228876, y: -1.9628743e-10, z: 0.0000000034855105, w: 0.998418}
+      scale: {x: 1, y: 1.0000004, z: 0.9999999}
     - name: "selk\xE4.L.001"
       parentName: "selk\xE4.L"
-      position: {x: 9.313225e-11, y: 0.005529797, z: 2.2351741e-10}
-      rotation: {x: -0.0030240773, y: -0.00018867243, z: -0.000794752, w: 0.9999951}
-      scale: {x: 1, y: 0.99999994, z: 1}
-    - name: kaula
+      position: {x: 1.6763806e-10, y: 0.005529797, z: -2.9802322e-10}
+      rotation: {x: -0, y: -0.000000028878677, z: 0.000000006837495, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1.0000004}
+    - name: solisluu.L
       parentName: "selk\xE4.L.001"
-      position: {x: 0.000000001117587, y: 0.0055297986, z: -2.2351741e-10}
-      rotation: {x: 0.013047395, y: -0.00007036538, z: -0.00038254878, w: 0.9999148}
-      scale: {x: 0.99999994, y: 0.9999999, z: 1}
-    - name: kaulakoriste
-      parentName: kaula
-      position: {x: 0.0000000013411044, y: 0.007364089, z: 0.0025825505}
-      rotation: {x: -0.72612876, y: 0.00000010269071, z: 0.000000113442304, w: 0.6875588}
-      scale: {x: 0.99999994, y: 1.0000002, z: 1.0000002}
-    - name: "p\xE4\xE4"
-      parentName: kaula
-      position: {x: 7.4505804e-11, y: 0.0047163526, z: 5.9604643e-10}
-      rotation: {x: 0.051848724, y: 0.4080415, z: -0.023744555, w: 0.91118056}
-      scale: {x: 1.0000001, y: 1, z: 1}
-    - name: hius1
-      parentName: "p\xE4\xE4"
-      position: {x: 5.960465e-10, y: 0.0060459203, z: -1.4901118e-10}
-      rotation: {x: 0.937153, y: -0.0004274934, z: -0.00041087298, w: -0.3489182}
-      scale: {x: 0.99999994, y: 1, z: 1.0000006}
-    - name: hius2
-      parentName: hius1
-      position: {x: -4.825415e-10, y: 0.0049882983, z: 0.0000000012075179}
-      rotation: {x: -0.293578, y: 0.0010220174, z: -0.1294869, w: 0.9471241}
-      scale: {x: 1.0000001, y: 1.0000006, z: 0.9999998}
-    - name: hius3
-      parentName: hius2
-      position: {x: -9.313226e-10, y: 0.004470032, z: -1.11758706e-10}
-      rotation: {x: -0.071448356, y: 0.000016251877, z: -0.017919637, w: 0.99728334}
-      scale: {x: 0.99999964, y: 1.0000002, z: 1.0000002}
-    - name: hius4
-      parentName: hius3
-      position: {x: 6.426126e-10, y: 0.00410374, z: -2.6077032e-10}
-      rotation: {x: -0.0072617023, y: 0.000049492362, z: -0.0020734842, w: 0.9999715}
-      scale: {x: 1.0000001, y: 1, z: 0.99999994}
-    - name: hius4_end
-      parentName: hius4
-      position: {x: -0, y: 0.0030054052, z: 0}
+      position: {x: -7.4505804e-11, y: 0.0055297976, z: -4.4703483e-10}
+      rotation: {x: 0.50600904, y: -0.43261066, z: -0.55426854, w: -0.49958915}
+      scale: {x: 1.0000012, y: 1.0000018, z: 1.0000015}
+    - name: hauis.L
+      parentName: solisluu.L
+      position: {x: 5.2154064e-10, y: 0.0071006194, z: 3.72529e-10}
+      rotation: {x: 0.23643085, y: -0.008631065, z: -0.046950556, w: -0.97047496}
+      scale: {x: 0.99999994, y: 1.0000002, z: 1.0000005}
+    - name: ranne.L
+      parentName: hauis.L
+      position: {x: 7.4505804e-11, y: 0.009140778, z: 5.9604643e-10}
+      rotation: {x: -0.014603719, y: -0.0021037348, z: 0.020617917, w: 0.9996786}
+      scale: {x: 0.9999998, y: 1.000002, z: 1}
+    - name: "k\xE4mmen.L"
+      parentName: ranne.L
+      position: {x: 7.45058e-10, y: 0.0090780845, z: -4.4703483e-10}
+      rotation: {x: 0.12344855, y: -0.01414023, z: 0.052652404, w: 0.9908523}
+      scale: {x: 1.0000032, y: 1.0000007, z: 1.0000021}
+    - name: sormi.L
+      parentName: "k\xE4mmen.L"
+      position: {x: 1.4901161e-10, y: 0.004278736, z: -1.11758706e-10}
+      rotation: {x: -0.1208801, y: 0.016055206, z: -0.017614631, w: 0.992381}
+      scale: {x: 1.0000005, y: 1, z: 1.0000007}
+    - name: sormi.L.001
+      parentName: sormi.L
+      position: {x: -1.4901161e-10, y: 0.0014271827, z: 1.4901161e-10}
+      rotation: {x: -0.0532975, y: 0.0013285368, z: -0.021799086, w: 0.9983399}
+      scale: {x: 1.0000012, y: 1.0000008, z: 1.0000002}
+    - name: sormi.L.001_end
+      parentName: sormi.L.001
+      position: {x: -0, y: 0.0013831952, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: pulisonki.L
-      parentName: hius1
-      position: {x: -0.0025304125, y: 0.0020695128, z: -0.0019932245}
-      rotation: {x: -0.46191525, y: 0.0091242, z: 0.016258104, w: 0.88672817}
-      scale: {x: 0.99999994, y: 1, z: 0.9999999}
-    - name: pulisonki.L_end
-      parentName: pulisonki.L
-      position: {x: -0, y: 0.00184465, z: 0}
+    - name: pikkusormi.L
+      parentName: "k\xE4mmen.L"
+      position: {x: 0.0015886342, y: 0.0034015265, z: -0.0002497009}
+      rotation: {x: -0.091988444, y: 0.005321793, z: -0.10119419, w: 0.9905906}
+      scale: {x: 1.0000005, y: 0.9999999, z: 1}
+    - name: pikkusormi2.L
+      parentName: pikkusormi.L
+      position: {x: 2.0489097e-10, y: 0.0013813049, z: 4.1909515e-10}
+      rotation: {x: -0.15368135, y: -0.007044198, z: 0.07451996, w: 0.9852813}
+      scale: {x: 1.0000004, y: 1.000001, z: 1.0000006}
+    - name: pikkusormi2.L_end
+      parentName: pikkusormi2.L
+      position: {x: -0, y: 0.0010774314, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: pulisonki.R
-      parentName: hius1
-      position: {x: 0.002533027, y: 0.0020640038, z: -0.0019956136}
-      rotation: {x: -0.46193266, y: -0.008203269, z: -0.017004862, w: 0.88671404}
-      scale: {x: 1, y: 1, z: 0.99999994}
-    - name: pulisonki.R_end
-      parentName: pulisonki.R
-      position: {x: -0, y: 0.00184465, z: 0}
+    - name: solisluu.R
+      parentName: "selk\xE4.L.001"
+      position: {x: -2.2351741e-10, y: 0.0055297976, z: -5.9604643e-10}
+      rotation: {x: 0.5060082, y: 0.43261158, z: 0.55426764, w: -0.4995902}
+      scale: {x: 1.0000021, y: 1.0000017, z: 1.0000013}
+    - name: hauis.R
+      parentName: solisluu.R
+      position: {x: 7.4505804e-11, y: 0.0071006212, z: 1.9324943e-10}
+      rotation: {x: -0.23643284, y: -0.008631243, z: -0.046950497, w: 0.9704745}
+      scale: {x: 0.9999998, y: 0.9999999, z: 0.99999994}
+    - name: ranne.R
+      parentName: hauis.R
+      position: {x: -2.5145708e-10, y: 0.00914078, z: 0.000000001238659}
+      rotation: {x: -0.014603762, y: 0.002103835, z: -0.020617913, w: 0.9996786}
+      scale: {x: 1.0000002, y: 1.000001, z: 1}
+    - name: "k\xE4mmen.R"
+      parentName: ranne.R
+      position: {x: 2.9802322e-10, y: 0.009078082, z: 5.9604643e-10}
+      rotation: {x: 0.123448804, y: 0.0141402325, z: -0.052652333, w: 0.9908523}
+      scale: {x: 1.0000007, y: 1.000001, z: 1.0000015}
+    - name: kahva
+      parentName: "k\xE4mmen.R"
+      position: {x: 0.0030253648, y: 0.005674759, z: -0.0004796484}
+      rotation: {x: -0.074366935, y: 0.031847395, z: 0.9502232, w: -0.300884}
+      scale: {x: 0.94692016, y: 0.94692004, z: 0.94692004}
+    - name: "ter\xE4"
+      parentName: "k\xE4mmen.R"
+      position: {x: 0.0030253648, y: 0.005674759, z: -0.0004796484}
+      rotation: {x: -0.074366935, y: 0.031847395, z: 0.9502232, w: -0.300884}
+      scale: {x: 0.94692016, y: 0.94692004, z: 0.94692004}
+    - name: sormi.R
+      parentName: "k\xE4mmen.R"
+      position: {x: 4.796311e-10, y: 0.004278738, z: 1.4901161e-10}
+      rotation: {x: -0.12088019, y: -0.016055139, z: 0.017614543, w: 0.9923809}
+      scale: {x: 1.0000002, y: 1.0000008, z: 1.0000008}
+    - name: sormi.R.001
+      parentName: sormi.R
+      position: {x: 0.0000000018626451, y: 0.0014271837, z: 0.0000000014156103}
+      rotation: {x: -0.053297516, y: -0.0013285052, z: 0.021799246, w: 0.99833983}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1.0000006}
+    - name: sormi.R.001_end
+      parentName: sormi.R.001
+      position: {x: -0, y: 0.0013831952, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: leuka
-      parentName: "p\xE4\xE4"
-      position: {x: 6.328271e-17, y: 3.8649872e-10, z: -4.470344e-10}
-      rotation: {x: 0.00000013876664, y: 0.57033044, z: 0.82141536, w: 0.000000065758705}
-      scale: {x: 1, y: 0.99999976, z: 0.9999999}
-    - name: leuka_end
-      parentName: leuka
-      position: {x: -0, y: 0.0029141766, z: 0}
+    - name: pikkusormi.R
+      parentName: "k\xE4mmen.R"
+      position: {x: -0.0015794395, y: 0.0033860723, z: -0.00025259098}
+      rotation: {x: -0.09198878, y: -0.005321924, z: 0.101194106, w: 0.99059045}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000006}
+    - name: pikkusormi2.R
+      parentName: pikkusormi.R
+      position: {x: 0.0000000024586915, y: 0.0013813052, z: -3.306195e-10}
+      rotation: {x: -0.15368098, y: 0.00704432, z: -0.07451992, w: 0.98528135}
+      scale: {x: 1.0000002, y: 0.99999917, z: 0.99999994}
+    - name: pikkusormi2.R_end
+      parentName: pikkusormi2.R
+      position: {x: -0, y: 0.0010774314, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: silma
-      parentName: "p\xE4\xE4"
-      position: {x: -0.0011103081, y: 0.002587257, z: 0.0020758563}
-      rotation: {x: 0.9998037, y: -1.8448296e-13, z: -3.384734e-14, w: 0.01981209}
-      scale: {x: -0.05570488, y: -0.055704888, z: -0.05570489}
     - name: kylkiluu.L
       parentName: "selk\xE4.L.001"
-      position: {x: 1.4901161e-10, y: 0.0055297986, z: -2.6077032e-10}
-      rotation: {x: -0.65586114, y: 0.1949185, z: 0.6941901, w: 0.2235018}
-      scale: {x: 0.99999994, y: 0.99999994, z: 1.0000001}
+      position: {x: -7.4505804e-11, y: 0.0055297976, z: -4.4703483e-10}
+      rotation: {x: -0.65586126, y: 0.19491835, z: 0.69419, w: 0.22350168}
+      scale: {x: 1.000001, y: 1.0000025, z: 1.0000018}
     - name: kylkiluu.L_end
       parentName: kylkiluu.L
       position: {x: -0, y: 0.00836377, z: 0}
@@ -920,154 +1049,114 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: kylkiluu.R
       parentName: "selk\xE4.L.001"
-      position: {x: 0.000000001117587, y: 0.0055297986, z: -2.2351741e-10}
-      rotation: {x: 0.65586144, y: 0.19491789, z: 0.6941901, w: -0.2235014}
-      scale: {x: 0.99999976, y: 0.99999994, z: 1.0000001}
+      position: {x: 9.685754e-10, y: 0.005529798, z: -2.9802322e-10}
+      rotation: {x: 0.6558614, y: 0.19491874, z: 0.6941898, w: -0.22350189}
+      scale: {x: 1.0000021, y: 1.0000024, z: 1.0000011}
     - name: kylkiluu.R_end
       parentName: kylkiluu.R
       position: {x: -0, y: 0.00836377, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: solisluu.L
+    - name: kaula
       parentName: "selk\xE4.L.001"
-      position: {x: 1.4901161e-10, y: 0.0055297986, z: -2.6077032e-10}
-      rotation: {x: -0.50600797, y: 0.43261185, z: 0.55426764, w: 0.49959013}
-      scale: {x: 1.0000002, y: 1.0000001, z: 1}
-    - name: hauis.L
-      parentName: solisluu.L
-      position: {x: 6.705522e-10, y: 0.0071006194, z: 0.0000000017881393}
-      rotation: {x: 0.050580043, y: -0.007514296, z: -0.07313971, w: 0.99600995}
-      scale: {x: 1, y: 1.0000004, z: 1.0000001}
-    - name: ranne.L
-      parentName: hauis.L
-      position: {x: -2.2351741e-10, y: 0.009140781, z: 5.9604643e-10}
-      rotation: {x: 0.020768713, y: 0.0005827949, z: 0.0032284432, w: 0.9997789}
-      scale: {x: 1, y: 1.0000005, z: 0.99999964}
-    - name: "k\xE4mmen.L"
-      parentName: ranne.L
-      position: {x: -0.000000001117587, y: 0.009078084, z: 2.9802322e-10}
-      rotation: {x: -0.29477915, y: -0.70320773, z: -0.1731715, w: 0.62339056}
-      scale: {x: 1.0000001, y: 1, z: 1.0000002}
-    - name: pikkusormi.L
-      parentName: "k\xE4mmen.L"
-      position: {x: 0.0015886339, y: 0.003401528, z: -0.0002497004}
-      rotation: {x: -0.09198908, y: 0.005321953, z: -0.10119434, w: 0.99059045}
-      scale: {x: 1, y: 0.99999994, z: 1}
-    - name: pikkusormi2.L
-      parentName: pikkusormi.L
-      position: {x: 2.9802322e-10, y: 0.0013813054, z: -3.259629e-10}
-      rotation: {x: -0.1536807, y: -0.007044354, z: 0.074520014, w: 0.9852814}
-      scale: {x: 0.9999998, y: 0.9999999, z: 0.9999999}
-    - name: pikkusormi2.L_end
-      parentName: pikkusormi2.L
-      position: {x: -0, y: 0.0010774314, z: 0}
+      position: {x: 0.0000000013411044, y: 0.0055297976, z: -8.9406965e-10}
+      rotation: {x: 0.08343855, y: 0.00000005642755, z: -0.000000018882668, w: 0.99651295}
+      scale: {x: 1.0000002, y: 0.99999976, z: 0.99999994}
+    - name: kaulakoriste
+      parentName: kaula
+      position: {x: 5.9604643e-10, y: 0.007364092, z: 0.002582549}
+      rotation: {x: -0.72612876, y: 0.00000008736751, z: 0.00000009007658, w: 0.6875588}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: "p\xE4\xE4"
+      parentName: kaula
+      position: {x: -1.4901161e-10, y: 0.0047163498, z: 2.2351741e-10}
+      rotation: {x: -0.13541566, y: -0.003074262, z: -0.065235525, w: 0.9886342}
+      scale: {x: 1.0000002, y: 0.99999976, z: 1.0000004}
+    - name: silma
+      parentName: "p\xE4\xE4"
+      position: {x: -0.0011103081, y: 0.0025872565, z: 0.0020758556}
+      rotation: {x: 0.9998037, y: 2.1271552e-13, z: -0.00000022552472, w: 0.019812888}
+      scale: {x: -0.05570488, y: -0.055704888, z: -0.055704884}
+    - name: leuka
+      parentName: "p\xE4\xE4"
+      position: {x: -1.5543122e-17, y: 2.5145705e-10, z: 1.4901169e-10}
+      rotation: {x: 0.00000017021179, y: 0.57033044, z: 0.8214154, w: 0.00000011104747}
+      scale: {x: 1.0000015, y: 1.0000011, z: 1.0000002}
+    - name: leuka_end
+      parentName: leuka
+      position: {x: -0, y: 0.0029141766, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: sormi.L
-      parentName: "k\xE4mmen.L"
-      position: {x: 1.4901161e-10, y: 0.0042787376, z: -4.0978193e-10}
-      rotation: {x: -0.12088016, y: 0.016055148, z: -0.017614575, w: 0.992381}
-      scale: {x: 0.9999999, y: 0.9999999, z: 1}
-    - name: sormi.L.001
-      parentName: sormi.L
-      position: {x: -7.4505804e-11, y: 0.0014271837, z: 7.4505804e-11}
-      rotation: {x: -0.05329768, y: 0.001328602, z: -0.021799244, w: 0.99833983}
-      scale: {x: 0.99999994, y: 1.0000001, z: 0.9999998}
-    - name: sormi.L.001_end
-      parentName: sormi.L.001
-      position: {x: -0, y: 0.0013831952, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: solisluu.R
-      parentName: "selk\xE4.L.001"
-      position: {x: 2.2351741e-10, y: 0.0055297986, z: -1.4901161e-10}
-      rotation: {x: 0.5060081, y: 0.43261173, z: 0.5542674, w: -0.4995904}
-      scale: {x: 1.0000001, y: 1, z: 1.0000001}
-    - name: hauis.R
-      parentName: solisluu.R
-      position: {x: 4.4703483e-10, y: 0.0071006203, z: -9.522773e-10}
-      rotation: {x: 0.013675223, y: -0.20759784, z: -0.0941527, w: 0.97357666}
-      scale: {x: 0.99999994, y: 0.99999946, z: 0.9999999}
-    - name: ranne.R
-      parentName: hauis.R
-      position: {x: 6.426126e-10, y: 0.009140778, z: 1.4901161e-10}
-      rotation: {x: 0.029813088, y: -0.00986117, z: -0.022996234, w: 0.9992423}
-      scale: {x: 1.0000002, y: 1.0000002, z: 0.99999976}
-    - name: "k\xE4mmen.R"
-      parentName: ranne.R
-      position: {x: 4.4703483e-10, y: 0.009078083, z: 2.9802322e-10}
-      rotation: {x: 0.0738697, y: -0.39694604, z: 0.24679156, w: 0.88094896}
-      scale: {x: 1, y: 1.0000002, z: 0.9999998}
-    - name: kahva
-      parentName: "k\xE4mmen.R"
-      position: {x: 0.0030253625, y: 0.005674759, z: -0.00047964542}
-      rotation: {x: -0.074366935, y: 0.031847417, z: 0.9502232, w: -0.300884}
-      scale: {x: 0.9469201, y: 0.9469199, z: 0.9469201}
-    - name: pikkusormi.R
-      parentName: "k\xE4mmen.R"
-      position: {x: -0.0015794405, y: 0.003386076, z: -0.0002525907}
-      rotation: {x: -0.58251095, y: -0.29630902, z: 0.25534225, w: 0.71251833}
-      scale: {x: 0.9999999, y: 1, z: 1}
-    - name: pikkusormi2.R
-      parentName: pikkusormi.R
-      position: {x: 0.0000000018253922, y: 0.0013813054, z: 3.5855918e-10}
-      rotation: {x: -0.7828461, y: 0.18151481, z: 0.0033507112, w: 0.59514135}
-      scale: {x: 0.9999998, y: 1, z: 1.0000002}
-    - name: pikkusormi2.R_end
-      parentName: pikkusormi2.R
-      position: {x: -0, y: 0.0010774314, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: sormi.R
-      parentName: "k\xE4mmen.R"
-      position: {x: -0.0000000011269002, y: 0.0042787376, z: 2.6077032e-10}
-      rotation: {x: -0.5767283, y: -0.3516164, z: 0.18573523, w: 0.71361953}
-      scale: {x: 0.99999994, y: 1, z: 1.0000001}
-    - name: sormi.R.001
-      parentName: sormi.R
-      position: {x: 0.0000000031292438, y: 0.0014271832, z: 2.2351741e-10}
-      rotation: {x: -0.72222453, y: 0.071226425, z: 0.12136777, w: 0.6771916}
-      scale: {x: 0.99999994, y: 1.0000002, z: 1.0000001}
-    - name: sormi.R.001_end
-      parentName: sormi.R.001
-      position: {x: -0, y: 0.0013831952, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "ter\xE4"
-      parentName: "k\xE4mmen.R"
-      position: {x: 0.0030253625, y: 0.005674759, z: -0.00047964542}
-      rotation: {x: -0.074366935, y: 0.031847417, z: 0.9502232, w: -0.300884}
-      scale: {x: 0.9469201, y: 0.9469199, z: 0.9469201}
+    - name: hius1
+      parentName: "p\xE4\xE4"
+      position: {x: 0.0000000011920929, y: 0.0060459203, z: -6.7055217e-10}
+      rotation: {x: 0.93715286, y: -0.00042749222, z: -0.0004108723, w: -0.34891853}
+      scale: {x: 1, y: 1.0000014, z: 1.0000008}
+    - name: hius2
+      parentName: hius1
+      position: {x: 2.2118911e-11, y: 0.004988303, z: -0.0000000014933175}
+      rotation: {x: -0.21806781, y: 0.21672435, z: 0.6696, w: 0.67610127}
+      scale: {x: 0.99999994, y: 1.000003, z: 1.0000007}
+    - name: hius3
+      parentName: hius2
+      position: {x: 2.9802322e-10, y: 0.004470028, z: -7.45058e-10}
+      rotation: {x: -0.026500043, y: 0.00000001664739, z: -0.000000009298673, w: 0.99964887}
+      scale: {x: 0.99999994, y: 1.000002, z: 1.000002}
+    - name: hius4
+      parentName: hius3
+      position: {x: -4.656613e-10, y: 0.0041037407, z: -1.4901161e-10}
+      rotation: {x: 0.0029627688, y: -0.0000000020483768, z: 0.000000019006471, w: 0.9999956}
+      scale: {x: 1.0000001, y: 1.0000007, z: 1.0000007}
     - name: hius5
-      parentName: LUURANKO
-      position: {x: -0.0030476493, y: 0.0048993663, z: 0.0126596615}
-      rotation: {x: -0.71952367, y: 0.00000008627033, z: -0.00000008786082, w: 0.6944679}
-      scale: {x: 1, y: 1.0000002, z: 1.0000001}
+      parentName: hius4
+      position: {x: 7.4505804e-11, y: 0.0030054068, z: -1.0244548e-10}
+      rotation: {x: -0.057869498, y: 2.9766048e-10, z: -0.000000033454707, w: 0.99832416}
+      scale: {x: 1.0000002, y: 0.9999996, z: 1.0000002}
     - name: hius5_end
       parentName: hius5
       position: {x: -0, y: 0.0019346758, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
+    - name: pulisonki.L
+      parentName: hius1
+      position: {x: -0.0025304123, y: 0.0020695159, z: -0.0019932275}
+      rotation: {x: -0.46191555, y: 0.0091241915, z: 0.016258098, w: 0.886728}
+      scale: {x: 0.99999964, y: 1.0000025, z: 1.0000004}
+    - name: pulisonki.L_end
+      parentName: pulisonki.L
+      position: {x: -0, y: 0.00184465, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pulisonki.R
+      parentName: hius1
+      position: {x: 0.002533027, y: 0.002064008, z: -0.0019956154}
+      rotation: {x: -0.3682976, y: -0.27893606, z: -0.5364574, w: 0.706233}
+      scale: {x: 0.9999998, y: 1.0000029, z: 1.0000006}
+    - name: pulisonki.R_end
+      parentName: pulisonki.R
+      position: {x: -0, y: 0.00184465, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: reisi.L
-      parentName: LUURANKO
-      position: {x: -0.007950944, y: 0.0031566196, z: -0.0034387624}
-      rotation: {x: -0.62780887, y: 0.19019993, z: -0.04847587, w: 0.7532132}
-      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000002}
+      parentName: ROOT
+      position: {x: -0.007950944, y: 0.009668206, z: 0.029963708}
+      rotation: {x: 0.4209275, y: 0.42326295, z: -0.5647114, w: -0.5698856}
+      scale: {x: 1.0000012, y: 0.9999999, z: 0.99999964}
     - name: pohje.L
       parentName: reisi.L
-      position: {x: 2.9802322e-10, y: 0.013838298, z: -4.4703483e-10}
-      rotation: {x: -0.0660569, y: 0.0075363507, z: -0.28867933, w: 0.95511466}
-      scale: {x: 1, y: 0.9999998, z: 0.9999997}
+      position: {x: 8.9406965e-10, y: 0.0138383, z: 3.352761e-10}
+      rotation: {x: 0.009756982, y: 0.0012438446, z: -0.026908204, w: 0.99958956}
+      scale: {x: 0.9999998, y: 1.0000011, z: 1.0000001}
     - name: jalkapampula.L
       parentName: pohje.L
-      position: {x: 0.00049935817, y: 0.001436057, z: 0.0034323307}
-      rotation: {x: 0.35608765, y: 0.3796416, z: -0.5829433, w: 0.62389976}
-      scale: {x: 0.22974108, y: 0.22974114, z: 0.22974116}
+      position: {x: 0.00049935817, y: 0.0014360582, z: 0.003432331}
+      rotation: {x: 0.35608765, y: 0.3796416, z: -0.58294326, w: 0.6238998}
+      scale: {x: 0.22974107, y: 0.22974117, z: 0.22974116}
     - name: jalkapohja.L
       parentName: pohje.L
-      position: {x: -2.2351741e-10, y: 0.016052892, z: 4.842877e-10}
-      rotation: {x: 0.23806901, y: -0.559099, z: 0.6745443, w: 0.41919163}
-      scale: {x: 1.0000002, y: 1.0000005, z: 0.99999994}
+      position: {x: -0, y: 0.016052894, z: 1.862645e-10}
+      rotation: {x: -0.36456963, y: 0.46583468, z: -0.4969449, w: -0.63492745}
+      scale: {x: 1.0000023, y: 1.0000019, z: 1.000001}
     - name: jalkapohja.L_end
       parentName: jalkapohja.L
       position: {x: -0, y: 0.0059102345, z: 0}
@@ -1075,34 +1164,34 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: "kenk\xE4pampula.L"
       parentName: jalkapohja.L
-      position: {x: -0.0006100893, y: 0.0030476307, z: 0.0016180562}
-      rotation: {x: 0.0027721715, y: -0.14394203, z: 0.9884372, w: -0.047591504}
+      position: {x: -0.0006100875, y: 0.0030476307, z: 0.0016180514}
+      rotation: {x: 0.0027723387, y: -0.14394216, z: 0.9884372, w: -0.047591887}
       scale: {x: 0.14360833, y: 0.14360832, z: 0.14360826}
     - name: "kenk\xE4solki.L"
       parentName: jalkapohja.L
-      position: {x: -0.0005447352, y: 0.0023763156, z: 0.001403706}
-      rotation: {x: 0.0027718525, y: -0.14394179, z: 0.98843724, w: -0.047591146}
-      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999946}
+      position: {x: -0.00054473337, y: 0.0023763156, z: 0.0014037037}
+      rotation: {x: 0.0027721657, y: -0.1439419, z: 0.9884372, w: -0.047591776}
+      scale: {x: 0.9999998, y: 0.99999994, z: 0.9999995}
     - name: reisi.R
-      parentName: LUURANKO
-      position: {x: -0.004911924, y: -0.0034063351, z: -0.0034387629}
-      rotation: {x: 0.5273423, y: -0.42965806, z: 0.6200706, w: -0.39091745}
-      scale: {x: 1, y: 1.0000004, z: 1.0000001}
+      parentName: ROOT
+      position: {x: -0.004911924, y: 0.003105251, z: 0.029963708}
+      rotation: {x: 0.42092744, y: -0.42326295, z: 0.56471133, w: -0.5698856}
+      scale: {x: 1.0000014, y: 1.000001, z: 1.0000007}
     - name: pohje.R
       parentName: reisi.R
-      position: {x: -6.3329936e-10, y: 0.013838298, z: -3.72529e-10}
-      rotation: {x: -0.05009937, y: -0.009709713, z: 0.279669, w: 0.95873934}
-      scale: {x: 0.99999994, y: 0.9999999, z: 1}
+      position: {x: -4.0978193e-10, y: 0.013838296, z: 2.2351741e-10}
+      rotation: {x: 0.0097569525, y: -0.0012437999, z: 0.026908144, w: 0.99958956}
+      scale: {x: 1.0000008, y: 1.0000011, z: 1.0000007}
     - name: jalkapampula.R
       parentName: pohje.R
-      position: {x: -0.0004993617, y: 0.001436057, z: 0.0034323316}
-      rotation: {x: 0.35608748, y: -0.37964156, z: 0.5829432, w: 0.6239001}
-      scale: {x: 0.22974108, y: 0.22974119, z: 0.22974113}
+      position: {x: -0.00049935933, y: 0.0014360582, z: 0.0034323325}
+      rotation: {x: 0.35608754, y: -0.37964153, z: 0.58294326, w: 0.62389994}
+      scale: {x: 0.22974111, y: 0.22974122, z: 0.22974113}
     - name: jalkapohja.R
       parentName: pohje.R
-      position: {x: -7.45058e-10, y: 0.01605289, z: -2.9802322e-10}
-      rotation: {x: 0.2491557, y: 0.5686915, z: -0.6288659, w: 0.46801618}
-      scale: {x: 1, y: 0.99999994, z: 0.9999999}
+      position: {x: -0.0000000010989606, y: 0.016052892, z: -2.2351741e-10}
+      rotation: {x: 0.36456954, y: 0.46583468, z: -0.49694487, w: 0.6349275}
+      scale: {x: 1.0000024, y: 1.0000019, z: 1.0000017}
     - name: jalkapohja.R_end
       parentName: jalkapohja.R
       position: {x: -0, y: 0.0059102345, z: 0}
@@ -1110,14 +1199,29 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: "kenk\xE4pampula.R"
       parentName: jalkapohja.R
-      position: {x: 0.0005448902, y: 0.002380874, z: 0.0014190006}
-      rotation: {x: -0.002771551, y: -0.14394084, z: 0.98843735, w: 0.047591858}
-      scale: {x: 0.1436083, y: 0.14360832, z: 0.14360829}
+      position: {x: 0.0005448919, y: 0.002380874, z: 0.001419003}
+      rotation: {x: -0.0027724777, y: -0.1439412, z: 0.9884373, w: 0.0475924}
+      scale: {x: 0.14360832, y: 0.14360833, z: 0.14360827}
     - name: "kenk\xE4solki.R"
       parentName: jalkapohja.R
-      position: {x: 0.0005447304, y: 0.002376313, z: 0.001403706}
-      rotation: {x: -0.0027715517, y: -0.14394102, z: 0.98843735, w: 0.047591865}
-      scale: {x: 0.9999998, y: 0.9999999, z: 0.9999997}
+      position: {x: 0.00054473337, y: 0.0023763156, z: 0.0014037108}
+      rotation: {x: -0.0027727906, y: -0.14394112, z: 0.9884373, w: 0.047592085}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.9999996}
+    - name: Move
+      parentName: miekkailija_v3(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Bone
+      parentName: Move
+      position: {x: -0.0007912402, y: 0.00029747293, z: 0.01501993}
+      rotation: {x: 0.7071067, y: -0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Bone_end
+      parentName: Bone
+      position: {x: -0, y: 0.009995938, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: peruuki
       parentName: miekkailija_v3(Clone)
       position: {x: -0, y: 0, z: 0.23410869}

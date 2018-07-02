@@ -15,6 +15,8 @@ public class MoveScript : MonoBehaviour
     void Update()
     {
         Input();
+
+        //Huom! Triggereissä arvot Xbox-ohjaimilla 0 -> 1 ja PS4-ohjaimilla -1 -> 1
     }
 
     void Input()

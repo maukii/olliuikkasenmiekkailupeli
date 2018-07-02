@@ -17,6 +17,7 @@ public class MoveScript : MonoBehaviour
         Input();
 
         //Huom! Triggereissä arvot Xbox-ohjaimilla 0 -> 1 ja PS4-ohjaimilla -1 -> 1
+        //Rajoita myös pelaajien min. ja max. distancea toisistaan
     }
 
     void Input()
@@ -48,8 +49,8 @@ public class MoveScript : MonoBehaviour
             horR = InputManager.IM.P2_RS_X;
             verR = InputManager.IM.P2_RS_Y;
             verDpad = InputManager.IM.P2_Dpad_Y;
-            LT = InputManager.IM.P1_LT;
-            RT = InputManager.IM.P1_RT;
+            LT = InputManager.IM.P2_LT;
+            RT = InputManager.IM.P2_RT;
             buttonLB = InputManager.IM.P2_LB;
             buttonRB = InputManager.IM.P2_RB;
             buttonA = InputManager.IM.P2_A;

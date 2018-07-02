@@ -14,13 +14,13 @@ public class MoveScript : MonoBehaviour
 
     void Update()
     {
-        Input();
+        SelectInput();
 
         //Huom! Triggereissä arvot Xbox-ohjaimilla 0 -> 1 ja PS4-ohjaimilla -1 -> 1
         //Rajoita myös pelaajien min. ja max. distancea toisistaan
     }
 
-    void Input()
+    void SelectInput()
     {
         if (this.gameObject.tag == "Player 1")
         {

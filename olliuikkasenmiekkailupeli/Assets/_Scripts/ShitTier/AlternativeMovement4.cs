@@ -100,7 +100,7 @@ public class AlternativeMovement4 : MonoBehaviour
         if (ver == 0)
         {
             inputY = Mathf.Lerp(inputY, 0, speed * Time.deltaTime);
-            if ((inputY <= 0.3f && inputY > 0) || (inputY >= -0.3f && inputY < 0))
+            if ((inputY <= 0.02f && inputY > 0) || (inputY >= -0.02f && inputY < 0))
             {
                 inputY = 0f;
             }

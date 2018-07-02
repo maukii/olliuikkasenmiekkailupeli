@@ -30,7 +30,7 @@ public class AlternativeMovement4 : MonoBehaviour
     void Update()
     {
         hor = Input.GetAxis(horizontal);
-        ver = Input.GetAxisRaw(vertical);
+        ver = Input.GetAxis(vertical);
 
         inputX = Mathf.Clamp(inputX, -1, 1);
         inputY = Mathf.Clamp(inputY, -1, 1);
@@ -86,28 +86,28 @@ public class AlternativeMovement4 : MonoBehaviour
         //
         //}
 
-        //if (ver >= 0.1f && inputY < 1f)
-        //{
-        //    inputY += speed * Time.deltaTime;
-        //    anim.SetFloat("InputY", inputY);
-        //}
-        //if (ver <= -0.1f && inputY > -1f)
-        //{
-        //    inputY -= speed * Time.deltaTime;
-        //    anim.SetFloat("InputY", inputY);
-        //}
+        if (ver >= 0.1f && inputY < 1f)
+        {
+            inputY += speed * Time.deltaTime;
+            anim.SetFloat("InputY", inputY);
+        }
+        if (ver <= -0.1f && inputY > -1f)
+        {
+            inputY -= speed * Time.deltaTime;
+            anim.SetFloat("InputY", inputY);
+        }
 
-        //if (ver == 0)
-        //{
-        //    inputY = Mathf.Lerp(inputY, 0, speed * Time.deltaTime);
-        //    if ((inputY <= 0.3f && inputY > 0) || (inputY >= -0.3f && inputY < 0))
-        //    {
-        //        inputY = 0f;
-        //    }
-        //
-        //    anim.SetFloat("InputY", inputY);
-        //
-        //}
+        if (ver == 0)
+        {
+            inputY = Mathf.Lerp(inputY, 0, speed * Time.deltaTime);
+            if ((inputY <= 0.3f && inputY > 0) || (inputY >= -0.3f && inputY < 0))
+            {
+                inputY = 0f;
+            }
+
+            anim.SetFloat("InputY", inputY);
+
+        }
 
     }
 

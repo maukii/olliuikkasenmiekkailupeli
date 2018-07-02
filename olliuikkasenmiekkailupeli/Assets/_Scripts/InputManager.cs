@@ -120,7 +120,7 @@ public class InputManager : MonoBehaviour
     void ChooseInput()
     {
         if (isXboxControllerP1)
-        {
+        {   
             P1_LS_X = Input.GetAxis("Xbox_P1_HorizontalLeft");
             P1_LS_Y = Input.GetAxis("Xbox_P1_VerticalLeft");
             P1_RS_X = Input.GetAxis("Xbox_P1_HorizontalRight");
@@ -136,7 +136,7 @@ public class InputManager : MonoBehaviour
             P1_X = Input.GetKey(KeyCode.Joystick1Button2);
             P1_Y = Input.GetKey(KeyCode.Joystick1Button3);
             P1_Start = Input.GetKey(KeyCode.Joystick1Button7);
-        }
+        }  
 
         if (isXboxControllerP2)
         {
@@ -199,26 +199,26 @@ public class InputManager : MonoBehaviour
 
 /*
             ---XBOX---
-            LS X axis = X axis          Input.GetAxis("Xbox_P2_HorizontalLeft")
-            LS Y axis = Y axis          Input.GetAxis("Xbox_P2_VerticalLeft")
-            RS X axis = 4th axis        Input.GetAxis("Xbox_P2_HorizontalRight")
-            RS Y axis = 5th axis        Input.GetAxis("Xbox_P2_VerticalRight")
-            D-pad X axis = 6th axis     Input.GetAxis("Xbox_P2_HorizontalDpad")
-            D-pad Y axis = 7th axis     Input.GetAxis("Xbox_P2_VerticalDpad")
-            Triggers? = 3rd axis        Input.GetAxis("Xbox_P2_LT_RT")
-            LT = 9th axis               Input.GetAxis("Xbox_P2_LT")
-            RT = 10th axis              Input.GetAxis("Xbox_P2_RT")
+            LS X axis = X axis
+            LS Y axis = Y axis
+            RS X axis = 4th axis
+            RS Y axis = 5th axis
+            D-pad X axis = 6th axis
+            D-pad Y axis = 7th axis
+            Triggers? = 3rd axis
+            LT = 9th axis
+            RT = 10th axis
 
-            A button = Button 0         Input.GetButton("Xbox_P2_A")
-            B button = Button 1         Input.GetButton("Xbox_P2_B")
-            X button = Button 2         Input.GetButton("Xbox_P2_X")
-            Y button = Button 3         Input.GetButton("Xbox_P2_Y")
-            LB = Button 4               Input.GetButton("Xbox_P2_LB")
-            RB = Button 5               Input.GetButton("Xbox_P2_RB")
-            Back button = Button 6      Input.GetButton("Xbox_P2_Back")
-            Start button = Button 7     Input.GetButton("Xbox_P2_Start")
-            LS = Button 8               Input.GetButton("Xbox_P2_LS")
-            RS = Button 9               Input.GetButton("Xbox_P2_RS")
+            A button = Button 0
+            B button = Button 1
+            X button = Button 2
+            Y button = Button 3
+            LB = Button 4
+            RB = Button 5
+            Back button = Button 6
+            Start button = Button 7
+            LS = Button 8
+            RS = Button 9
 
             ---PS4---
             LS X axis = X axis

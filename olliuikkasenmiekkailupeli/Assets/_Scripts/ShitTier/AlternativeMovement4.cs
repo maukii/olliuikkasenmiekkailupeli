@@ -50,8 +50,18 @@ public class AlternativeMovement4 : MonoBehaviour
             forward = false;
         }
 
+        if(Input.GetAxisRaw(horizontal) == 1)
+        {
+            back = true;
+        }
+        else
+        {
+            back = false;
+        }
+
         anim.SetFloat("InputX", -hor);
         anim.SetBool("forward", forward);
+        anim.SetBool("back", back);
 
         //if (hor >= 0.5f && inputX < 1f)
         //{

@@ -200,12 +200,66 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    motionNodeName: 
-    rigImportErrors: "Avatar creation failed:\n\tParent for 'hauis.L' differs from
-      one found in HumanDescription. 'selk\xE4.L.001' was found instead of 'selk\xE4.L'.\n"
+    motionNodeName: LUURANKO/ROOT
+    rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'T-pose' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'selk\xE4.L' is inbetween humanoid transforms and has
+      rotation animation that will be discarded.\n\nClip 'StepStart' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation DOF
+      on avatar to improve retargeting quality.\n\t'selk\xE4.L' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 'FullStep1'
+      has import animation warnings that might lower retargeting quality:\nNote: Activate
+      translation DOF on avatar to improve retargeting quality.\n\t'selk\xE4.L' is
+      inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'FullStep2' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'selk\xE4.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'HalfStep' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'selk\xE4.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'StepReverse1' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'selk\xE4.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'RetreatStart1' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'selk\xE4.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'RetreatLegSlip1' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'selk\xE4.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'RetreatFullStep1' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'selk\xE4.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'RetreatHalfStep' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'selk\xE4.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'Lunge1' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'selk\xE4.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'hauis.R'
+      has translation animation that will be discarded.\n\t'reisi.L' has translation
+      animation that will be discarded.\n\t'reisi.R' has translation animation that
+      will be discarded.\n\nClip 'Lunge2' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'selk\xE4.L' is inbetween humanoid transforms and has
+      rotation animation that will be discarded.\n\t'hauis.R' has translation animation
+      that will be discarded.\n\t'reisi.L' has translation animation that will be
+      discarded.\n\t'reisi.R' has translation animation that will be discarded.\n\nClip
+      'LungeIdle' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'selk\xE4.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'LungeRetreat' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'selk\xE4.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'hauis.R'
+      has translation animation that will be discarded.\n\t'reisi.L' has translation
+      animation that will be discarded.\n\t'reisi.R' has translation animation that
+      will be discarded.\n\nClip 'LungeAdvanced1' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'selk\xE4.L' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'hauis.R' has translation
+      animation that will be discarded.\n\t'reisi.L' has translation animation that
+      will be discarded.\n\t'reisi.R' has translation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -755,7 +809,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: "selk\xE4.L"
+    - boneName: "selk\xE4.L.001"
       humanName: Spine
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -843,14 +897,6 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: "selk\xE4.L.001"
-      humanName: Chest
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
     skeleton:
     - name: miekkailija_v5.1(Clone)
       parentName: 
@@ -875,7 +921,7 @@ ModelImporter:
     - name: reisi.L
       parentName: "alaselk\xE4.L"
       position: {x: -0.0036162145, y: -0.0027113731, z: 5.6672433e-10}
-      rotation: {x: -0.6302762, y: -0.01708387, z: 0.7760179, w: 0.016009036}
+      rotation: {x: -0.6302762, y: -0.017083973, z: 0.7760179, w: 0.016008953}
       scale: {x: 1.0000005, y: 0.9999988, z: 1}
     - name: pohje.L
       parentName: reisi.L
@@ -947,31 +993,36 @@ ModelImporter:
       position: {x: -6.204459e-13, y: 0.0062009166, z: -1.2710277e-12}
       rotation: {x: -0.05670748, y: 0.0000007324101, z: 0.00021943601, w: 0.99839085}
       scale: {x: 0.99999994, y: 1, z: 0.9999998}
-    - name: hauis.L
+    - name: "selk\xE4.L.001"
       parentName: "selk\xE4.L"
-      position: {x: -0.0070411433, y: 0.010161284, z: -0.00018481382}
-      rotation: {x: -0.5044297, y: 0.38571063, z: 0.487214, w: 0.59950024}
-      scale: {x: 0.9999999, y: 0.99999994, z: 1}
+      position: {x: 2.0236257e-13, y: 0.005529798, z: 1.3796754e-10}
+      rotation: {x: 0.004445668, y: 0.09233429, z: 0.006453877, w: 0.9956972}
+      scale: {x: 1, y: 1.0000002, z: 0.9999999}
+    - name: hauis.L
+      parentName: "selk\xE4.L.001"
+      position: {x: -0.0070411437, y: 0.0046314886, z: -0.0001848138}
+      rotation: {x: -0.5461344, y: 0.3333589, z: 0.43351316, w: 0.6345671}
+      scale: {x: 1.0000002, y: 0.9999999, z: 0.9999998}
     - name: ranne.L
       parentName: hauis.L
-      position: {x: -0, y: 0.00914078, z: 7.0780515e-10}
-      rotation: {x: 0.0022929444, y: 0.00024627888, z: 0.0029898966, w: 0.9999929}
-      scale: {x: 0.99999994, y: 1.0000001, z: 0.99999994}
+      position: {x: -9.313225e-11, y: 0.009140778, z: 3.5390257e-10}
+      rotation: {x: 0.0022929483, y: 0.00024628322, z: 0.0029899105, w: 0.9999929}
+      scale: {x: 0.99999994, y: 0.99999976, z: 0.9999999}
     - name: "k\xE4mmen.L"
       parentName: ranne.L
-      position: {x: -7.4505804e-11, y: 0.0090780845, z: 5.2154064e-10}
-      rotation: {x: -0.0016444644, y: 0.045266528, z: 0.11470799, w: 0.992366}
-      scale: {x: 1.0000001, y: 0.9999999, z: 1}
+      position: {x: 4.4703483e-10, y: 0.009078086, z: -0.0000000013411044}
+      rotation: {x: -0.0023537616, y: 0.047083355, z: 0.11478299, w: 0.9922714}
+      scale: {x: 0.99999976, y: 1.0000001, z: 1.0000001}
     - name: pikkusormi.L
       parentName: "k\xE4mmen.L"
-      position: {x: 0.0015886348, y: 0.0034015295, z: -0.00024969873}
-      rotation: {x: -0.091989115, y: 0.0053219013, z: -0.10119443, w: 0.99059045}
-      scale: {x: 0.99999994, y: 1, z: 1}
+      position: {x: 0.0015886351, y: 0.0034015318, z: -0.0002496981}
+      rotation: {x: -0.09198904, y: 0.005321904, z: -0.10119432, w: 0.99059045}
+      scale: {x: 1, y: 1, z: 1}
     - name: pikkusormi2.L
       parentName: pikkusormi.L
-      position: {x: -4.5401974e-10, y: 0.0013813075, z: -0.0000000021979212}
-      rotation: {x: -0.15368073, y: -0.0070443577, z: 0.07452011, w: 0.98528135}
-      scale: {x: 0.99999994, y: 1, z: 1}
+      position: {x: -2.2468157e-10, y: 0.0013813063, z: 1.862645e-10}
+      rotation: {x: -0.15368082, y: -0.007044348, z: 0.07452002, w: 0.98528135}
+      scale: {x: 1, y: 0.9999999, z: 0.99999994}
     - name: pikkusormi2.L_end
       parentName: pikkusormi2.L
       position: {x: -0, y: 0.0010774314, z: 0}
@@ -979,55 +1030,54 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: sormi.L
       parentName: "k\xE4mmen.L"
-      position: {x: -9.3132255e-12, y: 0.004278737, z: -1.816079e-10}
-      rotation: {x: -0.12088022, y: 0.016055144, z: -0.017614592, w: 0.992381}
-      scale: {x: 0.9999998, y: 0.99999976, z: 0.99999994}
+      position: {x: 1.8626451e-11, y: 0.0042787376, z: 4.5634804e-10}
+      rotation: {x: -0.12088019, y: 0.016055143, z: -0.01761459, w: 0.992381}
+      scale: {x: 0.9999998, y: 0.9999999, z: 1}
     - name: sormi.L.001
       parentName: sormi.L
-      position: {x: 2.9802322e-10, y: 0.0014271844, z: 0.000000001527369}
-      rotation: {x: -0.05329763, y: 0.0013285743, z: -0.021799274, w: 0.99833983}
-      scale: {x: 0.9999998, y: 1.0000002, z: 1}
+      position: {x: 1.4901161e-10, y: 0.001427188, z: -0.0000000012293457}
+      rotation: {x: -0.05329766, y: 0.0013285748, z: -0.021799266, w: 0.99833983}
+      scale: {x: 0.9999998, y: 1.0000002, z: 1.0000001}
     - name: sormi.L.001_end
       parentName: sormi.L.001
       position: {x: -0, y: 0.0013831952, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: hauis.R
-      parentName: "selk\xE4.L"
-      position: {x: 0.007041142, y: 0.0101612825, z: -0.00018481724}
-      rotation: {x: 0.46279904, y: 0.5883143, z: 0.5406688, w: -0.3839019}
-      scale: {x: 0.9999999, y: 0.99999964, z: 1.0000002}
+      parentName: "selk\xE4.L.001"
+      position: {x: 0.007041142, y: 0.0046314867, z: -0.00018481731}
+      rotation: {x: 0.41585588, y: 0.61944985, z: 0.58219266, w: -0.32310617}
+      scale: {x: 1.0000001, y: 0.9999997, z: 0.99999976}
     - name: ranne.R
       parentName: hauis.R
-      position: {x: -5.2154064e-10, y: 0.009140781, z: -4.2840836e-10}
-      rotation: {x: 0.0031085915, y: 0.0014272239, z: 0.0010993221, w: 0.99999356}
-      scale: {x: 1, y: 1.0000001, z: 0.9999998}
+      position: {x: -2.7939676e-10, y: 0.00914078, z: 0.0000000013515818}
+      rotation: {x: 0.0031085613, y: 0.0014272046, z: 0.0010993422, w: 0.99999356}
+      scale: {x: 0.9999999, y: 0.99999994, z: 0.99999976}
     - name: "k\xE4mmen.R"
       parentName: ranne.R
-      position: {x: -0, y: 0.009078084, z: 1.4901161e-10}
-      rotation: {x: -0.011338905, y: 0.13790524, z: 0.14160472, w: 0.98020494}
-      scale: {x: 1.0000001, y: 1.0000004, z: 0.9999999}
+      position: {x: -2.933666e-10, y: 0.0090780845, z: 0.0000000010430813}
+      rotation: {x: -0.010573933, y: 0.13612731, z: 0.1415561, w: 0.980469}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
     - name: kahva
       parentName: "k\xE4mmen.R"
-      position: {x: 0.00073919445, y: 0.0039615235, z: -0.00082405686}
-      rotation: {x: -0.07436695, y: 0.031847466, z: 0.95022327, w: -0.30088383}
-      scale: {x: 0.9469201, y: 0.94691986, z: 0.9469199}
+      position: {x: 0.0007391938, y: 0.0039615314, z: -0.0008240497}
+      rotation: {x: -0.074366935, y: 0.031847402, z: 0.9502232, w: -0.300884}
+      scale: {x: 0.9469201, y: 0.94692, z: 0.9469201}
     - name: "ter\xE4"
       parentName: kahva
-      position: {x: -0.0030380439, y: -0.00007060766, z: 0.00000000834465}
-      rotation: {x: -0.000000014901163, y: 0.000000013038516, z: 0.000000008847566,
-        w: 1}
-      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+      position: {x: -0.0030380392, y: -0.00007060766, z: 0.0000000011920929}
+      rotation: {x: 0.000000005587939, y: 1.3322676e-15, z: 0.0000000204891, w: 1}
+      scale: {x: 0.9999999, y: 0.99999994, z: 1.0000002}
     - name: pikkusormi.R
       parentName: "k\xE4mmen.R"
-      position: {x: -0.0015794393, y: 0.0033860765, z: -0.00025259092}
-      rotation: {x: -0.5825111, y: -0.29630917, z: 0.25534233, w: 0.71251804}
-      scale: {x: 0.9999999, y: 1, z: 0.9999998}
+      position: {x: -0.0015794396, y: 0.0033860798, z: -0.00025259194}
+      rotation: {x: -0.582511, y: -0.29630914, z: 0.2553423, w: 0.71251816}
+      scale: {x: 1, y: 1.0000001, z: 0.9999999}
     - name: pikkusormi2.R
       parentName: pikkusormi.R
-      position: {x: 5.9604643e-10, y: 0.0013813063, z: 7.45058e-10}
-      rotation: {x: -0.78284603, y: 0.18151483, z: 0.0033507224, w: 0.59514135}
-      scale: {x: 0.99999976, y: 1, z: 1}
+      position: {x: 0.0000000011920929, y: 0.0013813039, z: -3.72529e-10}
+      rotation: {x: -0.78284603, y: 0.1815148, z: 0.003350715, w: 0.5951415}
+      scale: {x: 0.9999998, y: 0.99999994, z: 1.0000001}
     - name: pikkusormi2.R_end
       parentName: pikkusormi2.R
       position: {x: -0, y: 0.0010774314, z: 0}
@@ -1035,12 +1085,12 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: sormi.R
       parentName: "k\xE4mmen.R"
-      position: {x: 1.420267e-10, y: 0.0042787334, z: -5.401671e-10}
-      rotation: {x: -0.57672834, y: -0.35161647, z: 0.18573532, w: 0.7136194}
-      scale: {x: 1, y: 1.0000001, z: 1}
+      position: {x: -4.1676684e-10, y: 0.004278736, z: -2.0489097e-10}
+      rotation: {x: -0.5767283, y: -0.35161644, z: 0.18573532, w: 0.7136195}
+      scale: {x: 1, y: 1, z: 1.0000001}
     - name: sormi.R.001
       parentName: sormi.R
-      position: {x: 0.000000001490116, y: 0.0014271837, z: -4.4703483e-10}
+      position: {x: -4.4703483e-10, y: 0.0014271843, z: -0.000000002980232}
       rotation: {x: -0.7222244, y: 0.07122643, z: 0.121367685, w: 0.6771918}
       scale: {x: 1, y: 1, z: 1.0000001}
     - name: sormi.R.001_end
@@ -1048,11 +1098,6 @@ ModelImporter:
       position: {x: -0, y: 0.0013831952, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: "selk\xE4.L.001"
-      parentName: "selk\xE4.L"
-      position: {x: 2.0236257e-13, y: 0.005529798, z: 1.3796754e-10}
-      rotation: {x: 0.004445668, y: 0.09233429, z: 0.006453877, w: 0.9956972}
-      scale: {x: 1, y: 1.0000002, z: 0.9999999}
     - name: kaula
       parentName: "selk\xE4.L.001"
       position: {x: 6.5183484e-11, y: 0.005529798, z: -1.03609635e-10}

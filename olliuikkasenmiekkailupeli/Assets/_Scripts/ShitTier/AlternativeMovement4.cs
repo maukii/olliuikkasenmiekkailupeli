@@ -17,6 +17,11 @@ public class AlternativeMovement4 : MonoBehaviour
     public float inputX, inputY;
     public float speed = 3f;
 
+    [Header("--- Inputs ---")]
+    public bool forward;
+    public bool back;
+    // up, down
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -36,7 +41,17 @@ public class AlternativeMovement4 : MonoBehaviour
     void Move()
     {
 
-        anim.SetFloat("InputX", hor);
+        if(Input.GetAxisRaw(horizontal) == -1)
+        {
+            forward = true;
+        }
+        else
+        {
+            forward = false;
+        }
+
+        anim.SetFloat("InputX", -hor);
+        anim.SetBool("forward", forward);
 
         //if (hor >= 0.5f && inputX < 1f)
         //{

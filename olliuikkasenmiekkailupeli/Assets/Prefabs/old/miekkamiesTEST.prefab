@@ -1826,14 +1826,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2e49d0d3cc2064195d5b4e6eb918e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoulder: {fileID: 1039503754755970}
-  sword: {fileID: 1973841887688508}
-  maxDist: 1
-  minDist: 0.1
-  hor: 0
-  vel: 0
-  player: 1
-  flipped: 0
+  sholderPivot: {fileID: 0}
+  elboPivot: {fileID: 0}
+  rotSpeed: 10
+  elboz: 0
+  sholderz: 0
+  angle: 0
 --- !u!136 &136576112690343108
 CapsuleCollider:
   m_ObjectHideFlags: 1

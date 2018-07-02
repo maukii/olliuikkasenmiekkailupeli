@@ -188,6 +188,7 @@ ModelImporter:
     9500000: //RootNode
     13700000: peruuki
     13700002: ruho
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -203,19 +204,522 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'T-pose' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'kaula' is inbetween humanoid transforms and has rotation
+      animation that will be discarded.\n\nClip 'StepStart' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'kaula' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\nClip 'FullStep1' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'kaula' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 'FullStep2'
+      has import animation warnings that might lower retargeting quality:\nNote: Activate
+      translation DOF on avatar to improve retargeting quality.\n\t'kaula' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'HalfStep' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'kaula'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'StepReverse1' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'kaula'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'RetreatStart1' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'kaula'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'RetreatLegSlip1' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'kaula'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'RetreatFullStep1' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'kaula'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'RetreatHalfStep' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'kaula'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'Lunge1' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'kaula'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'hauis.R'
+      has translation animation that will be discarded.\n\t'reisi.L' has translation
+      animation that will be discarded.\n\t'reisi.R' has translation animation that
+      will be discarded.\n\nClip 'Lunge2' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'kaula' is inbetween humanoid transforms and has rotation
+      animation that will be discarded.\n\t'hauis.R' has translation animation that
+      will be discarded.\n\t'reisi.L' has translation animation that will be discarded.\n\t'reisi.R'
+      has translation animation that will be discarded.\n\nClip 'LungeIdle' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'kaula' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 'LungeRetreat'
+      has import animation warnings that might lower retargeting quality:\nNote: Activate
+      translation DOF on avatar to improve retargeting quality.\n\t'kaula' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'hauis.R'
+      has translation animation that will be discarded.\n\t'reisi.L' has translation
+      animation that will be discarded.\n\t'reisi.R' has translation animation that
+      will be discarded.\n\nClip 'LungeAdvanced1' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'kaula' is inbetween humanoid transforms and
+      has rotation animation that will be discarded.\n\t'hauis.R' has translation
+      animation that will be discarded.\n\t'reisi.L' has translation animation that
+      will be discarded.\n\t'reisi.R' has translation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: T-pose
+      takeName: T-pose
+      firstFrame: 0
+      lastFrame: 4
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: StepStart
+      takeName: StepStart
+      firstFrame: 0
+      lastFrame: 3
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: FullStep1
+      takeName: FullStep1
+      firstFrame: 0
+      lastFrame: 9
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: FullStep2
+      takeName: FullStep2
+      firstFrame: 0
+      lastFrame: 9
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: HalfStep
+      takeName: HalfStep
+      firstFrame: 0
+      lastFrame: 8
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: Idle
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: StepReverse1
+      takeName: StepReverse1
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: RetreatStart1
+      takeName: RetreatStart1
+      firstFrame: 0
+      lastFrame: 3
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: RetreatLegSlip1
+      takeName: RetreatLegSlip1
+      firstFrame: 0
+      lastFrame: 9
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: RetreatFullStep1
+      takeName: RetreatFullStep1
+      firstFrame: 0
+      lastFrame: 9
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: RetreatHalfStep
+      takeName: RetreatHalfStep
+      firstFrame: 0
+      lastFrame: 8
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Lunge1
+      takeName: Lunge1
+      firstFrame: 0
+      lastFrame: 8
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Lunge2
+      takeName: Lunge2
+      firstFrame: 0
+      lastFrame: 9
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LungeIdle
+      takeName: LungeIdle
+      firstFrame: 0
+      lastFrame: 47
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LungeRetreat
+      takeName: LungeRetreat
+      firstFrame: 0
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: LungeAdvanced1
+      takeName: LungeAdvanced1
+      firstFrame: 0
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -248,8 +752,467 @@ ModelImporter:
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
-    human: []
-    skeleton: []
+    human:
+    - boneName: "alaselk\xE4.L"
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: reisi.L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: reisi.R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: pohje.L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: pohje.R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: jalkapohja.L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: jalkapohja.R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "selk\xE4.L"
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: hauis.R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ranne.R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "k\xE4mmen.R"
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "p\xE4\xE4"
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "selk\xE4.L.001"
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: hauis.L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ranne.L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "k\xE4mmen.L"
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: miekkailija_v5.1(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LUURANKO
+      parentName: miekkailija_v5.1(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: 8.659561e-17, w: 0.7071068}
+      scale: {x: 29.987818, y: 29.987818, z: 29.987818}
+    - name: ROOT
+      parentName: LUURANKO
+      position: {x: -2.4845356e-10, y: -0.006511586, z: -0.03340247}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "alaselk\xE4.L"
+      parentName: ROOT
+      position: {x: 2.4845356e-10, y: 0.0063867276, z: 0.03493605}
+      rotation: {x: 0.7061107, y: -0.00019458027, z: 0.00021291155, w: 0.70810145}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: reisi.L
+      parentName: "alaselk\xE4.L"
+      position: {x: -0.0036162145, y: -0.0027113731, z: 5.6672433e-10}
+      rotation: {x: -0.6302762, y: -0.01708387, z: 0.7760179, w: 0.016009036}
+      scale: {x: 1.0000005, y: 0.9999988, z: 1}
+    - name: pohje.L
+      parentName: reisi.L
+      position: {x: -0, y: 0.013838298, z: -3.72529e-10}
+      rotation: {x: -0.00037805716, y: 0.0050054262, z: -0.0029625464, w: 0.999983}
+      scale: {x: 1.0000001, y: 0.99999994, z: 0.99999994}
+    - name: jalkapampula.L
+      parentName: pohje.L
+      position: {x: 0.00049935916, y: 0.001436057, z: 0.003432331}
+      rotation: {x: 0.35608754, y: 0.37964165, z: -0.5829432, w: 0.6238999}
+      scale: {x: 0.22974107, y: 0.22974116, z: 0.22974117}
+    - name: jalkapohja.L
+      parentName: pohje.L
+      position: {x: 7.4505804e-11, y: 0.016052889, z: -3.352761e-10}
+      rotation: {x: 0.38549504, y: -0.2919138, z: 0.48274928, w: 0.7301596}
+      scale: {x: 1.0000007, y: 0.99999976, z: 1.0000008}
+    - name: jalkapohja.L_end
+      parentName: jalkapohja.L
+      position: {x: -0, y: 0.0059102345, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "kenk\xE4pampula.L"
+      parentName: jalkapohja.L
+      position: {x: -0.0006100869, y: 0.0030476265, z: 0.0016180562}
+      rotation: {x: 0.0027718602, y: -0.1439423, z: 0.9884371, w: -0.04759182}
+      scale: {x: 0.14360832, y: 0.14360832, z: 0.14360826}
+    - name: "kenk\xE4solki.L"
+      parentName: jalkapohja.L
+      position: {x: -0.0005447328, y: 0.0023763115, z: 0.0014037085}
+      rotation: {x: 0.0027718593, y: -0.14394253, z: 0.9884371, w: -0.04759182}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999934}
+    - name: reisi.R
+      parentName: "alaselk\xE4.L"
+      position: {x: 0.0036162145, y: -0.0027113731, z: -0.0000000011649081}
+      rotation: {x: 0.5122372, y: -0.017442213, z: 0.8585872, w: -0.011700089}
+      scale: {x: 1.0000006, y: 0.99999994, z: 1.0000001}
+    - name: pohje.R
+      parentName: reisi.R
+      position: {x: 3.7252902e-11, y: 0.0138383, z: -2.9802322e-10}
+      rotation: {x: -0.0015278307, y: -0.016589275, z: 0.0034971768, w: 0.99985516}
+      scale: {x: 1.0000002, y: 1, z: 0.9999998}
+    - name: jalkapampula.R
+      parentName: pohje.R
+      position: {x: -0.00049936067, y: 0.0014360582, z: 0.0034323328}
+      rotation: {x: 0.35608754, y: -0.37964153, z: 0.58294326, w: 0.62389994}
+      scale: {x: 0.2297411, y: 0.22974119, z: 0.2297411}
+    - name: jalkapohja.R
+      parentName: pohje.R
+      position: {x: 3.72529e-10, y: 0.016052887, z: -1.4901161e-10}
+      rotation: {x: 0.44868875, y: 0.18755727, z: -0.4202762, w: 0.7660735}
+      scale: {x: 1, y: 0.99999976, z: 1.0000002}
+    - name: jalkapohja.R_end
+      parentName: jalkapohja.R
+      position: {x: -0, y: 0.0059102345, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "kenk\xE4pampula.R"
+      parentName: jalkapohja.R
+      position: {x: 0.0005448902, y: 0.0023808712, z: 0.0014189982}
+      rotation: {x: -0.0027723236, y: -0.14394137, z: 0.98843724, w: 0.04759242}
+      scale: {x: 0.14360832, y: 0.14360829, z: 0.14360827}
+    - name: "kenk\xE4solki.R"
+      parentName: jalkapohja.R
+      position: {x: 0.0005447304, y: 0.0023763115, z: 0.0014037037}
+      rotation: {x: -0.0027721843, y: -0.143941, z: 0.98843735, w: 0.047591906}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.9999996}
+    - name: "selk\xE4.L"
+      parentName: "alaselk\xE4.L"
+      position: {x: -6.204459e-13, y: 0.0062009166, z: -1.2710277e-12}
+      rotation: {x: -0.05670748, y: 0.0000007324101, z: 0.00021943601, w: 0.99839085}
+      scale: {x: 0.99999994, y: 1, z: 0.9999998}
+    - name: "selk\xE4.L.001"
+      parentName: "selk\xE4.L"
+      position: {x: 2.0236257e-13, y: 0.005529798, z: 1.3796754e-10}
+      rotation: {x: 0.004445668, y: 0.09233429, z: 0.006453877, w: 0.9956972}
+      scale: {x: 1, y: 1.0000002, z: 0.9999999}
+    - name: hauis.L
+      parentName: "selk\xE4.L.001"
+      position: {x: -0.0070411437, y: 0.0046314886, z: -0.0001848138}
+      rotation: {x: -0.5044296, y: 0.38571072, z: 0.4872139, w: 0.59950036}
+      scale: {x: 0.9999999, y: 1, z: 1.0000002}
+    - name: ranne.L
+      parentName: hauis.L
+      position: {x: -1.4901161e-10, y: 0.009140781, z: -8.1490725e-10}
+      rotation: {x: 0.002292945, y: 0.00024629105, z: 0.002989904, w: 0.9999929}
+      scale: {x: 1, y: 1, z: 0.9999999}
+    - name: "k\xE4mmen.L"
+      parentName: ranne.L
+      position: {x: 7.4505804e-11, y: 0.009078085, z: 5.0291415e-10}
+      rotation: {x: -0.009730357, y: 0.050611515, z: 0.022648092, w: 0.9984142}
+      scale: {x: 1.0000001, y: 0.9999999, z: 0.9999998}
+    - name: pikkusormi.L
+      parentName: "k\xE4mmen.L"
+      position: {x: 0.0015886354, y: 0.0034015323, z: -0.00024969765}
+      rotation: {x: -0.09198904, y: 0.005321904, z: -0.10119432, w: 0.99059045}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pikkusormi2.L
+      parentName: pikkusormi.L
+      position: {x: 2.3166649e-10, y: 0.0013813068, z: 7.9162416e-10}
+      rotation: {x: -0.15368082, y: -0.007044348, z: 0.07452002, w: 0.98528135}
+      scale: {x: 1, y: 0.9999999, z: 0.99999994}
+    - name: pikkusormi2.L_end
+      parentName: pikkusormi2.L
+      position: {x: -0, y: 0.0010774314, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: sormi.L
+      parentName: "k\xE4mmen.L"
+      position: {x: 8.381903e-11, y: 0.0042787376, z: 8.341158e-10}
+      rotation: {x: -0.12088019, y: 0.016055143, z: -0.01761459, w: 0.992381}
+      scale: {x: 0.9999998, y: 0.9999999, z: 1}
+    - name: sormi.L.001
+      parentName: sormi.L
+      position: {x: -7.4505804e-11, y: 0.0014271855, z: -1.9092113e-10}
+      rotation: {x: -0.05329766, y: 0.0013285748, z: -0.021799266, w: 0.99833983}
+      scale: {x: 0.9999998, y: 1.0000002, z: 1.0000001}
+    - name: sormi.L.001_end
+      parentName: sormi.L.001
+      position: {x: -0, y: 0.0013831952, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: hauis.R
+      parentName: "selk\xE4.L.001"
+      position: {x: 0.007041142, y: 0.0046314867, z: -0.00018481731}
+      rotation: {x: 0.4627992, y: 0.588314, z: 0.54066896, w: -0.3839019}
+      scale: {x: 1, y: 0.99999964, z: 1.0000001}
+    - name: ranne.R
+      parentName: hauis.R
+      position: {x: -1.4901161e-10, y: 0.009140781, z: 3.1664968e-10}
+      rotation: {x: 0.0031085573, y: 0.001427217, z: 0.0010993414, w: 0.99999356}
+      scale: {x: 1.0000001, y: 0.99999994, z: 0.9999999}
+    - name: "k\xE4mmen.R"
+      parentName: ranne.R
+      position: {x: -4.4703483e-10, y: 0.0090780845, z: 1.862645e-10}
+      rotation: {x: -0.0157921, y: 0.13539727, z: 0.049440134, w: 0.9894311}
+      scale: {x: 1.0000002, y: 1.0000002, z: 0.99999964}
+    - name: kahva
+      parentName: "k\xE4mmen.R"
+      position: {x: 0.0007391943, y: 0.0039615245, z: -0.0008240521}
+      rotation: {x: -0.074367, y: 0.03184747, z: 0.95022327, w: -0.30088383}
+      scale: {x: 0.9469201, y: 0.94691986, z: 0.9469201}
+    - name: "ter\xE4"
+      parentName: kahva
+      position: {x: -0.0030380427, y: -0.00007061005, z: 0.0000000035762786}
+      rotation: {x: -0.000000011175872, y: 0.000000011175869, z: 0.000000012689273,
+        w: 1}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1.0000002}
+    - name: pikkusormi.R
+      parentName: "k\xE4mmen.R"
+      position: {x: -0.0015794393, y: 0.003386079, z: -0.00025259008}
+      rotation: {x: -0.582511, y: -0.29630914, z: 0.2553423, w: 0.71251816}
+      scale: {x: 1, y: 1.0000001, z: 0.9999999}
+    - name: pikkusormi2.R
+      parentName: pikkusormi.R
+      position: {x: 0.0000000016391277, y: 0.0013813054, z: -0.000000002682209}
+      rotation: {x: -0.78284603, y: 0.1815148, z: 0.003350715, w: 0.5951415}
+      scale: {x: 0.9999998, y: 0.99999994, z: 1.0000001}
+    - name: pikkusormi2.R_end
+      parentName: pikkusormi2.R
+      position: {x: -0, y: 0.0010774314, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: sormi.R
+      parentName: "k\xE4mmen.R"
+      position: {x: 2.5844202e-10, y: 0.0042787376, z: 5.424954e-10}
+      rotation: {x: -0.5767283, y: -0.35161644, z: 0.18573532, w: 0.7136195}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: sormi.R.001
+      parentName: sormi.R
+      position: {x: -1.862645e-10, y: 0.0014271843, z: -7.45058e-10}
+      rotation: {x: -0.7222244, y: 0.07122643, z: 0.121367685, w: 0.6771918}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: sormi.R.001_end
+      parentName: sormi.R.001
+      position: {x: -0, y: 0.0013831952, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: kaula
+      parentName: "selk\xE4.L.001"
+      position: {x: 6.5183484e-11, y: 0.005529798, z: -1.03609635e-10}
+      rotation: {x: 0.082104854, y: 0.0000008003217, z: -0.000009602575, w: 0.9966237}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: kaulakoriste
+      parentName: kaula
+      position: {x: 5.6963473e-10, y: 0.007364087, z: 0.0025825505}
+      rotation: {x: -0.72612876, y: 0.000000086584436, z: 0.000000081821725, w: 0.6875588}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
+    - name: "p\xE4\xE4"
+      parentName: kaula
+      position: {x: -9.57625e-13, y: 0.0047163507, z: -6.425014e-11}
+      rotation: {x: -0.00861618, y: -0.09223332, z: 0.007860208, w: 0.9956691}
+      scale: {x: 1.0000001, y: 0.9999997, z: 1.0000001}
+    - name: hius1
+      parentName: "p\xE4\xE4"
+      position: {x: 1.1248144e-12, y: 0.0060459147, z: 0.0000000017508864}
+      rotation: {x: 0.9371529, y: -0.00042749202, z: -0.0004108723, w: -0.34891847}
+      scale: {x: 0.99999994, y: 1, z: 0.9999999}
+    - name: hius2
+      parentName: hius1
+      position: {x: 3.4924596e-12, y: 0.004988302, z: -7.1786527e-10}
+      rotation: {x: -0.25499508, y: 0.0049222372, z: 0.014460337, w: 0.96682173}
+      scale: {x: 0.99999994, y: 1.0000002, z: 1}
+    - name: hius3
+      parentName: hius2
+      position: {x: 1.6298145e-11, y: 0.0044700257, z: 2.086017e-10}
+      rotation: {x: -0.110143214, y: 0.00037456336, z: -0.02103395, w: 0.9936931}
+      scale: {x: 0.9999998, y: 1.0000002, z: 1.0000004}
+    - name: hius4
+      parentName: hius3
+      position: {x: 3.5142875e-11, y: 0.004103738, z: -6.9022005e-10}
+      rotation: {x: -0.048480272, y: 0.000032395525, z: -0.010165124, w: 0.99877244}
+      scale: {x: 1.0000002, y: 1.0000001, z: 0.99999994}
+    - name: hius5
+      parentName: hius4
+      position: {x: 4.7148205e-11, y: 0.0030054057, z: 2.368995e-10}
+      rotation: {x: 0.022802945, y: -0.00056122814, z: 0.015674513, w: 0.999617}
+      scale: {x: 0.99999994, y: 0.99999964, z: 0.9999997}
+    - name: hius5_end
+      parentName: hius5
+      position: {x: -0, y: 0.0019346758, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pulisonki.L
+      parentName: hius1
+      position: {x: -0.0025304123, y: 0.0020695175, z: -0.001993229}
+      rotation: {x: -0.4619155, y: 0.009124195, z: 0.016258102, w: 0.886728}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: pulisonki.L_end
+      parentName: pulisonki.L
+      position: {x: -0, y: 0.00184465, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pulisonki.R
+      parentName: hius1
+      position: {x: 0.0025330274, y: 0.0020640064, z: -0.0019956152}
+      rotation: {x: -0.46193287, y: -0.008203267, z: -0.017004859, w: 0.8867139}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pulisonki.R_end
+      parentName: pulisonki.R
+      position: {x: -0, y: 0.00184465, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leuka
+      parentName: "p\xE4\xE4"
+      position: {x: -5.6937946e-16, y: -0.000000002591405, z: -1.4901161e-10}
+      rotation: {x: 0.00000013876664, y: 0.57033044, z: 0.82141536, w: 0.000000065758705}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: leuka_end
+      parentName: leuka
+      position: {x: -0, y: 0.0029141766, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: silma
+      parentName: "p\xE4\xE4"
+      position: {x: -0.0011103081, y: 0.002587254, z: 0.002075856}
+      rotation: {x: 0.9998037, y: -6.076821e-15, z: -8.441534e-15, w: 0.01981209}
+      scale: {x: -0.05570488, y: -0.05570488, z: -0.05570489}
+    - name: kylkiluu.L
+      parentName: "selk\xE4.L.001"
+      position: {x: -9.322321e-12, y: 0.0055297995, z: -4.1909514e-11}
+      rotation: {x: -0.6558611, y: 0.19491875, z: 0.69419, w: 0.22350204}
+      scale: {x: 0.99999964, y: 0.99999994, z: 1}
+    - name: kylkiluu.L_end
+      parentName: kylkiluu.L
+      position: {x: -0, y: 0.00836377, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: kylkiluu.R
+      parentName: "selk\xE4.L.001"
+      position: {x: -1.8635546e-11, y: 0.0055297995, z: 3.4924594e-11}
+      rotation: {x: 0.65586174, y: 0.19491792, z: 0.69419, w: -0.22350109}
+      scale: {x: 1.0000004, y: 1, z: 0.9999999}
+    - name: kylkiluu.R_end
+      parentName: kylkiluu.R
+      position: {x: -0, y: 0.00836377, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: solisluu.L
+      parentName: "selk\xE4.L.001"
+      position: {x: -9.322321e-12, y: 0.0055297995, z: -4.1909514e-11}
+      rotation: {x: -0.5060081, y: 0.43261182, z: 0.5542676, w: 0.49959013}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000002}
+    - name: solisluu.L_end
+      parentName: solisluu.L
+      position: {x: -0, y: 0.007100621, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: solisluu.R
+      parentName: "selk\xE4.L.001"
+      position: {x: 1.2106284e-10, y: 0.0055297995, z: -1.6996636e-10}
+      rotation: {x: 0.5060077, y: 0.4326122, z: 0.55426705, w: -0.49959084}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1}
+    - name: solisluu.R_end
+      parentName: solisluu.R
+      position: {x: -0, y: 0.007100621, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: peruuki
+      parentName: miekkailija_v5.1(Clone)
+      position: {x: -0.000000007450581, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: -0.00000003090863, z: -0.000000030908616, w: 0.7071068}
+      scale: {x: 100, y: 100, z: 100}
+    - name: ruho
+      parentName: miekkailija_v5.1(Clone)
+      position: {x: -0.000000007450581, y: 0, z: -0.0841087}
+      rotation: {x: -0.7071068, y: -0.000000030908623, z: -0.000000030908623, w: 0.7071068}
+      scale: {x: 100, y: 100, z: 100}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -260,10 +1223,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

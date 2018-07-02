@@ -7370,12 +7370,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1383807987}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ROOTmotionv5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1383807987
 Transform:
   m_ObjectHideFlags: 0
@@ -8286,9 +8286,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76df20cee5222849938cc0bd27558eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horOne: 0
-  horTwo: 0
-  timer: 0
+  horL: 0
+  horR: 0
+  horDpad: 0
+  verL: 0
+  verR: 0
+  verDpad: 0
+  LT: 0
+  RT: 0
+  buttonLB: 0
+  buttonRB: 0
+  buttonA: 0
+  buttonB: 0
+  buttonX: 0
+  buttonY: 0
+  buttonStart: 0
 --- !u!54 &1575713361
 Rigidbody:
   m_ObjectHideFlags: 0

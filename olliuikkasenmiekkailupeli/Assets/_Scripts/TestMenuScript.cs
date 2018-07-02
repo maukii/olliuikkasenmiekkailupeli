@@ -1,23 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class MoveScript : MonoBehaviour
+public class TestMenuScript : MonoBehaviour
 {
+    public GameObject player1;
+    public GameObject player2;
+
     public float horL, horR, horDpad, verL, verR, verDpad, LT, RT;
     public bool buttonLB, buttonRB, buttonA, buttonB, buttonX, buttonY, buttonStart;
 
-    void Start()
+    public bool isPressed;
+
+    void Start ()
     {
-        
+
     }
 
-    void Update()
+	void Update ()
     {
         SelectInput();
 
-        //Huom! Triggereissä arvot Xbox-ohjaimilla 0 -> 1 ja PS4-ohjaimilla -1 -> 1
-        //Rajoita myös pelaajien min. ja max. distancea toisistaan
+        if (Input.anyKeyDown)
+        {
+            //Keyboard and mouse
+            isPressed = true;
+
+            if (isPressed)
+            {
+                isPressed = false;
+            }
+        }
     }
 
     void SelectInput()

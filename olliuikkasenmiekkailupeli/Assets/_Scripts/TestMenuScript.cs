@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class TestMenuScript : MonoBehaviour
 {
-    public Text P1_ControllerType, P2_ControllerType, TooManyControllers;
+    public Text P1_ControllerType, P2_ControllerType;
 
     void Start ()
     {

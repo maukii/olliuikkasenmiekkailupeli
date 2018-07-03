@@ -56,10 +56,13 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
+        ControllerCheck();
+        /*
         if (Input.GetKeyUp(KeyCode.F1))
         {
             ControllerCheck();
         }
+        */
 
         ChooseInput();
     }

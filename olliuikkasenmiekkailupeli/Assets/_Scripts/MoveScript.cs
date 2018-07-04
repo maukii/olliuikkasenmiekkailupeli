@@ -9,15 +9,40 @@ public class MoveScript : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
+        //Huom! Kirjoita Tag():iin vasemman ja oikean pelaajan objektien nimet
+        Tag();
         SelectInput();
 
         //Huom! Triggereissä arvot Xbox-ohjaimilla 0 -> 1 ja PS4-ohjaimilla -1 -> 1
         //Rajoita myös pelaajien min. ja max. distancea toisistaan
+    }
+
+    void Tag()
+    {
+        if (TestMenuScript.MS.isLeftP1 && this.gameObject.name == "") //tähän vasemman nimi
+        {
+            this.gameObject.tag = "Player 1";
+        }
+
+        if (TestMenuScript.MS.isRightP1 && this.gameObject.name == "") //tähän oikean nimi
+        {
+            this.gameObject.tag = "Player 1";
+        }
+
+        if (TestMenuScript.MS.isLeftP2 && this.gameObject.name == "") //tähän vasemman nimi
+        {
+            this.gameObject.tag = "Player 2";
+        }
+
+        if (TestMenuScript.MS.isRightP2 && this.gameObject.name == "") //tähän oikean nimi
+        {
+            this.gameObject.tag = "Player 2";
+        }
     }
 
     void SelectInput()

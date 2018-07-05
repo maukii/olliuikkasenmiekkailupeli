@@ -9,17 +9,17 @@ public class MoveScript : MonoBehaviour
 
     void Start()
     {
-
-    }
-
-    void Update()
-    {
         //Huom! Kirjoita Tag():iin vasemman ja oikean pelaajan objektien nimet
         Tag();
         SelectInput();
 
         //Huom! Triggereissä arvot Xbox-ohjaimilla 0 -> 1 ja PS4-ohjaimilla -1 -> 1
         //Rajoita myös pelaajien min. ja max. distancea toisistaan
+    }
+
+    void Update()
+    {
+
     }
 
     void Tag()

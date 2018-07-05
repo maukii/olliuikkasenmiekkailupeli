@@ -53,9 +53,21 @@ public class InputManager : MonoBehaviour
 
     public static InputManager IM;
 
+    void Awake()
+    {
+        if (IM == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            IM = this;
+        }
+        else if (IM != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
-        IM = this;
         ControllerCheck();
     }
 

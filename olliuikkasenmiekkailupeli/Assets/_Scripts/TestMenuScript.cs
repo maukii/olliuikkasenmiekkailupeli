@@ -9,6 +9,7 @@ public class TestMenuScript : MonoBehaviour
     //Ensimmäinen pelaaja joka painaa A/X-nappia määritetään Pelaaja 1:ksi
     //Toinen pelaaja joka painaa A/X-nappia määritetään Pelaaja 2:ksi
     //Pelihahmojen tagit muutetaan MoveScriptissä
+    //Tämä script varmaankin toiseen gameobjektiin kuin InputManager
 
     public Text L_ControllerType, R_ControllerType, L_CharacterChoose, R_CharacterChoose, L_Ready, R_Ready; //Muista laittaa tekstit, kuvat yms. näihin
     public Transform L, R; //Muista laittaa pelaajat näihin
@@ -17,7 +18,7 @@ public class TestMenuScript : MonoBehaviour
 
     public bool isLeftP1, isLeftP2, isRightP1, isRightP2, isLeftChoosing, isRightChoosing, isLeftReady, isRightReady;
 
-    public static TestMenuScript MS;
+    public static TestMenuScript MS;  //Vaihda nimi varsinaiseen scriptiin
 
     void Start()
     {

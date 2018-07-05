@@ -46,6 +46,11 @@ public class InputManager : MonoBehaviour
     public bool isKeyboardAndMouseP1;
     public bool isKeyboardAndMouseP2;
 
+    public bool isLeftP1;
+    public bool isLeftP2;
+    public bool isRightP1;
+    public bool isRightP2;
+
     public static InputManager IM;
 
     void Start()
@@ -58,6 +63,7 @@ public class InputManager : MonoBehaviour
     {
         ControllerCheck();
         ChooseInput();
+        SideCheck();
     }
     
     void ControllerCheck()
@@ -200,6 +206,14 @@ public class InputManager : MonoBehaviour
             P2_Y = Input.GetKey(KeyCode.Joystick2Button3);
             P2_Start = Input.GetKey(KeyCode.Joystick2Button9);
         }
+    }
+
+    void SideCheck()
+    {
+        isLeftP1 = TestMenuScript.MS.isLeftP1; //Muista vaihtaa oikean scriptin nimiseksi
+        isLeftP2 = TestMenuScript.MS.isLeftP2;
+        isRightP1 = TestMenuScript.MS.isRightP1;
+        isRightP2 = TestMenuScript.MS.isRightP2;
     }
 }
 /*

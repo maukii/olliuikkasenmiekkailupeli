@@ -548,24 +548,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 437547358}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c76df20cee5222849938cc0bd27558eb, type: 3}
+  m_Script: {fileID: 11500000, guid: acedc009730601049874bc6c6047150a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horL: 0
-  horR: 0
-  horDpad: 0
-  verL: 0
-  verR: 0
-  verDpad: 0
-  LT: 0
-  RT: 0
-  buttonLB: 0
-  buttonRB: 0
-  buttonA: 0
-  buttonB: 0
-  buttonX: 0
-  buttonY: 0
-  buttonStart: 0
 --- !u!4 &437547361 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400062, guid: f94f2b1e0ce4d0544b846e4687585e3b, type: 3}
@@ -631,7 +616,7 @@ GameObject:
   - component: {fileID: 611029377}
   - component: {fileID: 611029376}
   m_Layer: 0
-  m_Name: MenuManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -684,6 +669,10 @@ MonoBehaviour:
   isPSControllerP2: 0
   isKeyboardAndMouseP1: 0
   isKeyboardAndMouseP2: 0
+  isLeftP1: 0
+  isLeftP2: 0
+  isRightP1: 0
+  isRightP2: 0
 --- !u!114 &611029377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,24 +808,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1404078864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c76df20cee5222849938cc0bd27558eb, type: 3}
+  m_Script: {fileID: 11500000, guid: acedc009730601049874bc6c6047150a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horL: 0
-  horR: 0
-  horDpad: 0
-  verL: 0
-  verR: 0
-  verDpad: 0
-  LT: 0
-  RT: 0
-  buttonLB: 0
-  buttonRB: 0
-  buttonA: 0
-  buttonB: 0
-  buttonX: 0
-  buttonY: 0
-  buttonStart: 0
 --- !u!4 &1404078867 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400062, guid: f94f2b1e0ce4d0544b846e4687585e3b, type: 3}

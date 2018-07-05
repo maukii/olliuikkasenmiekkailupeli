@@ -88,8 +88,6 @@ public class TestMenuScript : MonoBehaviour
 
     void CharacterPick()
     {
-        //Tässä pelaaja valitsee hahmonsa
-
         if (isLeftP1 || isLeftP2)
         {
             L_ControllerType.enabled = false;
@@ -104,6 +102,66 @@ public class TestMenuScript : MonoBehaviour
             R_CharacterChoose.enabled = true;
 
             isRightChoosing = true;
+        }
+
+        //Tässä pelaaja valitsee hahmonsa
+
+        if (isLeftChoosing)
+        {
+            if (L.gameObject.tag == "Player 1" && isLeftReady == false)
+            {
+                if (InputManager.IM.P1_LS_X < 0)
+                {
+                    L.transform.Rotate(0, 1, 0);    //Hahmon pyöriminen laitettu vain testauksen takia
+                }
+
+                if (InputManager.IM.P1_LS_X > 0)
+                {
+                    L.transform.Rotate(0, -1, 0);
+                }
+            }
+
+            if (L.gameObject.tag == "Player 2" && isLeftReady == false)
+            {
+                if (InputManager.IM.P2_LS_X < 0)
+                {
+                    L.transform.Rotate(0, 1, 0);
+                }
+
+                if (InputManager.IM.P2_LS_X > 0)
+                {
+                    L.transform.Rotate(0, -1, 0);
+                }
+            }
+        }
+
+        if (isRightChoosing)
+        {
+            if (R.gameObject.tag == "Player 1" && isRightReady == false)
+            {
+                if (InputManager.IM.P1_LS_X < 0)
+                {
+                    R.transform.Rotate(0, 1, 0);
+                }
+
+                if (InputManager.IM.P1_LS_X > 0)
+                {
+                    R.transform.Rotate(0, -1, 0);
+                }
+            }
+
+            if (R.gameObject.tag == "Player 2" && isRightReady == false)
+            {
+                if (InputManager.IM.P2_LS_X < 0)
+                {
+                    R.transform.Rotate(0, 1, 0);
+                }
+
+                if (InputManager.IM.P2_LS_X > 0)
+                {
+                    R.transform.Rotate(0, -1, 0);
+                }
+            }
         }
     }
 
@@ -154,6 +212,22 @@ public class TestMenuScript : MonoBehaviour
             isLeftChoosing = false;
             L_CharacterChoose.enabled = false;
             L_Ready.enabled = true;
+
+            if (L.gameObject.tag == "Player 1" && InputManager.IM.P1_B)
+            {
+                L_Ready.enabled = false;
+                L_CharacterChoose.enabled = true;
+                isLeftChoosing = true;
+                isLeftReady = false;
+            }
+
+            if (L.gameObject.tag == "Player 2" && InputManager.IM.P2_B)
+            {
+                L_Ready.enabled = false;
+                L_CharacterChoose.enabled = true;
+                isLeftChoosing = true;
+                isLeftReady = false;
+            }
         }
 
         if (isRightReady)
@@ -161,6 +235,22 @@ public class TestMenuScript : MonoBehaviour
             isRightChoosing = false;
             R_CharacterChoose.enabled = false;
             R_Ready.enabled = true;
+
+            if (R.gameObject.tag == "Player 1" && InputManager.IM.P1_B)
+            {
+                R_Ready.enabled = false;
+                R_CharacterChoose.enabled = true;
+                isRightChoosing = true;
+                isRightReady = false;
+            }
+
+            if (R.gameObject.tag == "Player 2" && InputManager.IM.P2_B)
+            {
+                R_Ready.enabled = false;
+                R_CharacterChoose.enabled = true;
+                isRightChoosing = true;
+                isRightReady = false;
+            }
         }
     }
 }

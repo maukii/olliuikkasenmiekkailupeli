@@ -60,6 +60,7 @@ public class InputManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             IM = this;
         }
+
         else if (IM != this)
         {
             Destroy(gameObject);

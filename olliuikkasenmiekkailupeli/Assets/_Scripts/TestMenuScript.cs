@@ -10,7 +10,8 @@ public class TestMenuScript : MonoBehaviour
     //Toinen pelaaja joka painaa A/X-nappia määritetään Pelaaja 2:ksi
     //Pelihahmojen tagit muutetaan MoveScriptissä
 
-    public Text L_ControllerType, R_ControllerType, L_CharacterChoose, R_CharacterChoose, L_Ready, R_Ready;
+    public Text L_ControllerType, R_ControllerType, L_CharacterChoose, R_CharacterChoose, L_Ready, R_Ready; //Muista laittaa tekstit, kuvat yms. näihin
+    public Transform L, R; //Muista laittaa pelaajat näihin
     public float timerLeft = 0.5f;
     public float timerRight = 0.5f;
 
@@ -31,11 +32,9 @@ public class TestMenuScript : MonoBehaviour
     void Update()
     {
         ControllerType();
-        SideCheck();            //BUGI! Toinen pelaaja voi painaa toisen readyksi, jos ei ole vielä itse painanut.
+        SideCheck();
         CharacterPick();
         PlayersReady();
-
-        //Heitä oikeat tagit InputManageriin
     }
 
     void ControllerType()
@@ -117,7 +116,12 @@ public class TestMenuScript : MonoBehaviour
             {
                 timerLeft = 0f;
 
-                if (InputManager.IM.P1_A || InputManager.IM.P2_A) //Tässä aiemmin mainittu bugi... mieti miten erotellaan inputit
+                if (L.gameObject.tag == "Player 1" && InputManager.IM.P1_A)
+                {
+                    isLeftReady = true;
+                }
+
+                if (L.gameObject.tag == "Player 2" && InputManager.IM.P2_A)
                 {
                     isLeftReady = true;
                 }
@@ -132,7 +136,12 @@ public class TestMenuScript : MonoBehaviour
             {
                 timerRight = 0f;
 
-                if (InputManager.IM.P1_A || InputManager.IM.P2_A)
+                if (R.gameObject.tag == "Player 1" && InputManager.IM.P1_A)
+                {
+                    isRightReady = true;
+                }
+
+                if (R.gameObject.tag == "Player 2" && InputManager.IM.P2_A)
                 {
                     isRightReady = true;
                 }

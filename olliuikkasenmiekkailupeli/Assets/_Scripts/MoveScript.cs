@@ -24,22 +24,22 @@ public class MoveScript : MonoBehaviour
 
     void Tag()
     {
-        if (TestMenuScript.MS.isLeftP1 && this.gameObject.name == "") //tähän vasemman nimi
+        if (TestMenuScript.MS.isLeftP1 && this.gameObject.name == "L") //tähän vasemman nimi
         {
             this.gameObject.tag = "Player 1";
         }
 
-        if (TestMenuScript.MS.isRightP1 && this.gameObject.name == "") //tähän oikean nimi
+        if (TestMenuScript.MS.isRightP1 && this.gameObject.name == "R") //tähän oikean nimi
         {
             this.gameObject.tag = "Player 1";
         }
 
-        if (TestMenuScript.MS.isLeftP2 && this.gameObject.name == "") //tähän vasemman nimi
+        if (TestMenuScript.MS.isLeftP2 && this.gameObject.name == "L") //tähän vasemman nimi
         {
             this.gameObject.tag = "Player 2";
         }
 
-        if (TestMenuScript.MS.isRightP2 && this.gameObject.name == "") //tähän oikean nimi
+        if (TestMenuScript.MS.isRightP2 && this.gameObject.name == "R") //tähän oikean nimi
         {
             this.gameObject.tag = "Player 2";
         }

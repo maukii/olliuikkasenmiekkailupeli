@@ -1334,7 +1334,7 @@ GameObject:
   - component: {fileID: 458987268}
   - component: {fileID: 458987271}
   - component: {fileID: 458987272}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "ter\xE4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2116,7 +2116,7 @@ GameObject:
   - component: {fileID: 631383645}
   - component: {fileID: 631383648}
   - component: {fileID: 631383649}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "ter\xE4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2391,6 +2391,7 @@ GameObject:
   - component: {fileID: 648964807}
   - component: {fileID: 648964806}
   - component: {fileID: 648964808}
+  - component: {fileID: 648964809}
   m_Layer: 0
   m_Name: miekkamies
   m_TagString: Player
@@ -2451,7 +2452,21 @@ MonoBehaviour:
   Inputframe: 0
   swordSwinging: 0
   AnimSpeed: 0.5
-  InputAnimSpeed: 0.25
+  InputAnimSpeed: 0.2
+--- !u!114 &648964809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 648964805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd64151776d61944aec367df9651f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  otherAnim: {fileID: 1668103659}
+  CollisionTimeWeak: 0.3
+  CollisionTimeStrong: 0.7
 --- !u!1 &656537595
 GameObject:
   m_ObjectHideFlags: 0
@@ -5781,13 +5796,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1668103656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9398323950353cc43835db5f69725b85, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fd64151776d61944aec367df9651f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SparkPrefab: {fileID: 0}
-  DEBUG_RaveMode: 0
-  animSpeed: 0
-  collide: 0
+  otherAnim: {fileID: 648964806}
+  CollisionTimeWeak: 0.3
+  CollisionTimeStrong: 0.7
 --- !u!114 &1668103658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5801,13 +5815,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DEBUG_NoInput: 1
   AdditiveStanceInput: 1
-  AdditiveInverted: 0
+  AdditiveInverted: 1
   AddStanceId: 1
   inside: 0
   Inputframe: 0
   swordSwinging: 0
-  AnimSpeed: 0.5
-  InputAnimSpeed: 0.25
+  AnimSpeed: 0.2
+  InputAnimSpeed: 0.1
 --- !u!95 &1668103659
 Animator:
   serializedVersion: 3

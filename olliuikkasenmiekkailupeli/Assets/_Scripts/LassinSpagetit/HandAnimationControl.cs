@@ -16,9 +16,8 @@ public class HandAnimationControl : MonoBehaviour {
     public float InputAnimSpeed = 0.5f;
     bool vitunTriggeritL = false;
     bool vitunTriggeritR = false;
-
-
     Animator anim;
+    public List<string>[] mo;
 	// Use this for initialization
 	void Start () {
         anim = gameObject.GetComponent<Animator>();
@@ -78,7 +77,7 @@ public class HandAnimationControl : MonoBehaviour {
                 {
                     AddStanceId = 0;
                 }
-                UpdateStance(AddStanceId);
+                
             }
 
             if (Input.GetAxis("R2") != 0 && !swordSwinging && !vitunTriggeritR)
@@ -130,6 +129,11 @@ public class HandAnimationControl : MonoBehaviour {
                 vitunTriggeritR = false;
             }
         }
+        if (AdditiveStanceInput)
+        {
+            UpdateStance(AddStanceId);
+        }
+        
     }
     void Swing()
     {
@@ -156,20 +160,12 @@ public class HandAnimationControl : MonoBehaviour {
         anim.SetFloat("Strong", 0);
         SwapInside();
     }
-    void SwapHanging()
+   public void SwapHanging()
     {
         if (!AdditiveStanceInput)
         {
-            if (hanging == 0)
-            {
-                hanging = 1;
-                anim.SetFloat("Hanging", 1);
-            }
-            else
-            {
-                hanging = 0;
-                anim.SetFloat("Hanging", 0);
-            }
+            hanging = hanging == 0 ? hanging = 1 : hanging = 0;
+            anim.SetFloat("Hanging", hanging);
         }
         else
         {
@@ -183,20 +179,12 @@ public class HandAnimationControl : MonoBehaviour {
             }
         }
     }
-    void SwapInside()
+    public void SwapInside()
     {
         if (!AdditiveStanceInput)
         {
-            if (inside == 0)
-            {
-                inside = 1;
-                anim.SetFloat("Inside", 1);
-            }
-            else
-            {
-                inside = 0;
-                anim.SetFloat("Inside", 0);
-            }
+            inside = inside == 0 ? inside = 1 : inside = 0;
+            anim.SetFloat("Inside", inside);
         }
         else
         {
@@ -228,7 +216,7 @@ public class HandAnimationControl : MonoBehaviour {
     float GetHanging()
     {
         hanging = anim.GetFloat("Hanging");
-        return inside;
+        return hanging;
     }
     void UpdateStance(int stanceId)
     {

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e1b4b306ddc1dd409f51ba5f9d85efb, type: 3}
+  m_Name: TransitionGroupData
+  m_EditorClassIdentifier: 
+  TransitionGroupsNames:
+  - StanceSwap
+  - Instant
+  TransitionGroups:
+  - Transitions:
+    - {fileID: 1101598533947510548, guid: ec9460ae0ca49614588ef0ca02d138a5, type: 2}
+    - {fileID: 1101981992837507536, guid: ec9460ae0ca49614588ef0ca02d138a5, type: 2}
+    - {fileID: 1101249645291068770, guid: ec9460ae0ca49614588ef0ca02d138a5, type: 2}
+    - {fileID: 1101056726046763332, guid: ec9460ae0ca49614588ef0ca02d138a5, type: 2}
+    - {fileID: 1101372066744950786, guid: ec9460ae0ca49614588ef0ca02d138a5, type: 2}
+    - {fileID: 1101780492078649468, guid: ec9460ae0ca49614588ef0ca02d138a5, type: 2}
+  - Transitions:
+    - {fileID: 1101167555226216278, guid: ec9460ae0ca49614588ef0ca02d138a5, type: 2}
+    - {fileID: 1101166174550461736, guid: ec9460ae0ca49614588ef0ca02d138a5, type: 2}
+    - {fileID: 1101527504824885326, guid: ec9460ae0ca49614588ef0ca02d138a5, type: 2}
+    - {fileID: 1101528056916665522, guid: ec9460ae0ca49614588ef0ca02d138a5, type: 2}
+    - {fileID: 1101157912829455344, guid: ec9460ae0ca49614588ef0ca02d138a5, type: 2}
+    - {fileID: 1101825741350424564, guid: ec9460ae0ca49614588ef0ca02d138a5, type: 2}
+    - {fileID: 1101149024974735066, guid: ec9460ae0ca49614588ef0ca02d138a5, type: 2}
+    - {fileID: 1101802131009671444, guid: ec9460ae0ca49614588ef0ca02d138a5, type: 2}

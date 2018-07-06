@@ -720,6 +720,7 @@ MonoBehaviour:
   R_Ready: {fileID: 1707877580}
   L: {fileID: 1404078867}
   R: {fileID: 437547361}
+  cam: {fileID: 1390132349}
   timerLeft: 0.5
   timerRight: 0.5
   isLeftP1: 0
@@ -754,6 +755,8 @@ GameObject:
   - component: {fileID: 1390132352}
   - component: {fileID: 1390132351}
   - component: {fileID: 1390132350}
+  - component: {fileID: 1390132355}
+  - component: {fileID: 1390132354}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -818,12 +821,48 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1390132349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0.01, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1390132354
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1390132349}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!320 &1390132355
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1390132349}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: cb68a8ff7a4641c49a7a913d22854e1e, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 0
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 114353852227001920, guid: cb68a8ff7a4641c49a7a913d22854e1e, type: 2}
+    value: {fileID: 1390132349}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &1404078864 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100062, guid: f94f2b1e0ce4d0544b846e4687585e3b, type: 3}

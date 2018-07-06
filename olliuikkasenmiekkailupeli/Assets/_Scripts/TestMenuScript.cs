@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -36,6 +37,7 @@ public class TestMenuScript : MonoBehaviour
         SideCheck();
         CharacterPick();
         PlayersReady();
+        MoveCamera();
     }
 
     void ControllerType()
@@ -251,6 +253,17 @@ public class TestMenuScript : MonoBehaviour
                 isRightChoosing = true;
                 isRightReady = false;
             }
+        }
+    }
+
+    void MoveCamera()
+    {
+        if (isLeftReady && isRightReady)
+        {
+            L_Ready.enabled = false;
+            R_Ready.enabled = false;
+
+            Camera.main.GetComponent<PlayableDirector>().Play();
         }
     }
 }

@@ -809,6 +809,7 @@ GameObject:
   - component: {fileID: 282840813}
   - component: {fileID: 282840811}
   - component: {fileID: 282840812}
+  - component: {fileID: 282840815}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -888,6 +889,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
+--- !u!114 &282840815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 282840810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6321ab3b87c23b46bdd02f288c735c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  P1_LS_X: 0
+  P1_LS_Y: 0
+  P1_RS_X: 0
+  P1_RS_Y: 0
+  P1_Dpad_X: 0
+  P1_Dpad_Y: 0
+  P1_LT: 0
+  P1_RT: 0
+  P1_LB: 0
+  P1_RB: 0
+  P1_A: 0
+  P1_B: 0
+  P1_X: 0
+  P1_Y: 0
+  P1_Start: 0
+  P2_LS_X: 0
+  P2_LS_Y: 0
+  P2_RS_X: 0
+  P2_RS_Y: 0
+  P2_Dpad_X: 0
+  P2_Dpad_Y: 0
+  P2_LT: 0
+  P2_RT: 0
+  P2_LB: 0
+  P2_RB: 0
+  P2_A: 0
+  P2_B: 0
+  P2_X: 0
+  P2_Y: 0
+  P2_Start: 0
+  isXboxControllerP1: 0
+  isXboxControllerP2: 0
+  isPSControllerP1: 0
+  isPSControllerP2: 0
+  isKeyboardAndMouseP1: 0
+  isKeyboardAndMouseP2: 0
+  isTooManyControllers: 0
 --- !u!1 &333044022
 GameObject:
   m_ObjectHideFlags: 0
@@ -3172,6 +3221,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: -10
       objectReference: {fileID: 0}
+    - target: {fileID: 100064, guid: 8610706d3b13c8a408b2307ec417161c, type: 3}
+      propertyPath: m_TagString
+      value: Player 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8610706d3b13c8a408b2307ec417161c, type: 3}
   m_IsPrefabParent: 0
@@ -3746,6 +3799,10 @@ Prefab:
       propertyPath: m_Name
       value: miekkamies_moving (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100064, guid: 8610706d3b13c8a408b2307ec417161c, type: 3}
+      propertyPath: m_TagString
+      value: Player 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8610706d3b13c8a408b2307ec417161c, type: 3}
   m_IsPrefabParent: 0
@@ -3757,7 +3814,7 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 400064, guid: 8610706d3b13c8a408b2307ec417161c, type: 3}
   m_PrefabInternal: {fileID: 988405790}
---- !u!114 &988405793
+--- !u!114 &988405794
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -3765,12 +3822,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 988405791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 405cce680738fcc469cb621f6bddd313, type: 3}
+  m_Script: {fileID: 11500000, guid: c76df20cee5222849938cc0bd27558eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horTwo: 0
-  timer: 0
-  deadZone: 0.15
+  horL: 0
+  horR: 0
+  horDpad: 0
+  verL: 0
+  verR: 0
+  verDpad: 0
+  LT: 0
+  RT: 0
+  buttonLB: 0
+  buttonRB: 0
+  buttonA: 0
+  buttonB: 0
+  buttonX: 0
+  buttonY: 0
+  buttonStart: 0
 --- !u!1 &1009833278
 GameObject:
   m_ObjectHideFlags: 0
@@ -4287,7 +4356,11 @@ MeshFilter:
 GameObject:
   m_PrefabParentObject: {fileID: 100064, guid: 8610706d3b13c8a408b2307ec417161c, type: 3}
   m_PrefabInternal: {fileID: 865045990}
---- !u!114 &1175837314
+--- !u!4 &1175837315 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400064, guid: 8610706d3b13c8a408b2307ec417161c, type: 3}
+  m_PrefabInternal: {fileID: 865045990}
+--- !u!114 &1175837316
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -4295,16 +4368,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1175837313}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13fa86f79f89a9f42b98a265a51876da, type: 3}
+  m_Script: {fileID: 11500000, guid: c76df20cee5222849938cc0bd27558eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horOne: 0
-  timer: 0
-  deadZone: 0.15
---- !u!4 &1175837315 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400064, guid: 8610706d3b13c8a408b2307ec417161c, type: 3}
-  m_PrefabInternal: {fileID: 865045990}
+  horL: 0
+  horR: 0
+  horDpad: 0
+  verL: 0
+  verR: 0
+  verDpad: 0
+  LT: 0
+  RT: 0
+  buttonLB: 0
+  buttonRB: 0
+  buttonA: 0
+  buttonB: 0
+  buttonX: 0
+  buttonY: 0
+  buttonStart: 0
 --- !u!4 &1198241978 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400008, guid: 30b30746de102df4e87e8db76b0505c3, type: 3}
@@ -5214,9 +5295,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76df20cee5222849938cc0bd27558eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horOne: 0
-  horTwo: 0
-  timer: 0
+  horL: 0
+  horR: 0
+  horDpad: 0
+  verL: 0
+  verR: 0
+  verDpad: 0
+  LT: 0
+  RT: 0
+  buttonLB: 0
+  buttonRB: 0
+  buttonA: 0
+  buttonB: 0
+  buttonX: 0
+  buttonY: 0
+  buttonStart: 0
 --- !u!54 &1575713361
 Rigidbody:
   m_ObjectHideFlags: 0

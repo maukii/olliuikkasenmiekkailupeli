@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+
     [Header("Player 1")]
     public float P1_LS_X;
     public float P1_LS_Y;
@@ -98,19 +99,37 @@ public class InputManager : MonoBehaviour
                 isPSControllerP1 = true;
                 isKeyboardAndMouseP1 = false;
             }
-
-            if (names[1].Contains("XBOX 360") || names[1].Contains("Xbox One"))
+            if(names.Length > 1)
             {
-                Debug.Log(names[1] + " detected as joystick 2");
-                isXboxControllerP2 = true;
-                isKeyboardAndMouseP2 = false;
-            }
+                if (names[1].Contains("XBOX 360") || names[1].Contains("Xbox One"))
+                {
+                    Debug.Log(names[1] + " detected as joystick 2");
+                    isXboxControllerP2 = true;
+                    isKeyboardAndMouseP2 = false;
+                }
 
-            if (names[1].Contains("PLAYSTATION") || names[1].Contains("Wireless Controller"))
-            {
-                Debug.Log(names[1] + " detected as joystick 2");
-                isPSControllerP2 = true;
-                isKeyboardAndMouseP2 = false;
+                if (names[1].Contains("PLAYSTATION") || names[1].Contains("Wireless Controller"))
+                {
+                    Debug.Log(names[1] + " detected as joystick 2");
+                    isPSControllerP2 = true;
+                    isKeyboardAndMouseP2 = false;
+                }
+
+                if (names[0].Length == 0 && names[1].Length > 0)
+                {
+                    Debug.Log("Can't find joystick 1, using keyboard and mouse");
+                    isXboxControllerP1 = false;
+                    isPSControllerP1 = false;
+                    isKeyboardAndMouseP1 = true;
+                }
+
+                if (names[1].Length == 0 && names[0].Length > 0)
+                {
+                    Debug.Log("Can't find joystick 2, using keyboard and mouse");
+                    isXboxControllerP2 = false;
+                    isPSControllerP2 = false;
+                    isKeyboardAndMouseP2 = true;
+                }
             }
         }
 
@@ -122,22 +141,6 @@ public class InputManager : MonoBehaviour
             isPSControllerP1 = false;
             isPSControllerP2 = false;
             isKeyboardAndMouseP1 = true;
-            isKeyboardAndMouseP2 = true;
-        }
-
-        if (names[0].Length == 0 && names[1].Length > 0)
-        {
-            Debug.Log("Can't find joystick 1, using keyboard and mouse");
-            isXboxControllerP1 = false;
-            isPSControllerP1 = false;
-            isKeyboardAndMouseP1 = true;
-        }
-
-        if (names[1].Length == 0 && names[0].Length > 0)
-        {
-            Debug.Log("Can't find joystick 2, using keyboard and mouse");
-            isXboxControllerP2 = false;
-            isPSControllerP2 = false;
             isKeyboardAndMouseP2 = true;
         }
     }

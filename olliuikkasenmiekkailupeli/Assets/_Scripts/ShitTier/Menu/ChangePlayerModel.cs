@@ -70,7 +70,7 @@ public class ChangePlayerModel : MonoBehaviour
             {
                 locked = true;
                 readyText.gameObject.SetActive(true);
-                //GameHandler.instance.player1Model = activeModel;
+                //GameHandler.instance.
             }
         }
     }

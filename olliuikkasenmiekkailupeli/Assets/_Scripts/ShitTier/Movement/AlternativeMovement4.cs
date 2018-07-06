@@ -4,23 +4,38 @@ using UnityEngine;
 
 public class AlternativeMovement4 : MonoBehaviour
 {
+    public bool facingRight = false;
 
     public float hor, ver;
     Animator anim;
 
     [Header("----- Player Movement Axis Names -----")]
-    public string horizontal;
-    public string vertical;
-    public KeyCode action;
-    public float attackTimer;
+    public string horizontal = "Horizontal";
+    public string vertical = "Vertical";
 
     public float inputX, inputY;
     public float speed = 3f;
 
     [Header("--- Inputs ---")]
+    public int controllerNumber;
     public bool forward;
     public bool back;
     // up, down
+
+    [ExecuteInEditMode]
+    private void Awake()
+    {
+        if (facingRight)
+        {
+            transform.parent.transform.position = new Vector3(transform.parent.transform.position.x, transform.parent.transform.position.y - 1f, transform.parent.transform.position.z);
+            transform.parent.Rotate(-90f, 0f, 0f);
+        }
+        else
+        {
+            transform.parent.transform.position = new Vector3(transform.parent.transform.position.x, transform.parent.transform.position.y - 1f, transform.parent.transform.position.z);
+            transform.parent.transform.Rotate(-90f, 0, 0);
+        }
+    }
 
     void Start()
     {
@@ -36,11 +51,16 @@ public class AlternativeMovement4 : MonoBehaviour
         inputY = Mathf.Clamp(inputY, -1, 1);
 
         Move();
+
+        // TODO: use .CrossFaid to take damage animation clip
+        if (Input.GetKeyDown(KeyCode.Space))
+            AudioManager.instance.PlaySound("swordcollide");
     }
 
     void Move()
     {
 
+        #region inputBools
         if(Input.GetAxisRaw(horizontal) == -1)
         {
             forward = true;
@@ -58,11 +78,13 @@ public class AlternativeMovement4 : MonoBehaviour
         {
             back = false;
         }
+        #endregion
 
         anim.SetFloat("InputX", -hor);
         anim.SetBool("forward", forward);
         anim.SetBool("back", back);
 
+        #region inputX
         //if (hor >= 0.5f && inputX < 1f)
         //{
         //    inputX += speed * Time.deltaTime;
@@ -85,6 +107,7 @@ public class AlternativeMovement4 : MonoBehaviour
         //    anim.SetFloat("InputX", inputX);
         //
         //}
+        #endregion
 
         if (ver >= 0.1f && inputY < 1f)
         {
@@ -104,11 +127,13 @@ public class AlternativeMovement4 : MonoBehaviour
             {
                 inputY = 0f;
             }
-
             anim.SetFloat("InputY", inputY);
-
         }
+    }
 
+    public void PlaySound(string clipName)
+    {
+       AudioManager.instance.PlaySound(clipName);
     }
 
 }

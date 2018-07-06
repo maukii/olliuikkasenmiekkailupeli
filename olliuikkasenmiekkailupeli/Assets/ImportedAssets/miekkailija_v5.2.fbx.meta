@@ -186,6 +186,7 @@ ModelImporter:
     7400028: LungeRetreat
     7400030: LungeAdvanced1
     7400032: IDLE_handup
+    7400034: IDLE_handDOWN
     9500000: //RootNode
     13700000: peruuki
     13700002: ruho
@@ -219,6 +220,9 @@ ModelImporter:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'selk\xE4.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
       'HalfStep' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'selk\xE4.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'Idle' has import animation warnings that might lower retargeting quality:\nNote:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'selk\xE4.L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
       'StepReverse1' has import animation warnings that might lower retargeting quality:\nNote:
@@ -263,10 +267,10 @@ ModelImporter:
       will be discarded.\n\t'reisi.R' has translation animation that will be discarded.\n\nClip
       'IDLE_handup' has import animation warnings that might lower retargeting quality:\nNote:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'selk\xE4.L'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'hauis.R'
-      has translation animation that will be discarded.\n\t'reisi.L' has translation
-      animation that will be discarded.\n\t'reisi.R' has translation animation that
-      will be discarded.\n"
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'IDLE_handDOWN' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'selk\xE4.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -730,7 +734,35 @@ ModelImporter:
     - serializedVersion: 16
       name: IDLE_handup
       takeName: IDLE_handup
-      firstFrame: 13
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: IDLE_handDOWN
+      takeName: IDLE_handDOWN
+      firstFrame: 0
       lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0

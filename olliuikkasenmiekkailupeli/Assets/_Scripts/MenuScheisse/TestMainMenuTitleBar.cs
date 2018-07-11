@@ -6,24 +6,37 @@ using UnityEngine.UI;
 public class TestMainMenuTitleBar : MonoBehaviour
 {
     public Image tb1, tb2, tb3;
+    public Animator anim;
+    public float blend;
 
     void Start()
     {
         tb1.enabled = false;
         tb2.enabled = false;
         tb3.enabled = false;
+
+        anim.SetFloat("Blend", 0);
     }
 
     void Update()
     {
-        if (InputManager.IM.P1_LS_X < 0.01f && InputManager.IM.P1_LS_X >= -0.33f)
+        blend = InputManager.IM.P1_LS_X;
+        anim.SetFloat("Blend", blend);
+
+        CheckSwordPos();
+        Menu();
+    }
+
+    void CheckSwordPos()
+    {
+        if (InputManager.IM.P1_LS_X > 0.65f)
         {
             //Start Game
             tb1.enabled = true;
             tb2.enabled = false;
         }
 
-        if (InputManager.IM.P1_LS_X < -0.33f && InputManager.IM.P1_LS_X >= -0.66f)
+        if (InputManager.IM.P1_LS_X < 0.25f && InputManager.IM.P1_LS_X > -0.15f)
         {
             //Options
             tb1.enabled = false;
@@ -31,7 +44,7 @@ public class TestMainMenuTitleBar : MonoBehaviour
             tb3.enabled = false;
         }
 
-        if (InputManager.IM.P1_LS_X < -0.66f && InputManager.IM.P1_LS_X >= -1f)
+        if (InputManager.IM.P1_LS_X < -0.65f)
         {
             //Exit
             tb2.enabled = false;
@@ -43,16 +56,19 @@ public class TestMainMenuTitleBar : MonoBehaviour
     {
         if (tb1.enabled && Input.GetKey(KeyCode.Space))
         {
+            anim.SetTrigger("Lunge");
             StartGame();
         }
 
         if (tb2.enabled && Input.GetKey(KeyCode.Space))
         {
+            anim.SetTrigger("Lunge");
             Options();
         }
 
         if (tb3.enabled && Input.GetKey(KeyCode.Space))
         {
+            anim.SetTrigger("Lunge");
             QuitGame();
         }
     }

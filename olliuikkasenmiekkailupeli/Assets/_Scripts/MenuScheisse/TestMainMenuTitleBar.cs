@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TestMainMenuTitleBar : MonoBehaviour
 {
-    //Tällä hetkellä Box Collider objektissa 'kämmen.R'
+    //Tällä hetkellä Box Collider objektissa 'kämmen.L'
     public Image bar;
     public bool isTouching;
 

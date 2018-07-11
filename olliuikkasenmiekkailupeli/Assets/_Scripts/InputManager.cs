@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
 
     [Header("Player 1")]
+    public string P1_Hor;
+    public string P1_Ver;
     public float P1_LS_X;
     public float P1_LS_Y;
     public float P1_RS_X;
@@ -23,6 +26,8 @@ public class InputManager : MonoBehaviour
     public bool P1_Start;
 
     [Header("Player 2")]
+    public string P2_Hor;
+    public string P2_Ver;
     public float P2_LS_X;
     public float P2_LS_Y;
     public float P2_RS_X;
@@ -99,6 +104,7 @@ public class InputManager : MonoBehaviour
                 isPSControllerP1 = true;
                 isKeyboardAndMouseP1 = false;
             }
+
             if(names.Length > 1)
             {
                 if (names[1].Contains("XBOX 360") || names[1].Contains("Xbox One"))
@@ -131,6 +137,14 @@ public class InputManager : MonoBehaviour
                     isKeyboardAndMouseP2 = true;
                 }
             }
+
+            if(names.Length == 1) // P2 no controller
+            {
+                isXboxControllerP2 = false;
+                isPSControllerP2 = false;
+                isKeyboardAndMouseP2 = true;
+            }
+
         }
 
         if (names.Length == 0)
@@ -148,7 +162,9 @@ public class InputManager : MonoBehaviour
     void ChooseInput()
     {
         if (isXboxControllerP1)
-        {   
+        {
+            P1_Hor = "Xbox_P1_HorizontalLeft";
+            P1_Ver = "Xbox_P1_VerticalRight";
             P1_LS_X = Input.GetAxis("Xbox_P1_HorizontalLeft");
             P1_LS_Y = Input.GetAxis("Xbox_P1_VerticalLeft");
             P1_RS_X = Input.GetAxis("Xbox_P1_HorizontalRight");
@@ -168,6 +184,8 @@ public class InputManager : MonoBehaviour
 
         if (isXboxControllerP2)
         {
+            P2_Hor = "Xbox_P2_HorizontalLeft";
+            P2_Ver = "Xbox_P2_VerticalRight";
             P2_LS_X = Input.GetAxis("Xbox_P2_HorizontalLeft");
             P2_LS_Y = Input.GetAxis("Xbox_P2_VerticalLeft");
             P2_RS_X = Input.GetAxis("Xbox_P2_HorizontalRight");
@@ -187,6 +205,8 @@ public class InputManager : MonoBehaviour
 
         if (isPSControllerP1)
         {
+            P1_Hor = "PS_P1_HorizontalLeft";
+            P1_Ver = "PS_P1_VerticalRight";
             P1_LS_X = Input.GetAxis("PS_P1_HorizontalLeft");
             P1_LS_Y = Input.GetAxis("PS_P1_VerticalLeft");
             P1_RS_X = Input.GetAxis("PS_P1_HorizontalRight");
@@ -206,6 +226,8 @@ public class InputManager : MonoBehaviour
 
         if (isPSControllerP2)
         {
+            P2_Hor = "PS_P2_HorizontalLeft";
+            P2_Ver = "PS_P2_VerticalRight";
             P2_LS_X = Input.GetAxis("PS_P2_HorizontalLeft");
             P2_LS_Y = Input.GetAxis("PS_P2_VerticalLeft");
             P2_RS_X = Input.GetAxis("PS_P2_HorizontalRight");
@@ -222,15 +244,68 @@ public class InputManager : MonoBehaviour
             P2_Y = Input.GetKey(KeyCode.Joystick2Button3);
             P2_Start = Input.GetKey(KeyCode.Joystick2Button9);
         }
+
+        if(isKeyboardAndMouseP1)
+        {
+            P1_Hor = "Keyboard_P1_Horizontal";
+            P1_Ver = "Keyboard_P1_Vertical";
+            //P1_LS_X = Input.GetAxis("Xbox_P1_HorizontalLeft");
+            //P1_LS_Y = Input.GetAxis("Xbox_P1_VerticalLeft");
+            //P1_RS_X = Input.GetAxis("Xbox_P1_HorizontalRight");
+            //P1_RS_Y = Input.GetAxis("Xbox_P1_VerticalRight");
+            //P1_Dpad_X = Input.GetAxis("Xbox_P1_HorizontalDpad");
+            //P1_Dpad_Y = Input.GetAxis("Xbox_P1_VerticalDpad");
+            //P1_LT = Input.GetAxis("Xbox_P1_LT");
+            //P1_RT = Input.GetAxis("Xbox_P1_RT");
+            //P1_LB = Input.GetKey(KeyCode.Joystick1Button4);
+            //P1_RB = Input.GetKey(KeyCode.Joystick1Button5);
+            P1_A = Input.GetKey(KeyCode.Mouse0);
+            P1_B = Input.GetKey(KeyCode.Mouse1);
+            //P1_X = Input.GetKey(KeyCode.Joystick1Button2);
+            //P1_Y = Input.GetKey(KeyCode.Joystick1Button3);
+            //P1_Start = Input.GetKey(KeyCode.Joystick1Button7);
+        }
+
+        if(isKeyboardAndMouseP2)
+        {
+            P2_Hor = "Keyboard_P2_Horizontal";
+            P2_Ver = "Keyboard_P2_Vertical";
+            //P2_LS_X = Input.GetAxis("Xbox_P2_HorizontalLeft");
+            //P2_LS_Y = Input.GetAxis("Xbox_P2_VerticalLeft");
+            //P2_RS_X = Input.GetAxis("Xbox_P2_HorizontalRight");
+            //P2_RS_Y = Input.GetAxis("Xbox_P2_VerticalRight");
+            //P2_Dpad_X = Input.GetAxis("Xbox_P2_HorizontalDpad");
+            //P2_Dpad_Y = Input.GetAxis("Xbox_P2_VerticalDpad");
+            //P2_LT = Input.GetAxis("Xbox_P2_LT");
+            //P2_RT = Input.GetAxis("Xbox_P2_RT");
+            //P2_LB = Input.GetKey(KeyCode.Joystick2Button4);
+            //P2_RB = Input.GetKey(KeyCode.Joystick2Button5);
+            P2_A = Input.GetKey(KeyCode.Mouse0);
+            P2_B = Input.GetKey(KeyCode.Mouse1);
+            //P2_X = Input.GetKey(KeyCode.Joystick2Button2);
+            //P2_Y = Input.GetKey(KeyCode.Joystick2Button3);
+            //P2_Start = Input.GetKey(KeyCode.Joystick2Button7);
+        }
+
     }
 
     void SideCheck()
     {
-        isLeftP1 = TestMenuScript.MS.isLeftP1; //Muista vaihtaa oikean scriptin nimiseksi
-        isLeftP2 = TestMenuScript.MS.isLeftP2;
-        isRightP1 = TestMenuScript.MS.isRightP1;
-        isRightP2 = TestMenuScript.MS.isRightP2;
+        if(SceneManager.GetActiveScene().name == "MaunoManu")
+        {
+            isLeftP1 = TestMenuScript.MS.isLeftP1; //Muista vaihtaa oikean scriptin nimiseksi
+            isLeftP2 = TestMenuScript.MS.isLeftP2;
+            isRightP1 = TestMenuScript.MS.isRightP1;
+            isRightP2 = TestMenuScript.MS.isRightP2;
+        }
     }
+
+    public void SetCorrectInputs()
+    {
+        GameObject.Find("P1").GetComponent<AlternativeMovement5>().SetInputAxis(isXboxControllerP1, P1_Hor, P1_Ver);
+        GameObject.Find("P2").GetComponent<AlternativeMovement5>().SetInputAxis(isXboxControllerP2, P2_Hor, P2_Ver);
+    }
+
 }
 /*
             ---XBOX---

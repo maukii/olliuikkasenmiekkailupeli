@@ -8,12 +8,21 @@ public class GameHandler : MonoBehaviour
 {
     public static GameHandler instance;
 
+    public string player1Hor { get; set; }
+    public string player1Ver { get; set; }
+
+    public string player2Hor { get; set; }
+    public string player2Ver { get; set; }
+
+    public string P1_Hor, P1_Ver, P2_Hor, P2_Ver;
+
     public int player1Model { get; set; }
     public int player2Model { get; set; }
 
     public bool player1Dead { get; set; }
     public bool player2Dead { get; set; }
-    public bool battleStarted { get; private set; }
+
+    public bool battleStarted { get; set; }
 
     public float gameTimer;
     public float maxTimer;
@@ -23,6 +32,7 @@ public class GameHandler : MonoBehaviour
         if(instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -33,28 +43,19 @@ public class GameHandler : MonoBehaviour
 
     private void Update()
     {
-        StartBattle();
-        CheckInput();
         Timer();
-    }
-
-    void StartBattle()
-    {
-        if (SceneManager.GetActiveScene().name == "testifesti" && !battleStarted)
-        {
-            battleStarted = true;
-        }
+        CheckInput();
     }
 
     void CheckInput()
     {
         if (Input.GetKeyDown(KeyCode.KeypadPlus))
         {
-            SceneManager.LoadScene("testifesti");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else if (Input.GetKeyDown(KeyCode.KeypadMinus))
         {
-            SceneManager.LoadScene("Main");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
 
@@ -79,3 +80,4 @@ public class GameHandler : MonoBehaviour
     }
 
 }
+

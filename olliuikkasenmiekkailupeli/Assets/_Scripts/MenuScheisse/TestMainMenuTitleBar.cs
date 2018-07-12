@@ -29,26 +29,50 @@ public class TestMainMenuTitleBar : MonoBehaviour
 
     void CheckSwordPos()
     {
+        if (InputManager.IM.P1_LS_X > 1)
+        {
+            tb1.enabled = false;
+            tb2.enabled = false;
+            tb3.enabled = false;
+        }
+
         if (InputManager.IM.P1_LS_X > 0.65f)
         {
             //Start Game
             tb1.enabled = true;
+        }
+
+        if (InputManager.IM.P1_LS_X < 0.65f && InputManager.IM.P1_LS_X > 0.25f)
+        {
+            tb1.enabled = false;
             tb2.enabled = false;
+            tb3.enabled = false;
         }
 
         if (InputManager.IM.P1_LS_X < 0.25f && InputManager.IM.P1_LS_X > -0.15f)
         {
             //Options
-            tb1.enabled = false;
             tb2.enabled = true;
+        }
+
+        if (InputManager.IM.P1_LS_X < -0.15f && InputManager.IM.P1_LS_X > -0.65f)
+        {
+            tb1.enabled = false;
+            tb2.enabled = false;
             tb3.enabled = false;
         }
 
         if (InputManager.IM.P1_LS_X < -0.65f)
         {
             //Exit
-            tb2.enabled = false;
             tb3.enabled = true;
+        }
+
+        if (InputManager.IM.P1_LS_X < -1)
+        {
+            tb1.enabled = false;
+            tb2.enabled = false;
+            tb3.enabled = false;
         }
     }
 

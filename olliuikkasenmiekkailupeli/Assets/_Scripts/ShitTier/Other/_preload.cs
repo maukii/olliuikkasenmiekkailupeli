@@ -12,4 +12,9 @@ public class _preload : MonoBehaviour
         Debug.Log("DOL " + gameObject.name);
     }
 
+    private void Start()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
 }

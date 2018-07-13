@@ -29,6 +29,7 @@ public class PlayerInfo : MonoBehaviour
         {
             if (gameObject.transform.GetChild(i).gameObject.activeSelf == true)
             {
+                modelIndex = i;
                 activeModel = gameObject.transform.GetChild(i).gameObject;
             }
         }

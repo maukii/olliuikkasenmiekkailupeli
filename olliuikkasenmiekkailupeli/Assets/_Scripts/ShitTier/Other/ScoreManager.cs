@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager instance;
 
     [SerializeField]
-    int P1_wins, P2_wins;
+    int p1_wins, p2_wins;
 
     void Awake()
     {
@@ -24,5 +24,16 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    
+    public void PlayerWon(int playerNumber)
+    {
+        if(playerNumber == 1)
+        {
+            p1_wins++;
+        }
+        else if(playerNumber == 2)
+        {
+            p2_wins++;
+        }
+    }
+        
 }

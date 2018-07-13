@@ -158,10 +158,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: sos
-    clip: {fileID: 8300000, guid: 423eeb58bc7811b4ea3050746430421f, type: 3}
-    source: {fileID: 0}
-    loop: 0
   - name: step
     clip: {fileID: 8300000, guid: 2c0894c9c47b35d40acaf111ce218033, type: 3}
     source: {fileID: 0}
@@ -221,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   P1_Hor: 
+  P1_Ver: 
   P1_LS_X: 0
   P1_LS_Y: 0
   P1_RS_X: 0
@@ -237,6 +234,7 @@ MonoBehaviour:
   P1_Y: 0
   P1_Start: 0
   P2_Hor: 
+  P2_Ver: 
   P2_LS_X: 0
   P2_LS_Y: 0
   P2_RS_X: 0
@@ -258,6 +256,7 @@ MonoBehaviour:
   isPSControllerP2: 0
   isKeyboardAndMouseP1: 0
   isKeyboardAndMouseP2: 0
+  isOnlyKeyboard: 0
   isLeftP1: 0
   isLeftP2: 0
   isRightP1: 0

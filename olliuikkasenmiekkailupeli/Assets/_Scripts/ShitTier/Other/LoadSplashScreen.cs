@@ -7,14 +7,15 @@ public class LoadSplashScreen : MonoBehaviour {
 
 	void Update ()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if(Input.GetKeyDown(KeyCode.KeypadMinus))
         {
-            SceneManager.LoadScene("Main");
-        }
-        else if(Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SceneManager.LoadScene("testifesti");
+            Reload();
         }
 	}
+
+    void Reload()
+    {
+        SceneManager.LoadScene(0);
+    }
 	
 }

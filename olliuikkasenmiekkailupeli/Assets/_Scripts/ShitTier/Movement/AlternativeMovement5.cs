@@ -1,36 +1,45 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AlternativeMovement5 : MonoBehaviour
 {
-    public int playerIndex;
+    InputManager im;
 
     public Transform p1StartPos, p2StartPos;
     Quaternion p1StartRot, p2StartRot;
 
-    public bool trollModel;
-    public bool facingRight = false;
-    public bool usingXbox;
+    [SerializeField]
+    bool trollModel, facingRight = false, usingXbox, usingPs;
 
-    public float hor, ver;
+    float hor, ver;
     Animator[] anims;
     Animator anim;
 
+    #region PlayerInfos
     [Header("----- Player Movement Axis Names -----")]
-    public string horizontal;
-    public string vertical;
+    [SerializeField] string horizontal;
+    [SerializeField] string vertical;
 
-    public float inputX, inputY;
-    public float speed = 3f;
+    [SerializeField]
+    float inputX, inputY, speed = 3f;
+
+    public float xLimit = 5f;
+    public float mouseX;
 
     [Header("--- Inputs ---")]
-    public bool forward;
-    public bool back;
-    // up, down
+    [SerializeField] bool forward;
+    [SerializeField] bool back;
+    [SerializeField] bool attacking;
+
+    [SerializeField]
+    int playerIndex;
+    #endregion
 
     void Start()
     {
+        im = FindObjectOfType<InputManager>();
         FindActiveComponents();
         SetPositionAndRotationToPlayers();
     }
@@ -50,20 +59,22 @@ public class AlternativeMovement5 : MonoBehaviour
     {
         p1StartPos = GameObject.Find("P1_StartPosition").gameObject.transform;
         p2StartPos = GameObject.Find("P2_StartPosition").gameObject.transform;
-        p1StartRot = GameObject.Find("P1").gameObject.transform.rotation;
-        p2StartRot = GameObject.Find("P2").gameObject.transform.rotation;
 
-        if (InputManager.IM.isLeftP1 && playerIndex == 1)
+        #region RotatePlayersRight
+        if (im.isLeftP1 && playerIndex == 1)
         {
             facingRight = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
-        else if (InputManager.IM.isLeftP2 && playerIndex == 2)
+        else if (im.isLeftP2 && playerIndex == 2)
         {
             facingRight = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         else
         {
             facingRight = false;
+            transform.localScale = new Vector3(1, 1, 1);
         }
 
         if (facingRight)
@@ -76,11 +87,14 @@ public class AlternativeMovement5 : MonoBehaviour
             transform.rotation = Quaternion.Euler(-90, -180, 90);
             transform.position = p2StartPos.position;
         }
-    } // check which player was left side
+        #endregion
+    }
 
     void Update()
     {
-        if(usingXbox)
+         mouseX = Input.GetAxis("MouseX");
+
+        if (usingXbox)
         {
             ver = -Input.GetAxis(vertical);
         }
@@ -144,6 +158,7 @@ public class AlternativeMovement5 : MonoBehaviour
         }
         #endregion
 
+        #region AnimatonStuffs
         if(anim != null)
         {
             anim.SetFloat("InputX", hor);
@@ -174,11 +189,171 @@ public class AlternativeMovement5 : MonoBehaviour
             if(anim != null)
                 anim.SetFloat("InputY", inputY);
         }
+        #endregion
+
+        #region AttacksWhenInput
+        if(playerIndex == 1)
+        {
+            if(!attacking)
+            {
+                if(im.isXboxControllerP1 || im.isPSControllerP1)
+                {
+                    if(im.P1_LT > 0)
+                        ChangeGuard();
+                    if(im.P1_LB)
+                        ChangeSide();
+                    if (im.P1_RT > 0)
+                        VerticalSlash();
+                    if (im.P1_RB)
+                        HorizontalSlash();
+                }
+                else if(im.isKeyboardAndMouseP1)
+                {
+                    if (Input.GetMouseButtonDown(0)) // left
+                        VerticalSlash();
+                    if (Input.GetMouseButtonDown(1)) // right
+                        ChangeGuard();
+                    if (Input.GetMouseButtonDown(2)) // middle
+                        ChangeSide();
+                    if (Input.GetKeyDown(KeyCode.F))
+                        HorizontalSlash();
+
+                    if(facingRight)
+                    {
+                        if (Input.GetAxis("MouseX") > xLimit)
+                            Stab();
+                    }
+                    else if(!facingRight)
+                    {
+                        if(Input.GetAxis("MouseX") < -xLimit)
+                        {
+                            Stab();
+                        }
+                    }
+                }
+                else if(im.isOnlyKeyboard)
+                {
+                    if (Input.GetKeyDown(KeyCode.X))
+                    {
+                        ChangeSide();
+                    }
+                    if (Input.GetKeyDown(KeyCode.C))
+                    {
+                        ChangeGuard();
+                    }
+                    if (Input.GetKeyDown(KeyCode.R))
+                    {
+                        VerticalSlash();
+                    }
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        HorizontalSlash();
+                    }
+                    if (Input.GetKeyDown(KeyCode.H))
+                    {
+                        Stab();
+                    }
+                }
+            }
+        }
+        else if(playerIndex == 2)
+        {
+            if (!attacking)
+            {
+                if (im.isXboxControllerP2 || im.isPSControllerP2)
+                {
+                    if (im.P2_LT > 0)
+                        ChangeGuard();
+                    if (im.P2_LB)
+                        ChangeSide();
+                    if (im.P2_RT > 0)
+                        VerticalSlash();
+                    if (im.P2_RB)
+                        HorizontalSlash();
+                }
+                else if (im.isKeyboardAndMouseP2)
+                {
+                    if (Input.GetMouseButtonDown(0)) // left
+                        VerticalSlash();
+                    if (Input.GetMouseButtonDown(1)) // right
+                        ChangeGuard();
+                    if (Input.GetMouseButtonDown(2)) // middle
+                        ChangeSide();
+                    if (Input.GetKeyDown(KeyCode.F))
+                        HorizontalSlash();
+
+                    if (facingRight)
+                    {
+                        if (Input.GetAxis("MouseX") > xLimit)
+                            Stab();
+                    }
+                    else if(!facingRight)
+                    {
+                        if (Input.GetAxis("MouseX") < -xLimit)
+                        {
+                            Stab();
+                        }
+                    }
+                }
+                else if(im.isOnlyKeyboard)
+                {
+                    if (Input.GetKeyDown(KeyCode.P))
+                    {
+                        ChangeSide();
+                    }
+                    if (Input.GetKeyDown(KeyCode.I))
+                    {
+                        ChangeGuard();
+                    }
+                    if (Input.GetKeyDown(KeyCode.RightShift))
+                    {
+                        VerticalSlash();
+                    }
+                    if (Input.GetKeyDown(KeyCode.RightControl))
+                    {
+                        HorizontalSlash();
+                    }
+                    if (Input.GetKeyDown(KeyCode.K))
+                    {
+                        Stab();
+                    }
+                }
+            }
+        }
+        #endregion
+
     }
 
-    public void SetInputAxis(bool xBox, string hori, string vert)
+    // bool attacking = true when attack start --> turn false when animation ends
+    #region Attacks
+    private void Stab()
     {
-        usingXbox = xBox;
+        Debug.Log("stab");
+    }
+
+    private void HorizontalSlash()
+    {
+        Debug.Log("horizontalslash");
+    }
+
+    private void VerticalSlash()
+    {
+        Debug.Log("verticalslash");
+    }
+
+    private void ChangeGuard()
+    {
+        Debug.Log("changeguard");
+    }
+
+    private void ChangeSide()
+    {
+        Debug.Log("changeside");
+    }
+    #endregion
+
+    public void SetInputAxis(string hori, string vert)
+    {
         horizontal = hori;
         vertical = vert;
     }

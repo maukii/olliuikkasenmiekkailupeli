@@ -10,7 +10,7 @@ public class TestMainMenuTitleBar : MonoBehaviour
 
     bool canInteract;
 
-    float timer, defaultTimer;
+    float timer, defaultTimer, ver;
 
     void Start()
     {
@@ -28,15 +28,17 @@ public class TestMainMenuTitleBar : MonoBehaviour
 
     void Update()
     {
+        ver = Input.GetAxis("Vertical");
+
         HandMove();
         TitleBars();
     }
 
     void HandMove()
     {
-        if (anim.GetFloat("Blend") == 1 && InputManager.IM.P1_LS_Y < 0 && canInteract)
+        if (anim.GetFloat("Blend") == 1 && ver < 0 && canInteract)
         {
-            anim.SetFloat("Blend", 0.35f);
+            anim.SetFloat("Blend", 0.35f, 0.5f, 1);
             
             tb1.enabled = false;
             tb2.enabled = true;
@@ -45,7 +47,7 @@ public class TestMainMenuTitleBar : MonoBehaviour
             timer = defaultTimer;
         }
 
-        if (anim.GetFloat("Blend") == 0.35f && InputManager.IM.P1_LS_Y < 0 && canInteract)
+        if (anim.GetFloat("Blend") == 0.35f && ver < 0 && canInteract)
         {
             anim.SetFloat("Blend", -0.35f);
 
@@ -56,7 +58,7 @@ public class TestMainMenuTitleBar : MonoBehaviour
             timer = defaultTimer;
         }
 
-        if (anim.GetFloat("Blend") == -0.35f && InputManager.IM.P1_LS_Y < 0 && canInteract)
+        if (anim.GetFloat("Blend") == -0.35f && ver < 0 && canInteract)
         {
             anim.SetFloat("Blend", -1);
 
@@ -67,7 +69,7 @@ public class TestMainMenuTitleBar : MonoBehaviour
             timer = defaultTimer;
         }
 
-        if (anim.GetFloat("Blend") == -1 && InputManager.IM.P1_LS_Y > 0 && canInteract)
+        if (anim.GetFloat("Blend") == -1 && ver > 0 && canInteract)
         {
             anim.SetFloat("Blend", -0.35f);
 
@@ -78,7 +80,7 @@ public class TestMainMenuTitleBar : MonoBehaviour
             timer = defaultTimer;
         }
 
-        if (anim.GetFloat("Blend") == -0.35f && InputManager.IM.P1_LS_Y > 0 && canInteract)
+        if (anim.GetFloat("Blend") == -0.35f && ver > 0 && canInteract)
         {
             anim.SetFloat("Blend", 0.35f);
 
@@ -89,7 +91,7 @@ public class TestMainMenuTitleBar : MonoBehaviour
             timer = defaultTimer;
         }
 
-        if (anim.GetFloat("Blend") == 0.35f && InputManager.IM.P1_LS_Y > 0 && canInteract)
+        if (anim.GetFloat("Blend") == 0.35f && ver > 0 && canInteract)
         {
             anim.SetFloat("Blend", 1);
 
@@ -100,7 +102,7 @@ public class TestMainMenuTitleBar : MonoBehaviour
             timer = defaultTimer;
         }
 
-        if (anim.GetFloat("Blend") == -1 && InputManager.IM.P1_LS_Y < 0 && canInteract)
+        if (anim.GetFloat("Blend") == -1 && ver < 0 && canInteract)
         {
             anim.SetFloat("Blend", 1);
 
@@ -111,7 +113,7 @@ public class TestMainMenuTitleBar : MonoBehaviour
             timer = defaultTimer;
         }
 
-        if (anim.GetFloat("Blend") == 1 && InputManager.IM.P1_LS_Y > 0 && canInteract)
+        if (anim.GetFloat("Blend") == 1 && ver > 0 && canInteract)
         {
             anim.SetFloat("Blend", -1);
 
@@ -135,28 +137,29 @@ public class TestMainMenuTitleBar : MonoBehaviour
 
     void TitleBars()
     {
-        if (tb1.enabled && InputManager.IM.P1_A)
+        if (tb1.enabled && InputManager.IM.P1_A || tb1.enabled && InputManager.IM.P2_A)
         {
             //Start game
             Debug.Log("START GAME");
         }
 
-        if (tb2.enabled && InputManager.IM.P1_A)
+        if (tb2.enabled && InputManager.IM.P1_A || tb2.enabled && InputManager.IM.P2_A)
         {
             //Options
             Debug.Log("OPTIONS");
         }
 
-        if (tb3.enabled && InputManager.IM.P1_A)
+        if (tb3.enabled && InputManager.IM.P1_A || tb3.enabled && InputManager.IM.P2_A)
         {
             //Credits
             Debug.Log("CREDITS");
         }
 
-        if (tb4.enabled && InputManager.IM.P1_A)
+        if (tb4.enabled && InputManager.IM.P1_A || tb4.enabled && InputManager.IM.P2_A)
         {
             //Exit
             Debug.Log("EXIT");
+            Application.Quit();
         }
     }
 }

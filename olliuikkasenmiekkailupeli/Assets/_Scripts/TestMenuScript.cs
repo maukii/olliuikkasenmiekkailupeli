@@ -183,7 +183,7 @@ public class TestMenuScript : MonoBehaviour
                 if (L.gameObject.tag == "Player 1" && InputManager.IM.P1_A)
                 {
                     isLeftReady = true;
-                    GameHandler.instance.player1Model = L.gameObject.GetComponent<PlayerInfo>().modelIndex;
+                    GameHandler.instance.SetPlayer1Model(L.gameObject.GetComponent<PlayerInfo>().modelIndex);
                     L.gameObject.GetComponent<PlayerInfo>().ready = true;
                     L.gameObject.GetComponent<PlayerInfo>().ChooseCharacter();
                 }
@@ -191,7 +191,7 @@ public class TestMenuScript : MonoBehaviour
                 if (L.gameObject.tag == "Player 2" && InputManager.IM.P2_A)
                 {
                     isLeftReady = true;
-                    GameHandler.instance.player2Model = L.gameObject.GetComponent<PlayerInfo>().modelIndex;
+                    GameHandler.instance.SetPlayer2Model(L.gameObject.GetComponent<PlayerInfo>().modelIndex);
                     L.gameObject.GetComponent<PlayerInfo>().ready = true;
                     L.gameObject.GetComponent<PlayerInfo>().ChooseCharacter();
                 }
@@ -211,7 +211,7 @@ public class TestMenuScript : MonoBehaviour
                 if (R.gameObject.tag == "Player 1" && InputManager.IM.P1_A)
                 {
                     isRightReady = true;
-                    GameHandler.instance.player1Model = R.gameObject.GetComponent<PlayerInfo>().modelIndex;
+                    GameHandler.instance.SetPlayer1Model(R.gameObject.GetComponent<PlayerInfo>().modelIndex);
                     R.gameObject.GetComponent<PlayerInfo>().ready = true;
                     R.gameObject.GetComponent<PlayerInfo>().ChooseCharacter();
 
@@ -220,7 +220,7 @@ public class TestMenuScript : MonoBehaviour
                 if (R.gameObject.tag == "Player 2" && InputManager.IM.P2_A)
                 {
                     isRightReady = true;
-                    GameHandler.instance.player2Model = R.gameObject.GetComponent<PlayerInfo>().modelIndex;
+                    GameHandler.instance.SetPlayer2Model(R.gameObject.GetComponent<PlayerInfo>().modelIndex);
                     R.gameObject.GetComponent<PlayerInfo>().ready = true;
                     R.gameObject.GetComponent<PlayerInfo>().ChooseCharacter();
                 }

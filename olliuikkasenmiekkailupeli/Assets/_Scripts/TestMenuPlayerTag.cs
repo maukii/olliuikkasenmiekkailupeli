@@ -25,7 +25,7 @@ public class TestMenuPlayerTag : MonoBehaviour
             this.gameObject.tag = "Player 1";
             info.playerIndex = 1;
             info.SetInputs(InputManager.IM.P1_Hor, InputManager.IM.P1_Ver);
-            GameHandler.instance.player1Hor = InputManager.IM.P1_Hor;
+            GameHandler.instance.SetPlayer1Axes(InputManager.IM.P1_Hor, InputManager.IM.P1_Ver);
         }
 
         if (InputManager.IM.isRightP1 && this.gameObject.name == "R") //tähän oikean nimi
@@ -33,7 +33,7 @@ public class TestMenuPlayerTag : MonoBehaviour
             this.gameObject.tag = "Player 1";
             info.playerIndex = 1;
             info.SetInputs(InputManager.IM.P1_Hor, InputManager.IM.P1_Ver);
-            GameHandler.instance.player1Hor = InputManager.IM.P1_Hor;
+            GameHandler.instance.SetPlayer1Axes(InputManager.IM.P1_Hor, InputManager.IM.P1_Ver);
         }
 
         if (InputManager.IM.isLeftP2 && this.gameObject.name == "L") //tähän vasemman nimi
@@ -41,7 +41,7 @@ public class TestMenuPlayerTag : MonoBehaviour
             this.gameObject.tag = "Player 2";
             info.playerIndex = 2;
             info.SetInputs(InputManager.IM.P2_Hor, InputManager.IM.P2_Ver);
-            GameHandler.instance.player2Hor = InputManager.IM.P2_Hor;
+            GameHandler.instance.SetPlayer2Axes(InputManager.IM.P2_Hor, InputManager.IM.P2_Ver);
         }
 
         if (InputManager.IM.isRightP2 && this.gameObject.name == "R") //tähän oikean nimi
@@ -49,7 +49,7 @@ public class TestMenuPlayerTag : MonoBehaviour
             this.gameObject.tag = "Player 2";
             info.playerIndex = 2;
             info.SetInputs(InputManager.IM.P2_Hor, InputManager.IM.P2_Ver);
-            GameHandler.instance.player2Hor = InputManager.IM.P2_Hor;
+            GameHandler.instance.SetPlayer2Axes(InputManager.IM.P2_Hor, InputManager.IM.P2_Ver);
         }
 
         GameHandler.instance.P1_Hor = InputManager.IM.P1_Hor;

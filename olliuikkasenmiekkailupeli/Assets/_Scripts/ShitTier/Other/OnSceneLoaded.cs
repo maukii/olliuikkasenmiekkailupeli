@@ -7,7 +7,9 @@ public class OnSceneLoaded : MonoBehaviour
 {
     public List<GameObject> players = new List<GameObject>();
     int modelIndex;
+
     public GameObject fade;
+    Animator countdown;
     public float timer = 3;
     float reset;
     bool timerStarted;
@@ -15,6 +17,12 @@ public class OnSceneLoaded : MonoBehaviour
     void OnEnable()
     {
         SceneManager.sceneLoaded += SceneLoaded;
+    }
+
+    private void Start()
+    {
+        countdown = GameObject.Find("Countdown").gameObject.GetComponent<Animator>();
+        countdown.SetTrigger("CountDown");
     }
 
     public void SceneLoaded(Scene scene, LoadSceneMode mode)
@@ -33,11 +41,11 @@ public class OnSceneLoaded : MonoBehaviour
         { 
             if(players[i].name == "P1") // or tag
             {
-                players[i].GetComponent<ChooseIngameModel>().ChooseModel(GameHandler.instance.player1Model);
+                players[i].GetComponent<ChooseIngameModel>().ChooseModel(GameHandler.instance.GetPlayer1Model());
             }
             else if(players[i].name == "P2")
             {
-                players[i].GetComponent<ChooseIngameModel>().ChooseModel(GameHandler.instance.player2Model);
+                players[i].GetComponent<ChooseIngameModel>().ChooseModel(GameHandler.instance.GetPlayer2Model());
             }
         }
 
@@ -63,7 +71,7 @@ public class OnSceneLoaded : MonoBehaviour
                 timer = reset;
                 timerStarted = false;
 
-                GameHandler.instance.battleStarted = true;
+                GameHandler.instance.BattleStarted = true;
             }
         }
     }

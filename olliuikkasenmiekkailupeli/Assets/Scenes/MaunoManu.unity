@@ -759,6 +759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeModel: {fileID: 0}
   horizontalName: 
+  verticalName: 
   playerIndex: 0
   modelIndex: 0
   ready: 0
@@ -802,6 +803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   P1_Hor: 
+  P1_Ver: 
   P1_LS_X: 0
   P1_LS_Y: 0
   P1_RS_X: 0
@@ -818,6 +820,7 @@ MonoBehaviour:
   P1_Y: 0
   P1_Start: 0
   P2_Hor: 
+  P2_Ver: 
   P2_LS_X: 0
   P2_LS_Y: 0
   P2_RS_X: 0
@@ -883,6 +886,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d45bd069d71e343b72350cb1ca3be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  P1_Hor: 
+  P1_Ver: 
+  P2_Hor: 
+  P2_Ver: 
   gameTimer: 0
   maxTimer: 0
 --- !u!4 &834087286
@@ -968,6 +975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeModel: {fileID: 0}
   horizontalName: 
+  verticalName: 
   playerIndex: 0
   modelIndex: 0
   ready: 0
@@ -1157,7 +1165,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0.59607846, b: 0.4392157, a: 1}
+  m_BackGroundColor: {r: 0.7609469, g: 0.9433962, b: 0.80994844, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0

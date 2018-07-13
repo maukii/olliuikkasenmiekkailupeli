@@ -5,123 +5,158 @@ using UnityEngine.UI;
 
 public class TestMainMenuTitleBar : MonoBehaviour
 {
-    public Image tb1, tb2, tb3;
+    public Image tb1, tb2, tb3, tb4;
     public Animator anim;
-    public float blend;
+
+    bool canInteract;
+
+    float timer, defaultTimer;
 
     void Start()
     {
-        tb1.enabled = false;
+        tb1.enabled = true;
         tb2.enabled = false;
         tb3.enabled = false;
+        tb4.enabled = false;
 
-        anim.SetFloat("Blend", 0);
+        anim.SetFloat("Blend", 1);
+        canInteract = true;
+
+        timer = 0.5f;   //Tällä voi vaihtaa nopeutta millä hahmo vaihtaa miekan paikkaa
+        defaultTimer = timer;
     }
 
     void Update()
     {
-        blend = InputManager.IM.P1_LS_X;
-        anim.SetFloat("Blend", blend);
-
-        CheckSwordPos();
-        Menu();
+        HandMove();
+        TitleBars();
     }
 
-    void CheckSwordPos()
+    void HandMove()
     {
-        if (InputManager.IM.P1_LS_X > 0.65f)
+        if (anim.GetFloat("Blend") == 1 && InputManager.IM.P1_LS_Y < 0 && canInteract)
         {
-            //Start Game
-            tb1.enabled = true;
-            tb2.enabled = false;
-        }
-
-        if (InputManager.IM.P1_LS_X < 0.25f && InputManager.IM.P1_LS_X > -0.15f)
-        {
-            //Options
+            anim.SetFloat("Blend", 0.35f);
+            
             tb1.enabled = false;
             tb2.enabled = true;
-            tb3.enabled = false;
+            canInteract = false;
+
+            timer = defaultTimer;
         }
 
-        if (InputManager.IM.P1_LS_X < -0.65f)
+        if (anim.GetFloat("Blend") == 0.35f && InputManager.IM.P1_LS_Y < 0 && canInteract)
         {
-            //Exit
+            anim.SetFloat("Blend", -0.35f);
+
             tb2.enabled = false;
             tb3.enabled = true;
-        }
-    }
+            canInteract = false;
 
-    void Menu()
-    {
-        if (tb1.enabled && Input.GetKey(KeyCode.Space))
+            timer = defaultTimer;
+        }
+
+        if (anim.GetFloat("Blend") == -0.35f && InputManager.IM.P1_LS_Y < 0 && canInteract)
         {
-            anim.SetTrigger("Lunge");
-            StartGame();
+            anim.SetFloat("Blend", -1);
+
+            tb3.enabled = false;
+            tb4.enabled = true;
+            canInteract = false;
+
+            timer = defaultTimer;
         }
 
-        if (tb2.enabled && Input.GetKey(KeyCode.Space))
+        if (anim.GetFloat("Blend") == -1 && InputManager.IM.P1_LS_Y > 0 && canInteract)
         {
-            anim.SetTrigger("Lunge");
-            Options();
+            anim.SetFloat("Blend", -0.35f);
+
+            tb3.enabled = true;
+            tb4.enabled = false;
+            canInteract = false;
+
+            timer = defaultTimer;
         }
 
-        if (tb3.enabled && Input.GetKey(KeyCode.Space))
+        if (anim.GetFloat("Blend") == -0.35f && InputManager.IM.P1_LS_Y > 0 && canInteract)
         {
-            anim.SetTrigger("Lunge");
-            QuitGame();
+            anim.SetFloat("Blend", 0.35f);
+
+            tb2.enabled = true;
+            tb3.enabled = false;
+            canInteract = false;
+
+            timer = defaultTimer;
         }
-    }
 
-    void StartGame()
-    {
-        Debug.Log("START GAME");
-    }
-
-    void Options()
-    {
-        Debug.Log("OPTIONS");
-    }
-
-    void QuitGame()
-    {
-        Application.Quit();
-        Debug.Log("EXIT");
-    }
-
-    /*
-    //Visual stuff only...
-    //Tällä hetkellä Box Collider objektissa 'kämmen.L'
-    public Image bar;
-    public bool isTouching;
-
-    void Update()
-    {
-        if (isTouching)
+        if (anim.GetFloat("Blend") == 0.35f && InputManager.IM.P1_LS_Y > 0 && canInteract)
         {
-            bar.enabled = true;
+            anim.SetFloat("Blend", 1);
+
+            tb1.enabled = true;
+            tb2.enabled = false;
+            canInteract = false;
+
+            timer = defaultTimer;
         }
 
-        else
+        if (anim.GetFloat("Blend") == -1 && InputManager.IM.P1_LS_Y < 0 && canInteract)
         {
-            bar.enabled = false;
+            anim.SetFloat("Blend", 1);
+
+            tb1.enabled = true;
+            tb4.enabled = false;
+            canInteract = false;
+
+            timer = defaultTimer;
+        }
+
+        if (anim.GetFloat("Blend") == 1 && InputManager.IM.P1_LS_Y > 0 && canInteract)
+        {
+            anim.SetFloat("Blend", -1);
+
+            tb1.enabled = false;
+            tb4.enabled = true;
+            canInteract = false;
+
+            timer = defaultTimer;
+        }
+
+        if (!canInteract)
+        {
+            timer = timer - Time.deltaTime;
+
+            if (timer < 0)
+            {
+                canInteract = true;
+            }
         }
     }
 
-    void OnTriggerEnter(Collider col)
+    void TitleBars()
     {
-        if (col.gameObject.CompareTag("Untagged")) //Laita joku toinen tagi tai sitten ei...
+        if (tb1.enabled && InputManager.IM.P1_A)
         {
-            isTouching = true;
+            //Start game
+            Debug.Log("START GAME");
         }
-    }
 
-    void OnTriggerExit(Collider col)
-    {
-        if (col.gameObject.CompareTag("Untagged"))
+        if (tb2.enabled && InputManager.IM.P1_A)
         {
-            isTouching = false;
+            //Options
+            Debug.Log("OPTIONS");
+        }
+
+        if (tb3.enabled && InputManager.IM.P1_A)
+        {
+            //Credits
+            Debug.Log("CREDITS");
+        }
+
+        if (tb4.enabled && InputManager.IM.P1_A)
+        {
+            //Exit
+            Debug.Log("EXIT");
         }
     }
-    */
 }

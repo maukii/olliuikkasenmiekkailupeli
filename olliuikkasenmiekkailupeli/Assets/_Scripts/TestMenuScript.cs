@@ -20,9 +20,12 @@ public class TestMenuScript : MonoBehaviour
     public bool isLeftP1, isLeftP2, isRightP1, isRightP2, isLeftChoosing, isRightChoosing, isLeftReady, isRightReady;
 
     public static TestMenuScript MS;  //Vaihda nimi varsinaiseen scriptiin
+    GameObject fade;
 
     void Start()
     {
+        fade = GameObject.Find("FadeBlackScreen").gameObject;
+
         MS = this;
 
         L_CharacterChoose.enabled = false;
@@ -180,12 +183,20 @@ public class TestMenuScript : MonoBehaviour
                 if (L.gameObject.tag == "Player 1" && InputManager.IM.P1_A)
                 {
                     isLeftReady = true;
+                    GameHandler.instance.SetPlayer1Model(L.gameObject.GetComponent<PlayerInfo>().modelIndex);
+                    L.gameObject.GetComponent<PlayerInfo>().ready = true;
+                    L.gameObject.GetComponent<PlayerInfo>().ChooseCharacter();
                 }
 
                 if (L.gameObject.tag == "Player 2" && InputManager.IM.P2_A)
                 {
                     isLeftReady = true;
+                    GameHandler.instance.SetPlayer2Model(L.gameObject.GetComponent<PlayerInfo>().modelIndex);
+                    L.gameObject.GetComponent<PlayerInfo>().ready = true;
+                    L.gameObject.GetComponent<PlayerInfo>().ChooseCharacter();
                 }
+
+
             }
         }
 
@@ -200,11 +211,18 @@ public class TestMenuScript : MonoBehaviour
                 if (R.gameObject.tag == "Player 1" && InputManager.IM.P1_A)
                 {
                     isRightReady = true;
+                    GameHandler.instance.SetPlayer1Model(R.gameObject.GetComponent<PlayerInfo>().modelIndex);
+                    R.gameObject.GetComponent<PlayerInfo>().ready = true;
+                    R.gameObject.GetComponent<PlayerInfo>().ChooseCharacter();
+
                 }
 
                 if (R.gameObject.tag == "Player 2" && InputManager.IM.P2_A)
                 {
                     isRightReady = true;
+                    GameHandler.instance.SetPlayer2Model(R.gameObject.GetComponent<PlayerInfo>().modelIndex);
+                    R.gameObject.GetComponent<PlayerInfo>().ready = true;
+                    R.gameObject.GetComponent<PlayerInfo>().ChooseCharacter();
                 }
             }
         }
@@ -221,6 +239,8 @@ public class TestMenuScript : MonoBehaviour
                 L_CharacterChoose.enabled = true;
                 isLeftChoosing = true;
                 isLeftReady = false;
+                L.gameObject.GetComponent<PlayerInfo>().ready = false;
+
             }
 
             if (L.gameObject.tag == "Player 2" && InputManager.IM.P2_B)
@@ -229,6 +249,8 @@ public class TestMenuScript : MonoBehaviour
                 L_CharacterChoose.enabled = true;
                 isLeftChoosing = true;
                 isLeftReady = false;
+                L.gameObject.GetComponent<PlayerInfo>().ready = false;
+
             }
         }
 
@@ -244,6 +266,7 @@ public class TestMenuScript : MonoBehaviour
                 R_CharacterChoose.enabled = true;
                 isRightChoosing = true;
                 isRightReady = false;
+                R.gameObject.GetComponent<PlayerInfo>().ready = false;
             }
 
             if (R.gameObject.tag == "Player 2" && InputManager.IM.P2_B)
@@ -252,9 +275,12 @@ public class TestMenuScript : MonoBehaviour
                 R_CharacterChoose.enabled = true;
                 isRightChoosing = true;
                 isRightReady = false;
+                R.gameObject.GetComponent<PlayerInfo>().ready = false;
             }
         }
     }
+
+    public float delayToLoadNextScene = 3f;
 
     void MoveCamera()
     {
@@ -264,6 +290,21 @@ public class TestMenuScript : MonoBehaviour
             R_Ready.enabled = false;
 
             Camera.main.GetComponent<PlayableDirector>().Play();
+
+            Invoke("FadeIn", delayToLoadNextScene-1);
+            Invoke("LoadNextScene", delayToLoadNextScene);
         }
     }
+
+    void FadeIn()
+    {
+        fade.GetComponent<Animator>().Play("FadeIn");
+    }
+
+    void LoadNextScene()
+    {
+        Debug.Log("loadnext");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
 }

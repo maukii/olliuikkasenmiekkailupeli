@@ -131,9 +131,9 @@ public class AlternativeMovement4 : MonoBehaviour
         }
     }
 
-    public void PlaySound(string clipName)
-    {
-       AudioManager.instance.PlaySound(clipName);
-    }
+    //public void PlaySound(string clipName)
+    //{
+    //   AudioManager.instance.PlaySound(clipName);
+    //}
 
 }

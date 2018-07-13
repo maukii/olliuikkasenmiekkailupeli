@@ -8,12 +8,20 @@ public class GameHandler : MonoBehaviour
 {
     public static GameHandler instance;
 
-    public int player1Model { get; set; }
-    public int player2Model { get; set; }
+    public string P1_Hor, P1_Ver, P2_Hor, P2_Ver; // only for display
 
-    public bool player1Dead { get; set; }
-    public bool player2Dead { get; set; }
-    public bool battleStarted { get; private set; }
+    string player1Hor, player1Ver;                            
+    string player2Hor, player2Ver;
+    int player1Model, player2Model;                            
+    bool player1Dead, player2Dead;
+
+    private bool battleStarted;
+
+    public bool BattleStarted
+    {
+        get { return battleStarted; }
+        set { battleStarted = value; }
+    }
 
     public float gameTimer;
     public float maxTimer;
@@ -23,6 +31,7 @@ public class GameHandler : MonoBehaviour
         if(instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -33,29 +42,7 @@ public class GameHandler : MonoBehaviour
 
     private void Update()
     {
-        StartBattle();
-        CheckInput();
         Timer();
-    }
-
-    void StartBattle()
-    {
-        if (SceneManager.GetActiveScene().name == "testifesti" && !battleStarted)
-        {
-            battleStarted = true;
-        }
-    }
-
-    void CheckInput()
-    {
-        if (Input.GetKeyDown(KeyCode.KeypadPlus))
-        {
-            SceneManager.LoadScene("testifesti");
-        }
-        else if (Input.GetKeyDown(KeyCode.KeypadMinus))
-        {
-            SceneManager.LoadScene("Main");
-        }
     }
 
     void Timer()
@@ -70,7 +57,7 @@ public class GameHandler : MonoBehaviour
         }
     }
 
-    void GameEnded()
+    public void GameEnded()
     {
         gameTimer = 0f;
         battleStarted = false;
@@ -78,4 +65,57 @@ public class GameHandler : MonoBehaviour
         // TODO: show winner --> load mainmenu / retry
     }
 
+
+    // all get functions
+    #region GetPlayerProperties 
+    public string GetPlayer1Horizontal()
+    {
+        return player1Hor;
+    }
+    public string GetPlayer1Vertical()
+    {
+        return player2Ver;
+    }
+    public int GetPlayer1Model()
+    {
+        return player1Model;
+    }
+
+    public string GetPlayer2Horizontal()
+    {
+        return player2Hor;
+    }
+    public string GetPlayer2Vertical()
+    {
+        return player2Ver;
+    }
+    public int GetPlayer2Model()
+    {
+        return player2Model;
+    }
+    #endregion
+
+    // all set functions
+    #region SetPlayerProperties
+    public void SetPlayer1Model(int index)
+    {
+        player1Model = index;
+    }
+    public void SetPlayer1Axes(string hor, string ver) // TODO: ADD BUTTONS ALSO 
+    {
+        player1Hor = hor;
+        player1Ver = ver;
+    }
+
+    public void SetPlayer2Model(int index)
+    {
+        player2Model = index;
+    }
+    public void SetPlayer2Axes(string hor, string ver)
+    {
+        player2Hor = hor;
+        player2Ver = ver;
+    } // + btns
+    #endregion
 }
+

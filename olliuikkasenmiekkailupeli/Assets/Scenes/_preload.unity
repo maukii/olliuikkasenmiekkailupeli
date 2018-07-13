@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 627650829}
   - component: {fileID: 627650828}
   - component: {fileID: 627650832}
+  - component: {fileID: 627650833}
   m_Layer: 0
   m_Name: _app
   m_TagString: Untagged
@@ -143,6 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d45bd069d71e343b72350cb1ca3be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameTimer: 0
+  maxTimer: 0
 --- !u!114 &627650829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,3 +209,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219e3ec77b360e24d8693616054dc977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &627650833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 627650827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6321ab3b87c23b46bdd02f288c735c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  P1_Hor: 
+  P1_LS_X: 0
+  P1_LS_Y: 0
+  P1_RS_X: 0
+  P1_RS_Y: 0
+  P1_Dpad_X: 0
+  P1_Dpad_Y: 0
+  P1_LT: 0
+  P1_RT: 0
+  P1_LB: 0
+  P1_RB: 0
+  P1_A: 0
+  P1_B: 0
+  P1_X: 0
+  P1_Y: 0
+  P1_Start: 0
+  P2_Hor: 
+  P2_LS_X: 0
+  P2_LS_Y: 0
+  P2_RS_X: 0
+  P2_RS_Y: 0
+  P2_Dpad_X: 0
+  P2_Dpad_Y: 0
+  P2_LT: 0
+  P2_RT: 0
+  P2_LB: 0
+  P2_RB: 0
+  P2_A: 0
+  P2_B: 0
+  P2_X: 0
+  P2_Y: 0
+  P2_Start: 0
+  isXboxControllerP1: 0
+  isXboxControllerP2: 0
+  isPSControllerP1: 0
+  isPSControllerP2: 0
+  isKeyboardAndMouseP1: 0
+  isKeyboardAndMouseP2: 0
+  isLeftP1: 0
+  isLeftP2: 0
+  isRightP1: 0
+  isRightP2: 0

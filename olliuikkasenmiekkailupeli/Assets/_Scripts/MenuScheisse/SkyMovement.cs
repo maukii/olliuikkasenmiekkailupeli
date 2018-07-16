@@ -5,15 +5,17 @@ using UnityEngine;
 public class SkyMovement : MonoBehaviour
 {
     public GameObject sky;
+    public float speed, end;
 
     private Vector3 skyVec, skyNew;
     private float startTime, length, distance, fraction;
-    private float speed = 1.5f;
+
+    //testmainmenu end = -74.5f ja speed = 1.5f
 
 	void Start ()
     {
         skyVec = sky.transform.position;
-        skyNew = new Vector3(-74.5f, skyVec.y, skyVec.z);
+        skyNew = new Vector3(end, skyVec.y, skyVec.z);
 
         startTime = Time.time;
         length = Vector3.Distance(skyVec, skyNew);

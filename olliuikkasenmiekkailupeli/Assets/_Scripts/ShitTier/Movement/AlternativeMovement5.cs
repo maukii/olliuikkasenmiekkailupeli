@@ -11,9 +11,11 @@ public class AlternativeMovement5 : MonoBehaviour
     Quaternion p1StartRot, p2StartRot;
 
     [SerializeField]
-    bool trollModel, facingRight = false, usingXbox, usingPs;
+    bool facingRight = false, usingXbox, usingPs;
 
+    [SerializeField]
     float hor, ver;
+
     Animator[] anims;
     Animator anim;
 
@@ -114,6 +116,7 @@ public class AlternativeMovement5 : MonoBehaviour
     void Move()
     {
 
+        // is player facing right?
         #region inputBools
         if(facingRight)
         {
@@ -158,6 +161,7 @@ public class AlternativeMovement5 : MonoBehaviour
         }
         #endregion
 
+        // what animation to play?
         #region AnimatonStuffs
         if(anim != null)
         {
@@ -191,6 +195,7 @@ public class AlternativeMovement5 : MonoBehaviour
         }
         #endregion
 
+        // what attack to play?
         #region AttacksWhenInput
         if(playerIndex == 1)
         {

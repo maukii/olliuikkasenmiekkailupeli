@@ -143,7 +143,6 @@ public class InputManager : MonoBehaviour
             {
                 isXboxControllerP2 = false;
                 isPSControllerP2 = false;
-                isLogitechControllerP2 = false;
                 isKeyboardAndMouseP2 = true;
             }
 
@@ -156,8 +155,6 @@ public class InputManager : MonoBehaviour
             isXboxControllerP2 = false;
             isPSControllerP1 = false;
             isPSControllerP2 = false;
-            isLogitechControllerP1 = false;
-            isLogitechControllerP2 = false;
             isKeyboardAndMouseP1 = false;
             isKeyboardAndMouseP2 = false;
             isOnlyKeyboard = true;

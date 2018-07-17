@@ -10,10 +10,23 @@ public class ScrollingScript : MonoBehaviour
 
     public bool isLinkedToCamera = false;
     public bool isLooping = true;
+    public float timer;
+
+    private float defaultTimer = 30f;     //Määrittele aika jonka jälkeen ensimmäinen sprite siirtyy viimeiseksi
 
     private List<SpriteRenderer> backgroundPart;
-
+    
     void Start()
+    {
+        ScrollStart();
+    }
+
+    void Update()
+    {
+        ScrollUpdate();
+    }
+
+    void ScrollStart()
     {
         if (isLooping)
         {
@@ -34,7 +47,7 @@ public class ScrollingScript : MonoBehaviour
         }
     }
 
-    void Update()
+    void ScrollUpdate()
     {
         Vector3 movement = new Vector3(speed.x * direction.x, speed.y * direction.y, 0);
 
@@ -54,17 +67,27 @@ public class ScrollingScript : MonoBehaviour
             {
                 if (firstChild.transform.position.x < Camera.main.transform.position.x)
                 {
+                    if (firstChild.IsVisibleFrom(Camera.main) == true)
+                    {
+                        timer = defaultTimer;
+                    }
+
                     if (firstChild.IsVisibleFrom(Camera.main) == false)
                     {
-                        SpriteRenderer lastChild = backgroundPart.LastOrDefault();
+                        timer = timer - Time.deltaTime;
 
-                        Vector3 lastPosition = lastChild.transform.position;
-                        Vector3 lastSize = (lastChild.bounds.max - lastChild.bounds.min);
+                        if (timer < 0)
+                        {
+                            SpriteRenderer lastChild = backgroundPart.LastOrDefault();
 
-                        firstChild.transform.position = new Vector3(lastPosition.x + lastSize.x, firstChild.transform.position.y, firstChild.transform.position.z);
+                            Vector3 lastPosition = lastChild.transform.position;
+                            Vector3 lastSize = (lastChild.bounds.max - lastChild.bounds.min);
 
-                        backgroundPart.Remove(firstChild);
-                        backgroundPart.Add(firstChild);
+                            firstChild.transform.position = new Vector3(lastPosition.x + lastSize.x, firstChild.transform.position.y, firstChild.transform.position.z);
+
+                            backgroundPart.Remove(firstChild);
+                            backgroundPart.Add(firstChild);
+                        }
                     }
                 }
             }

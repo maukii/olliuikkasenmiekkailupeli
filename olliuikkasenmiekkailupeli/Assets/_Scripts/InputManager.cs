@@ -49,8 +49,6 @@ public class InputManager : MonoBehaviour
     public bool isXboxControllerP2;
     public bool isPSControllerP1;
     public bool isPSControllerP2;
-    public bool isLogitechControllerP1;
-    public bool isLogitechControllerP2;
     public bool isKeyboardAndMouseP1;
     public bool isKeyboardAndMouseP2;
     public bool isOnlyKeyboard;

@@ -299,6 +299,7 @@ public class TestMenuScript : MonoBehaviour
     void FadeIn()
     {
         fade.GetComponent<Animator>().Play("FadeIn");
+        AudioManager.instance.FadeOutMusic();
     }
 
     void LoadNextScene()

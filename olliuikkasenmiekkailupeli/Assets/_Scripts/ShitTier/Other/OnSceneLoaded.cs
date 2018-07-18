@@ -10,7 +10,7 @@ public class OnSceneLoaded : MonoBehaviour
 
     public GameObject fade;
     Animator countdown;
-    public float timer = 3;
+    public float playerFreezeTimer = 3;
     float reset;
     bool timerStarted;
 
@@ -27,7 +27,7 @@ public class OnSceneLoaded : MonoBehaviour
 
     public void SceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        reset = timer;
+        reset = playerFreezeTimer;
 
         fade.GetComponent<Animator>().Play("FadeOut");
 
@@ -51,14 +51,17 @@ public class OnSceneLoaded : MonoBehaviour
 
         InputManager.IM.SetCorrectInputs();
         timerStarted = true;
+
+        AudioManager.instance.GetComponent<MusicManager>().PlayMusic();
+        AudioManager.instance.FadeInMusic();
     }
 
     void Update()
     {
         if(timerStarted)
         {
-            timer -= Time.deltaTime;
-            if (timer <= 0f)
+            playerFreezeTimer -= Time.deltaTime;
+            if (playerFreezeTimer <= 0f)
             {
 
                 Debug.Log("FIGHT!!");
@@ -68,7 +71,7 @@ public class OnSceneLoaded : MonoBehaviour
                     players[i].gameObject.GetComponent<AlternativeMovement5>().enabled = true;
                 }
 
-                timer = reset;
+                playerFreezeTimer = reset;
                 timerStarted = false;
 
                 GameHandler.instance.BattleStarted = true;

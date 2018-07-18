@@ -8,7 +8,6 @@ public class AlternativeMovement5 : MonoBehaviour
     InputManager im;
 
     public Transform p1StartPos, p2StartPos;
-    Quaternion p1StartRot, p2StartRot;
 
     [SerializeField]
     bool facingRight = false, usingXbox, usingPs;

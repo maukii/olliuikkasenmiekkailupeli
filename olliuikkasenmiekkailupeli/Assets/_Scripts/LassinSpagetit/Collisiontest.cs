@@ -5,6 +5,7 @@ using UnityEngine;
 public class Collisiontest : MonoBehaviour {
     public Transform SparkPrefab;
     public bool DEBUG_RaveMode = false;
+    public bool DEBUG_GraveMode = false;
 
     Animator anim;
     public float animSpeed;
@@ -17,7 +18,7 @@ public class Collisiontest : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             
             SwordCollision();
@@ -53,6 +54,14 @@ public class Collisiontest : MonoBehaviour {
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
         Vector3 pos = contact.point;
         Instantiate(SparkPrefab, pos, rot);
+        Debug.Log("Hit: " + collision.gameObject.name);
+        if (DEBUG_GraveMode)
+        {
+            if (collision.gameObject.name != "terä")
+            {
+                collision.gameObject.GetComponent<Rigidbody>().useGravity = true;
+            }
+        }
     }
     void OnCollisionStay(Collision collision)
     {

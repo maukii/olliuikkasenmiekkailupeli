@@ -650,8 +650,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sky: {fileID: 783577411}
-  skyVec: {x: 0, y: 0, z: 0}
-  skyNew: {x: 0, y: 0, z: 0}
+  speed: 0.25
+  end: -70
 --- !u!1 &939639817
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,8 +717,11 @@ MonoBehaviour:
   isXboxControllerP2: 0
   isPSControllerP1: 0
   isPSControllerP2: 0
+  isLogitechControllerP1: 0
+  isLogitechControllerP2: 0
   isKeyboardAndMouseP1: 0
   isKeyboardAndMouseP2: 0
+  isOnlyKeyboard: 0
   isLeftP1: 0
   isLeftP2: 0
   isRightP1: 0

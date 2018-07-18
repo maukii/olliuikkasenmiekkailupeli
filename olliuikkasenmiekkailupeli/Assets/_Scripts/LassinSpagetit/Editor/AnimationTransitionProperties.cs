@@ -22,7 +22,10 @@ public class AnimationTransitionProperties : EditorWindow{
     bool hasFixedDuration;
     float duration;
     float offset;
+    TransitionInterruptionSource interruptionSource;
     bool F;
+    int layer = 0;
+    string[] layerNames;
 [MenuItem("Window/AnimationTransitionProperties")]
     public static void ShowWindow()
     {
@@ -81,9 +84,15 @@ public class AnimationTransitionProperties : EditorWindow{
        
         if(ac != null)
         {
+            layerNames = new string[ac.layers.Length];
+            for(int i = 0; i < ac.layers.Length; i++)
+            {
+                layerNames[i] = ac.layers[i].name;
+            }
+            layer = GUILayout.SelectionGrid(layer, layerNames, ac.layers.Length);
             if (GUILayout.Button("Get Transitions")) {
                 int iTransitions = 0;
-                AnimatorStateMachine sm = ac.layers[0].stateMachine;
+                AnimatorStateMachine sm = ac.layers[layer].stateMachine;
                 for (int i = 0; i < sm.states.Length; i++)
                 {
                     AnimatorState state = sm.states[i].state;
@@ -311,6 +320,7 @@ public class AnimationTransitionProperties : EditorWindow{
                                 hasFixedDuration = TransitionGroups[editTransitionsInGroup].Transitions[0].hasFixedDuration;
                                 duration = TransitionGroups[editTransitionsInGroup].Transitions[0].duration;
                                 offset = TransitionGroups[editTransitionsInGroup].Transitions[0].offset;
+                                interruptionSource = TransitionGroups[editTransitionsInGroup].Transitions[0].interruptionSource;
                                 F = false;
                             }
                             hasExitTime = EditorGUILayout.Toggle("HasExitTime:", hasExitTime);
@@ -318,7 +328,7 @@ public class AnimationTransitionProperties : EditorWindow{
                             hasFixedDuration = EditorGUILayout.Toggle("HasFixedDuration:", hasFixedDuration);
                             duration = EditorGUILayout.FloatField("Duration:", duration);
                             offset = EditorGUILayout.FloatField("Offset:", offset);
-                            TransitionInterruptionSource interruptionSource = (TransitionInterruptionSource)EditorGUILayout.EnumPopup(TransitionGroups[editTransitionsInGroup].Transitions[0].interruptionSource);
+                            interruptionSource = (TransitionInterruptionSource)EditorGUILayout.EnumPopup(interruptionSource);
                             EditorGUI.indentLevel--;
                             if (GUILayout.Button("!!!!!!SAVE!!!!!! NOT REVERSABLE"))
                             {

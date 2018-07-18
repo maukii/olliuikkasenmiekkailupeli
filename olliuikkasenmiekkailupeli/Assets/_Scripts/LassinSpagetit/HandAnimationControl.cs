@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HandAnimationControl : MonoBehaviour {
+    [Header ("--DEBUG--")]
     public bool DEBUG_NoInput;
+    [Header("--Input--")]
     public bool AdditiveStanceInput;
     public bool AdditiveInverted;
     public int AddStanceId = 1;
     float hanging;
-    public float inside;
-    float strong;
-    public bool Inputframe;
-    public bool swordSwinging;
-    public float AnimSpeed = 0.5f;
-    public float InputAnimSpeed = 0.5f;
+    float inside;
+    
+    [Header("--AnimatorSpeed--")]
+    public float AnimSpeed = 1f;
+    public float InputAnimSpeed = 0.8f;
     bool vitunTriggeritL = false;
     bool vitunTriggeritR = false;
     Animator anim;
-    public List<string>[] mo;
-	// Use this for initialization
-	void Start () {
+    [Header("--ForAnimation--")]
+    public bool Inputframe;
+    public bool swordSwinging;
+    // Use this for initialization
+    void Start () {
         anim = gameObject.GetComponent<Animator>();
         anim.SetFloat("Inside", inside);
         
@@ -27,6 +30,11 @@ public class HandAnimationControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        CheckInput();
+    }
+    void CheckInput()
+    {
         if (!DEBUG_NoInput)
         {
             if (!AdditiveStanceInput)
@@ -44,40 +52,26 @@ public class HandAnimationControl : MonoBehaviour {
             }
             else
             {
-                
+
                 if (Input.GetButtonDown("L1") && !swordSwinging)
                 {
-                    if (AdditiveInverted)
-                    {
-                        AddStanceId -= 1;
-                    }
-                    else
-                    {
-                        AddStanceId += 1;
-                    }
+                    AddStanceId = AdditiveInverted ? AddStanceId - 1 : AddStanceId + 1;
 
                 }
                 if (Input.GetButtonDown("R1") && !swordSwinging)
                 {
 
-                    if (AdditiveInverted)
-                    {
-                        AddStanceId += 1;
-                    }
-                    else
-                    {
-                        AddStanceId -= 1;
-                    }
+                    AddStanceId = AdditiveInverted ? AddStanceId + 1 : AddStanceId - 1;
                 }
-                if(AddStanceId > 3)
+                if (AddStanceId > 3)
                 {
                     AddStanceId = 3;
                 }
-                else if(AddStanceId < 0)
+                else if (AddStanceId < 0)
                 {
                     AddStanceId = 0;
                 }
-                
+
             }
 
             if (Input.GetAxis("R2") != 0 && !swordSwinging && !vitunTriggeritR)
@@ -114,11 +108,11 @@ public class HandAnimationControl : MonoBehaviour {
             }
             if (Inputframe)
             {
-                anim.speed = InputAnimSpeed;
+                anim.SetFloat("SpeedMult", InputAnimSpeed);
             }
             else
             {
-                anim.speed = AnimSpeed;
+                anim.SetFloat("SpeedMult", AnimSpeed);
             }
             if (Input.GetAxis("L2") == 0)
             {
@@ -133,43 +127,42 @@ public class HandAnimationControl : MonoBehaviour {
         {
             UpdateStance(AddStanceId);
         }
-        
     }
     void Swing()
     {
         
-        anim.SetFloat("Strong", 1);
+        anim.SetBool("Strong", true);
         anim.SetBool("SwingDia", true);
         
     }
     void Weak()
     {
-        anim.SetFloat("Strong", 0);
+        anim.SetBool("Strong", false);
         SwapInside();
         SwapHanging();
     }
     void SwingHor()
     {
 
-        anim.SetFloat("Strong", 1);
+        anim.SetBool("Strong", true);
         anim.SetBool("SwingHor", true);
 
     }
     void WeakHor()
     {
-        anim.SetFloat("Strong", 0);
+        anim.SetBool("Strong", false);
         SwapInside();
     }
    public void SwapHanging()
     {
         if (!AdditiveStanceInput)
         {
-            hanging = hanging == 0 ? hanging = 1 : hanging = 0;
+            hanging = hanging == 0 ? 1 : 0;
             anim.SetFloat("Hanging", hanging);
         }
         else
         {
-            if(AddStanceId == 0 || AddStanceId == 2)
+            if (AddStanceId == 0 || AddStanceId == 2)
             {
                 AddStanceId += 1;
             }
@@ -183,12 +176,12 @@ public class HandAnimationControl : MonoBehaviour {
     {
         if (!AdditiveStanceInput)
         {
-            inside = inside == 0 ? inside = 1 : inside = 0;
+            inside = inside == 0 ? 1 : 0;
             anim.SetFloat("Inside", inside);
         }
         else
         {
-            if(AddStanceId == 0 || AddStanceId == 1)
+            if (AddStanceId == 0 || AddStanceId == 1)
             {
                 AddStanceId += (3 - AddStanceId * 2);
             }

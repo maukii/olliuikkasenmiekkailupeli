@@ -98,11 +98,11 @@ public class MenuController : MonoBehaviour
 
         if (activeMenu == Menu.MainMenu)
         {
-            if (ver >= 1 && canInteract)
+            if (ver >= .5f && canInteract)
             {
                 ToggleDown();
             }
-            else if (ver <= -1 && canInteract)
+            else if (ver <= -0.5f && canInteract)
             {
                 ToggleUp();
             }
@@ -122,11 +122,11 @@ public class MenuController : MonoBehaviour
         }
         else if (activeMenu == Menu.Settings) // make 2nd index or -->
         {
-            if (ver >= 1 && canInteract)
+            if (ver >= .5f && canInteract)
             {
                 ToggleDown();
             }
-            else if(ver <= -1 && canInteract)
+            else if(ver <= -.5f && canInteract)
             {
                 ToggleUp();
             }
@@ -147,7 +147,7 @@ public class MenuController : MonoBehaviour
             DisableHighlights(Menu.MainMenu);
             mainmenuHighlights[index].SetActive(true);
         }
-        else if(activeMenu == Menu.Settings)
+        if(activeMenu == Menu.Settings)
         {
             if (index > settingsNodes.Length - 1)
             {
@@ -174,7 +174,7 @@ public class MenuController : MonoBehaviour
             DisableHighlights(Menu.MainMenu);
             mainmenuHighlights[index].SetActive(true);
         }
-        else if(activeMenu == Menu.Settings)
+        if(activeMenu == Menu.Settings)
         {
             if (index < 0)
             {
@@ -318,7 +318,6 @@ public class MenuController : MonoBehaviour
         settingsMenu.gameObject.SetActive(true);
 
         activeMenu = Menu.Settings;
-        activeNode = settingsNodes[0];
 
         DisableHighlights(Menu.Settings);
         settingsHighlights[index].SetActive(true);
@@ -334,7 +333,9 @@ public class MenuController : MonoBehaviour
         mainMenu.gameObject.SetActive(true);
 
         activeMenu = Menu.MainMenu;
-        activeNode = mainmenuNodes[0];
+
+        DisableHighlights(Menu.MainMenu);
+        mainmenuHighlights[index].SetActive(true);
 
         anim.SetBool("MainMenu", true);
         anim.SetBool("SettingsMenu", false);

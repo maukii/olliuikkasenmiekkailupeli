@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     [SerializeField]
-    Transform P1, P2;
+    public Transform P1, P2;
     public float zoomIn, zoomOut, distanceBetweenPlayers;
     public static CameraScript cam;
 
@@ -15,9 +15,6 @@ public class CameraScript : MonoBehaviour
 
     void Start()
     {
-        P1 = GameObject.Find("P1").gameObject.transform;
-        P2 = GameObject.Find("P2").gameObject.transform;
-
         cam = this;
 
         aspectRatio = Screen.width / Screen.height;

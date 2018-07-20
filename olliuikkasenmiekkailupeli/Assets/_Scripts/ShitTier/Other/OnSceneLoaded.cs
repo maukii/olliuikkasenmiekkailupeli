@@ -29,6 +29,7 @@ public class OnSceneLoaded : MonoBehaviour
     {
         reset = playerFreezeTimer;
 
+        fade.transform.parent.gameObject.SetActive(true);
         fade.GetComponent<Animator>().Play("FadeOut");
 
         for (int i = 0; i < players.Count; i++)

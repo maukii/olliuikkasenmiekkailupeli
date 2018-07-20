@@ -7,9 +7,10 @@ public class AlternativeMovement5 : MonoBehaviour
 {
     InputManager im;
 
+    public int playerIndex { get; private set; }
+    
     #region PlayerInfos
     [Header("----- Player Movement Axis Names -----")]
-    [SerializeField] int playerIndex;
     [SerializeField] string horizontal;
     [SerializeField] string vertical;
 
@@ -39,11 +40,13 @@ public class AlternativeMovement5 : MonoBehaviour
     Animator[] anims;
     Animator anim;
 
+    _Camera cam;
+
     private void Awake()
     {
         SetPositionAndRotationToPlayers();
+        cam = FindObjectOfType<_Camera>();
     }
-
 
     void Start()
     {
@@ -461,7 +464,6 @@ public class AlternativeMovement5 : MonoBehaviour
 
     }
 
-    // bool attacking = true when attack start --> turn false when animation ends
     #region Attacks
     private void Stab()
     {

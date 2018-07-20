@@ -6,7 +6,13 @@ public class ChooseIngameModel : MonoBehaviour
 {
 
     GameObject[] models;
-    
+    Camera cam;
+
+    private void Awake()
+    {
+        cam = FindObjectOfType<Camera>();
+    }
+
     public void ChooseModel(int modelIndex)
     {
         models = new GameObject[transform.childCount];
@@ -22,6 +28,12 @@ public class ChooseIngameModel : MonoBehaviour
         }
 
         models[modelIndex].gameObject.SetActive(true);
+
+        if (gameObject.name == "P1")
+            cam.GetComponent<CameraScript>().P1 = models[modelIndex].transform;
+        else if(gameObject.name == "P2")
+            cam.GetComponent<CameraScript>().P2 = models[modelIndex].transform;
+
     }
 
 }

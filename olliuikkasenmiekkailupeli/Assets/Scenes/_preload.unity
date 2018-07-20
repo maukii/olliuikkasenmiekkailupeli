@@ -165,19 +165,24 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 2c0894c9c47b35d40acaf111ce218033, type: 3}
     source: {fileID: 0}
     loop: 0
+    volume: 1
   - name: swordcollide
     clip: {fileID: 8300000, guid: e2aaa9a0bfde55c4aa7c95c54d796c41, type: 3}
     source: {fileID: 0}
     loop: 0
+    volume: 1
   - name: swing
     clip: {fileID: 8300000, guid: ffec9e87513591340998d237f70b1cc1, type: 3}
     source: {fileID: 0}
     loop: 0
-  musicVolume: 0
-  sfxVolume: 0
+    volume: 1
+  - name: uuf
+    clip: {fileID: 8300000, guid: 370a587b469ba884bbdc0783b0f3633f, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 0.5
   musicSource: {fileID: 627650834}
   sfxSource: {fileID: 627650836}
-  audioMixer: {fileID: 24100000, guid: 0bea735f071dfd9409aea6ae58eb1a6c, type: 2}
 --- !u!114 &627650830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,7 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTheme: {fileID: 8300000, guid: 86b1383b0c6a29149bebcf80bad1cc38, type: 3}
   menuTheme: {fileID: 8300000, guid: b6371285482a48c448a45f585af45e6f, type: 3}
-  gameTheme: {fileID: 8300000, guid: 370a587b469ba884bbdc0783b0f3633f, type: 3}
+  gameTheme: {fileID: 8300000, guid: b6371285482a48c448a45f585af45e6f, type: 3}
   sceneName: 
 --- !u!82 &627650836
 AudioSource:

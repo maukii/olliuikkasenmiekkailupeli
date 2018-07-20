@@ -7,19 +7,9 @@ public class AlternativeMovement5 : MonoBehaviour
 {
     InputManager im;
 
-    public Transform p1StartPos, p2StartPos;
-
-    [SerializeField]
-    bool facingRight = false, usingXbox, usingPs;
-
-    [SerializeField]
-    float hor, ver;
-
-    Animator[] anims;
-    Animator anim;
-
     #region PlayerInfos
     [Header("----- Player Movement Axis Names -----")]
+    [SerializeField] int playerIndex;
     [SerializeField] string horizontal;
     [SerializeField] string vertical;
 
@@ -33,10 +23,22 @@ public class AlternativeMovement5 : MonoBehaviour
     [SerializeField] bool forward;
     [SerializeField] bool back;
     [SerializeField] bool attacking;
+    #endregion
+
+    public Transform p1StartPos, p2StartPos;
 
     [SerializeField]
-    int playerIndex;
-    #endregion
+    bool facingRight = false;
+
+    [SerializeField]
+    float hor, ver;
+
+    [SerializeField]
+    int controllerLayout, swordAngle;
+
+    Animator[] anims;
+    Animator anim;
+
 
     void Start()
     {
@@ -93,27 +95,79 @@ public class AlternativeMovement5 : MonoBehaviour
 
     void Update()
     {
-         mouseX = Input.GetAxis("MouseX");
-
-        if (usingXbox)
-        {
-            ver = -Input.GetAxis(vertical);
-        }
-        else
-        {
-            ver = Input.GetAxis(vertical);
-        }
-
+        Inputs();
+        Move();
+    }
+    
+    void Inputs()
+    {
+        mouseX = Input.GetAxis("MouseX");
         hor = Input.GetAxis(horizontal);
-        
+
         inputX = Mathf.Clamp(inputX, -1, 1);
         inputY = Mathf.Clamp(inputY, -1, 1);
 
-        Move();
-    } // animator stuff
+        if(playerIndex == 1)
+        {
+            if (im.isXboxControllerP1)
+                ver = -Input.GetAxis(vertical);
+            else
+                ver = Input.GetAxis(vertical);
+        }
+        else if(playerIndex == 2)
+        {
+            if(im.isXboxControllerP2)
+                ver = -Input.GetAxis(vertical);
+            else
+                ver = Input.GetAxis(vertical);
+            
+        }
+    }
 
     void Move()
     {
+
+        // what layout will be used
+        #region ControllerLayout
+        if(playerIndex == 1)
+        {
+            if(im.P1_Dpad_Y == 1)
+            {
+                controllerLayout = 1;
+            }
+            else if(im.P1_Dpad_X == -1)
+            {
+                controllerLayout = 2;
+            }
+            else if(im.P1_Dpad_Y == -1)
+            {
+                controllerLayout = 3;
+            }
+            else if(im.P1_Dpad_X == 1)
+            {
+                controllerLayout = 4;
+            }
+        }
+        if(playerIndex == 2)
+        {
+            if (im.P2_Dpad_Y == 1)
+            {
+                controllerLayout = 1;
+            }
+            else if (im.P2_Dpad_X == -1)
+            {
+                controllerLayout = 2;
+            }
+            else if (im.P2_Dpad_Y == -1)
+            {
+                controllerLayout = 3;
+            }
+            else if (im.P2_Dpad_X == 1)
+            {
+                controllerLayout = 4;
+            }
+        }
+        #endregion
 
         // is player facing right?
         #region inputBools
@@ -202,14 +256,50 @@ public class AlternativeMovement5 : MonoBehaviour
             {
                 if(im.isXboxControllerP1 || im.isPSControllerP1)
                 {
-                    if(im.P1_LT > 0)
-                        ChangeGuard();
-                    if(im.P1_LB)
-                        ChangeSide();
-                    if (im.P1_RT > 0)
-                        VerticalSlash();
-                    if (im.P1_RB)
-                        HorizontalSlash();
+                    if(controllerLayout == 1) // TODO: CHANGE TO CORRECT INPUTS
+                    {
+                        if(im.P1_LT > 0)
+                            ChangeGuard();
+                        if(im.P1_LB)
+                            ChangeSide();
+                        if (im.P1_RT > 0)
+                            VerticalSlash();
+                        if (im.P1_RB)
+                            HorizontalSlash();
+                    }
+                    else if (controllerLayout == 2)
+                    {
+                        if (im.P1_LT > 0)
+                            HorizontalSlash();
+                        if (im.P1_LB)
+                            ChangeSide();
+                        if (im.P1_RT > 0)
+                            VerticalSlash();
+                        if (im.P1_RB)
+                            ChangeGuard();
+                    }
+                    else if (controllerLayout == 3)
+                    {
+                        if (im.P1_LT > 0)
+                            HorizontalSlash();
+                        if (im.P1_LB)
+                            TurnSword(facingRight?-1:1);
+                        if (im.P1_RT > 0)
+                            VerticalSlash();
+                        if (im.P1_RB)
+                            TurnSword(facingRight?1:-1);
+                    }
+                    else if (controllerLayout == 4)
+                    {
+                        if (im.P1_LT > 0)
+                            TurnSword(facingRight?-1:1);
+                        if (im.P1_LB)
+                            ChangeSide();
+                        if (im.P1_RT > 0)
+                            VerticalSlash();
+                        if (im.P1_RB)
+                            HorizontalSlash();
+                    }
                 }
                 else if(im.isKeyboardAndMouseP1)
                 {
@@ -235,6 +325,7 @@ public class AlternativeMovement5 : MonoBehaviour
                         }
                     }
                 }
+
                 else if(im.isOnlyKeyboard)
                 {
                     if (Input.GetKeyDown(KeyCode.X))
@@ -266,15 +357,52 @@ public class AlternativeMovement5 : MonoBehaviour
             {
                 if (im.isXboxControllerP2 || im.isPSControllerP2)
                 {
-                    if (im.P2_LT > 0)
-                        ChangeGuard();
-                    if (im.P2_LB)
-                        ChangeSide();
-                    if (im.P2_RT > 0)
-                        VerticalSlash();
-                    if (im.P2_RB)
-                        HorizontalSlash();
+                    if(controllerLayout == 1)
+                    {
+                        if (im.P2_LT > 0)
+                            ChangeGuard();
+                        if (im.P2_LB)
+                            ChangeSide();
+                        if (im.P2_RT > 0)
+                            VerticalSlash();
+                        if (im.P2_RB)
+                            HorizontalSlash();
+                    }
+                    else if(controllerLayout == 2)
+                    {
+                        if (im.P2_LT > 0)
+                            ChangeGuard();
+                        if (im.P2_LB)
+                            ChangeSide();
+                        if (im.P2_RT > 0)
+                            VerticalSlash();
+                        if (im.P2_RB)
+                            HorizontalSlash();
+                    }
+                    else if(controllerLayout == 3)
+                    {
+                        if (im.P2_LT > 0)
+                            HorizontalSlash();
+                        if (im.P2_LB)
+                            TurnSword(facingRight ? -1 : 1);
+                        if (im.P2_RT > 0)
+                            VerticalSlash();
+                        if (im.P2_RB)
+                            TurnSword(facingRight ? 1 : -1);
+                    }
+                    else if(controllerLayout == 4)
+                    {
+                        if (im.P2_LT > 0)
+                            TurnSword(facingRight ? 1 : -1);
+                        if (im.P2_LB)
+                            ChangeSide();       
+                        if (im.P2_RT > 0)
+                            VerticalSlash();
+                        if (im.P2_RB)
+                            HorizontalSlash();
+                    }
                 }
+
                 else if (im.isKeyboardAndMouseP2)
                 {
                     if (Input.GetMouseButtonDown(0)) // left
@@ -299,6 +427,7 @@ public class AlternativeMovement5 : MonoBehaviour
                         }
                     }
                 }
+
                 else if(im.isOnlyKeyboard)
                 {
                     if (Input.GetKeyDown(KeyCode.P))
@@ -333,26 +462,61 @@ public class AlternativeMovement5 : MonoBehaviour
     private void Stab()
     {
         Debug.Log("stab");
+        attacking = true;  //       TODO: USE public override OnStateExit, -Enter to change attacking bool
+        StartCoroutine(Timer());
+        // test purposes only
     }
 
     private void HorizontalSlash()
     {
         Debug.Log("horizontalslash");
+        attacking = true;
+        StartCoroutine(Timer());
     }
 
     private void VerticalSlash()
     {
         Debug.Log("verticalslash");
+        attacking = true;
+        StartCoroutine(Timer());
     }
 
     private void ChangeGuard()
     {
         Debug.Log("changeguard");
+        attacking = true;
+        StartCoroutine(Timer());
     }
 
     private void ChangeSide()
     {
         Debug.Log("changeside");
+        attacking = true;
+        StartCoroutine(Timer());
+    }
+
+    float timer = 1;
+
+    private void TurnSword(int index)
+    {
+        attacking = true;
+
+        swordAngle += index;
+
+        if (swordAngle < 0)
+            swordAngle = 3;
+        else if (swordAngle > 3)
+            swordAngle = 0;
+
+        StartCoroutine(Timer());
+
+        Debug.Log(index + " " + swordAngle);
+    }
+
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(1);
+        attacking = false;
     }
     #endregion
 

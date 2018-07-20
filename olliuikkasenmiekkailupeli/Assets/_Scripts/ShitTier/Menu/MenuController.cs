@@ -6,13 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    float dampTime = 0.5f;
 
     [SerializeField]
     Slider[] volumeSliders;
 
     [SerializeField]
-    GameObject mainMenu, settingsMenu;
+    GameObject mainMenu, settingsMenu, creditsMenu;
 
     Animator anim;
     Animator characterAnim;
@@ -23,30 +22,32 @@ public class MenuController : MonoBehaviour
     [SerializeField]
     GameObject activeNode;
 
-    float hor, ver, timer = 0.5f, defaultTimer;
+    float hor, ver, timer = 0.5f,
+    defaultTimer, dampTime = 0.5f;
 
     [SerializeField]
     int index;
 
     bool canInteract;
 
-    enum Menu { MainMenu, Settings, };
+    enum Menu { MainMenu, Settings, Credits, };
     public GameObject[] mainmenuNodes, settingsNodes;
     public GameObject[] mainmenuHighlights, settingsHighlights;
 
     void Start()
     {
+        mainMenu.gameObject.SetActive(true);
+        settingsMenu.gameObject.SetActive(false);
+
         DisableHighlights(Menu.MainMenu);
         DisableHighlights(Menu.Settings);
         mainmenuHighlights[index].SetActive(true);
-
-        mainMenu.gameObject.SetActive(true);
-        settingsMenu.gameObject.SetActive(false);
 
         anim = Camera.main.GetComponent<Animator>();
         characterAnim = GameObject.Find("miekkailija_v5.2").gameObject.GetComponent<Animator>();
         anim.SetBool("MainMenu", true);
         anim.SetBool("SettingsMenu", false);
+        anim.SetBool("CreditsMenu", false);
 
         activeMenu = Menu.MainMenu;
         activeNode = mainmenuNodes[0];
@@ -61,6 +62,12 @@ public class MenuController : MonoBehaviour
         GetInput();
         ChangeNode();
         ButtonLogic();
+
+        if(anim.GetBool("CreditsMenu") == true && canInteract)
+        {
+            if (Input.anyKeyDown)
+                Back();
+        }
     }
 
     void DisableHighlights(Menu menu)
@@ -216,6 +223,7 @@ public class MenuController : MonoBehaviour
                     {
                         // CREDITS
                         Debug.Log("Credits");
+                        Credits();
                         canInteract = false;
                     }
                     else if (activeNode == mainmenuNodes[3])
@@ -260,27 +268,27 @@ public class MenuController : MonoBehaviour
 
             if (!InputManager.IM.isOnlyKeyboard)
             {
-                if (activeNode == settingsNodes[0])
+                if (activeNode == settingsNodes[0]) // volume
                 {
-                    if(hor >= 1 && volumeSliders[0].value < 1 && canInteract)
+                    if(hor >= .5f && volumeSliders[0].value < 1 && canInteract)
                     {
                         AudioManager.instance.AddVolume(0);
                         canInteract = false;
                     }
-                    if(hor <= -1 && volumeSliders[0].value > 0 && canInteract)
+                    if(hor <= -.5 && volumeSliders[0].value > 0 && canInteract)
                     {
                         AudioManager.instance.LessVolume(0);
                         canInteract = false;
                     }
                 }
-                else if(activeNode == settingsNodes[1])
+                else if(activeNode == settingsNodes[1]) // sfx
                 {
-                    if (hor >= 1 && volumeSliders[1].value < 1 && canInteract)
+                    if (hor >= .5f && volumeSliders[1].value < 1 && canInteract)
                     {
                         AudioManager.instance.AddVolume(1);
                         canInteract = false;
                     }
-                    if (hor <= -1 && volumeSliders[1].value > 0 && canInteract)
+                    if (hor <= -.5f && volumeSliders[1].value > 0 && canInteract)
                     {
                         AudioManager.instance.LessVolume(1);
                         canInteract = false;
@@ -339,6 +347,21 @@ public class MenuController : MonoBehaviour
 
         anim.SetBool("MainMenu", true);
         anim.SetBool("SettingsMenu", false);
+        anim.SetBool("CreditsMenu", false);
+        canInteract = false;
+    }
+
+    public void Credits()
+    {
+        Invoke("DisableMain", 2);
+        creditsMenu.gameObject.SetActive(true);
+
+        activeMenu = Menu.Credits;
+
+        anim.SetBool("MainMenu", false);
+        anim.SetBool("SettingsMenu", false);
+        anim.SetBool("CreditsMenu", true);
+        Debug.Log("credits");
         canInteract = false;
     }
 

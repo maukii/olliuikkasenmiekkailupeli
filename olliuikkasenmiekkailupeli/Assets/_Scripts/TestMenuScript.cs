@@ -55,8 +55,14 @@ public class TestMenuScript : MonoBehaviour
 
         if (InputManager.IM.isKeyboardAndMouseP1 || InputManager.IM.isKeyboardAndMouseP2)
         {
-            L_ControllerType.text = "Please insert";
-            R_ControllerType.text = "two controllers";
+            L_ControllerType.text = "Press controller button ";
+            R_ControllerType.text = "or mouse button to join";
+        }
+
+        if(InputManager.IM.isOnlyKeyboard)
+        {
+            L_ControllerType.text = "Press Q or keypad";        // what buttons join game?
+            R_ControllerType.text = " Enter to join";        // what buttons join game?
         }
     }
 
@@ -299,7 +305,8 @@ public class TestMenuScript : MonoBehaviour
     void FadeIn()
     {
         fade.GetComponent<Animator>().Play("FadeIn");
-        AudioManager.instance.FadeOutMusic();
+        if(FindObjectOfType<AudioManager>() != null)
+            AudioManager.instance.FadeOutMusic();
     }
 
     void LoadNextScene()

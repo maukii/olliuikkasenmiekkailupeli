@@ -17,40 +17,40 @@ public class AudioManager : MonoBehaviour
     public float sfxVolumePercent { get; private set; }
     public float musicVolumePercent { get; private set; }
 
-    public float musicVolume;
-    public float sfxVolume;
+    float musicVolume;
+    float sfxVolume;
 
     [SerializeField]
     AudioSource musicSource, sfxSource;
 
     public void AddVolume(int index)
     {
-        if(index == 0)
-        {
-            // music
-            musicVolumePercent += 0.2f;
-        }
-        else if(index == 1)
-        {
-            // sfx
-            sfxVolumePercent += 0.2f;
-        }
-
+        //if(index == 0)
+        //{
+        //    // music
+        //    musicVolumePercent += 0.1f; // works fine with standalone inputmanager
+        //}
+        //if(index == 1)
+        //{
+        //    // sfx
+        //    sfxVolumePercent += 0.1f;
+        //}
+        
         Debug.Log("add");
     }
 
     public void LessVolume(int index)
     {
-        if (index == 0)
-        {
-            // music
-            musicVolumePercent -= 0.2f;
-        }
-        else if(index == 1)
-        {
-            // sfx
-            sfxVolumePercent -= 0.2f;
-        }
+        //if (index == 0)
+        //{
+        //    // music
+        //    musicVolumePercent -= 0.1f;
+        //}
+        //else if(index == 1)
+        //{
+        //    // sfx
+        //    sfxVolumePercent -= 0.1f;
+        //}
 
         Debug.Log("less");
     }
@@ -59,6 +59,9 @@ public class AudioManager : MonoBehaviour
     {
         musicVolume = musicVolumePercent;
         sfxVolume = sfxVolumePercent;
+        
+        musicSource.volume = musicVolumePercent;
+        sfxSource.volume = sfxVolumePercent;
     }
 
     void Awake()
@@ -78,6 +81,7 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.loop = s.loop;
+            s.source.volume = s.volume;
         }
 
         musicSource = GetComponent<AudioSource>();
@@ -108,7 +112,7 @@ public class AudioManager : MonoBehaviour
     {
         if (clip != null)
         {
-            AudioSource.PlayClipAtPoint(clip, pos, sfxVolumePercent * masterVolumePercent);
+            AudioSource.PlayClipAtPoint(clip, pos, sfxVolumePercent);
         }
     }
 
@@ -189,18 +193,18 @@ public class AudioManager : MonoBehaviour
                 break;
         }
 
-        musicSource.volume = musicVolumePercent;
-        sfxSource.volume = sfxVolumePercent;
+        //musicSource.volume = musicVolumePercent;
+        //sfxSource.volume = sfxVolumePercent;
         //musicSources[0].volume = musicVolumePercent * masterVolumePercent;
         //musicSources[1].volume = musicVolumePercent * masterVolumePercent;
 
     }
 
-    public AudioMixer audioMixer;
+    //public AudioMixer audioMixer;
 
-    public void SetVolume(float volume)
-    {
-        audioMixer.SetFloat("Volume", volume);
-    }
+    //public void SetVolume(float volume)
+    //{
+    //    audioMixer.SetFloat("Volume", volume);
+    //} // 2nd option
 
 }

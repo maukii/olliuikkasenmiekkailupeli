@@ -52,8 +52,11 @@ public class OnSceneLoaded : MonoBehaviour
         InputManager.IM.SetCorrectInputs();
         timerStarted = true;
 
-        AudioManager.instance.GetComponent<MusicManager>().PlayMusic();
-        AudioManager.instance.FadeInMusic();
+        if(FindObjectOfType<AudioManager>() != null)
+        {
+            AudioManager.instance.GetComponent<MusicManager>().PlayMusic();
+            AudioManager.instance.FadeInMusic();
+        }
     }
 
     void Update()

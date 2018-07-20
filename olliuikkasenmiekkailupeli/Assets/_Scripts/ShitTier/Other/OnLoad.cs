@@ -7,8 +7,11 @@ public class OnLoad : MonoBehaviour {
 
     public void OnEnable()
     {
-        AudioManager.instance.GetComponent<MusicManager>().PlayMusic();
-        AudioManager.instance.FadeInMusic();
-        Debug.Log("animate music in");
+        if(FindObjectOfType<AudioManager>() != null)
+        {
+            AudioManager.instance.GetComponent<MusicManager>().PlayMusic();
+            AudioManager.instance.FadeInMusic();
+            Debug.Log("animate music in");
+        }
     }
 }

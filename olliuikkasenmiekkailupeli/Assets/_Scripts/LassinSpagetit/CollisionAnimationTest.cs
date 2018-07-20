@@ -34,23 +34,24 @@ public class CollisionAnimationTest : MonoBehaviour {
         asi = anim.GetCurrentAnimatorStateInfo(0);
         if (asi.IsTag("Swing"))
         {
+            Debug.Log("mo");
             swingHash = asi.fullPathHash;
             float collidetime = anim.GetFloat("Strong") == 1 ? CollisionTimeStrong : CollisionTimeWeak;
 
-                if (asi.normalizedTime > collidetime)
+            if (asi.normalizedTime > collidetime)
+            {
+                if (CheckHeight())
                 {
-                    if (CheckHeight())
+                    if (CheckQuard())
                     {
-                        if (CheckQuard())
-                        {
-                            Deflect();
-                        }
-                        else
-                        {
-                            QuardBreak();
-                        }
+                        Deflect();
+                    }
+                    else
+                    {
+                        QuardBreak();
                     }
                 }
+            }
         }
         if(asi.fullPathHash != swingHash)
         {
@@ -66,14 +67,14 @@ public class CollisionAnimationTest : MonoBehaviour {
         else
         {
             interruptTimer = 0;
-
-            otherAnim.SetBool("interrupt", false);
+            otherAnim.SetBool("Deflect", false);
+            otherAnim.SetBool("Interrupt", false);
         }
     }
     void Deflect()
     {
-        
-        anim.SetFloat("SpeedMult", -1);
+        interruptTimer = 1;
+        otherAnim.SetBool("Deflect", true);
     }
     bool CheckQuard()
     {
@@ -93,7 +94,7 @@ public class CollisionAnimationTest : MonoBehaviour {
     }
     void QuardBreak()
     {
-        otherAnim.SetBool("interrupt", true);
+        otherAnim.SetBool("Interrupt", true);
         interruptTimer = 1;
     }
 }

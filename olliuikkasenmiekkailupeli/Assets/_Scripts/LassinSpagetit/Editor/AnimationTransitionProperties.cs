@@ -153,7 +153,7 @@ public class AnimationTransitionProperties : EditorWindow{
                             AnimatorStateTransitions[i].interruptionSource = (TransitionInterruptionSource)EditorGUILayout.EnumPopup(AnimatorStateTransitions[i].interruptionSource);
                             if (TransitionGroups != null)
                             {
-                                EditorGUILayout.BeginHorizontal();
+                                EditorGUILayout.BeginVertical();
                                 for(int j = 0; j < TransitionGroups.Count; j++)
                                 {
                                         if (TransitionGroups[j].Transitions.Contains(AnimatorStateTransitions[i]))
@@ -173,7 +173,7 @@ public class AnimationTransitionProperties : EditorWindow{
                                             }
                                         }
                                 }
-                                EditorGUILayout.EndHorizontal();
+                                EditorGUILayout.EndVertical();
                             }
                             EditorGUI.indentLevel--;
 

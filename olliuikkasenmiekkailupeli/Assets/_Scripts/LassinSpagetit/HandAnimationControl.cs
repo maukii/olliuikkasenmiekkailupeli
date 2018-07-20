@@ -5,62 +5,91 @@ using UnityEngine;
 public class HandAnimationControl : MonoBehaviour {
     [Header ("--DEBUG--")]
     public bool DEBUG_NoInput;
+    
     [Header("--Input--")]
+    public int PlayerNumber = 1;
     public bool AdditiveStanceInput;
     public bool AdditiveInverted;
-    public int AddStanceId = 1;
+    int AddStanceId = 1;
     float hanging;
     float inside;
+    bool deflect = false;
+    bool interrupt = false;
     
     [Header("--AnimatorSpeed--")]
     public float AnimSpeed = 1f;
     public float InputAnimSpeed = 0.8f;
-    bool vitunTriggeritL = false;
-    bool vitunTriggeritR = false;
+
+
+    bool[] inputDown = new bool[9];
+    /* InputDown Index Table
+     * 0 = A
+     * 1 = B
+     * 2 = X
+     * 3 = Y
+     * 4 = Start
+     * 5 = LB
+     * 6 = RB
+     * 7 = LT
+     * 8 = RT
+     */
     Animator anim;
     [Header("--ForAnimation--")]
     public bool Inputframe;
     public bool swordSwinging;
-    // Use this for initialization
+
+    InputManager im;
+
     void Start () {
         anim = gameObject.GetComponent<Animator>();
         anim.SetFloat("Inside", inside);
-        
-	}
-	
-	// Update is called once per frame
+        im = FindObjectOfType<InputManager>();
+        if (transform.parent.name == "P2")
+        {
+            PlayerNumber = 2;
+        }
+        else
+        {
+            PlayerNumber = 1;
+        }
+    }
+
 	void Update () {
 
         CheckInput();
     }
+
     void CheckInput()
     {
         if (!DEBUG_NoInput)
         {
+            #region Input
             if (!AdditiveStanceInput)
             {
-                if (Input.GetButtonDown("L1") && !swordSwinging)
+                if (im.GetLB(PlayerNumber) && !swordSwinging && !inputDown[5])
                 {
+                    inputDown[5] = true;
                     SwapInside();
 
                 }
-                if (Input.GetButtonDown("R1") && !swordSwinging)
+                if (im.GetRB(PlayerNumber) && !swordSwinging && !inputDown[6])
                 {
-
+                    inputDown[6] = true;
                     SwapHanging();
                 }
             }
             else
             {
 
-                if (Input.GetButtonDown("L1") && !swordSwinging)
+                if (im.GetLB(PlayerNumber) && !swordSwinging && !inputDown[5])
                 {
+                    inputDown[5] = true;
                     AddStanceId = AdditiveInverted ? AddStanceId - 1 : AddStanceId + 1;
 
                 }
-                if (Input.GetButtonDown("R1") && !swordSwinging)
+                if (im.GetRB(PlayerNumber) && !swordSwinging && !inputDown[6])
                 {
-
+                    inputDown[6] = true;
                     AddStanceId = AdditiveInverted ? AddStanceId + 1 : AddStanceId - 1;
                 }
                 if (AddStanceId > 3)
@@ -74,14 +103,14 @@ public class HandAnimationControl : MonoBehaviour {
 
             }
 
-            if (Input.GetAxis("R2") != 0 && !swordSwinging && !vitunTriggeritR)
+            if (im.GetRT(PlayerNumber) != 0 && !swordSwinging && !inputDown[8])
             {
-                vitunTriggeritR = true;
+                inputDown[8] = true;
                 Swing();
             }
-            else if (Input.GetAxis("R2") == 0 && Inputframe && swordSwinging && vitunTriggeritR)
+            else if (im.GetRT(PlayerNumber) == 0 && Inputframe && swordSwinging && inputDown[8])
             {
-                vitunTriggeritR = false;
+                inputDown[8] = false;
                 Weak();
             }
             if (Inputframe && anim.GetBool("SwingDia"))
@@ -90,15 +119,15 @@ public class HandAnimationControl : MonoBehaviour {
                 SwapHanging();
                 anim.SetBool("SwingDia", false);
             }
-            if (Input.GetAxis("L2") != 0 && !swordSwinging && !vitunTriggeritL)
+            if (im.GetLT(PlayerNumber) != 0 && !swordSwinging && !inputDown[7])
             {
 
-                vitunTriggeritL = true;
+                inputDown[7] = true;
                 SwingHor();
             }
-            else if (Input.GetAxis("L2") == 0 && Inputframe && swordSwinging && vitunTriggeritL)
+            else if (im.GetLT(PlayerNumber) == 0 && Inputframe && swordSwinging && inputDown[7])
             {
-                vitunTriggeritL = false;
+                inputDown[7] = false;
                 WeakHor();
             }
             if (Inputframe && anim.GetBool("SwingHor"))
@@ -116,18 +145,32 @@ public class HandAnimationControl : MonoBehaviour {
             }
             if (Input.GetAxis("L2") == 0)
             {
-                vitunTriggeritL = false;
+                //vitunTriggeritL = false;
             }
             if (Input.GetAxis("R2") == 0)
             {
-                vitunTriggeritR = false;
+                //vitunTriggeritR = false;
             }
+            if (Input.GetButtonDown("Xbox_P1_A"))
+            {
+                deflect = !deflect;
+                anim.SetBool("Deflect", deflect);
+            }
+            if (Input.GetButtonDown("Xbox_P1_B"))
+            {
+                interrupt = !interrupt;
+                anim.SetBool("Interrupt", interrupt);
+            }
+            #endregion
         }
         if (AdditiveStanceInput)
         {
             UpdateStance(AddStanceId);
         }
+        
     }
+
+    #region Swings
     void Swing()
     {
         
@@ -153,7 +196,10 @@ public class HandAnimationControl : MonoBehaviour {
         anim.SetBool("Strong", false);
         SwapInside();
     }
-   public void SwapHanging()
+    #endregion
+
+    #region StanceSwaps
+    public void SwapHanging()
     {
         if (!AdditiveStanceInput)
         {
@@ -191,6 +237,9 @@ public class HandAnimationControl : MonoBehaviour {
             }
         }
     }
+    #endregion
+
+    #region SetStance
     void SetInside(float value)
     {
         inside = value;
@@ -233,7 +282,13 @@ public class HandAnimationControl : MonoBehaviour {
             default:
                 break;
         }
+        UpdateShader();
 
     }
-    
+    #endregion
+    void UpdateShader()
+    {
+        
+    }
+
 }

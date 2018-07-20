@@ -44,6 +44,196 @@ public class InputManager : MonoBehaviour
     public bool P2_Y;
     public bool P2_Start;
 
+    #region InputGets
+    public string GetHor(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return P1_Hor;
+            case 2:
+                return P2_Hor;
+        }
+        return "";
+    }
+    public string GetVer(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return P1_Ver;
+            case 2:
+                return P2_Ver;
+        }
+        return "";
+    }
+    public float GetLS_X(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return P1_LS_X;
+            case 2:
+                return P2_LS_X;
+        }
+        return 0;
+    }
+    public float GetLS_Y(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return P1_LS_Y;
+            case 2:
+                return P2_LS_Y;
+        }
+        return 0;
+    }
+    public float GetRS_X(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return P1_RS_X;
+            case 2:
+                return P2_RS_X;
+        }
+        return 0;
+    }
+    public float GetRS_Y(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return P1_RS_Y;
+            case 2:
+                return P2_RS_Y;
+        }
+        return 0;
+    }
+    public float GetDpad_X(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return P1_Dpad_X;
+            case 2:
+                return P2_Dpad_X;
+        }
+        return 0;
+    }
+    public float GetDpad_Y(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return P1_Dpad_Y;
+            case 2:
+                return P2_Dpad_Y;
+        }
+        return 0;
+    }
+    public float GetLT(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return P1_LT;
+            case 2:
+                return P2_LT;
+        }
+        return 0;
+    }
+    public float GetRT(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return P1_RT;
+            case 2:
+                return P2_RT;
+        }
+        return 0;
+    }
+    public bool GetA(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return P1_A;
+            case 2:
+                return P2_A;
+        }
+        return false;
+    }
+    public bool GetB(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return P1_B;
+            case 2:
+                return P2_B;
+        }
+        return false;
+    }
+    public bool GetX(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return P1_X;
+            case 2:
+                return P2_X;
+        }
+        return false;
+    }
+    public bool GetY(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return P1_Y;
+            case 2:
+                return P2_Y;
+        }
+        return false;
+    }
+    public bool GetLB(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return P1_LB;
+            case 2:
+                return P2_LB;
+        }
+        return false;
+    }
+    public bool GetRB(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return P1_RB;
+            case 2:
+                return P2_RB;
+        }
+        return false;
+    }
+    public bool GetStart(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return P1_Start;
+            case 2:
+                return P2_Start;
+        }
+        return false;
+    }
+    #endregion
+
     [Header("Controller Check")]
     public bool isXboxControllerP1;
     public bool isXboxControllerP2;

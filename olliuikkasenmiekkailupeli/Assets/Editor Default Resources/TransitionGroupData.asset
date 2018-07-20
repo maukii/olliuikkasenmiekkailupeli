@@ -17,6 +17,9 @@ MonoBehaviour:
   - AfterPullBack
   - ReturnStrong
   - ReturnLight
+  - GuardBreak
+  - GuardDeflect
+  - ReturnGuard
   TransitionGroups:
   - Transitions:
     - {fileID: 1101167555226216278, guid: ec9460ae0ca49614588ef0ca02d138a5, type: 2}
@@ -79,3 +82,22 @@ MonoBehaviour:
     - {fileID: 1101562701237858196, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
     - {fileID: 1101715805306592832, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
     - {fileID: 1101300478552050108, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
+  - Transitions:
+    - {fileID: 1101416562231170358, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
+    - {fileID: 1101788832303415298, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
+    - {fileID: 1101180857258066988, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
+    - {fileID: 1101787947002827472, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
+  - Transitions:
+    - {fileID: 1101195545357122730, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
+    - {fileID: 1101544810090086930, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
+    - {fileID: 1101012300919557292, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
+    - {fileID: 1101478568552898920, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
+  - Transitions:
+    - {fileID: 1101215657893487930, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
+    - {fileID: 1101495300276143346, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
+    - {fileID: 1101951453687405686, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
+    - {fileID: 1101265249684478180, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
+    - {fileID: 1101804495304246452, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
+    - {fileID: 1101966300341164002, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
+    - {fileID: 1101069812025928474, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
+    - {fileID: 1101657367160978678, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}

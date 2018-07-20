@@ -39,12 +39,16 @@ public class AlternativeMovement5 : MonoBehaviour
     Animator[] anims;
     Animator anim;
 
+    private void Awake()
+    {
+        SetPositionAndRotationToPlayers();
+    }
+
 
     void Start()
     {
         im = FindObjectOfType<InputManager>();
         FindActiveComponents();
-        SetPositionAndRotationToPlayers();
     }
 
     void FindActiveComponents()
@@ -63,34 +67,34 @@ public class AlternativeMovement5 : MonoBehaviour
         p1StartPos = GameObject.Find("P1_StartPosition").gameObject.transform;
         p2StartPos = GameObject.Find("P2_StartPosition").gameObject.transform;
 
-        #region RotatePlayersRight
-        if (im.isLeftP1 && playerIndex == 1)
-        {
-            facingRight = true;
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else if (im.isLeftP2 && playerIndex == 2)
-        {
-            facingRight = true;
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else
-        {
-            facingRight = false;
-            transform.localScale = new Vector3(1, 1, 1);
-        }
+       // #region RotatePlayersRight
+       // if (im.isLeftP1 && playerIndex == 1)
+       // {
+       //     facingRight = true;
+       //     transform.localScale = new Vector3(-1, 1, 1);
+       // }
+       // else if (im.isLeftP2 && playerIndex == 2)
+       // {
+       //     facingRight = true;
+       //     transform.localScale = new Vector3(-1, 1, 1);
+       // }
+       // else
+       // {
+       //     facingRight = false;
+       //     transform.localScale = new Vector3(1, 1, 1);
+       // }
 
-        if (facingRight)
-        {
-            transform.rotation = Quaternion.Euler(-90, 180, -90); // works on orginal models
-            transform.position = p1StartPos.position;
-        }
-        else
-        {
-            transform.rotation = Quaternion.Euler(-90, -180, 90);
-            transform.position = p2StartPos.position;
-        }
-        #endregion
+       // if (facingRight)
+       // {
+       //     transform.rotation = Quaternion.Euler(-90, 180, -90); // works on orginal models
+       //     transform.position = p1StartPos.position;
+       // }
+       // else
+       // {
+       //     transform.rotation = Quaternion.Euler(-90, -180, 90);
+       //     transform.position = p2StartPos.position;
+       // }
+       // #endregion
     }
 
     void Update()

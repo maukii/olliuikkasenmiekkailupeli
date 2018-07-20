@@ -143,24 +143,87 @@ public class HandAnimationControl : MonoBehaviour {
             {
                 anim.SetFloat("SpeedMult", AnimSpeed);
             }
-            if (Input.GetAxis("L2") == 0)
+            if (im.GetLT(PlayerNumber) == 0)
             {
-                //vitunTriggeritL = false;
+                inputDown[7] = false;
             }
-            if (Input.GetAxis("R2") == 0)
+            if (im.GetRT(PlayerNumber) == 0)
             {
-                //vitunTriggeritR = false;
+                inputDown[8] = false;
             }
-            if (Input.GetButtonDown("Xbox_P1_A"))
+            for(int i = 0; i< inputDown.Length; i++)
             {
-                deflect = !deflect;
-                anim.SetBool("Deflect", deflect);
+                if(inputDown[i] == true)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            if(im.GetA(PlayerNumber) == false)
+                            {
+                                inputDown[i] = false;
+                            }
+                            break;
+                        case 1:
+                            if (im.GetB(PlayerNumber) == false)
+                            {
+                                inputDown[i] = false;
+                            }
+                            break;
+                        case 2:
+                            if (im.GetX(PlayerNumber) == false)
+                            {
+                                inputDown[i] = false;
+                            }
+                            break;
+                        case 3:
+                            if (im.GetY(PlayerNumber) == false)
+                            {
+                                inputDown[i] = false;
+                            }
+                            break;
+                        case 4:
+                            if (im.GetStart(PlayerNumber) == false)
+                            {
+                                inputDown[i] = false;
+                            }
+                            break;
+                        case 5:
+                            if (im.GetLB(PlayerNumber) == false)
+                            {
+                                inputDown[i] = false;
+                            }
+                            break;
+                        case 6:
+                            if (im.GetRB(PlayerNumber) == false)
+                            {
+                                inputDown[i] = false;
+                            }
+                            break;
+                        case 7:
+                            if (im.GetLT(PlayerNumber) == 0)
+                            {
+                                inputDown[i] = false;
+                            }
+                            break;
+                        case 8:
+                            if (im.GetRT(PlayerNumber) == 0)
+                            {
+                                inputDown[i] = false;
+                            }
+                            break;
+                    }
+                }
             }
-            if (Input.GetButtonDown("Xbox_P1_B"))
-            {
-                interrupt = !interrupt;
-                anim.SetBool("Interrupt", interrupt);
-            }
+            //if (Input.GetButtonDown("Xbox_P1_A"))
+            //{
+            //    deflect = !deflect;
+            //    anim.SetBool("Deflect", deflect);
+            //}
+            //if (Input.GetButtonDown("Xbox_P1_B"))
+            //{
+            //    interrupt = !interrupt;
+            //    anim.SetBool("Interrupt", interrupt);
+            //}
             #endregion
         }
         if (AdditiveStanceInput)

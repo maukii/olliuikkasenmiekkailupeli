@@ -44,7 +44,7 @@ public class MenuController : MonoBehaviour
         mainmenuHighlights[index].SetActive(true);
 
         anim = Camera.main.GetComponent<Animator>();
-        characterAnim = GameObject.Find("miekkailija_v5.2").gameObject.GetComponent<Animator>();
+        characterAnim = GameObject.Find("miekkailija_v5.2").gameObject.GetComponent<Animator>(); // MIGHT CHANGE !!
         anim.SetBool("MainMenu", true);
         anim.SetBool("SettingsMenu", false);
         anim.SetBool("CreditsMenu", false);
@@ -202,7 +202,7 @@ public class MenuController : MonoBehaviour
 
             if (!InputManager.IM.isOnlyKeyboard) // controller
             {
-                if ((InputManager.IM.P1_A || InputManager.IM.P2_A) && canInteract)
+                if ((InputManager.IM.P1_A || InputManager.IM.P2_A || Input.GetKeyDown(KeyCode.Return)) && canInteract)
                 {
                     if (activeNode == mainmenuNodes[0])
                     {
@@ -296,7 +296,7 @@ public class MenuController : MonoBehaviour
                 }
                 else if (activeNode == settingsNodes[2])
                 {
-                    if ((InputManager.IM.P1_A || InputManager.IM.P2_A) && canInteract)
+                    if ((InputManager.IM.P1_A || InputManager.IM.P2_A || Input.GetKeyDown(KeyCode.Return)) && canInteract)
                     {
                         Back();
                     }

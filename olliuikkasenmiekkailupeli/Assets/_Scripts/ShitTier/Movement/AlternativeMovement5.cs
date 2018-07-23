@@ -6,8 +6,9 @@ using UnityEngine;
 public class AlternativeMovement5 : MonoBehaviour
 {
     InputManager im;
+    HandAnimationControl hand;
 
-    public int playerIndex { get; private set; }
+    public int playerIndex;
     
     #region PlayerInfos
     [Header("----- Player Movement Axis Names -----")]
@@ -24,6 +25,10 @@ public class AlternativeMovement5 : MonoBehaviour
     [SerializeField] bool forward;
     [SerializeField] bool back;
     [SerializeField] bool attacking;
+
+    [Header("-- Animation State --")]
+    [SerializeField] float inside;
+    [SerializeField] float hanging;
     #endregion
 
     public Transform p1StartPos, p2StartPos;
@@ -50,7 +55,9 @@ public class AlternativeMovement5 : MonoBehaviour
 
     void Start()
     {
+        controllerLayout = 1;
         im = FindObjectOfType<InputManager>();
+        hand = GetComponentInChildren<HandAnimationControl>();
         FindActiveComponents();
     }
 
@@ -70,42 +77,73 @@ public class AlternativeMovement5 : MonoBehaviour
         p1StartPos = GameObject.Find("P1_StartPosition").gameObject.transform;
         p2StartPos = GameObject.Find("P2_StartPosition").gameObject.transform;
 
-       // #region RotatePlayersRight
-       // if (im.isLeftP1 && playerIndex == 1)
-       // {
-       //     facingRight = true;
-       //     transform.localScale = new Vector3(-1, 1, 1);
-       // }
-       // else if (im.isLeftP2 && playerIndex == 2)
-       // {
-       //     facingRight = true;
-       //     transform.localScale = new Vector3(-1, 1, 1);
-       // }
-       // else
-       // {
-       //     facingRight = false;
-       //     transform.localScale = new Vector3(1, 1, 1);
-       // }
+        // fixed
+        #region RotatePlayersRight
 
-       // if (facingRight)
-       // {
-       //     transform.rotation = Quaternion.Euler(-90, 180, -90); // works on orginal models
-       //     transform.position = p1StartPos.position;
-       // }
-       // else
-       // {
-       //     transform.rotation = Quaternion.Euler(-90, -180, 90);
-       //     transform.position = p2StartPos.position;
-       // }
-       // #endregion
+        if(InputManager.IM.isLeftP1 && playerIndex == 1)
+        {
+            facingRight = true;
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (InputManager.IM.isLeftP2 && playerIndex == 2)
+        {
+            facingRight = true;
+            transform.localScale = new Vector3(-1, 1, 1);
+            transform.Rotate(0, 180, 0);
+        }
+        else if(InputManager.IM.isRightP1 && playerIndex == 1)
+        {
+            facingRight = false;
+            transform.localScale = new Vector3(1, 1, 1);
+            transform.Rotate(0, 180, 0);
+        }
+
+        if(facingRight)
+        {
+            transform.position = p1StartPos.position;
+        }
+        else
+        {
+            transform.position = p2StartPos.position;
+        }
+
+        //if (im.isLeftP1 && playerIndex == 1)
+        //{
+        //    facingRight = true;
+        //    transform.localScale = new Vector3(-1, 1, 1);
+        //}
+        //else if (im.isLeftP2 && playerIndex == 2)
+        //{
+        //    facingRight = true;
+        //    transform.localScale = new Vector3(-1, 1, 1);
+        //}
+
+        //if (facingRight)
+        //{
+        //    transform.rotation = Quaternion.Euler(-90, 180, -90); // works on orginal models
+        //    transform.position = p1StartPos.position;
+        //}
+        //else
+        //{
+        //    transform.rotation = Quaternion.Euler(-90, -180, 90);
+        //    transform.position = p2StartPos.position;
+        //}
+        #endregion
     }
 
     void Update()
     {
         Inputs();
         Move();
+        GetAnimState();
     }
     
+    void GetAnimState()
+    {
+        hanging = anim.GetFloat("Hanging");
+        inside = anim.GetFloat("Inside");
+    }
+
     void Inputs()
     {
         mouseX = Input.GetAxis("MouseX");
@@ -181,7 +219,7 @@ public class AlternativeMovement5 : MonoBehaviour
         if(facingRight)
         {
 
-            if (Input.GetAxisRaw(horizontal) == 1)
+            if (Input.GetAxisRaw(horizontal) >= .1f)
             {
                 forward = true;
             }
@@ -190,7 +228,7 @@ public class AlternativeMovement5 : MonoBehaviour
                 forward = false;
             }
 
-            if (Input.GetAxisRaw(horizontal) == -1)
+            if (Input.GetAxisRaw(horizontal) <= -.1f)
             {
                 back = true;
             }
@@ -201,7 +239,7 @@ public class AlternativeMovement5 : MonoBehaviour
         }
         else
         {
-            if (Input.GetAxisRaw(horizontal) == 1)
+            if (Input.GetAxisRaw(horizontal) >= .1f)
             {
                 back = true;
             }
@@ -210,7 +248,7 @@ public class AlternativeMovement5 : MonoBehaviour
                 back = false;
             }
 
-            if (Input.GetAxisRaw(horizontal) == -1)
+            if (Input.GetAxisRaw(horizontal) <= -.1f)
             {
                 forward = true;
             }
@@ -256,6 +294,7 @@ public class AlternativeMovement5 : MonoBehaviour
         #endregion
 
         // what attack to play?
+
         #region AttacksWhenInput
         if(playerIndex == 1)
         {
@@ -290,18 +329,18 @@ public class AlternativeMovement5 : MonoBehaviour
                         if (im.P1_LT > 0)
                             HorizontalSlash();
                         if (im.P1_LB)
-                            TurnSword(facingRight?-1:1);
+                            TurnSword(facingRight? -1 : 1);
                         if (im.P1_RT > 0)
                             VerticalSlash();
                         if (im.P1_RB)
-                            TurnSword(facingRight?1:-1);
+                            TurnSword(facingRight? 1: -1);
                     }
                     else if (controllerLayout == 4)
                     {
                         if (im.P1_LT > 0)
-                            TurnSword(facingRight?-1:1);
+                            TurnSword(facingRight? -1 : 1);
                         if (im.P1_LB)
-                            ChangeSide();
+                            TurnSword(facingRight ? 1 : -1);
                         if (im.P1_RT > 0)
                             VerticalSlash();
                         if (im.P1_RB)
@@ -471,6 +510,8 @@ public class AlternativeMovement5 : MonoBehaviour
         attacking = true;  //       TODO: USE public override OnStateExit, -Enter to change attacking bool
         StartCoroutine(Timer());
         // test purposes only
+
+        //hand.Weak();
     }
 
     private void HorizontalSlash()
@@ -478,6 +519,8 @@ public class AlternativeMovement5 : MonoBehaviour
         Debug.Log("horizontalslash");
         attacking = true;
         StartCoroutine(Timer());
+
+        //hand.SwingHor();
     }
 
     private void VerticalSlash()
@@ -485,6 +528,8 @@ public class AlternativeMovement5 : MonoBehaviour
         Debug.Log("verticalslash");
         attacking = true;
         StartCoroutine(Timer());
+
+       // hand.Swing();
     }
 
     private void ChangeGuard()
@@ -492,6 +537,9 @@ public class AlternativeMovement5 : MonoBehaviour
         Debug.Log("changeguard");
         attacking = true;
         StartCoroutine(Timer());
+
+        //hand.SwapInside();
+        //hand.SwapHanging();
     }
 
     private void ChangeSide()
@@ -499,24 +547,31 @@ public class AlternativeMovement5 : MonoBehaviour
         Debug.Log("changeside");
         attacking = true;
         StartCoroutine(Timer());
-    }
 
-    float timer = 1;
+
+    }
 
     private void TurnSword(int index)
     {
         attacking = true;
 
-        swordAngle += index;
-
-        if (swordAngle < 0)
-            swordAngle = 3;
-        else if (swordAngle > 3)
+        if (inside == 1 && hanging == 1)
             swordAngle = 0;
+        else if (inside == 1 && hanging == 0)
+            swordAngle = 1;
+        else if (inside == 0 && hanging == 0)
+            swordAngle = 2;
+        else if (inside == 0 && hanging == 1)
+            swordAngle = 3;
+
+        //if (swordAngle < 0)
+        //    swordAngle = 3;
+        //else if (swordAngle > 3)
+        //    swordAngle = 0;
 
         StartCoroutine(Timer());
 
-        Debug.Log(index + " " + swordAngle);
+        Debug.Log(swordAngle);
     }
 
     IEnumerator Timer()
@@ -532,6 +587,7 @@ public class AlternativeMovement5 : MonoBehaviour
         vertical = vert;
     }
 
+    // SOUNDS ++ TODO: add random soundeffect
     public void PlaySound(string clipName)
     {
         if(AudioManager.instance != null)

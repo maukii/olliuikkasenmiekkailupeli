@@ -20,7 +20,6 @@ public class PlayerInfo : MonoBehaviour
     {
         horizontalName = hor;
         verticalName = ver;
-        // buttons laters
     }
 
     public void ChooseCharacter()
@@ -34,7 +33,7 @@ public class PlayerInfo : MonoBehaviour
             }
         }
 
-        if(activeModel.GetComponent<Animator>() != null) // do simple animation without rootmotion ty
+        if(activeModel.GetComponent<Animator>() != null) // no root motion in menu
         {
             activeModel.GetComponent<Animator>().SetBool("Ready", ready);
             activeModel.GetComponent<Animator>().SetTrigger("Choose");

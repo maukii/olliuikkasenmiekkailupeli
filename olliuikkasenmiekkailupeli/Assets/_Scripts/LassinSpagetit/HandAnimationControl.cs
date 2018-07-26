@@ -212,7 +212,7 @@ public class HandAnimationControl : MonoBehaviour
                 {
                     ControllerInputs();
                 }
-            }
+            }                   // CONTROLS
             else if(!im.isKeyboardAndMouseP1 && !im.isKeyboardAndMouseP2)
             {
                 ControllerInputs();

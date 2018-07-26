@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4203423228706506}
+  - component: {fileID: 114817709546783754}
   - component: {fileID: 198157736026129098}
-  - component: {fileID: 114221078139634846}
   - component: {fileID: 199224338508208506}
   m_Layer: 0
   m_Name: SwingParticle
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114221078139634846
+--- !u!114 &114817709546783754
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

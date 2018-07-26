@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordTrailPart : MonoBehaviour {
+public class SwordTrail : MonoBehaviour {
 
     ParticleSystem ps;
 

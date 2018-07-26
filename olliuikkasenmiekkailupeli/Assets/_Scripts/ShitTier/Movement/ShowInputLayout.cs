@@ -9,8 +9,8 @@ public class ShowInputLayout : MonoBehaviour
     public int playerIndex;
     public int controllerLayout;
 
-    public Text P1_Layout;
-    public Text P2_Layout;
+    public Text Left_Layout;
+    public Text Right_Layout;
 
     void Start ()
     {
@@ -19,15 +19,26 @@ public class ShowInputLayout : MonoBehaviour
 	
 	void Update ()
     {
-        controllerLayout = GetComponentInChildren<HandAnimationControl>().controllerLayout;
+        controllerLayout = GetComponentInChildren<HandAnimationControl>().GetControllerLayout();
 
-        if (playerIndex == 1)
+        #region PlayerSides
+        if (playerIndex == 1 && InputManager.IM.isLeftP1)
         {
-            P1_Layout.text = "" + controllerLayout;
+            Left_Layout.text = "" + controllerLayout;
         }
-        else if(playerIndex == 2)
+        else if(playerIndex == 1 && InputManager.IM.isRightP1)
         {
-            P2_Layout.text = "" + controllerLayout;
+            Right_Layout.text = "" + controllerLayout;
         }
-	}
+        else if(playerIndex == 2 && InputManager.IM.isLeftP2)
+        {
+            Left_Layout.text = "" + controllerLayout;
+        }
+        else if(playerIndex == 2 && InputManager.IM.isRightP2)
+        {
+            Right_Layout.text = "" + controllerLayout;
+        }
+        #endregion
+
+    }
 }

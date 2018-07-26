@@ -17,6 +17,7 @@ public class InputManager : MonoBehaviour
     public float P1_Dpad_Y;
     public float P1_LT;
     public float P1_RT;
+    public float P1_Triggers;
     public bool P1_LB;
     public bool P1_RB;
     public bool P1_A;
@@ -36,6 +37,7 @@ public class InputManager : MonoBehaviour
     public float P2_Dpad_Y;
     public float P2_LT;
     public float P2_RT;
+    public float P2_Triggers;
     public bool P2_LB;
     public bool P2_RB;
     public bool P2_A;
@@ -155,6 +157,17 @@ public class InputManager : MonoBehaviour
         }
         return 0;
     }
+    public float GetTriggers(int PlayerNumber)
+    {
+        switch(PlayerNumber)
+        {
+            case 1:
+                return P1_Triggers;
+            case 2:
+                return P2_Triggers;
+        }
+        return 0;
+}
     public bool GetA(int PlayerNumber)
     {
         switch (PlayerNumber)
@@ -363,8 +376,9 @@ public class InputManager : MonoBehaviour
             P1_RS_Y = Input.GetAxis("Xbox_P1_VerticalRight");
             P1_Dpad_X = Input.GetAxis("Xbox_P1_HorizontalDpad");
             P1_Dpad_Y = Input.GetAxis("Xbox_P1_VerticalDpad");
-            P1_LT = Input.GetAxis("Xbox_P1_LT");
-            P1_RT = Input.GetAxis("Xbox_P1_RT");
+            P1_LT = Input.GetAxis("Xbox_P1_LT"); 
+            P1_RT = Input.GetAxis("Xbox_P1_RT"); 
+            P1_Triggers = Input.GetAxis("Xbox_P1_LT_RT");
             P1_LB = Input.GetKey(KeyCode.Joystick1Button4);
             P1_RB = Input.GetKey(KeyCode.Joystick1Button5);
             P1_A = Input.GetKey(KeyCode.Joystick1Button0);
@@ -386,6 +400,7 @@ public class InputManager : MonoBehaviour
             P2_Dpad_Y = Input.GetAxis("Xbox_P2_VerticalDpad");
             P2_LT = Input.GetAxis("Xbox_P2_LT");
             P2_RT = Input.GetAxis("Xbox_P2_RT");
+            P2_Triggers = Input.GetAxis("Xbox_P2_LT_RT");
             P2_LB = Input.GetKey(KeyCode.Joystick2Button4);
             P2_RB = Input.GetKey(KeyCode.Joystick2Button5);
             P2_A = Input.GetKey(KeyCode.Joystick2Button0);

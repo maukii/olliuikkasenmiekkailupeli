@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-
     [SerializeField]
-    Slider[] volumeSliders;
+    GameObject blackScreen;
 
     [SerializeField]
     GameObject mainMenu, settingsMenu, creditsMenu;
@@ -22,20 +21,22 @@ public class MenuController : MonoBehaviour
     [SerializeField]
     GameObject activeNode;
 
-    float hor, ver, timer = 0.5f,
-    defaultTimer, dampTime = 0.5f;
-
-    [SerializeField]
+    float hor, ver, timer = 0.5f, defaultTimer, dampTime = 0.5f;
     int index;
-
     bool canInteract;
 
     enum Menu { MainMenu, Settings, Credits, };
-    public GameObject[] mainmenuNodes, settingsNodes;
-    public GameObject[] mainmenuHighlights, settingsHighlights;
+    [SerializeField] GameObject mainmenuCharacter;
+    [SerializeField] GameObject[] mainmenuNodes, settingsNodes;
+    [SerializeField] GameObject[] mainmenuHighlights, settingsHighlights;
+
+    [SerializeField] Slider[] volumeSliders;
 
     void Start()
     {
+        blackScreen = GameObject.Find("FadeBlackScreen").gameObject;
+        blackScreen.GetComponent<Animator>().SetTrigger("FadeOut");
+
         mainMenu.gameObject.SetActive(true);
         settingsMenu.gameObject.SetActive(false);
 
@@ -44,7 +45,8 @@ public class MenuController : MonoBehaviour
         mainmenuHighlights[index].SetActive(true);
 
         anim = Camera.main.GetComponent<Animator>();
-        characterAnim = GameObject.Find("miekkailija_v5.2").gameObject.GetComponent<Animator>(); // MIGHT CHANGE !!
+        characterAnim = mainmenuCharacter.GetComponent<Animator>();
+
         anim.SetBool("MainMenu", true);
         anim.SetBool("SettingsMenu", false);
         anim.SetBool("CreditsMenu", false);
@@ -127,7 +129,7 @@ public class MenuController : MonoBehaviour
                 characterAnim.SetFloat("Blend", -1, dampTime, Time.deltaTime);
 
         }
-        else if (activeMenu == Menu.Settings) // make 2nd index or -->
+        else if (activeMenu == Menu.Settings)
         {
             if (ver >= .5f && canInteract)
             {
@@ -143,6 +145,7 @@ public class MenuController : MonoBehaviour
     void ToggleUp()
     {
         index++;
+
         if(activeMenu == Menu.MainMenu)
         { 
             if (index > mainmenuNodes.Length - 1)
@@ -154,6 +157,7 @@ public class MenuController : MonoBehaviour
             DisableHighlights(Menu.MainMenu);
             mainmenuHighlights[index].SetActive(true);
         }
+
         if(activeMenu == Menu.Settings)
         {
             if (index > settingsNodes.Length - 1)
@@ -170,6 +174,7 @@ public class MenuController : MonoBehaviour
     void ToggleDown()
     {
         index--;
+
         if(activeMenu == Menu.MainMenu)
         {
             if(index < 0)
@@ -181,6 +186,7 @@ public class MenuController : MonoBehaviour
             DisableHighlights(Menu.MainMenu);
             mainmenuHighlights[index].SetActive(true);
         }
+
         if(activeMenu == Menu.Settings)
         {
             if (index < 0)
@@ -208,6 +214,7 @@ public class MenuController : MonoBehaviour
                     {
                         // START
                         Debug.Log("Start");
+                        blackScreen.GetComponent<Animator>().Play("FadeIn");
                         AudioManager.instance.FadeOutMusic();
                         Invoke("LoadNextScene", 1.5f);
                         canInteract = false;
@@ -241,6 +248,8 @@ public class MenuController : MonoBehaviour
                     if (activeNode == mainmenuNodes[0])
                     {
                         // START
+                        AudioManager.instance.FadeOutMusic();
+                        Invoke("LoadNextScene", 1.5f);
                         Debug.Log("START");
                     }
                     else if (activeNode == mainmenuNodes[1])
@@ -252,6 +261,7 @@ public class MenuController : MonoBehaviour
                     else if (activeNode == mainmenuNodes[2])
                     {
                         // CREDITS
+                        Credits();
                         Debug.Log("Credits");
                     }
                     else if (activeNode == mainmenuNodes[3])

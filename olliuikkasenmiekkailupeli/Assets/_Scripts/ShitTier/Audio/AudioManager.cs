@@ -155,8 +155,8 @@ public class AudioManager : MonoBehaviour
         while (percent < 1)
         {
             percent += Time.deltaTime * 1 / duration;
-            musicSource.volume = Mathf.Lerp(0, 0.5f, percent);
-            Debug.Log("animating music in");
+            musicSource.volume = Mathf.Lerp(0, musicVolumePercent, percent);
+            //Debug.Log("animating music in");
             yield return null;
         }
     }

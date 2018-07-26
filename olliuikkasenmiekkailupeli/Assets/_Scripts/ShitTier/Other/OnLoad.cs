@@ -13,5 +13,6 @@ public class OnLoad : MonoBehaviour {
             AudioManager.instance.FadeInMusic();
             Debug.Log("animate music in");
         }
+        GameObject.Find("FadeBlackScreen").gameObject.GetComponent<Animator>().SetTrigger("FadeOut");
     }
 }

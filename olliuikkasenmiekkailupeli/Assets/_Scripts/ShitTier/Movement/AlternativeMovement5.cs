@@ -131,6 +131,11 @@ public class AlternativeMovement5 : MonoBehaviour
         #endregion
     }
 
+    public bool GetFacingRight(int PlayerNumber)
+    {
+        return facingRight;
+    }
+
     void Update()
     {
         Inputs();
@@ -219,7 +224,7 @@ public class AlternativeMovement5 : MonoBehaviour
         if(facingRight)
         {
 
-            if (Input.GetAxisRaw(horizontal) >= .1f)
+            if (Input.GetAxis(horizontal) >= .1f)
             {
                 forward = true;
             }
@@ -228,7 +233,7 @@ public class AlternativeMovement5 : MonoBehaviour
                 forward = false;
             }
 
-            if (Input.GetAxisRaw(horizontal) <= -.1f)
+            if (Input.GetAxis(horizontal) <= -.1f)
             {
                 back = true;
             }
@@ -239,7 +244,7 @@ public class AlternativeMovement5 : MonoBehaviour
         }
         else
         {
-            if (Input.GetAxisRaw(horizontal) >= .1f)
+            if (Input.GetAxis(horizontal) >= .1f)
             {
                 back = true;
             }
@@ -248,7 +253,7 @@ public class AlternativeMovement5 : MonoBehaviour
                 back = false;
             }
 
-            if (Input.GetAxisRaw(horizontal) <= -.1f)
+            if (Input.GetAxis(horizontal) <= -.1f)
             {
                 forward = true;
             }
@@ -333,7 +338,7 @@ public class AlternativeMovement5 : MonoBehaviour
                         if (im.P1_RT > 0)
                             VerticalSlash();
                         if (im.P1_RB)
-                            TurnSword(facingRight? 1: -1);
+                            TurnSword(facingRight? 1 : -1);
                     }
                     else if (controllerLayout == 4)
                     {
@@ -506,7 +511,7 @@ public class AlternativeMovement5 : MonoBehaviour
     #region Attacks
     private void Stab()
     {
-        Debug.Log("stab");
+        //Debug.Log("stab");
         attacking = true;  //       TODO: USE public override OnStateExit, -Enter to change attacking bool
         StartCoroutine(Timer());
         // test purposes only
@@ -516,7 +521,7 @@ public class AlternativeMovement5 : MonoBehaviour
 
     private void HorizontalSlash()
     {
-        Debug.Log("horizontalslash");
+        //Debug.Log("horizontalslash");
         attacking = true;
         StartCoroutine(Timer());
 
@@ -525,7 +530,7 @@ public class AlternativeMovement5 : MonoBehaviour
 
     private void VerticalSlash()
     {
-        Debug.Log("verticalslash");
+        //Debug.Log("verticalslash");
         attacking = true;
         StartCoroutine(Timer());
 
@@ -534,7 +539,7 @@ public class AlternativeMovement5 : MonoBehaviour
 
     private void ChangeGuard()
     {
-        Debug.Log("changeguard");
+        //Debug.Log("changeguard");
         attacking = true;
         StartCoroutine(Timer());
 
@@ -544,7 +549,7 @@ public class AlternativeMovement5 : MonoBehaviour
 
     private void ChangeSide()
     {
-        Debug.Log("changeside");
+        //Debug.Log("changeside");
         attacking = true;
         StartCoroutine(Timer());
 

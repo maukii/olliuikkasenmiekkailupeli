@@ -15,9 +15,11 @@ public class HandAnimationControl : MonoBehaviour {
     float inside;
     bool deflect = false;
     bool interrupt = false;
-    
+
     [Header("--AnimatorSpeed--")]
-    public float AnimSpeed = 1f;
+    public bool LetThisScriptControlAnimatorSpeeds = false;
+    public float AnimatorSpeed = 1f;
+    public float HandAnimSpeed = 1f;
     public float InputAnimSpeed = 0.8f;
 
 
@@ -141,7 +143,7 @@ public class HandAnimationControl : MonoBehaviour {
             }
             else
             {
-                anim.SetFloat("SpeedMult", AnimSpeed);
+                anim.SetFloat("SpeedMult", HandAnimSpeed);
             }
             if (im.GetLT(PlayerNumber) == 0)
             {
@@ -230,7 +232,10 @@ public class HandAnimationControl : MonoBehaviour {
         {
             UpdateStance(AddStanceId);
         }
-        
+        if (LetThisScriptControlAnimatorSpeeds)
+        {
+            anim.speed = AnimatorSpeed;
+        }
     }
 
     #region Swings
@@ -313,12 +318,12 @@ public class HandAnimationControl : MonoBehaviour {
         hanging = value;
         anim.SetFloat("Hanging", value);
     }
-    float GetInside()
+    public float GetInside()
     {
         inside = anim.GetFloat("Inside");
         return inside;
     }
-    float GetHanging()
+    public float GetHanging()
     {
         hanging = anim.GetFloat("Hanging");
         return hanging;

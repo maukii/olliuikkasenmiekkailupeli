@@ -52,8 +52,9 @@ public class HandAnimationControl : MonoBehaviour
 
     void Start()
     {
-        if(GameHandler.instance.BattleStarted)
-            facingRight = GetComponentInParent<AlternativeMovement5>().GetFacingRight(PlayerNumber);
+        if(GameHandler.instance != null)
+            if(GameHandler.instance.BattleStarted)
+                facingRight = GetComponentInParent<AlternativeMovement5>().GetFacingRight(PlayerNumber);
 
         anim = gameObject.GetComponent<Animator>();
         anim.SetFloat("Inside", inside);

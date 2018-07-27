@@ -97,6 +97,11 @@ public class AlternativeMovement5 : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
             transform.Rotate(0, 180, 0);
         }
+        else if(InputManager.IM.isRightP2 && playerIndex == 2)
+        {
+            facingRight = false;
+            transform.localScale = new Vector3(1, 1, 1);
+        }
 
         if(facingRight)
         {

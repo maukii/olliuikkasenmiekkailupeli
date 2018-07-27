@@ -15,6 +15,7 @@ public class ShowInputLayout : MonoBehaviour
     void Start ()
     {
         playerIndex = GetComponentInChildren<HandAnimationControl>().PlayerNumber;
+        controllerLayout = GetComponentInChildren<HandAnimationControl>().GetControllerLayout();
     }
 	
 	void Update ()

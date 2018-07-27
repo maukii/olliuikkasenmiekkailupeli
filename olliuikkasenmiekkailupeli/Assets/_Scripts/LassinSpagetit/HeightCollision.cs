@@ -7,7 +7,7 @@ public class HeightCollision : MonoBehaviour {
     GameObject[] SwordCollisionPartsP2;
     RectTransform[] HeightMeterP1;
     RectTransform[] HeightMeterP2;
-    float Height;
+    float[] Height = new float[2];
     float[] TipH = new float[2];
     float[] MiddleH = new float[2];
     float[] BaseH = new float[2];
@@ -15,10 +15,12 @@ public class HeightCollision : MonoBehaviour {
 
     public bool ShowHeightMeters = false;
     GameObject[] HeightMeters = new GameObject[2];
+    CollisionHandler ch;
 
 
-    
     void Start () {
+        ch = gameObject.GetComponent<CollisionHandler>();
+
         GameObject[] hm = GameObject.FindGameObjectsWithTag("HeightMeterP1");
         HeightMeterP1 = new RectTransform[hm.Length]; 
         for(int i = 0; hm.Length > i; i++)
@@ -41,6 +43,8 @@ public class HeightCollision : MonoBehaviour {
 	
 	
 	void Update () {
+        Height[0] = ch.GetHeight(1);
+        Height[1] = ch.GetHeight(2);
         UpdateSwordHeight();
 
         if (ShowHeightMeters)
@@ -54,6 +58,7 @@ public class HeightCollision : MonoBehaviour {
         }
         
 	}
+
     void EnableHeightMeter()
     {
         for (int playernumber = 0; playernumber < 2; playernumber++)
@@ -68,6 +73,7 @@ public class HeightCollision : MonoBehaviour {
             HeightMeters[playernumber].SetActive(false);
         }
     }
+
     void UpdateSwordHeight()
     {
         for(int playerNumber = 0; playerNumber < 2; playerNumber++)
@@ -129,7 +135,8 @@ public class HeightCollision : MonoBehaviour {
                 {
                     if (HeightMeterP1[i].name == "Height")
                     {
-                        
+                        HeightMeterP1[i].position = new Vector3(HeightMeterP1[i].position.x, Height[playerNumber], HeightMeterP1[i].position.z);
+                        HeightMeterP1[i].localPosition = new Vector3(-0.5f, HeightMeterP1[i].localPosition.y, 0);
                     }
                     else if (HeightMeterP1[i].name == "Middle")
                     {
@@ -188,7 +195,8 @@ public class HeightCollision : MonoBehaviour {
                 {
                     if (HeightMeterP2[i].name == "Height")
                     {
-
+                        HeightMeterP2[i].position = new Vector3(HeightMeterP2[i].position.x, Height[playerNumber], HeightMeterP2[i].position.z);
+                        HeightMeterP2[i].localPosition = new Vector3(-0.5f, HeightMeterP2[i].localPosition.y, 0);
                     }
                     else if (HeightMeterP2[i].name == "Middle")
                     {
@@ -242,5 +250,21 @@ public class HeightCollision : MonoBehaviour {
                 }
             }
         }
+    }
+    public float GetTip(int player)
+    {
+        return TipH[player - 1];
+    }
+    public float GetMiddle(int player)
+    {
+        return MiddleH[player - 1];
+    }
+    public float GetBase(int player)
+    {
+        return BaseH[player - 1];
+    }
+    public float GetHandle(int player)
+    {
+        return HandleH[player - 1];
     }
 }

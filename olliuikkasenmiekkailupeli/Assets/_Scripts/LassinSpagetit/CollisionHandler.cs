@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionAnimationTest : MonoBehaviour {
+[RequireComponent(typeof(StepCounter),typeof(HeightCollision))]
+public class CollisionHandler : MonoBehaviour {
     Animator[] anim= new Animator[2];
-    float inside;
-    float hanging;
-    float otherInside;
-    float otherHanging;
+    float[] inside = new float[2];
+    float[] hanging = new float[2];
+    float[] height = new float[2];
     AnimatorStateInfo[] asi = new AnimatorStateInfo[2];
     StepCounter sc;
+    HeightCollision hc;
     //HandAnimationControl hac;
     float interruptTimerP1;
     float interruptTimerP2;
@@ -19,8 +20,9 @@ public class CollisionAnimationTest : MonoBehaviour {
     public float BaseDelay = 0.5f;
     int StepDistance;
 
-    bool strongCollision = true;
-    bool miss = false;
+    public bool strongCollision = true;
+    public bool handGuardHit = false;
+    public bool miss = false;
 
 
     #region StrengthVariables
@@ -35,13 +37,11 @@ public class CollisionAnimationTest : MonoBehaviour {
     float collisionPoint;
     float defensePenalty;
     float collisionStrength;
-    
     #endregion
-
-
-    // Use this for initialization
+    
     void Start () {
-        sc = FindObjectOfType<StepCounter>();
+        sc = gameObject.GetComponent<StepCounter>();
+        hc = gameObject.GetComponent<HeightCollision>();
         anim[0] = GameObject.FindGameObjectWithTag("Player 1").GetComponentInChildren<Animator>();
         anim[1] = GameObject.FindGameObjectWithTag("Player 2").GetComponentInChildren<Animator>();
         //hac = gameObject.GetComponent<HandAnimationControl>();
@@ -52,7 +52,6 @@ public class CollisionAnimationTest : MonoBehaviour {
         swingHash = 0;
     }
 	
-	// Update is called once per frame
 	void Update () {
         UpdateVariables();
         
@@ -72,15 +71,19 @@ public class CollisionAnimationTest : MonoBehaviour {
         }
         Timer();
     }
+
     void UpdateVariables()
     {
-        inside = anim[0].GetFloat("Inside");
-        hanging = anim[0].GetFloat("Hanging");
-        otherInside = anim[1].GetFloat("Inside");
-        otherHanging = anim[1].GetFloat("Hanging");
+        inside[0] = anim[0].GetFloat("Inside");
+        hanging[0] = anim[0].GetFloat("Hanging");
+        height[0] = anim[0].GetFloat("Height");
+        inside[1] = anim[1].GetFloat("Inside");
+        hanging[1] = anim[1].GetFloat("Hanging");
+        height[1] = anim[1].GetFloat("Height");
         asi[0] = anim[0].GetCurrentAnimatorStateInfo(1);
         asi[1] = anim[1].GetCurrentAnimatorStateInfo(1);
     }
+
     void Attack(int player)
     {
         swingHash = asi[player].fullPathHash;
@@ -89,7 +92,7 @@ public class CollisionAnimationTest : MonoBehaviour {
         {
             if (CheckDistance())
             {
-                if (CheckHeight())
+                if (CheckHeight(player))
                 {
                     CalculateStrength(player);
                     if (CheckQuard())
@@ -105,6 +108,7 @@ public class CollisionAnimationTest : MonoBehaviour {
             }
         }
     }
+
     void CalculateStrength(int player)
     {
         
@@ -126,20 +130,13 @@ public class CollisionAnimationTest : MonoBehaviour {
             defensePenalty = 0;
 
     }
-    void Deflect(int player)
-    {
-        interruptTimerP1 = BaseDelay;
-        interruptTimerP2 = BaseDelay;
-        int otherplayer = player - 1 == -1 ? 1 : 0;
-        anim[player].SetBool("Deflect", true);
-        anim[otherplayer].SetBool("Deflect", true);
-    }
+    
     bool CheckQuard()
     {
         float direction;
-        direction = inside * 2 - 1;
+        direction = inside[0] * 2 - 1;
         float guard;
-        guard = otherHanging == otherInside ? 1 : -1;
+        guard = hanging[1] == inside[1] ? 1 : -1;
         if(direction == guard)
         {
             return true;
@@ -155,10 +152,40 @@ public class CollisionAnimationTest : MonoBehaviour {
         }
         return false;
     }
-    bool CheckHeight()
+    bool CheckHeight(int player)
     {
-
+        //NOTE:FIX HANGING !!!!
+        int otherplayer = player - 1 == -1 ? 1 : 0;
+        if (height[player] > hc.GetHandle(otherplayer + 1) && height[player] < hc.GetMiddle(otherplayer + 1))
+        {
+            strongCollision = true;
+        }
+        else if(height[player] > hc.GetMiddle(otherplayer + 1) && height[player] < hc.GetTip(otherplayer + 1))
+        {
+            strongCollision = false;
+        }
+        else
+        {
+            miss = true;
+        }
+        if(height[player] > hc.GetHandle(otherplayer + 1) && height[player] < hc.GetBase(otherplayer + 1))
+        {
+            handGuardHit = true;
+        }
+        else
+        {
+            handGuardHit = false;
+        }
         return true;
+    }
+
+    void Deflect(int player)
+    {
+        interruptTimerP1 = BaseDelay;
+        interruptTimerP2 = BaseDelay;
+        int otherplayer = player - 1 == -1 ? 1 : 0;
+        anim[player].SetBool("Deflect", true);
+        anim[otherplayer].SetBool("Deflect", true);
     }
     void QuardBreak(int player)
     {
@@ -167,6 +194,7 @@ public class CollisionAnimationTest : MonoBehaviour {
         interruptTimerP1 = BaseDelay;
         interruptTimerP2 = BaseDelay;
     }
+
     void SetInterruptTimer(int player, float time)
     {
         if(player == 1)
@@ -202,5 +230,10 @@ public class CollisionAnimationTest : MonoBehaviour {
             anim[0].SetBool("Interrupt", false);
             anim[0].SetBool("lightDeflect", false);
         }
+    }
+
+    public float GetHeight(int player)
+    {
+        return height[player - 1];
     }
 }

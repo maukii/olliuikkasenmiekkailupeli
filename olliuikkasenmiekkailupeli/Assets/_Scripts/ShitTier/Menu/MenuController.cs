@@ -324,6 +324,7 @@ public class MenuController : MonoBehaviour
     public void Options()
     {
         index = 0;
+        timer = 1f;
 
         Invoke("DisableMain", 1);
         settingsMenu.gameObject.SetActive(true);
@@ -342,6 +343,7 @@ public class MenuController : MonoBehaviour
     public void Back(int num)
     {
         index = num;
+        timer = 1f;
 
         Invoke("DisableSettings", 1);
         mainMenu.gameObject.SetActive(true);
@@ -360,6 +362,8 @@ public class MenuController : MonoBehaviour
 
     public void Credits()
     {
+        timer = 1f;
+
         Invoke("DisableMain", 1);
         creditsMenu.gameObject.SetActive(true);
 

@@ -20,38 +20,31 @@ public class AudioManager : MonoBehaviour
     float musicVolume;
     float sfxVolume;
 
-    [SerializeField]
-    AudioSource musicSource, sfxSource;
+    public AudioSource musicSource, sfxSource;
 
     public void AddVolume(int index)
     {
-        //if(index == 0)
-        //{
-        //    // music
-        //    musicVolumePercent += 0.1f; // works fine with standalone inputmanager
-        //}
-        //if(index == 1)
-        //{
-        //    // sfx
-        //    sfxVolumePercent += 0.1f;
-        //}
-        
+        if(index == 0)
+        {
+            musicVolumePercent += 0.1f; // works fine with standalone inputmanager
+        }
+        if(index == 1)
+        {
+            sfxVolumePercent += 0.1f;
+        }        
         Debug.Log("add");
     }
 
     public void LessVolume(int index)
     {
-        //if (index == 0)
-        //{
-        //    // music
-        //    musicVolumePercent -= 0.1f;
-        //}
-        //else if(index == 1)
-        //{
-        //    // sfx
-        //    sfxVolumePercent -= 0.1f;
-        //}
-
+        if (index == 0)
+        {
+            musicVolumePercent -= 0.1f;
+        }
+        else if(index == 1)
+        {
+            sfxVolumePercent -= 0.1f;
+        }
         Debug.Log("less");
     }
 
@@ -86,14 +79,6 @@ public class AudioManager : MonoBehaviour
 
         musicSource = GetComponent<AudioSource>();
 
-        //musicSources = new AudioSource[2];
-        //for (int i = 0; i < 2; i++)
-        //{
-        //    GameObject newMusicSource = new GameObject("Music source " + (i + 1));
-        //    musicSources[i] = newMusicSource.AddComponent<AudioSource>();
-        //    newMusicSource.transform.parent = transform;
-        //}
-
     }
 
     public void PlaySound(string name)
@@ -122,26 +107,7 @@ public class AudioManager : MonoBehaviour
 
         musicSource.clip = clip;
         musicSource.Play();
-
-        //activeMusicSourceIndex = 1 - activeMusicSourceIndex;
-        //musicSources[activeMusicSourceIndex].clip = clip;
-        //musicSources[activeMusicSourceIndex].Play();
-        //
-        //StartCoroutine(AnimateMusicCrossfade(fadeDuration));
     }
-
-    //IEnumerator AnimateMusicCrossfade(float duration)
-    //{
-    //    float percent = 0;
-    //
-    //    while (percent < 1)
-    //    {
-    //        percent += Time.deltaTime * 1 / duration;
-    //        musicSources[activeMusicSourceIndex].volume = Mathf.Lerp(0, musicVolumePercent * masterVolumePercent, percent);
-    //        musicSources[1 - activeMusicSourceIndex].volume = Mathf.Lerp(musicVolumePercent * masterVolumePercent, 0, percent);
-    //        yield return null;
-    //    }
-    //}
 
     public void FadeInMusic()
     {
@@ -199,12 +165,5 @@ public class AudioManager : MonoBehaviour
         //musicSources[1].volume = musicVolumePercent * masterVolumePercent;
 
     }
-
-    //public AudioMixer audioMixer;
-
-    //public void SetVolume(float volume)
-    //{
-    //    audioMixer.SetFloat("Volume", volume);
-    //} // 2nd option
 
 }

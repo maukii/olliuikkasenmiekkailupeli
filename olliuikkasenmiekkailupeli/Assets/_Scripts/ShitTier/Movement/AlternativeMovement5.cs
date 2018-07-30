@@ -31,7 +31,8 @@ public class AlternativeMovement5 : MonoBehaviour
     [SerializeField] float hanging;
     #endregion
 
-    public Transform p1StartPos, p2StartPos;
+    [SerializeField]
+    Transform p1StartPos, p2StartPos;
 
     [SerializeField]
     bool facingRight = false;
@@ -45,12 +46,9 @@ public class AlternativeMovement5 : MonoBehaviour
     Animator[] anims;
     Animator anim;
 
-    _Camera cam;
-
     private void Awake()
     {
         SetPositionAndRotationToPlayers();
-        cam = FindObjectOfType<_Camera>();
     }
 
     void Start()
@@ -70,14 +68,13 @@ public class AlternativeMovement5 : MonoBehaviour
             if (anims[i].enabled)
                 anim = anims[i];
         }
-    } // get active model's animator
+    }
 
     void SetPositionAndRotationToPlayers()
     {
         p1StartPos = GameObject.Find("P1_StartPosition").gameObject.transform;
         p2StartPos = GameObject.Find("P2_StartPosition").gameObject.transform;
 
-        // fixed
         #region RotatePlayersRight
 
         if(InputManager.IM.isLeftP1 && playerIndex == 1)
@@ -112,27 +109,6 @@ public class AlternativeMovement5 : MonoBehaviour
             transform.position = p2StartPos.position;
         }
 
-        //if (im.isLeftP1 && playerIndex == 1)
-        //{
-        //    facingRight = true;
-        //    transform.localScale = new Vector3(-1, 1, 1);
-        //}
-        //else if (im.isLeftP2 && playerIndex == 2)
-        //{
-        //    facingRight = true;
-        //    transform.localScale = new Vector3(-1, 1, 1);
-        //}
-
-        //if (facingRight)
-        //{
-        //    transform.rotation = Quaternion.Euler(-90, 180, -90); // works on orginal models
-        //    transform.position = p1StartPos.position;
-        //}
-        //else
-        //{
-        //    transform.rotation = Quaternion.Euler(-90, -180, 90);
-        //    transform.position = p2StartPos.position;
-        //}
         #endregion
     }
 
@@ -304,7 +280,6 @@ public class AlternativeMovement5 : MonoBehaviour
         #endregion
 
         // what attack to play?
-
         #region AttacksWhenInput
         if(playerIndex == 1)
         {

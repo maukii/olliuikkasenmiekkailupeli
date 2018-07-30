@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.50865525, g: 0.6044467, b: 0.50860703, a: 1}
+  m_IndirectSpecularColor: {r: 0.5088928, g: 0.6039157, b: 0.5085435, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2304,6 +2304,7 @@ MonoBehaviour:
   activeNode: {fileID: 0}
   timer: 0.5
   defaultTimer: 0.5
+  canInteract: 0
   mainmenuCharacter: {fileID: 1542773017}
   mainmenuNodes:
   - {fileID: 882266038}

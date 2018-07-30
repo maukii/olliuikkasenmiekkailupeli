@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    // UPDATED 30.07.2018 
+
     //[SerializeField]
     //GameObject blackScreen;
 
@@ -23,7 +25,7 @@ public class MenuController : MonoBehaviour
 
     float hor, ver, dampTime = 0.5f;
     int index;
-    bool canInteract;
+    public bool canInteract;
 
     enum Menu { MainMenu, Settings, Credits, };
     [SerializeField] GameObject mainmenuCharacter;

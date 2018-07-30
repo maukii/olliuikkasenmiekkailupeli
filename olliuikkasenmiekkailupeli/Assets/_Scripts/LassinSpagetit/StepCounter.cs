@@ -10,8 +10,9 @@ public class StepCounter : MonoBehaviour {
     AnimatorStateInfo asi;
     int[] PrevAnimHash = new int[2];
     int[] HalfStepCount = new int[2];
-    int StepsBetweenPlayers;
     int[] PrevStep = new int[2];
+    [SerializeField]
+    int StepsBetweenPlayers;
 
     void Start () {
         P1Amim = GameObject.FindGameObjectWithTag("Player 1").GetComponentInChildren<Animator>();

@@ -923,6 +923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc54bf8b2fc2d164c98a783d5f8866de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StepsBetweenPlayers: 0
 --- !u!4 &764026604
 Transform:
   m_ObjectHideFlags: 0
@@ -947,14 +948,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd64151776d61944aec367df9651f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interruptTimer:
+  - 0
+  - 0
   CollisionTimeWeak: 0.3
   CollisionTimeStrong: 0.6
   BaseDelay: 0.2
   strongCollision: 1
   handGuardHit: 0
   miss: 0
+  NoGuardCollision: 0
+  NoStrongCollision: 0
+  attackStrength: 0
+  defenceStrength: 0
   BaseStrength: 10
   BaseDefence: 10
+  collisionStrength: 0
 --- !u!114 &764026606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,7 +975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b973a890208dd4296ea0c740ac1dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowHeightMeters: 1
+  ShowHeightMeters: 0
 --- !u!1 &765207125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,14 +1494,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd64151776d61944aec367df9651f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interruptTimer:
+  - 0
+  - 0
   CollisionTimeWeak: 0.3
   CollisionTimeStrong: 0.7
   BaseDelay: 0.1
   strongCollision: 1
   handGuardHit: 0
   miss: 0
+  NoGuardCollision: 0
+  NoStrongCollision: 0
+  attackStrength: 0
+  defenceStrength: 0
   BaseStrength: 10
   BaseDefence: 10
+  collisionStrength: 0
 --- !u!4 &1176336204 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4689716273171196, guid: 306af6ac740d5aa4e803edf97660055f,
@@ -1602,14 +1619,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd64151776d61944aec367df9651f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interruptTimer:
+  - 0
+  - 0
   CollisionTimeWeak: 0.3
   CollisionTimeStrong: 0.7
   BaseDelay: 0.1
   strongCollision: 1
   handGuardHit: 0
   miss: 0
+  NoGuardCollision: 0
+  NoStrongCollision: 0
+  attackStrength: 0
+  defenceStrength: 0
   BaseStrength: 10
   BaseDefence: 10
+  collisionStrength: 0
 --- !u!1 &1705031292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,7 +1740,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4800215907111414, guid: 306af6ac740d5aa4e803edf97660055f, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 95182157071375638, guid: 306af6ac740d5aa4e803edf97660055f,
         type: 2}
@@ -2217,6 +2242,10 @@ Prefab:
     - target: {fileID: 114867476737475870, guid: 306af6ac740d5aa4e803edf97660055f,
         type: 2}
       propertyPath: AnimatorSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024668758251308, guid: 306af6ac740d5aa4e803edf97660055f, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

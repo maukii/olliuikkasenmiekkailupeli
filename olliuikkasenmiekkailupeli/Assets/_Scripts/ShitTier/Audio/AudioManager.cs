@@ -20,37 +20,34 @@ public class AudioManager : MonoBehaviour
     float musicVolume;
     float sfxVolume;
 
-    [SerializeField]
-    AudioSource musicSource, sfxSource;
+    public AudioSource musicSource, sfxSource;
 
     public void AddVolume(int index)
     {
-        //if(index == 0)
-        //{
-        //    // music
-        //    musicVolumePercent += 0.1f; // works fine with standalone inputmanager
-        //}
-        //if(index == 1)
-        //{
-        //    // sfx
-        //    sfxVolumePercent += 0.1f;
-        //}
+        if(index == 0)
+        {
+            musicVolumePercent += 0.1f; // works fine with standalone inputmanager
+        }
+        if(index == 1)
+        {
+            sfxVolumePercent += 0.1f;
+        }
         
         Debug.Log("add");
     }
 
     public void LessVolume(int index)
     {
-        //if (index == 0)
-        //{
-        //    // music
-        //    musicVolumePercent -= 0.1f;
-        //}
-        //else if(index == 1)
-        //{
-        //    // sfx
-        //    sfxVolumePercent -= 0.1f;
-        //}
+        if (index == 0)
+        {
+            // music
+            musicVolumePercent -= 0.1f;
+        }
+        else if(index == 1)
+        {
+            // sfx
+            sfxVolumePercent -= 0.1f;
+        }
 
         Debug.Log("less");
     }
@@ -85,14 +82,6 @@ public class AudioManager : MonoBehaviour
         }
 
         musicSource = GetComponent<AudioSource>();
-
-        //musicSources = new AudioSource[2];
-        //for (int i = 0; i < 2; i++)
-        //{
-        //    GameObject newMusicSource = new GameObject("Music source " + (i + 1));
-        //    musicSources[i] = newMusicSource.AddComponent<AudioSource>();
-        //    newMusicSource.transform.parent = transform;
-        //}
 
     }
 

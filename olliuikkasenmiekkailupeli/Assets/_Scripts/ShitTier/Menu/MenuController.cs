@@ -55,8 +55,8 @@ public class MenuController : MonoBehaviour
         activeNode = mainmenuNodes[0];
         defaultTimer = timer;
 
-        //volumeSliders[0].value = AudioManager.instance.musicVolumePercent;
-        //volumeSliders[1].value = AudioManager.instance.sfxVolumePercent;
+        volumeSliders[0].value = AudioManager.instance.musicVolumePercent;
+        volumeSliders[1].value = AudioManager.instance.sfxVolumePercent;
     }
 
     void Update()
@@ -284,11 +284,13 @@ public class MenuController : MonoBehaviour
                     {
                         AudioManager.instance.AddVolume(0);
                         canInteract = false;
+                        volumeSliders[index].value = AudioManager.instance.musicVolumePercent;
                     }
                     if(hor <= -.5 && volumeSliders[0].value > 0 && canInteract)
                     {
                         AudioManager.instance.LessVolume(0);
                         canInteract = false;
+                        volumeSliders[index].value = AudioManager.instance.musicVolumePercent;
                     }
                 }
                 else if(activeNode == settingsNodes[1]) // sfx
@@ -297,11 +299,13 @@ public class MenuController : MonoBehaviour
                     {
                         AudioManager.instance.AddVolume(1);
                         canInteract = false;
+                        volumeSliders[index].value = AudioManager.instance.sfxVolumePercent;
                     }
                     if (hor <= -.5f && volumeSliders[1].value > 0 && canInteract)
                     {
                         AudioManager.instance.LessVolume(1);
                         canInteract = false;
+                        volumeSliders[index].value = AudioManager.instance.sfxVolumePercent;
                     }
                 }
                 else if (activeNode == settingsNodes[2])

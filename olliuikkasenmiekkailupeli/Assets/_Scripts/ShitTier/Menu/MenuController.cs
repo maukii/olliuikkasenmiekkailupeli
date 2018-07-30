@@ -323,7 +323,7 @@ public class MenuController : MonoBehaviour
 
     public void Options()
     {
-        Invoke("DisableMain", 2);
+        Invoke("DisableMain", 1);
         settingsMenu.gameObject.SetActive(true);
 
         activeMenu = Menu.Settings;
@@ -339,7 +339,7 @@ public class MenuController : MonoBehaviour
 
     public void Back()
     {
-        Invoke("DisableSettings", 2);
+        Invoke("DisableSettings", 1);
         mainMenu.gameObject.SetActive(true);
 
         activeMenu = Menu.MainMenu;
@@ -355,7 +355,7 @@ public class MenuController : MonoBehaviour
 
     public void Credits()
     {
-        Invoke("DisableMain", 2);
+        Invoke("DisableMain", 1);
         creditsMenu.gameObject.SetActive(true);
 
         activeMenu = Menu.Credits;

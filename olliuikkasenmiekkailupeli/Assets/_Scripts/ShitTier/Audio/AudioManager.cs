@@ -166,11 +166,4 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    //public AudioMixer audioMixer;
-
-    //public void SetVolume(float volume)
-    //{
-    //    audioMixer.SetFloat("Volume", volume);
-    //} // 2nd option
-
 }

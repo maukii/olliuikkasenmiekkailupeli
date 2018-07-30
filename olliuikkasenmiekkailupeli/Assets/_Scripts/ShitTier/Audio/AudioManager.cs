@@ -31,8 +31,7 @@ public class AudioManager : MonoBehaviour
         if(index == 1)
         {
             sfxVolumePercent += 0.1f;
-        }
-        
+        }        
         Debug.Log("add");
     }
 
@@ -40,15 +39,12 @@ public class AudioManager : MonoBehaviour
     {
         if (index == 0)
         {
-            // music
             musicVolumePercent -= 0.1f;
         }
         else if(index == 1)
         {
-            // sfx
             sfxVolumePercent -= 0.1f;
         }
-
         Debug.Log("less");
     }
 
@@ -111,26 +107,7 @@ public class AudioManager : MonoBehaviour
 
         musicSource.clip = clip;
         musicSource.Play();
-
-        //activeMusicSourceIndex = 1 - activeMusicSourceIndex;
-        //musicSources[activeMusicSourceIndex].clip = clip;
-        //musicSources[activeMusicSourceIndex].Play();
-        //
-        //StartCoroutine(AnimateMusicCrossfade(fadeDuration));
     }
-
-    //IEnumerator AnimateMusicCrossfade(float duration)
-    //{
-    //    float percent = 0;
-    //
-    //    while (percent < 1)
-    //    {
-    //        percent += Time.deltaTime * 1 / duration;
-    //        musicSources[activeMusicSourceIndex].volume = Mathf.Lerp(0, musicVolumePercent * masterVolumePercent, percent);
-    //        musicSources[1 - activeMusicSourceIndex].volume = Mathf.Lerp(musicVolumePercent * masterVolumePercent, 0, percent);
-    //        yield return null;
-    //    }
-    //}
 
     public void FadeInMusic()
     {

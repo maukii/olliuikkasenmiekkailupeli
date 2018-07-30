@@ -276,54 +276,41 @@ public class MenuController : MonoBehaviour
         {
             activeNode = settingsNodes[index];
 
-            if (!InputManager.IM.isOnlyKeyboard)
+            if (activeNode == settingsNodes[0]) // volume
             {
-                if (activeNode == settingsNodes[0]) // volume
+                if(hor >= .5f && volumeSliders[0].value < 1 && canInteract)
                 {
-                    if(hor >= .5f && volumeSliders[0].value < 1 && canInteract)
-                    {
-                        AudioManager.instance.AddVolume(0);
-                        canInteract = false;
-                        volumeSliders[index].value = AudioManager.instance.musicVolumePercent;
-                    }
-                    if(hor <= -.5 && volumeSliders[0].value > 0 && canInteract)
-                    {
-                        AudioManager.instance.LessVolume(0);
-                        canInteract = false;
-                        volumeSliders[index].value = AudioManager.instance.musicVolumePercent;
-                    }
+                    AudioManager.instance.AddVolume(0);
+                    canInteract = false;
+                    volumeSliders[index].value = AudioManager.instance.musicVolumePercent;
                 }
-                else if(activeNode == settingsNodes[1]) // sfx
+                if(hor <= -.5 && volumeSliders[0].value > 0 && canInteract)
                 {
-                    if (hor >= .5f && volumeSliders[1].value < 1 && canInteract)
-                    {
-                        AudioManager.instance.AddVolume(1);
-                        canInteract = false;
-                        volumeSliders[index].value = AudioManager.instance.sfxVolumePercent;
-                    }
-                    if (hor <= -.5f && volumeSliders[1].value > 0 && canInteract)
-                    {
-                        AudioManager.instance.LessVolume(1);
-                        canInteract = false;
-                        volumeSliders[index].value = AudioManager.instance.sfxVolumePercent;
-                    }
-                }
-                else if (activeNode == settingsNodes[2])
-                {
-                    if ((InputManager.IM.P1_A || InputManager.IM.P2_A || Input.GetKeyDown(KeyCode.Return)) && canInteract)
-                    {
-                        Back();
-                    }
+                    AudioManager.instance.LessVolume(0);
+                    canInteract = false;
+                    volumeSliders[index].value = AudioManager.instance.musicVolumePercent;
                 }
             }
-            else // keyboard
+            else if(activeNode == settingsNodes[1]) // sfx
             {
-                if (activeNode == settingsNodes[1])
+                if (hor >= .5f && volumeSliders[1].value < 1 && canInteract)
                 {
-                    if (Input.GetKeyDown(KeyCode.Return))
-                    {
-                        Back();
-                    }
+                    AudioManager.instance.AddVolume(1);
+                    canInteract = false;
+                    volumeSliders[index].value = AudioManager.instance.sfxVolumePercent;
+                }
+                if (hor <= -.5f && volumeSliders[1].value > 0 && canInteract)
+                {
+                    AudioManager.instance.LessVolume(1);
+                    canInteract = false;
+                    volumeSliders[index].value = AudioManager.instance.sfxVolumePercent;
+                }
+            }
+            else if (activeNode == settingsNodes[2])
+            {
+                if ((InputManager.IM.P1_A || InputManager.IM.P2_A || Input.GetKeyDown(KeyCode.Return)) && canInteract)
+                {
+                    Back();
                 }
             }
         }

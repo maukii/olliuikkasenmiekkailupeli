@@ -243,7 +243,7 @@ public class MenuController : MonoBehaviour
             }
             else // keyboard
             {
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Return) && canInteract)
                 {
                     if (activeNode == mainmenuNodes[0])
                     {

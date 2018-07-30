@@ -220,8 +220,8 @@ public class MenuController : MonoBehaviour
                     else if (activeNode == mainmenuNodes[1])
                     {
                         // OPTIONS
-                        Options();
                         Debug.Log("Options");
+                        Options();
                         canInteract = false;
                     }
                     else if (activeNode == mainmenuNodes[2])
@@ -253,14 +253,16 @@ public class MenuController : MonoBehaviour
                     else if (activeNode == mainmenuNodes[1])
                     {
                         // OPTIONS
-                        Options();
                         Debug.Log("Options");
+                        Options();
+                        canInteract = false;
                     }
                     else if (activeNode == mainmenuNodes[2])
                     {
                         // CREDITS
-                        Credits();
                         Debug.Log("Credits");
+                        Credits();
+                        canInteract = false;
                     }
                     else if (activeNode == mainmenuNodes[3])
                     {
@@ -335,11 +337,12 @@ public class MenuController : MonoBehaviour
 
         activeMenu = Menu.Settings;
 
+        anim.SetBool("SettingsMenu", true);
+        anim.SetBool("MainMenu", false);
+
         DisableHighlights(Menu.Settings);
         settingsHighlights[index].SetActive(true);
 
-        anim.SetBool("SettingsMenu", true);
-        anim.SetBool("MainMenu", false);
         canInteract = false;
     }
 

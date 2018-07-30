@@ -68,7 +68,7 @@ public class MenuController : MonoBehaviour
         if(anim.GetBool("CreditsMenu") == true && canInteract)
         {
             if (Input.anyKeyDown)
-                Back();
+                Back(2);
         }
     }
 
@@ -310,7 +310,7 @@ public class MenuController : MonoBehaviour
             {
                 if ((InputManager.IM.P1_A || InputManager.IM.P2_A || Input.GetKeyDown(KeyCode.Return)) && canInteract)
                 {
-                    Back();
+                    Back(1);
                 }
             }
         }
@@ -337,7 +337,7 @@ public class MenuController : MonoBehaviour
         canInteract = false;
     }
 
-    public void Back()
+    public void Back(int num)
     {
         Invoke("DisableSettings", 1);
         mainMenu.gameObject.SetActive(true);
@@ -345,7 +345,8 @@ public class MenuController : MonoBehaviour
         activeMenu = Menu.MainMenu;
 
         DisableHighlights(Menu.MainMenu);
-        mainmenuHighlights[index].SetActive(true);
+        mainmenuHighlights[num].SetActive(true);
+        activeNode = mainmenuNodes[num];
 
         anim.SetBool("MainMenu", true);
         anim.SetBool("SettingsMenu", false);

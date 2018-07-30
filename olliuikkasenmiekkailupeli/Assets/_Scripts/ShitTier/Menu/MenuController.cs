@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    [SerializeField]
-    GameObject blackScreen;
+    //[SerializeField]
+    //GameObject blackScreen;
 
     [SerializeField]
     GameObject mainMenu, settingsMenu, creditsMenu;
@@ -15,13 +15,13 @@ public class MenuController : MonoBehaviour
     Animator anim;
     Animator characterAnim;
 
-    [SerializeField]
-    Menu activeMenu;
+    [SerializeField] Menu activeMenu;
+    [SerializeField] GameObject activeNode;
 
     [SerializeField]
-    GameObject activeNode;
+    float timer = 0.5f, defaultTimer;
 
-    float hor, ver, timer = 0.5f, defaultTimer, dampTime = 0.5f;
+    float hor, ver, dampTime = 0.5f;
     int index;
     bool canInteract;
 
@@ -34,8 +34,8 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
-        blackScreen = GameObject.Find("FadeBlackScreen").gameObject;
-        blackScreen.GetComponent<Animator>().SetTrigger("FadeOut");
+        //blackScreen = GameObject.Find("FadeBlackScreen").gameObject;
+        //blackScreen.GetComponent<Animator>().SetTrigger("FadeOut");
 
         mainMenu.gameObject.SetActive(true);
         settingsMenu.gameObject.SetActive(false);
@@ -55,8 +55,8 @@ public class MenuController : MonoBehaviour
         activeNode = mainmenuNodes[0];
         defaultTimer = timer;
 
-        volumeSliders[0].value = AudioManager.instance.musicVolumePercent;
-        volumeSliders[1].value = AudioManager.instance.sfxVolumePercent;
+        //volumeSliders[0].value = AudioManager.instance.musicVolumePercent;
+        //volumeSliders[1].value = AudioManager.instance.sfxVolumePercent;
     }
 
     void Update()
@@ -94,15 +94,13 @@ public class MenuController : MonoBehaviour
     {
         if (!canInteract)
         {
-            timer = timer - Time.deltaTime;
+            timer -= Time.deltaTime;
 
-            if (timer < 0)
+            if (timer <= 0)
             {
+                timer = defaultTimer;
                 canInteract = true;
             }
-
-            if (canInteract)
-                timer = defaultTimer;
         }
 
         if (activeMenu == Menu.MainMenu)
@@ -118,13 +116,13 @@ public class MenuController : MonoBehaviour
 
             if(activeNode == mainmenuNodes[0])
                 characterAnim.SetFloat("Blend", 1, dampTime, Time.deltaTime);
-
+            
             else if(activeNode == mainmenuNodes[1])
                 characterAnim.SetFloat("Blend", 0.35f, dampTime, Time.deltaTime);
-
+            
             else if (activeNode == mainmenuNodes[2])
                 characterAnim.SetFloat("Blend", -0.35f, dampTime, Time.deltaTime);
-
+            
             else if (activeNode == mainmenuNodes[3])
                 characterAnim.SetFloat("Blend", -1, dampTime, Time.deltaTime);
 
@@ -214,9 +212,9 @@ public class MenuController : MonoBehaviour
                     {
                         // START
                         Debug.Log("Start");
-                        blackScreen.GetComponent<Animator>().Play("FadeIn");
-                        AudioManager.instance.FadeOutMusic();
-                        Invoke("LoadNextScene", 1.5f);
+                        //blackScreen.GetComponent<Animator>().Play("FadeIn");
+                        //AudioManager.instance.FadeOutMusic();
+                        //Invoke("LoadNextScene", 1.5f);
                         canInteract = false;
                     }
                     else if (activeNode == mainmenuNodes[1])
@@ -248,8 +246,8 @@ public class MenuController : MonoBehaviour
                     if (activeNode == mainmenuNodes[0])
                     {
                         // START
-                        AudioManager.instance.FadeOutMusic();
-                        Invoke("LoadNextScene", 1.5f);
+                        //AudioManager.instance.FadeOutMusic();
+                        //Invoke("LoadNextScene", 1.5f);
                         Debug.Log("START");
                     }
                     else if (activeNode == mainmenuNodes[1])

@@ -323,6 +323,8 @@ public class MenuController : MonoBehaviour
 
     public void Options()
     {
+        index = 0;
+
         Invoke("DisableMain", 1);
         settingsMenu.gameObject.SetActive(true);
 
@@ -339,14 +341,16 @@ public class MenuController : MonoBehaviour
 
     public void Back(int num)
     {
+        index = num;
+
         Invoke("DisableSettings", 1);
         mainMenu.gameObject.SetActive(true);
 
         activeMenu = Menu.MainMenu;
 
         DisableHighlights(Menu.MainMenu);
-        mainmenuHighlights[num].SetActive(true);
-        activeNode = mainmenuNodes[num];
+        mainmenuHighlights[index].SetActive(true);
+        activeNode = mainmenuNodes[index];
 
         anim.SetBool("MainMenu", true);
         anim.SetBool("SettingsMenu", false);

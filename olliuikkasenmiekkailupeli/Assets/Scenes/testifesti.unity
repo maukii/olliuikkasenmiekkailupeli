@@ -5155,6 +5155,24 @@ Prefab:
       propertyPath: playerIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 95420792877450368, guid: 0efd4a6bbe9cee84b8e635531b5939f1,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7ebb6ece56e22a94f8093bff9c31709f, type: 2}
+    - target: {fileID: 4365203019424006, guid: 0efd4a6bbe9cee84b8e635531b5939f1, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.058271963
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365203019424006, guid: 0efd4a6bbe9cee84b8e635531b5939f1, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.0902528
+      objectReference: {fileID: 0}
+    - target: {fileID: 114914633128714132, guid: 0efd4a6bbe9cee84b8e635531b5939f1,
+        type: 2}
+      propertyPath: forwards
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114275266489260326, guid: 0efd4a6bbe9cee84b8e635531b5939f1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0efd4a6bbe9cee84b8e635531b5939f1, type: 2}
@@ -24812,6 +24830,11 @@ Prefab:
         type: 2}
       propertyPath: PlayerNumber
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114914633128714132, guid: 0efd4a6bbe9cee84b8e635531b5939f1,
+        type: 2}
+      propertyPath: forwards
+      value: 97
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114275266489260326, guid: 0efd4a6bbe9cee84b8e635531b5939f1, type: 2}

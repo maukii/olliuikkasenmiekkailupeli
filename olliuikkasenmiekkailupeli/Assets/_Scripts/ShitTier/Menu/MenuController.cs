@@ -72,6 +72,12 @@ public class MenuController : MonoBehaviour
             if (Input.anyKeyDown)
                 Back(2);
         }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            AchievementManager.instance.AddProgressToAchievement("Pacifist run", 50);
+        }
+
     }
 
     void DisableHighlights(Menu menu)
@@ -216,7 +222,7 @@ public class MenuController : MonoBehaviour
                         Debug.Log("Start");
                         //blackScreen.GetComponent<Animator>().Play("FadeIn");
                         //AudioManager.instance.FadeOutMusic();
-                        //Invoke("LoadNextScene", 1.5f);
+                        Invoke("LoadNextScene", 1.5f);
                         canInteract = false;
                     }
                     else if (activeNode == mainmenuNodes[1])
@@ -248,8 +254,9 @@ public class MenuController : MonoBehaviour
                     if (activeNode == mainmenuNodes[0])
                     {
                         // START
+                        //blackScreen.GetComponent<Animator>().Play("FadeIn");
                         //AudioManager.instance.FadeOutMusic();
-                        //Invoke("LoadNextScene", 1.5f);
+                        Invoke("LoadNextScene", 1.5f);
                         Debug.Log("START");
                     }
                     else if (activeNode == mainmenuNodes[1])

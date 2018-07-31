@@ -155,8 +155,48 @@ public class AlternativeMovement5 : MonoBehaviour
         }
     }
 
+    public float defaultTimer = 0.5f;
+    public float timer = 0.5f;
+
+    public bool started, ready;
+    public KeyCode forwards;
+
     void Move()
     {
+
+        if(Input.GetKeyUp(forwards))
+        {
+            started = true;
+        }
+
+        if (started)
+        {
+            timer -= Time.deltaTime;
+            if(timer <= 0f)
+            {
+                timer = defaultTimer;
+        
+                started = false;
+                ready = false;
+                anim.SetBool("Lunge", false);
+            }
+        }
+
+        if(Input.GetKeyDown(forwards) && started)
+        {
+            anim.SetBool("Lunge", true);
+        }
+
+
+        //
+        //if (forward && !started)
+        //    started = true;
+        //else if (!forward && started && timer > 0)
+        //    ready = true;
+        //else if (forward && started && ready && timer > 0)
+        //    anim.SetBool("Lunge", true);
+
+
 
         // what layout will be used
         #region ControllerLayout

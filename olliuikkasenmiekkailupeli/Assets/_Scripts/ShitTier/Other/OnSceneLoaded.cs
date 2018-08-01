@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class OnSceneLoaded : MonoBehaviour
 {
     public List<GameObject> players = new List<GameObject>();
-    int modelIndex;
 
-    public GameObject fade;
-    Animator countdown;
+    [SerializeField] GameObject countdown;
+    Animator countdownAnim;
+
     public float playerFreezeTimer = 3;
     float reset;
     bool timerStarted;
@@ -21,16 +21,16 @@ public class OnSceneLoaded : MonoBehaviour
 
     private void Start()
     {
-        countdown = GameObject.Find("Countdown").gameObject.GetComponent<Animator>();
-        countdown.SetTrigger("CountDown");
+        if(countdown != null)
+        {
+            countdownAnim = countdown.GetComponent<Animator>();
+            countdownAnim.SetTrigger("CountDown");
+        }
     }
 
     public void SceneLoaded(Scene scene, LoadSceneMode mode)
     {
         reset = playerFreezeTimer;
-
-        fade.transform.parent.gameObject.SetActive(true);
-        fade.GetComponent<Animator>().Play("FadeOut");
 
         for (int i = 0; i < players.Count; i++)
         {

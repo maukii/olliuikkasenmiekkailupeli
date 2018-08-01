@@ -8,9 +8,6 @@ public class MenuController : MonoBehaviour
 {
     // UPDATED 30.07.2018 
 
-    //[SerializeField]
-    //GameObject blackScreen;
-
     [SerializeField]
     GameObject mainMenu, settingsMenu, creditsMenu;
 
@@ -36,9 +33,6 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
-        //blackScreen = GameObject.Find("FadeBlackScreen").gameObject;
-        //blackScreen.GetComponent<Animator>().SetTrigger("FadeOut");
-
         mainMenu.gameObject.SetActive(true);
         settingsMenu.gameObject.SetActive(false);
 
@@ -73,6 +67,7 @@ public class MenuController : MonoBehaviour
                 Back(2);
         }
 
+        // DELETE AFTER TESTING
         if(Input.GetKeyDown(KeyCode.Space))
         {
             AchievementManager.instance.AddProgressToAchievement("Pacifist run", 50);
@@ -220,9 +215,8 @@ public class MenuController : MonoBehaviour
                     {
                         // START
                         Debug.Log("Start");
-                        //blackScreen.GetComponent<Animator>().Play("FadeIn");
+                        LevelChanger.instance.FadeToNextLevel();
                         //AudioManager.instance.FadeOutMusic();
-                        Invoke("LoadNextScene", 1.5f);
                         canInteract = false;
                     }
                     else if (activeNode == mainmenuNodes[1])
@@ -254,10 +248,10 @@ public class MenuController : MonoBehaviour
                     if (activeNode == mainmenuNodes[0])
                     {
                         // START
-                        //blackScreen.GetComponent<Animator>().Play("FadeIn");
-                        //AudioManager.instance.FadeOutMusic();
-                        Invoke("LoadNextScene", 1.5f);
                         Debug.Log("START");
+                        LevelChanger.instance.FadeToNextLevel();
+                        //AudioManager.instance.FadeOutMusic();
+                        canInteract = false;
                     }
                     else if (activeNode == mainmenuNodes[1])
                     {
@@ -323,11 +317,6 @@ public class MenuController : MonoBehaviour
                 }
             }
         }
-    }
-
-    void LoadNextScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void Options()

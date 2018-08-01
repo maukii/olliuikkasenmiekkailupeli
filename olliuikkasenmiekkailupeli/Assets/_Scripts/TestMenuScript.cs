@@ -20,12 +20,9 @@ public class TestMenuScript : MonoBehaviour
     public bool isLeftP1, isLeftP2, isRightP1, isRightP2, isLeftChoosing, isRightChoosing, isLeftReady, isRightReady;
 
     public static TestMenuScript MS;  //Vaihda nimi varsinaiseen scriptiin
-    GameObject fade;
 
     void Start()
     {
-        fade = GameObject.Find("FadeBlackScreen").gameObject;
-
         MS = this;
 
         L_CharacterChoose.enabled = false;
@@ -116,64 +113,6 @@ public class TestMenuScript : MonoBehaviour
         }
 
         //Tässä pelaaja valitsee hahmonsa
-
-        if (isLeftChoosing)
-        {
-            if (L.gameObject.tag == "Player 1" && isLeftReady == false)
-            {
-                if (InputManager.IM.P1_LS_X < 0)
-                {
-                    L.transform.Rotate(0, 1, 0);    //Hahmon pyöriminen laitettu vain testauksen takia
-                }
-
-                if (InputManager.IM.P1_LS_X > 0)
-                {
-                    L.transform.Rotate(0, -1, 0);
-                }
-            }
-
-            if (L.gameObject.tag == "Player 2" && isLeftReady == false)
-            {
-                if (InputManager.IM.P2_LS_X < 0)
-                {
-                    L.transform.Rotate(0, 1, 0);
-                }
-
-                if (InputManager.IM.P2_LS_X > 0)
-                {
-                    L.transform.Rotate(0, -1, 0);
-                }
-            }
-        }
-
-        if (isRightChoosing)
-        {
-            if (R.gameObject.tag == "Player 1" && isRightReady == false)
-            {
-                if (InputManager.IM.P1_LS_X < 0)
-                {
-                    R.transform.Rotate(0, 1, 0);
-                }
-
-                if (InputManager.IM.P1_LS_X > 0)
-                {
-                    R.transform.Rotate(0, -1, 0);
-                }
-            }
-
-            if (R.gameObject.tag == "Player 2" && isRightReady == false)
-            {
-                if (InputManager.IM.P2_LS_X < 0)
-                {
-                    R.transform.Rotate(0, 1, 0);
-                }
-
-                if (InputManager.IM.P2_LS_X > 0)
-                {
-                    R.transform.Rotate(0, -1, 0);
-                }
-            }
-        }
     }
 
     void PlayersReady()
@@ -297,22 +236,12 @@ public class TestMenuScript : MonoBehaviour
 
             Camera.main.GetComponent<PlayableDirector>().Play();
 
-            Invoke("FadeIn", delayToLoadNextScene-1);
-            Invoke("LoadNextScene", delayToLoadNextScene);
+            Invoke("FadeOut", delayToLoadNextScene);
         }
     }
 
-    void FadeIn()
+    void FadeOut()
     {
-        fade.GetComponent<Animator>().Play("FadeIn");
-        if(FindObjectOfType<AudioManager>() != null)
-            AudioManager.instance.FadeOutMusic();
+        GameObject.Find("LevelChanger").gameObject.GetComponent<Animator>().SetTrigger("FadeOut");
     }
-
-    void LoadNextScene()
-    {
-        Debug.Log("loadnext");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
 }

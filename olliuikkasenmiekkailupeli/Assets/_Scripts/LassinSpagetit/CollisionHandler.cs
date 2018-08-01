@@ -2,31 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(StepCounter),typeof(HeightCollision))]
+[RequireComponent(typeof(StepCounter),typeof(HeightCollision),typeof(CollisionDamage))]
 public class CollisionHandler : MonoBehaviour {
+
+    #region Variables
+
+    #region AnimationVariables
+
     Animator[] anim= new Animator[2];
     float[] inside = new float[2];
     float[] hanging = new float[2];
     float[] height = new float[2];
     AnimatorStateInfo[] asi = new AnimatorStateInfo[2];
+
+    #endregion
+
+    #region CollisionVariables
+
     StepCounter sc;
     HeightCollision hc;
-    //HandAnimationControl hac;
-    public float[] interruptTimer = new float[2];
-    int swingHash;
-    public float CollisionTimeWeak = 0.3f;
-    public float CollisionTimeStrong = 0.7f;
-    public float BaseDelay = 0.5f;
+    CollisionDamage cd;
     int StepDistance;
 
-    public bool strongCollision = true;
-    public bool handGuardHit = false;
-    public bool miss = false;
-    public bool NoGuardCollision = false;
-    public bool NoStrongCollision = false;
+    #endregion
 
+    #region CollisionTriggers
+
+    int WhoHitFirst;
+    public bool strongCollision = true;
+    bool handGuardHit = false;
+    bool miss = false;
+    bool NoGuardCollision = false;
+    bool NoStrongCollision = false;
+
+    #endregion
 
     #region StrengthVariables
+
     [Header("--StrengthVariables--")]
     public float attackStrength;
     public float defenceStrength;
@@ -40,11 +52,25 @@ public class CollisionHandler : MonoBehaviour {
     float collisionPoint;
     float defensePenalty;
     public float collisionStrength;
+
     #endregion
-    
+
+    #region TimerVariables
+
+    [Header("DelayTimerVariables")]
+    float[] interruptTimer = new float[2];
+    public float CollisionTimeWeak = 0.3f;
+    public float CollisionTimeStrong = 0.7f;
+    public float BaseDelay = 0.5f;
+
+    #endregion
+
+    #endregion
+
     void Start () {
         sc = gameObject.GetComponent<StepCounter>();
         hc = gameObject.GetComponent<HeightCollision>();
+        cd = gameObject.GetComponent<CollisionDamage>();
         anim[0] = GameObject.FindGameObjectWithTag("Player 1").GetComponentInChildren<Animator>();
         anim[1] = GameObject.FindGameObjectWithTag("Player 2").GetComponentInChildren<Animator>();
         //hac = gameObject.GetComponent<HandAnimationControl>();
@@ -52,7 +78,6 @@ public class CollisionHandler : MonoBehaviour {
 
         interruptTimer[1] = 0;
         interruptTimer[0] = 0;
-        swingHash = 0;
     }
 	
 	void Update () {
@@ -60,17 +85,19 @@ public class CollisionHandler : MonoBehaviour {
         
         if(asi[0].IsTag("Swing") && asi[1].IsTag("Swing"))
         {
-            //molemmat lyö
+            Attack(WhoHitFirst);
         }
         else if (asi[0].IsTag("Swing"))
         {
             Attack(0);
-            
+            WhoHitFirst = 0;
+            cd.StartCollisionDetection(WhoHitFirst);
         }
         else if (asi[1].IsTag("Swing"))
         {
             Attack(1);
-
+            WhoHitFirst = 1;
+            cd.StartCollisionDetection(WhoHitFirst);
         }
         Timer();
     }
@@ -89,7 +116,6 @@ public class CollisionHandler : MonoBehaviour {
 
     void Attack(int player)
     {
-        swingHash = asi[player].fullPathHash;
         float collidetime = anim[player].GetBool("Strong") ? CollisionTimeStrong : CollisionTimeWeak;
         if (asi[player].normalizedTime > collidetime)
         {
@@ -242,7 +268,7 @@ public class CollisionHandler : MonoBehaviour {
         anim[player].SetBool("Deflect", true);
         anim[player].SetBool("light", true);
         anim[otherplayer].SetBool("Deflect", true);
-        if (strongCollision)
+        if (!strongCollision)
         {
             anim[otherplayer].SetBool("light", true);
         }

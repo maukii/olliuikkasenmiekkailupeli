@@ -10,9 +10,6 @@ public class ScrollingScript : MonoBehaviour
 
     public bool isLinkedToCamera = false;
     public bool isLooping = true;
-    public float timer;
-
-    private float defaultTimer = 30f;     //Määrittele aika jonka jälkeen ensimmäinen sprite siirtyy viimeiseksi
 
     private List<SpriteRenderer> backgroundPart;
     
@@ -67,27 +64,17 @@ public class ScrollingScript : MonoBehaviour
             {
                 if (firstChild.transform.position.x < Camera.main.transform.position.x)
                 {
-                    if (firstChild.IsVisibleFrom(Camera.main) == true)
-                    {
-                        timer = defaultTimer;
-                    }
-
                     if (firstChild.IsVisibleFrom(Camera.main) == false)
                     {
-                        timer = timer - Time.deltaTime;
+                    SpriteRenderer lastChild = backgroundPart.LastOrDefault();
 
-                        if (timer < 0)
-                        {
-                            SpriteRenderer lastChild = backgroundPart.LastOrDefault();
+                    Vector3 lastPosition = lastChild.transform.position;
+                    Vector3 lastSize = (lastChild.bounds.max - lastChild.bounds.min);
 
-                            Vector3 lastPosition = lastChild.transform.position;
-                            Vector3 lastSize = (lastChild.bounds.max - lastChild.bounds.min);
+                    firstChild.transform.position = new Vector3(lastPosition.x + lastSize.x, firstChild.transform.position.y, firstChild.transform.position.z);
 
-                            firstChild.transform.position = new Vector3(lastPosition.x + lastSize.x, firstChild.transform.position.y, firstChild.transform.position.z);
-
-                            backgroundPart.Remove(firstChild);
-                            backgroundPart.Add(firstChild);
-                        }
+                    backgroundPart.Remove(firstChild);
+                    backgroundPart.Add(firstChild);
                     }
                 }
             }

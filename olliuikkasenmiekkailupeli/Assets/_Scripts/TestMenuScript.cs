@@ -236,12 +236,7 @@ public class TestMenuScript : MonoBehaviour
 
             Camera.main.GetComponent<PlayableDirector>().Play();
 
-            Invoke("FadeOut", delayToLoadNextScene);
+            LevelChanger.instance.FadeToNextLevel();
         }
-    }
-
-    void FadeOut()
-    {
-        GameObject.Find("LevelChanger").gameObject.GetComponent<Animator>().SetTrigger("FadeOut");
     }
 }

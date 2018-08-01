@@ -9,6 +9,7 @@ public class CollisionHandler : MonoBehaviour {
 
     #region AnimationVariables
 
+    ParticleHandler[] ph = new ParticleHandler[2];
     Animator[] anim= new Animator[2];
     float[] inside = new float[2];
     float[] hanging = new float[2];
@@ -28,12 +29,14 @@ public class CollisionHandler : MonoBehaviour {
 
     #region CollisionTriggers
 
-    int WhoHitFirst;
+    public int WhoHitFirst;
     public bool strongCollision = true;
-    bool handGuardHit = false;
-    bool miss = false;
-    bool NoGuardCollision = false;
-    bool NoStrongCollision = false;
+    public bool handGuardHit = false;
+    public bool miss = false;
+    public bool NoGuardCollision = false;
+    public bool NoStrongCollision = false;
+    public bool NoCollision = false;
+    public bool calculateCollision = false;
 
     #endregion
 
@@ -73,6 +76,8 @@ public class CollisionHandler : MonoBehaviour {
         cd = gameObject.GetComponent<CollisionDamage>();
         anim[0] = GameObject.FindGameObjectWithTag("Player 1").GetComponentInChildren<Animator>();
         anim[1] = GameObject.FindGameObjectWithTag("Player 2").GetComponentInChildren<Animator>();
+        ph[0] = GameObject.FindGameObjectWithTag("Player 1").GetComponentInChildren<ParticleHandler>();
+        ph[1] = GameObject.FindGameObjectWithTag("Player 2").GetComponentInChildren<ParticleHandler>();
         //hac = gameObject.GetComponent<HandAnimationControl>();
 
 
@@ -99,6 +104,10 @@ public class CollisionHandler : MonoBehaviour {
             WhoHitFirst = 1;
             cd.StartCollisionDetection(WhoHitFirst);
         }
+        else
+        {
+            calculateCollision = true;
+        }
         Timer();
     }
 
@@ -117,18 +126,19 @@ public class CollisionHandler : MonoBehaviour {
     void Attack(int player)
     {
         float collidetime = anim[player].GetBool("Strong") ? CollisionTimeStrong : CollisionTimeWeak;
-        if (asi[player].normalizedTime > collidetime)
+        if (asi[player].normalizedTime > collidetime && calculateCollision)
         {
-            if (CheckDistance())
+            Debug.Log("mo");
+            calculateCollision = false;
+            if (CheckDistance(player))
             {
                 if (CheckHeight(player))
                 {
                     CalculateStrength(player);
                     if (!miss)
                     {
-                        if (CheckQuard())
+                        if (CheckQuard(player))
                         {
-
                             Deflect(player);
                         }
                         else
@@ -139,6 +149,7 @@ public class CollisionHandler : MonoBehaviour {
                     else
                     {
                         OverExtend(player);
+                        calculateCollision = true;
                     }
                 }
             }
@@ -160,7 +171,7 @@ public class CollisionHandler : MonoBehaviour {
         parryMult = 1; //Parry not working yet
         collisionPoint = strongCollision ? 0 : 5;
         defensePenalty = 1;
-        if (CheckQuard())
+        if (!CheckQuard(player))
             defensePenalty = -1;
         if (miss)
             defensePenalty = 0;
@@ -174,49 +185,61 @@ public class CollisionHandler : MonoBehaviour {
         }
     }
     
-    bool CheckQuard()
+    bool CheckQuard(int player)
     {
+        int otherplayer = player - 1 == -1 ? 1 : 0;
+
         float direction;
-        direction = inside[0] * 2 - 1;
+        direction = inside[player] * 2 - 1;
+
         float guard;
-        guard = hanging[1] == inside[1] ? 1 : -1;
+        guard = hanging[otherplayer] == inside[otherplayer] ? 1 : -1;
+
         if(direction == guard)
         {
             return true;
         }
         return false;
     }
-    bool CheckDistance()
+    bool CheckDistance(int player)
     {
         StepDistance = -sc.GetStepDistance();
-        NoGuardCollision = StepDistance >= 8 ? true : false;
-        NoStrongCollision = StepDistance >= 10 ? true : false;
-        if (StepDistance >= 2 && StepDistance <= 12)
+
+        int otherplayer = player - 1 == -1 ? 1 : 0;
+        if(hanging[otherplayer] == 1)
         {
-            return true;
+            NoGuardCollision = StepDistance >= 8 ? true : false;
+            NoStrongCollision = StepDistance >= 8 ? true : false;
+            NoCollision = StepDistance >= 8 ? true : false;
+        }
+        else
+        {
+            NoGuardCollision = StepDistance >= 8 ? true : false;
+            NoStrongCollision = StepDistance >= 10 ? true : false;
+            NoCollision = StepDistance >= 12 ? true : false;
         }
         
-        return false;
+        return true;
     }
     bool CheckHeight(int player)
     {
         int otherplayer = player - 1 == -1 ? 1 : 0;
         if(hanging[otherplayer] == 1)
         {
-            if (height[player] < hc.GetBase(otherplayer + 1) && height[player] > hc.GetMiddle(otherplayer + 1) && !NoGuardCollision)
+            if (height[player] < hc.GetBaseY(otherplayer + 1) && height[player] > hc.GetMiddleY(otherplayer + 1) && !NoStrongCollision)
             {
                 strongCollision = true;
                 miss = false;
                 handGuardHit = false;
             }
-            else if (height[player] < hc.GetHandle(otherplayer + 1) && height[player] > hc.GetBase(otherplayer + 1) && !NoGuardCollision)
+            else if (height[player] < hc.GetHandleY(otherplayer + 1) && height[player] > hc.GetBaseY(otherplayer + 1) && !NoGuardCollision)
             {
                 strongCollision = true;
                 handGuardHit = true;
                 miss = false;
                 handGuardHit = false;
             }
-            else if (height[player] < hc.GetMiddle(otherplayer + 1) && height[player] > hc.GetTip(otherplayer + 1))
+            else if (height[player] < hc.GetMiddleY(otherplayer + 1) && height[player] > hc.GetTipY(otherplayer + 1) && !NoCollision)
             {
                 strongCollision = false;
                 miss = false;
@@ -230,20 +253,20 @@ public class CollisionHandler : MonoBehaviour {
         }
         else
         {
-            if (height[player] > hc.GetBase(otherplayer + 1) && height[player] < hc.GetMiddle(otherplayer + 1) && !NoGuardCollision)
+            if (height[player] > hc.GetBaseY(otherplayer + 1) && height[player] < hc.GetMiddleY(otherplayer + 1) && !NoStrongCollision)
             {
                 strongCollision = true;
                 miss = false;
                 handGuardHit = false;
             }
-            else if (height[player] > hc.GetHandle(otherplayer + 1) && height[player] < hc.GetBase(otherplayer + 1) && !NoGuardCollision)
+            else if (height[player] > hc.GetHandleY(otherplayer + 1) && height[player] < hc.GetBaseY(otherplayer + 1) && !NoGuardCollision)
             {
                 strongCollision = true;
                 handGuardHit = true;
                 miss = false;
                 handGuardHit = false;
             }
-            else if (height[player] > hc.GetMiddle(otherplayer + 1) && height[player] < hc.GetTip(otherplayer + 1))
+            else if (height[player] > hc.GetMiddleY(otherplayer + 1) && height[player] < hc.GetTipY(otherplayer + 1) && !NoCollision)
             {
                 strongCollision = false;
                 miss = false;
@@ -265,30 +288,33 @@ public class CollisionHandler : MonoBehaviour {
         int otherplayer = player - 1 == -1 ? 1 : 0;
         SetInterruptTimer(player, collisionStrength / 100);
         SetInterruptTimer(otherplayer, collisionStrength / 100);
-        anim[player].SetBool("Deflect", true);
-        anim[player].SetBool("light", true);
+        anim[player].SetBool("ALight", true);
         anim[otherplayer].SetBool("Deflect", true);
         if (!strongCollision)
         {
             anim[otherplayer].SetBool("light", true);
+            MakeSparks(hc.GetTip(otherplayer+1), transform.rotation);
         }
         else
         {
             anim[otherplayer].SetBool("light", false);
+            MakeSparks(hc.GetMiddle(otherplayer+1), transform.rotation);
         }
     }
     void QuardBreak(int player)
     {
         int otherplayer = player - 1 == -1 ? 1 : 0;
-        anim[player].SetBool("Interrupt", true);
+        anim[player].SetBool("AExtend", true);
         anim[otherplayer].SetBool("Interrupt", true);
-        if (strongCollision)
+        if (!strongCollision)
         {
             anim[otherplayer].SetBool("light", true);
+            MakeSparks(hc.GetTip(otherplayer+1), transform.rotation);
         }
         else
         {
             anim[otherplayer].SetBool("light", false);
+            MakeSparks(hc.GetMiddle(otherplayer+1), transform.rotation);
         }
         SetInterruptTimer(player, collisionStrength/2 / 100);
         SetInterruptTimer(otherplayer, collisionStrength / 100);
@@ -296,19 +322,14 @@ public class CollisionHandler : MonoBehaviour {
     void OverExtend(int player)
     {
         SetInterruptTimer(player, collisionStrength / 100);
-        anim[player].SetBool("Interrupt", true);
+        anim[player].SetBool("AExtend", true);
     }
 
     void SetInterruptTimer(int player, float time)
     {
-        if(player == 1)
-        {
-            interruptTimer[0] = time;
-        }
-        else
-        {
-            interruptTimer[1] = time;
-        }
+        interruptTimer[0] = time;
+        interruptTimer[1] = time;
+        
     }
     void Timer()
     {
@@ -324,6 +345,9 @@ public class CollisionHandler : MonoBehaviour {
                 anim[i].SetBool("Deflect", false);
                 anim[i].SetBool("Interrupt", false);
                 anim[i].SetBool("light", false);
+                anim[i].SetBool("ADeflect", false);
+                anim[i].SetBool("AExtend", false);
+                anim[i].SetBool("ALight", false);
             }
         }
     }
@@ -332,4 +356,14 @@ public class CollisionHandler : MonoBehaviour {
     {
         return height[player - 1];
     }
+
+    public void SummonBlood(Vector3 position, Quaternion rotation)
+    {
+        ph[0].InstantiateBlood(position, rotation);
+    }
+    public void MakeSparks(Vector3 position, Quaternion rotation)
+    {
+        ph[0].InstantiateSpark(position, rotation);
+    }
+
 }

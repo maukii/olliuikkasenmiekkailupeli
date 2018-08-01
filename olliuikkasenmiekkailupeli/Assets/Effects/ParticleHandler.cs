@@ -48,17 +48,20 @@ public class ParticleHandler : MonoBehaviour {
         // --- Check if trailSwoosh should be played --- //
         if(hcon.swordSwinging == true)
         {
+            trailSwoosh.enabled = true;
             if (trailSwoosh.time == 0)
             {
                 trailSwoosh.time = swooshDefaultTime;
             }
         }
-
-        if (trailSwoosh.time == swooshDefaultTime)
+        if (hcon.swordSwinging == false)
         {
-            if (hcon.swordSwinging == false)
+            trailSwoosh.enabled = false;
+            if (trailSwoosh.time == swooshDefaultTime)
             {
+
                 trailSwoosh.time = 0;
+
             }
         }
 
@@ -73,6 +76,14 @@ public class ParticleHandler : MonoBehaviour {
         // if the collision is sword-on-sword = spark
         // if sword-on-player = blood
         #endregion
+    }
+    public void InstantiateSpark(Vector3 position, Quaternion rotation)
+    {
+        Instantiate(partSpark, position, rotation);
+    }
+    public void InstantiateBlood(Vector3 position, Quaternion rotation)
+    {
+        Instantiate(partBlood, position, rotation);
     }
 
 }

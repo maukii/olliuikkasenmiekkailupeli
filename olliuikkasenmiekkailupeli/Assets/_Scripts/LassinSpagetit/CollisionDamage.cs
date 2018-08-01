@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollisionDamage : MonoBehaviour {
 
+    CollisionHandler ch;
     public enum Bodyparts { Head, Torso, Leg, Arm, Hand }
     int[] HeadTreshold = new int[2] { 2, 2 };
     int[] TorsoTreshold = new int[2] { 2, 2 };
@@ -11,6 +12,11 @@ public class CollisionDamage : MonoBehaviour {
     int[] ArmTreshold = new int[2] { 3, 3 };
     int[] HandTreshold = new int[2] { 4, 4 };
     int player = -1;
+
+    private void Start()
+    {
+        ch = GetComponent<CollisionHandler>();
+    }
 
     public void StartCollisionDetection(int player)
     {
@@ -50,6 +56,7 @@ public class CollisionDamage : MonoBehaviour {
                 default:
                     break;
             }
+            ch.SummonBlood(col.contacts[0].point, Quaternion.FromToRotation(transform.up, col.contacts[0].normal));
         }
     }
     void DoDamage(Bodyparts part, int amount, int player)

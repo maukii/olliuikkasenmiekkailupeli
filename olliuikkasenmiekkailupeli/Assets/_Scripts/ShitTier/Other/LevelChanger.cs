@@ -9,7 +9,6 @@ public class LevelChanger : MonoBehaviour
     public static LevelChanger instance = null;
 
     [SerializeField] Animator anim;
-    private int levelToLoad;
 
     void Awake()
     {
@@ -27,24 +26,22 @@ public class LevelChanger : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
+        Debug.Log(level);
         anim.ResetTrigger("FadeOut");
-        anim.SetTrigger("FadeIn");
+
+        if (level != 1)
+            anim.SetTrigger("FadeIn");
     }
 
     public void FadeToNextLevel()
     {
-        FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void FadeToLevel(int levelIndex)
-    {
-        levelToLoad = levelIndex;
         anim.SetTrigger("FadeOut");
+        anim.ResetTrigger("FadeIn");
     }
 
-    public void OnFadeComplite()
+    public void FadeOutComplite()
     {
-        SceneManager.LoadScene(levelToLoad);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 }

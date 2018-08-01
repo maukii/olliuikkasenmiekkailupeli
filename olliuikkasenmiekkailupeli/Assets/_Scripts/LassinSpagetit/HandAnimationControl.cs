@@ -191,17 +191,30 @@ public class HandAnimationControl : MonoBehaviour
                 if((im.isKeyboardAndMouseP1 && PlayerNumber == 1) || (im.isKeyboardAndMouseP2 && PlayerNumber == 2))
                 {
                     if (Input.GetMouseButtonDown(0) && !swordSwinging)
+                    {
+                        Inputframe = true;
                         Swing();
+                    }
                     else if (Input.GetMouseButtonUp(0) && swordSwinging && Inputframe)
+                    {
+                        Inputframe = false;
                         Weak();
+                    }  
                     if (Input.GetMouseButtonDown(1))
                         SwapHanging();
                     if (Input.GetMouseButtonDown(2))
                         SwapInside();
                     if (Input.GetKeyDown(KeyCode.F) && !swordSwinging)
+                    {
+                        Inputframe = true;
                         SwingHor();
+                    }
                     else if (Input.GetKeyUp(KeyCode.F) && swordSwinging && Inputframe)
+                    {
+                        Inputframe = false;
                         WeakHor();
+                    }
+                        
 
                     if (facingRight)
                     {
@@ -238,14 +251,6 @@ public class HandAnimationControl : MonoBehaviour
             {
                 SwapInside();
                 anim.SetBool("SwingHor", false);
-            }
-            if (Inputframe)
-            {
-                anim.SetFloat("SpeedMult", InputAnimSpeed);
-            }
-            else
-            {
-                anim.SetFloat("SpeedMult", HandAnimSpeed);
             }
             for (int i = 0; i < inputDown.Length; i++)
             {

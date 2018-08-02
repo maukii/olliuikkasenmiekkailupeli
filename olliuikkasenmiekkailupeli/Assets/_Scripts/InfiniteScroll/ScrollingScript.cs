@@ -11,6 +11,9 @@ public class ScrollingScript : MonoBehaviour
     public bool isLinkedToCamera = false;
     public bool isLooping = true;
 
+    public float timer;
+    float defaultTimer;
+
     private List<SpriteRenderer> backgroundPart;
     
     void Start()
@@ -58,23 +61,27 @@ public class ScrollingScript : MonoBehaviour
 
         if (isLooping)
         {
+            timer = timer - Time.deltaTime;
+
             SpriteRenderer firstChild = backgroundPart.FirstOrDefault();
 
             if (firstChild != null)
             {
                 if (firstChild.transform.position.x < Camera.main.transform.position.x)
                 {
-                    if (firstChild.IsVisibleFrom(Camera.main) == false)
+                    if (firstChild.IsVisibleFrom(Camera.main) == false && timer < 0)
                     {
-                    SpriteRenderer lastChild = backgroundPart.LastOrDefault();
+                        SpriteRenderer lastChild = backgroundPart.LastOrDefault();
 
-                    Vector3 lastPosition = lastChild.transform.position;
-                    Vector3 lastSize = (lastChild.bounds.max - lastChild.bounds.min);
+                        Vector3 lastPosition = lastChild.transform.position;
+                        Vector3 lastSize = (lastChild.bounds.max - lastChild.bounds.min);
 
-                    firstChild.transform.position = new Vector3(lastPosition.x + lastSize.x, firstChild.transform.position.y, firstChild.transform.position.z);
+                        firstChild.transform.position = new Vector3(lastPosition.x + lastSize.x, firstChild.transform.position.y, firstChild.transform.position.z);
 
-                    backgroundPart.Remove(firstChild);
-                    backgroundPart.Add(firstChild);
+                        backgroundPart.Remove(firstChild);
+                        backgroundPart.Add(firstChild);
+
+                        timer = defaultTimer;
                     }
                 }
             }

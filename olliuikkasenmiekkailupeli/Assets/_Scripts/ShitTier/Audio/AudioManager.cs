@@ -111,7 +111,7 @@ public class AudioManager : MonoBehaviour
 
     public void FadeInMusic()
     {
-        StartCoroutine(AnimateMusicIn(5f));
+        StartCoroutine(AnimateMusicIn(1f));
     }
 
     IEnumerator AnimateMusicIn(float duration)
@@ -122,14 +122,13 @@ public class AudioManager : MonoBehaviour
         {
             percent += Time.deltaTime * 1 / duration;
             musicSource.volume = Mathf.Lerp(0, musicVolumePercent, percent);
-            //Debug.Log("animating music in");
             yield return null;
         }
     }
 
     public void FadeOutMusic()
     {
-        StartCoroutine(AnimateMusicOut(5f));
+        StartCoroutine(AnimateMusicOut(1f));
     }
 
     IEnumerator AnimateMusicOut(float duration)

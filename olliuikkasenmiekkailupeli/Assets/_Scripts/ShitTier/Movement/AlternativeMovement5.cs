@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class AlternativeMovement5 : MonoBehaviour
 {
+
     InputManager im;
     HandAnimationControl hand;
 
     public int playerIndex;
-    
+
     #region PlayerInfos
     [Header("----- Player Movement Axis Names -----")]
     [SerializeField] string horizontal;
@@ -46,6 +47,8 @@ public class AlternativeMovement5 : MonoBehaviour
     Animator[] anims;
     Animator anim;
 
+    CameraScript cs;
+
     private void Awake()
     {
         SetPositionAndRotationToPlayers();
@@ -53,6 +56,8 @@ public class AlternativeMovement5 : MonoBehaviour
 
     void Start()
     {
+        cs = FindObjectOfType<CameraScript>();
+
         controllerLayout = 1;
         im = FindObjectOfType<InputManager>();
         hand = GetComponentInChildren<HandAnimationControl>();
@@ -117,13 +122,32 @@ public class AlternativeMovement5 : MonoBehaviour
         return facingRight;
     }
 
+    public float distance;
+    public float maxDistance = 10;
+    public bool canBackup;
+
     void Update()
     {
         Inputs();
         Move();
-        GetAnimState();
+        GetAnimState(); // not needed in this script
+        CheckDistance();
     }
-    
+
+    private void CheckDistance()
+    {
+        distance = Vector3.Distance(cs.P1.position, cs.P2.position);
+
+        if(distance >= maxDistance)
+        {
+            canBackup = false;
+        }
+        else
+        {
+            canBackup = true;
+        }
+    }
+
     void GetAnimState()
     {
         hanging = anim.GetFloat("Hanging");
@@ -150,53 +174,12 @@ public class AlternativeMovement5 : MonoBehaviour
             if(im.isXboxControllerP2)
                 ver = -Input.GetAxis(vertical);
             else
-                ver = Input.GetAxis(vertical);
-            
+                ver = Input.GetAxis(vertical);           
         }
     }
 
-    public float defaultTimer = 0.5f;
-    public float timer = 0.5f;
-
-    public bool started, ready;
-    public KeyCode forwards;
-
     void Move()
     {
-
-        if(Input.GetKeyUp(forwards))
-        {
-            started = true;
-        }
-
-        if (started)
-        {
-            timer -= Time.deltaTime;
-            if(timer <= 0f)
-            {
-                timer = defaultTimer;
-        
-                started = false;
-                ready = false;
-                anim.SetBool("Lunge", false);
-            }
-        }
-
-        if(Input.GetKeyDown(forwards) && started)
-        {
-            anim.SetBool("Lunge", true);
-        }
-
-
-        //
-        //if (forward && !started)
-        //    started = true;
-        //else if (!forward && started && timer > 0)
-        //    ready = true;
-        //else if (forward && started && ready && timer > 0)
-        //    anim.SetBool("Lunge", true);
-
-
 
         // what layout will be used
         #region ControllerLayout
@@ -254,7 +237,7 @@ public class AlternativeMovement5 : MonoBehaviour
                 forward = false;
             }
 
-            if (Input.GetAxis(horizontal) <= -.1f)
+            if (Input.GetAxis(horizontal) <= -.1f && canBackup)
             {
                 back = true;
             }
@@ -265,7 +248,7 @@ public class AlternativeMovement5 : MonoBehaviour
         }
         else
         {
-            if (Input.GetAxis(horizontal) >= .1f)
+            if (Input.GetAxis(horizontal) >= .1f && canBackup)
             {
                 back = true;
             }

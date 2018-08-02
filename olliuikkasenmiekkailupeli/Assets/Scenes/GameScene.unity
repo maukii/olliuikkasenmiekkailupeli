@@ -970,6 +970,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 2
+  P1: {fileID: 192891529}
+  P2: {fileID: 102844753}
   horizontal: 
   vertical: 
   inputX: 0
@@ -989,11 +991,9 @@ MonoBehaviour:
   ver: 0
   controllerLayout: 0
   swordAngle: 0
-  defaultTimer: 0.5
-  timer: 0.5
-  started: 0
-  ready: 0
-  forwards: 0
+  distance: 0
+  maxDistance: 10
+  canBackup: 0
 --- !u!4 &102844753
 Transform:
   m_ObjectHideFlags: 0
@@ -1411,6 +1411,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 1
+  P1: {fileID: 192891529}
+  P2: {fileID: 102844753}
   horizontal: 
   vertical: 
   inputX: 0
@@ -1430,11 +1432,9 @@ MonoBehaviour:
   ver: 0
   controllerLayout: 0
   swordAngle: 0
-  defaultTimer: 0.5
-  timer: 0.5
-  started: 0
-  ready: 0
-  forwards: 0
+  distance: 0
+  maxDistance: 10
+  canBackup: 0
 --- !u!4 &192891529
 Transform:
   m_ObjectHideFlags: 0

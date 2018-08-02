@@ -33,6 +33,11 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
+        foreach (Slider slider in volumeSliders)
+        {
+            slider.value = 0.1f;
+        }
+
         mainMenu.gameObject.SetActive(true);
         settingsMenu.gameObject.SetActive(false);
         creditsMenu.gameObject.SetActive(false);

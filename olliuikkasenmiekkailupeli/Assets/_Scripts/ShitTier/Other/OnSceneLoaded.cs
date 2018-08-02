@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class OnSceneLoaded : MonoBehaviour
 {
@@ -25,6 +26,11 @@ public class OnSceneLoaded : MonoBehaviour
         {
             countdownAnim = countdown.GetComponent<Animator>();
             countdownAnim.SetTrigger("CountDown");
+        }
+
+        if (FindObjectOfType<AudioManager>() != null)
+        {
+            AudioManager.instance.FadeInMusic();
         }
     }
 

@@ -8,10 +8,11 @@ public class HeightCollision : MonoBehaviour {
     RectTransform[] HeightMeterP1;
     RectTransform[] HeightMeterP2;
     float[] Height = new float[2];
-    Vector3[] TipH = new Vector3[2];
+    public Vector3[] TipH = new Vector3[2];
     Vector3[] MiddleH = new Vector3[2];
     Vector3[] BaseH = new Vector3[2];
     Vector3[] HandleH = new Vector3[2];
+    public float heightOffset;
 
 
     public bool ShowHeightMeters = false;
@@ -23,7 +24,7 @@ public class HeightCollision : MonoBehaviour {
         ch = gameObject.GetComponent<CollisionHandler>();
 
         GameObject[] hm = GameObject.FindGameObjectsWithTag("HeightMeterP1");
-        if (hm != null)
+        if (ShowHeightMeters)
         {
             HeightMeterP1 = new RectTransform[hm.Length];
             for (int i = 0; hm.Length > i; i++)
@@ -40,15 +41,20 @@ public class HeightCollision : MonoBehaviour {
             }
             HeightMeters[1] = hm[0].transform.parent.gameObject;
         }
-        SwordCollisionPartsP1 = GameObject.FindGameObjectsWithTag("SwordPointsP1");
-        SwordCollisionPartsP2 = GameObject.FindGameObjectsWithTag("SwordPointsP2");
+
+        heightOffset = GameObject.FindGameObjectWithTag("HeightRefPoint").transform.position.y;
     }
 	
 	
 	void Update () {
+        if(SwordCollisionPartsP1 == null)
+        {
+            SwordCollisionPartsP1 = GameObject.FindGameObjectsWithTag("SwordPointsP1");
+            SwordCollisionPartsP2 = GameObject.FindGameObjectsWithTag("SwordPointsP2");
+        }
+        UpdateSwordHeight();
         Height[0] = ch.GetHeight(1);
         Height[1] = ch.GetHeight(2);
-        UpdateSwordHeight();
 
         if (ShowHeightMeters)
         {
@@ -57,7 +63,7 @@ public class HeightCollision : MonoBehaviour {
         }
         else
         {
-            DissableHeightMeter();
+            //DissableHeightMeter();
         }
         
 	}
@@ -270,6 +276,10 @@ public class HeightCollision : MonoBehaviour {
     public float GetHandleY(int player)
     {
         return HandleH[player - 1].y;
+    }
+    public float GetHeightOffset()
+    {
+        return heightOffset;
     }
     public Vector3 GetTip(int player)
     {

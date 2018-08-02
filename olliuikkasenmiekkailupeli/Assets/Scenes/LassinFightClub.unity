@@ -146,7 +146,7 @@ RectTransform:
   - {fileID: 1705031293}
   - {fileID: 937628585}
   m_Father: {fileID: 1219324316}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -928,9 +928,9 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 667481606}
-  m_LocalRotation: {x: 0.49944624, y: -0.5008408, z: -0.49914506, w: 0.50056577}
+  m_LocalRotation: {x: 0.49944633, y: -0.5008408, z: -0.49914503, w: 0.5005659}
   m_LocalPosition: {x: 0, y: 0, z: 0.044199996}
-  m_LocalScale: {x: 0.016673438, y: 0.016673436, z: -0.016673438}
+  m_LocalScale: {x: 0.01667344, y: 0.016673438, z: -0.01667344}
   m_Children:
   - {fileID: 1960956403}
   - {fileID: 2017297010}
@@ -1496,7 +1496,7 @@ Prefab:
     - target: {fileID: 114399440146214800, guid: 852c08df0ef0e754f923a4ee72e95154,
         type: 2}
       propertyPath: ShowHeightMeters
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114399440146214800, guid: 852c08df0ef0e754f923a4ee72e95154,
         type: 2}
@@ -1624,6 +1624,10 @@ Prefab:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4862556763123056, guid: 306af6ac740d5aa4e803edf97660055f, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935102007224364, guid: 306af6ac740d5aa4e803edf97660055f, type: 2}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}

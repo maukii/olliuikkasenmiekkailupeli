@@ -6,9 +6,12 @@ using UnityEngine;
 public class AlternativeMovement5 : MonoBehaviour
 {
     #region Scripts
+
+    Distances distances;
     PlayerDistance playerDistance;
     InputManager im;
     HandAnimationControl hand;
+
     #endregion
 
     #region PlayerInfos
@@ -56,6 +59,7 @@ public class AlternativeMovement5 : MonoBehaviour
     void Start()
     {
         controllerLayout = 1;
+        distances = FindObjectOfType<Distances>();
         playerDistance = FindObjectOfType<PlayerDistance>();
         im = FindObjectOfType<InputManager>();
         hand = GetComponentInChildren<HandAnimationControl>();
@@ -126,7 +130,8 @@ public class AlternativeMovement5 : MonoBehaviour
     {
         Inputs();
         Move();
-        canBackup = playerDistance.CanBackup();
+
+        canBackup = distances.CanBackUp(playerIndex);
     }
 
     void Inputs()

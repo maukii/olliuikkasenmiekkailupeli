@@ -5585,7 +5585,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 832340427}
-  - component: {fileID: 832340426}
+  - component: {fileID: 832340428}
   m_Layer: 0
   m_Name: Distance
   m_TagString: Untagged
@@ -5593,18 +5593,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &832340426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 832340425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6e65caa21c33a14cb30a513b9d8aec6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 0
 --- !u!4 &832340427
 Transform:
   m_ObjectHideFlags: 0
@@ -5618,6 +5606,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &832340428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 832340425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118ae024a90e9ef4f898aa2aa77f4e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallL: {fileID: 837621998}
+  wallR: {fileID: 252708456}
+  P1: {fileID: 0}
+  P2: {fileID: 0}
+  P1DistanceL: 0
+  P1DistanceR: 0
+  P2DistanceL: 0
+  P2DistanceR: 0
+  minDistance: 3.25
+  maxDistance: 10
 --- !u!1 &832689058
 GameObject:
   m_ObjectHideFlags: 0

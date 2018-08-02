@@ -970,30 +970,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 2
-  P1: {fileID: 192891529}
-  P2: {fileID: 102844753}
   horizontal: 
   vertical: 
   inputX: 0
   inputY: 0
   speed: 3
-  xLimit: 5
-  mouseX: 0
   forward: 0
   back: 0
   attacking: 0
-  inside: 0
-  hanging: 0
   p1StartPos: {fileID: 1310398215}
   p2StartPos: {fileID: 1979031310}
   facingRight: 0
+  controllerLayout: 0
   hor: 0
   ver: 0
-  controllerLayout: 0
-  swordAngle: 0
-  distance: 0
-  maxDistance: 10
-  canBackup: 0
 --- !u!4 &102844753
 Transform:
   m_ObjectHideFlags: 0
@@ -1411,30 +1401,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 1
-  P1: {fileID: 192891529}
-  P2: {fileID: 102844753}
   horizontal: 
   vertical: 
   inputX: 0
   inputY: 0
   speed: 3
-  xLimit: 5
-  mouseX: 0
   forward: 0
   back: 0
   attacking: 0
-  inside: 0
-  hanging: 0
   p1StartPos: {fileID: 1310398215}
   p2StartPos: {fileID: 1979031310}
   facingRight: 1
+  controllerLayout: 0
   hor: 0
   ver: 0
-  controllerLayout: 0
-  swordAngle: 0
-  distance: 0
-  maxDistance: 10
-  canBackup: 0
 --- !u!4 &192891529
 Transform:
   m_ObjectHideFlags: 0
@@ -5597,6 +5577,47 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 2.8000183}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &832340425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 832340427}
+  - component: {fileID: 832340426}
+  m_Layer: 0
+  m_Name: Distance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &832340426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 832340425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e65caa21c33a14cb30a513b9d8aec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 0
+--- !u!4 &832340427
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 832340425}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832689058
 GameObject:
   m_ObjectHideFlags: 0

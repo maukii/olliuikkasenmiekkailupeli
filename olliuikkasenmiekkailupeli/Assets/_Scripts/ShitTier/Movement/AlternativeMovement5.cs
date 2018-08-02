@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class AlternativeMovement5 : MonoBehaviour
 {
-
+    #region Scripts
+    PlayerDistance playerDistance;
     InputManager im;
     HandAnimationControl hand;
-
-    public int playerIndex;
+    #endregion
 
     #region PlayerInfos
+    public int playerIndex;
+
     [Header("----- Player Movement Axis Names -----")]
     [SerializeField] string horizontal;
     [SerializeField] string vertical;
@@ -19,18 +21,13 @@ public class AlternativeMovement5 : MonoBehaviour
     [SerializeField]
     float inputX, inputY, speed = 3f;
 
-    public float xLimit = 5f;
-    public float mouseX;
+    float xLimit = 5f;
+    float mouseX;
 
     [Header("--- Inputs ---")]
     [SerializeField] bool forward;
     [SerializeField] bool back;
     [SerializeField] bool attacking;
-
-    [Header("-- Animation State --")]
-    [SerializeField] float inside;
-    [SerializeField] float hanging;
-    #endregion
 
     [SerializeField]
     Transform p1StartPos, p2StartPos;
@@ -39,15 +36,17 @@ public class AlternativeMovement5 : MonoBehaviour
     bool facingRight = false;
 
     [SerializeField]
-    float hor, ver;
+    int controllerLayout;
 
     [SerializeField]
-    int controllerLayout, swordAngle;
+    float hor, ver;
+
+    bool canBackup;
 
     Animator[] anims;
     Animator anim;
+    #endregion
 
-    CameraScript cs;
 
     private void Awake()
     {
@@ -56,9 +55,8 @@ public class AlternativeMovement5 : MonoBehaviour
 
     void Start()
     {
-        cs = FindObjectOfType<CameraScript>();
-
         controllerLayout = 1;
+        playerDistance = FindObjectOfType<PlayerDistance>();
         im = FindObjectOfType<InputManager>();
         hand = GetComponentInChildren<HandAnimationControl>();
         FindActiveComponents();
@@ -117,41 +115,18 @@ public class AlternativeMovement5 : MonoBehaviour
         #endregion
     }
 
+    // ----- AFTER START -----
+
     public bool GetFacingRight(int PlayerNumber)
     {
         return facingRight;
     }
 
-    public float distance;
-    public float maxDistance = 10;
-    public bool canBackup;
-
     void Update()
     {
         Inputs();
         Move();
-        GetAnimState(); // not needed in this script
-        CheckDistance();
-    }
-
-    private void CheckDistance()
-    {
-        distance = Vector3.Distance(cs.P1.position, cs.P2.position);
-
-        if(distance >= maxDistance)
-        {
-            canBackup = false;
-        }
-        else
-        {
-            canBackup = true;
-        }
-    }
-
-    void GetAnimState()
-    {
-        hanging = anim.GetFloat("Hanging");
-        inside = anim.GetFloat("Inside");
+        canBackup = playerDistance.CanBackup();
     }
 
     void Inputs()
@@ -181,7 +156,6 @@ public class AlternativeMovement5 : MonoBehaviour
     void Move()
     {
 
-        // what layout will be used
         #region ControllerLayout
         if(playerIndex == 1)
         {
@@ -223,7 +197,6 @@ public class AlternativeMovement5 : MonoBehaviour
         }
         #endregion
 
-        // is player facing right?
         #region inputBools
         if(facingRight)
         {
@@ -268,7 +241,6 @@ public class AlternativeMovement5 : MonoBehaviour
         }
         #endregion
 
-        // what animation to play?
         #region AnimatonStuffs
         if(anim != null)
         {
@@ -302,292 +274,7 @@ public class AlternativeMovement5 : MonoBehaviour
         }
         #endregion
 
-        // what attack to play?
-        #region AttacksWhenInput
-        if(playerIndex == 1)
-        {
-            if(!attacking)
-            {
-                if(im.isXboxControllerP1 || im.isPSControllerP1)
-                {
-                    if(controllerLayout == 1) // TODO: CHANGE TO CORRECT INPUTS
-                    {
-                        if(im.P1_LT > 0)
-                            ChangeGuard();
-                        if(im.P1_LB)
-                            ChangeSide();
-                        if (im.P1_RT > 0)
-                            VerticalSlash();
-                        if (im.P1_RB)
-                            HorizontalSlash();
-                    }
-                    else if (controllerLayout == 2)
-                    {
-                        if (im.P1_LT > 0)
-                            HorizontalSlash();
-                        if (im.P1_LB)
-                            ChangeSide();
-                        if (im.P1_RT > 0)
-                            VerticalSlash();
-                        if (im.P1_RB)
-                            ChangeGuard();
-                    }
-                    else if (controllerLayout == 3)
-                    {
-                        if (im.P1_LT > 0)
-                            HorizontalSlash();
-                        if (im.P1_LB)
-                            TurnSword(facingRight? -1 : 1);
-                        if (im.P1_RT > 0)
-                            VerticalSlash();
-                        if (im.P1_RB)
-                            TurnSword(facingRight? 1 : -1);
-                    }
-                    else if (controllerLayout == 4)
-                    {
-                        if (im.P1_LT > 0)
-                            TurnSword(facingRight? -1 : 1);
-                        if (im.P1_LB)
-                            TurnSword(facingRight ? 1 : -1);
-                        if (im.P1_RT > 0)
-                            VerticalSlash();
-                        if (im.P1_RB)
-                            HorizontalSlash();
-                    }
-                }
-                else if(im.isKeyboardAndMouseP1)
-                {
-                    if (Input.GetMouseButtonDown(0)) // left
-                        VerticalSlash();
-                    if (Input.GetMouseButtonDown(1)) // right
-                        ChangeGuard();
-                    if (Input.GetMouseButtonDown(2)) // middle
-                        ChangeSide();
-                    if (Input.GetKeyDown(KeyCode.F))
-                        HorizontalSlash();
-
-                    if(facingRight)
-                    {
-                        if (Input.GetAxis("MouseX") > xLimit)
-                            Stab();
-                    }
-                    else if(!facingRight)
-                    {
-                        if(Input.GetAxis("MouseX") < -xLimit)
-                        {
-                            Stab();
-                        }
-                    }
-                }
-
-                else if(im.isOnlyKeyboard)
-                {
-                    if (Input.GetKeyDown(KeyCode.X))
-                    {
-                        ChangeSide();
-                    }
-                    if (Input.GetKeyDown(KeyCode.C))
-                    {
-                        ChangeGuard();
-                    }
-                    if (Input.GetKeyDown(KeyCode.R))
-                    {
-                        VerticalSlash();
-                    }
-                    if (Input.GetKeyDown(KeyCode.F))
-                    {
-                        HorizontalSlash();
-                    }
-                    if (Input.GetKeyDown(KeyCode.H))
-                    {
-                        Stab();
-                    }
-                }
-            }
-        }
-        else if(playerIndex == 2)
-        {
-            if (!attacking)
-            {
-                if (im.isXboxControllerP2 || im.isPSControllerP2)
-                {
-                    if(controllerLayout == 1)
-                    {
-                        if (im.P2_LT > 0)
-                            ChangeGuard();
-                        if (im.P2_LB)
-                            ChangeSide();
-                        if (im.P2_RT > 0)
-                            VerticalSlash();
-                        if (im.P2_RB)
-                            HorizontalSlash();
-                    }
-                    else if(controllerLayout == 2)
-                    {
-                        if (im.P2_LT > 0)
-                            ChangeGuard();
-                        if (im.P2_LB)
-                            ChangeSide();
-                        if (im.P2_RT > 0)
-                            VerticalSlash();
-                        if (im.P2_RB)
-                            HorizontalSlash();
-                    }
-                    else if(controllerLayout == 3)
-                    {
-                        if (im.P2_LT > 0)
-                            HorizontalSlash();
-                        if (im.P2_LB)
-                            TurnSword(facingRight ? -1 : 1);
-                        if (im.P2_RT > 0)
-                            VerticalSlash();
-                        if (im.P2_RB)
-                            TurnSword(facingRight ? 1 : -1);
-                    }
-                    else if(controllerLayout == 4)
-                    {
-                        if (im.P2_LT > 0)
-                            TurnSword(facingRight ? 1 : -1);
-                        if (im.P2_LB)
-                            ChangeSide();       
-                        if (im.P2_RT > 0)
-                            VerticalSlash();
-                        if (im.P2_RB)
-                            HorizontalSlash();
-                    }
-                }
-
-                else if (im.isKeyboardAndMouseP2)
-                {
-                    if (Input.GetMouseButtonDown(0)) // left
-                        VerticalSlash();
-                    if (Input.GetMouseButtonDown(1)) // right
-                        ChangeGuard();
-                    if (Input.GetMouseButtonDown(2)) // middle
-                        ChangeSide();
-                    if (Input.GetKeyDown(KeyCode.F))
-                        HorizontalSlash();
-
-                    if (facingRight)
-                    {
-                        if (Input.GetAxis("MouseX") > xLimit)
-                            Stab();
-                    }
-                    else if(!facingRight)
-                    {
-                        if (Input.GetAxis("MouseX") < -xLimit)
-                        {
-                            Stab();
-                        }
-                    }
-                }
-
-                else if(im.isOnlyKeyboard)
-                {
-                    if (Input.GetKeyDown(KeyCode.P))
-                    {
-                        ChangeSide();
-                    }
-                    if (Input.GetKeyDown(KeyCode.I))
-                    {
-                        ChangeGuard();
-                    }
-                    if (Input.GetKeyDown(KeyCode.RightShift))
-                    {
-                        VerticalSlash();
-                    }
-                    if (Input.GetKeyDown(KeyCode.RightControl))
-                    {
-                        HorizontalSlash();
-                    }
-                    if (Input.GetKeyDown(KeyCode.K))
-                    {
-                        Stab();
-                    }
-                }
-            }
-        }
-        #endregion
-
     }
-
-    #region Attacks
-    private void Stab()
-    {
-        //Debug.Log("stab");
-        attacking = true;  //       TODO: USE public override OnStateExit, -Enter to change attacking bool
-        StartCoroutine(Timer());
-        // test purposes only
-
-        //hand.Weak();
-    }
-
-    private void HorizontalSlash()
-    {
-        //Debug.Log("horizontalslash");
-        attacking = true;
-        StartCoroutine(Timer());
-
-        //hand.SwingHor();
-    }
-
-    private void VerticalSlash()
-    {
-        //Debug.Log("verticalslash");
-        attacking = true;
-        StartCoroutine(Timer());
-
-       // hand.Swing();
-    }
-
-    private void ChangeGuard()
-    {
-        //Debug.Log("changeguard");
-        attacking = true;
-        StartCoroutine(Timer());
-
-        //hand.SwapInside();
-        //hand.SwapHanging();
-    }
-
-    private void ChangeSide()
-    {
-        //Debug.Log("changeside");
-        attacking = true;
-        StartCoroutine(Timer());
-
-
-    }
-
-    private void TurnSword(int index)
-    {
-        attacking = true;
-
-        if (inside == 1 && hanging == 1)
-            swordAngle = 0;
-        else if (inside == 1 && hanging == 0)
-            swordAngle = 1;
-        else if (inside == 0 && hanging == 0)
-            swordAngle = 2;
-        else if (inside == 0 && hanging == 1)
-            swordAngle = 3;
-
-        //if (swordAngle < 0)
-        //    swordAngle = 3;
-        //else if (swordAngle > 3)
-        //    swordAngle = 0;
-
-        StartCoroutine(Timer());
-
-        Debug.Log(swordAngle);
-    }
-
-    IEnumerator Timer()
-    {
-        yield return new WaitForSeconds(1);
-        attacking = false;
-    }
-    #endregion
 
     public void SetInputAxis(string hori, string vert)
     {
@@ -595,7 +282,6 @@ public class AlternativeMovement5 : MonoBehaviour
         vertical = vert;
     }
 
-    // SOUNDS ++ TODO: add random soundeffect
     public void PlaySound(string clipName)
     {
         if(AudioManager.instance != null)
@@ -603,5 +289,4 @@ public class AlternativeMovement5 : MonoBehaviour
             AudioManager.instance.PlaySound(clipName);
         }
     }
-
 }

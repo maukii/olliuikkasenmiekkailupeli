@@ -542,7 +542,7 @@ public class InputManager : MonoBehaviour
 
     void SideCheck()
     {
-        if(SceneManager.GetActiveScene().name == "MaunoManu")
+        if(SceneManager.GetActiveScene().name == "MaunoManu") // MIGHT WANNA CHANGE
         {
             isLeftP1 = TestMenuScript.MS.isLeftP1;
             isLeftP2 = TestMenuScript.MS.isLeftP2;

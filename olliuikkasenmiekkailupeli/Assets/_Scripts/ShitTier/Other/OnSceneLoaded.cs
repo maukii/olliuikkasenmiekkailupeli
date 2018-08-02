@@ -31,7 +31,6 @@ public class OnSceneLoaded : MonoBehaviour
         if (FindObjectOfType<AudioManager>() != null)
         {
             AudioManager.instance.FadeInMusic();
-            Debug.Log("fading in");
         }
     }
 

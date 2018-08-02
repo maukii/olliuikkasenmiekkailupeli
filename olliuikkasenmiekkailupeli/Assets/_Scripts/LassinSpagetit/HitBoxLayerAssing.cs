@@ -39,6 +39,7 @@ public class HitBoxLayerAssing : MonoBehaviour {
                 }
             }
             SwordPart[] sp = gameObject.GetComponentsInChildren<SwordPart>();
+            
             for(int i = 0; i < sp.Length; i++)
             {
                 sp[i].ChangePlayer(2);

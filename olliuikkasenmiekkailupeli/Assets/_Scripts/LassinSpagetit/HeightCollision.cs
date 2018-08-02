@@ -8,10 +8,11 @@ public class HeightCollision : MonoBehaviour {
     RectTransform[] HeightMeterP1;
     RectTransform[] HeightMeterP2;
     float[] Height = new float[2];
-    float[] TipH = new float[2];
-    float[] MiddleH = new float[2];
-    float[] BaseH = new float[2];
-    float[] HandleH = new float[2];
+    Vector3[] TipH = new Vector3[2];
+    Vector3[] MiddleH = new Vector3[2];
+    Vector3[] BaseH = new Vector3[2];
+    Vector3[] HandleH = new Vector3[2];
+
 
     public bool ShowHeightMeters = false;
     GameObject[] HeightMeters = new GameObject[2];
@@ -22,21 +23,23 @@ public class HeightCollision : MonoBehaviour {
         ch = gameObject.GetComponent<CollisionHandler>();
 
         GameObject[] hm = GameObject.FindGameObjectsWithTag("HeightMeterP1");
-        HeightMeterP1 = new RectTransform[hm.Length]; 
-        for(int i = 0; hm.Length > i; i++)
+        if (hm != null)
         {
-            HeightMeterP1[i] = hm[i].GetComponent<RectTransform>();
-        }
-        HeightMeters[0] = hm[0].transform.parent.gameObject;
+            HeightMeterP1 = new RectTransform[hm.Length];
+            for (int i = 0; hm.Length > i; i++)
+            {
+                HeightMeterP1[i] = hm[i].GetComponent<RectTransform>();
+            }
+            HeightMeters[0] = hm[0].transform.parent.gameObject;
 
-        hm = GameObject.FindGameObjectsWithTag("HeightMeterP2");
-        HeightMeterP2 = new RectTransform[hm.Length];
-        for (int i = 0; hm.Length > i; i++)
-        {
-            HeightMeterP2[i] = hm[i].GetComponent<RectTransform>();
+            hm = GameObject.FindGameObjectsWithTag("HeightMeterP2");
+            HeightMeterP2 = new RectTransform[hm.Length];
+            for (int i = 0; hm.Length > i; i++)
+            {
+                HeightMeterP2[i] = hm[i].GetComponent<RectTransform>();
+            }
+            HeightMeters[1] = hm[0].transform.parent.gameObject;
         }
-        HeightMeters[1] = hm[0].transform.parent.gameObject;
-
         SwordCollisionPartsP1 = GameObject.FindGameObjectsWithTag("SwordPointsP1");
         SwordCollisionPartsP2 = GameObject.FindGameObjectsWithTag("SwordPointsP2");
     }
@@ -84,19 +87,20 @@ public class HeightCollision : MonoBehaviour {
                 {
                     if (SwordCollisionPartsP1[i].name == "Tip")
                     {
-                        TipH[playerNumber] = SwordCollisionPartsP1[i].transform.position.y;
+                        TipH[playerNumber] = SwordCollisionPartsP1[i].transform.position;
+
                     }
                     else if (SwordCollisionPartsP1[i].name == "Middle")
                     {
-                        MiddleH[playerNumber] = SwordCollisionPartsP1[i].transform.position.y;
+                        MiddleH[playerNumber] = SwordCollisionPartsP1[i].transform.position;
                     }
                     else if (SwordCollisionPartsP1[i].name == "Base")
                     {
-                        BaseH[playerNumber] = SwordCollisionPartsP1[i].transform.position.y;
+                        BaseH[playerNumber] = SwordCollisionPartsP1[i].transform.position;
                     }
                     else if (SwordCollisionPartsP1[i].name == "Handle")
                     {
-                        HandleH[playerNumber] = SwordCollisionPartsP1[i].transform.position.y;
+                        HandleH[playerNumber] = SwordCollisionPartsP1[i].transform.position;
                     }
                 }
             }
@@ -106,19 +110,19 @@ public class HeightCollision : MonoBehaviour {
                 {
                     if (SwordCollisionPartsP2[i].name == "Tip")
                     {
-                        TipH[playerNumber] = SwordCollisionPartsP2[i].transform.position.y;
+                        TipH[playerNumber] = SwordCollisionPartsP2[i].transform.position;
                     }
                     else if (SwordCollisionPartsP2[i].name == "Middle")
                     {
-                        MiddleH[playerNumber] = SwordCollisionPartsP2[i].transform.position.y;
+                        MiddleH[playerNumber] = SwordCollisionPartsP2[i].transform.position;
                     }
                     else if (SwordCollisionPartsP2[i].name == "Base")
                     {
-                        BaseH[playerNumber] = SwordCollisionPartsP2[i].transform.position.y;
+                        BaseH[playerNumber] = SwordCollisionPartsP2[i].transform.position;
                     }
                     else if (SwordCollisionPartsP2[i].name == "Handle")
                     {
-                        HandleH[playerNumber] = SwordCollisionPartsP2[i].transform.position.y;
+                        HandleH[playerNumber] = SwordCollisionPartsP2[i].transform.position;
                     }
                 }
             }
@@ -141,50 +145,50 @@ public class HeightCollision : MonoBehaviour {
                     else if (HeightMeterP1[i].name == "Middle")
                     {
                         
-                        if(TipH[playerNumber] - MiddleH[playerNumber]< 0)
+                        if(TipH[playerNumber].y - MiddleH[playerNumber].y < 0)
                         {
-                            HeightMeterP1[i].sizeDelta = new Vector2(1, MiddleH[playerNumber] - TipH[playerNumber]);
+                            HeightMeterP1[i].sizeDelta = new Vector2(1, MiddleH[playerNumber].y - TipH[playerNumber].y);
                             HeightMeterP1[i].localScale = new Vector3(1, -1, 1);
                         }
                         else
                         {
-                            HeightMeterP1[i].sizeDelta = new Vector2(1, TipH[playerNumber] - MiddleH[playerNumber]);
+                            HeightMeterP1[i].sizeDelta = new Vector2(1, TipH[playerNumber].y - MiddleH[playerNumber].y);
                             HeightMeterP1[i].localScale = new Vector3(1, 1, 1);
                         }
-                        HeightMeterP1[i].position = new Vector3(HeightMeterP1[i].position.x, MiddleH[playerNumber], HeightMeterP1[i].position.z);
+                        HeightMeterP1[i].position = new Vector3(HeightMeterP1[i].position.x, MiddleH[playerNumber].y, HeightMeterP1[i].position.z);
                         HeightMeterP1[i].localPosition = new Vector3(-0.5f, HeightMeterP1[i].localPosition.y, 0);
                     }
                     else if (HeightMeterP1[i].name == "Base")
                     {
-                        if (MiddleH[playerNumber] - BaseH[playerNumber] < 0)
+                        if (MiddleH[playerNumber].y - BaseH[playerNumber].y < 0)
                         {
-                            HeightMeterP1[i].sizeDelta = new Vector2(1, BaseH[playerNumber] - MiddleH[playerNumber]);
+                            HeightMeterP1[i].sizeDelta = new Vector2(1, BaseH[playerNumber].y - MiddleH[playerNumber].y);
                             HeightMeterP1[i].localScale = new Vector3(1, -1, 1);
                         }
                         else
                         {
-                            HeightMeterP1[i].sizeDelta = new Vector2(1, MiddleH[playerNumber] - BaseH[playerNumber]);
+                            HeightMeterP1[i].sizeDelta = new Vector2(1, MiddleH[playerNumber].y - BaseH[playerNumber].y);
                             HeightMeterP1[i].localScale = new Vector3(1, 1, 1);
                         }
                         
-                        HeightMeterP1[i].position = new Vector3(HeightMeterP1[i].position.x, BaseH[playerNumber], HeightMeterP1[i].position.z);
+                        HeightMeterP1[i].position = new Vector3(HeightMeterP1[i].position.x, BaseH[playerNumber].y, HeightMeterP1[i].position.z);
                         HeightMeterP1[i].localPosition = new Vector3(-0.5f, HeightMeterP1[i].localPosition.y, 0);
 
                     }
                     else if (HeightMeterP1[i].name == "Handle")
                     {
-                        if (BaseH[playerNumber] - HandleH[playerNumber] < 0)
+                        if (BaseH[playerNumber].y - HandleH[playerNumber].y < 0)
                         {
-                            HeightMeterP1[i].sizeDelta = new Vector2(1, HandleH[playerNumber] - BaseH[playerNumber]);
+                            HeightMeterP1[i].sizeDelta = new Vector2(1, HandleH[playerNumber].y - BaseH[playerNumber].y);
                             HeightMeterP1[i].localScale = new Vector3(1, -1, 1);
                         }
                         else
                         {
-                            HeightMeterP1[i].sizeDelta = new Vector2(1, BaseH[playerNumber] - HandleH[playerNumber]);
+                            HeightMeterP1[i].sizeDelta = new Vector2(1, BaseH[playerNumber].y - HandleH[playerNumber].y);
                             HeightMeterP1[i].localScale = new Vector3(1, 1, 1);
                         }
                         
-                        HeightMeterP1[i].position = new Vector3(HeightMeterP1[i].position.x, HandleH[playerNumber], HeightMeterP1[i].position.z);
+                        HeightMeterP1[i].position = new Vector3(HeightMeterP1[i].position.x, HandleH[playerNumber].y, HeightMeterP1[i].position.z);
                         HeightMeterP1[i].localPosition = new Vector3(-0.5f, HeightMeterP1[i].localPosition.y, 0);
                     }
                 }
@@ -201,69 +205,85 @@ public class HeightCollision : MonoBehaviour {
                     else if (HeightMeterP2[i].name == "Middle")
                     {
 
-                        if (TipH[playerNumber] - MiddleH[playerNumber] < 0)
+                        if (TipH[playerNumber].y - MiddleH[playerNumber].y < 0)
                         {
-                            HeightMeterP2[i].sizeDelta = new Vector2(1, MiddleH[playerNumber] - TipH[playerNumber]);
+                            HeightMeterP2[i].sizeDelta = new Vector2(1, MiddleH[playerNumber].y - TipH[playerNumber].y);
                             HeightMeterP2[i].localScale = new Vector3(1, -1, 1);
                         }
                         else
                         {
-                            HeightMeterP2[i].sizeDelta = new Vector2(1, TipH[playerNumber] - MiddleH[playerNumber]);
+                            HeightMeterP2[i].sizeDelta = new Vector2(1, TipH[playerNumber].y - MiddleH[playerNumber].y);
                             HeightMeterP2[i].localScale = new Vector3(1, 1, 1);
                         }
-                        HeightMeterP2[i].position = new Vector3(HeightMeterP2[i].position.x, MiddleH[playerNumber], HeightMeterP2[i].position.z);
+                        HeightMeterP2[i].position = new Vector3(HeightMeterP2[i].position.x, MiddleH[playerNumber].y, HeightMeterP2[i].position.z);
                         HeightMeterP2[i].localPosition = new Vector3(-0.5f, HeightMeterP2[i].localPosition.y, 0);
                     }
                     else if (HeightMeterP2[i].name == "Base")
                     {
-                        if (MiddleH[playerNumber] - BaseH[playerNumber] < 0)
+                        if (MiddleH[playerNumber].y - BaseH[playerNumber].y < 0)
                         {
-                            HeightMeterP2[i].sizeDelta = new Vector2(1, BaseH[playerNumber] - MiddleH[playerNumber]);
+                            HeightMeterP2[i].sizeDelta = new Vector2(1, BaseH[playerNumber].y - MiddleH[playerNumber].y);
                             HeightMeterP2[i].localScale = new Vector3(1, -1, 1);
                         }
                         else
                         {
-                            HeightMeterP2[i].sizeDelta = new Vector2(1, MiddleH[playerNumber] - BaseH[playerNumber]);
+                            HeightMeterP2[i].sizeDelta = new Vector2(1, MiddleH[playerNumber].y - BaseH[playerNumber].y);
                             HeightMeterP2[i].localScale = new Vector3(1, 1, 1);
                         }
 
-                        HeightMeterP2[i].position = new Vector3(HeightMeterP2[i].position.x, BaseH[playerNumber], HeightMeterP2[i].position.z);
+                        HeightMeterP2[i].position = new Vector3(HeightMeterP2[i].position.x, BaseH[playerNumber].y, HeightMeterP2[i].position.z);
                         HeightMeterP2[i].localPosition = new Vector3(-0.5f, HeightMeterP2[i].localPosition.y, 0);
 
                     }
                     else if (HeightMeterP2[i].name == "Handle")
                     {
-                        if (BaseH[playerNumber] - HandleH[playerNumber] < 0)
+                        if (BaseH[playerNumber].y - HandleH[playerNumber].y < 0)
                         {
-                            HeightMeterP2[i].sizeDelta = new Vector2(1, HandleH[playerNumber] - BaseH[playerNumber]);
+                            HeightMeterP2[i].sizeDelta = new Vector2(1, HandleH[playerNumber].y - BaseH[playerNumber].y);
                             HeightMeterP2[i].localScale = new Vector3(1, -1, 1);
                         }
                         else
                         {
-                            HeightMeterP2[i].sizeDelta = new Vector2(1, BaseH[playerNumber] - HandleH[playerNumber]);
+                            HeightMeterP2[i].sizeDelta = new Vector2(1, BaseH[playerNumber].y - HandleH[playerNumber].y);
                             HeightMeterP2[i].localScale = new Vector3(1, 1, 1);
                         }
 
-                        HeightMeterP2[i].position = new Vector3(HeightMeterP2[i].position.x, HandleH[playerNumber], HeightMeterP2[i].position.z);
+                        HeightMeterP2[i].position = new Vector3(HeightMeterP2[i].position.x, HandleH[playerNumber].y, HeightMeterP2[i].position.z);
                         HeightMeterP2[i].localPosition = new Vector3(-0.5f, HeightMeterP2[i].localPosition.y, 0);
                     }
                 }
             }
         }
     }
-    public float GetTip(int player)
+    public float GetTipY(int player)
+    {
+        return TipH[player - 1].y;
+    }
+    public float GetMiddleY(int player)
+    {
+        return MiddleH[player - 1].y;
+    }
+    public float GetBaseY(int player)
+    {
+        return BaseH[player - 1].y;
+    }
+    public float GetHandleY(int player)
+    {
+        return HandleH[player - 1].y;
+    }
+    public Vector3 GetTip(int player)
     {
         return TipH[player - 1];
     }
-    public float GetMiddle(int player)
+    public Vector3 GetMiddle(int player)
     {
         return MiddleH[player - 1];
     }
-    public float GetBase(int player)
+    public Vector3 GetBase(int player)
     {
         return BaseH[player - 1];
     }
-    public float GetHandle(int player)
+    public Vector3 GetHandle(int player)
     {
         return HandleH[player - 1];
     }

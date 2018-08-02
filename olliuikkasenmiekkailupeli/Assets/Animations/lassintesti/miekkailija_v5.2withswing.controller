@@ -13,91 +13,109 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: forward
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Height
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: InputY
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: InputX
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Strong
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: SwingDia
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: SwingHor
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Inside
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Hanging
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: SpeedMult
     m_Type: 1
     m_DefaultFloat: 1
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Deflect
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Interrupt
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: light
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Blend
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
+  - m_Name: ADeflect
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: AExtend
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: ALight
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -169,7 +187,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: cd67c1ea7394b864da51b9c13cd4b98e, type: 2}
+    m_Motion: {fileID: 7400000, guid: 995284c29e59b03459d9ef1053c8f534, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -207,7 +225,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 1480a5a97cceb6c49a03f44144985e28, type: 2}
+    m_Motion: {fileID: 7400000, guid: fd39fd5efca29144da5fcfc552de31ba, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -215,7 +233,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 27ba7c4304c1987488871801fe26e35d, type: 2}
+    m_Motion: {fileID: 7400000, guid: a7ffdcd9e470ec745a9fd2b31a401b6a, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -223,7 +241,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 2c6cbd61f55f94f468cd59633bf91df9, type: 2}
+    m_Motion: {fileID: 7400000, guid: 33a9c4933e52cfe4dad18142681b8f9e, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -259,7 +277,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: d8dca61717fead546833653dbeeb726d, type: 2}
+    m_Motion: {fileID: 7400000, guid: 0b4e660a690595e4f93177dba347e150, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -267,7 +285,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 15c98002d1bba5947a04c00ae06c2056, type: 2}
+    m_Motion: {fileID: 7400000, guid: d4001dae831804348b889ed55d6b271b, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -275,7 +293,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 9210068cc72cf9048a0c5997a4a559bd, type: 2}
+    m_Motion: {fileID: 7400000, guid: 7998fa9ba463d1140b3edd771ccf5b38, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -457,7 +475,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 77e6237871d01ec48b7a4f34d44c8376, type: 2}
+    m_Motion: {fileID: 7400000, guid: 98e1ab4f141c63440af0e3541dc5405e, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -465,7 +483,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: d2b6313afc10b3c4f9a40363b899e497, type: 2}
+    m_Motion: {fileID: 7400000, guid: 77e6237871d01ec48b7a4f34d44c8376, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -563,7 +581,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: d3baa974c0649164c9f7ba1cadc132ed, type: 2}
+    m_Motion: {fileID: 7400000, guid: 9e2e4a4681329e946a70887c556b6cb9, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -571,7 +589,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 0aef5ad9ac6ca554d86d3ad997ef1491, type: 2}
+    m_Motion: {fileID: 7400000, guid: 797aeca7de14f134282dd5ff49443835, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -579,7 +597,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 859c68a3f6a2dc740a46a439f951ee36, type: 2}
+    m_Motion: {fileID: 7400000, guid: 6859ddcc7ab2f6f4ea06fdb17049469c, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -1019,7 +1037,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 8d58eef6f0e3d474482824769a67b8fc, type: 2}
+    m_Motion: {fileID: 7400000, guid: 22eab9c271fada1468f10d93c0027ae6, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -1027,7 +1045,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: cbf75c44af1e2514a926642e1ee0e973, type: 2}
+    m_Motion: {fileID: 7400000, guid: a46ed003569cb954989a4a89b1ccc2f3, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -1035,7 +1053,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: d0211572edf31b04a9aea5aed2a2de40, type: 2}
+    m_Motion: {fileID: 7400000, guid: fbafdfb8f060f334db994b7734c9526d, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -1285,7 +1303,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 6bdd88912cde1ff42917f1d559baf05c, type: 2}
+    m_Motion: {fileID: 7400000, guid: bcff803c0da45994d90afd34ca33c030, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -1293,7 +1311,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 4064408d20945d443af3951caa802901, type: 2}
+    m_Motion: {fileID: 7400000, guid: 9e442ab935841fd4382330e014951373, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -1301,7 +1319,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 681c90e5b1022be4982669b2da8f4b87, type: 2}
+    m_Motion: {fileID: 7400000, guid: e906392df27d00643a51f05155a60df6, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -1513,7 +1531,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 9adcb67eec8433f47b489555725985ba, type: 2}
+    m_Motion: {fileID: 7400000, guid: 9d731f12dc63d7c4e9ebe4ed2cfb4a53, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -1521,7 +1539,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 50e2cf8de5ee0e44abf86b03ef827cbf, type: 2}
+    m_Motion: {fileID: 7400000, guid: 71a49acdfc7b8f742b52ef38a6bf4d61, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -1529,7 +1547,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: a9e6a080b46b19743adc01f9e208930d, type: 2}
+    m_Motion: {fileID: 7400000, guid: 8fbb52839148c89438bab6f7e4a1ba69, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -1741,7 +1759,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 9e2e4a4681329e946a70887c556b6cb9, type: 2}
+    m_Motion: {fileID: 7400000, guid: d3baa974c0649164c9f7ba1cadc132ed, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -1749,7 +1767,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 797aeca7de14f134282dd5ff49443835, type: 2}
+    m_Motion: {fileID: 7400000, guid: 0aef5ad9ac6ca554d86d3ad997ef1491, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -1757,7 +1775,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 6859ddcc7ab2f6f4ea06fdb17049469c, type: 2}
+    m_Motion: {fileID: 7400000, guid: 859c68a3f6a2dc740a46a439f951ee36, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2439,7 +2457,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 451936089a452fc478161331df65126b, type: 2}
+    m_Motion: {fileID: 7400000, guid: 6540400dd6417774da409a71f9540727, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2447,7 +2465,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 694c0e88144353c40b21e63c00958279, type: 2}
+    m_Motion: {fileID: 7400000, guid: 7e9ac6b7fd8631b4bbdbbcfaaf8ff3bf, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2455,7 +2473,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: d4db6fa4a0a498a4b8013ae5106d1439, type: 2}
+    m_Motion: {fileID: 7400000, guid: f7e839ee23cd4e241a854a730fbb763c, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2515,7 +2533,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 0b4e660a690595e4f93177dba347e150, type: 2}
+    m_Motion: {fileID: 7400000, guid: d8dca61717fead546833653dbeeb726d, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2523,7 +2541,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: d4001dae831804348b889ed55d6b271b, type: 2}
+    m_Motion: {fileID: 7400000, guid: 15c98002d1bba5947a04c00ae06c2056, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2531,7 +2549,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 7998fa9ba463d1140b3edd771ccf5b38, type: 2}
+    m_Motion: {fileID: 7400000, guid: 9210068cc72cf9048a0c5997a4a559bd, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2553,7 +2571,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: fd39fd5efca29144da5fcfc552de31ba, type: 2}
+    m_Motion: {fileID: 7400000, guid: 1480a5a97cceb6c49a03f44144985e28, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2561,7 +2579,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: a7ffdcd9e470ec745a9fd2b31a401b6a, type: 2}
+    m_Motion: {fileID: 7400000, guid: 27ba7c4304c1987488871801fe26e35d, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2569,7 +2587,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 33a9c4933e52cfe4dad18142681b8f9e, type: 2}
+    m_Motion: {fileID: 7400000, guid: 2c6cbd61f55f94f468cd59633bf91df9, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2781,7 +2799,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: bcff803c0da45994d90afd34ca33c030, type: 2}
+    m_Motion: {fileID: 7400000, guid: 6bdd88912cde1ff42917f1d559baf05c, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2789,7 +2807,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 9e442ab935841fd4382330e014951373, type: 2}
+    m_Motion: {fileID: 7400000, guid: 4064408d20945d443af3951caa802901, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2797,7 +2815,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: e906392df27d00643a51f05155a60df6, type: 2}
+    m_Motion: {fileID: 7400000, guid: 681c90e5b1022be4982669b2da8f4b87, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2819,7 +2837,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 9d731f12dc63d7c4e9ebe4ed2cfb4a53, type: 2}
+    m_Motion: {fileID: 7400000, guid: 9adcb67eec8433f47b489555725985ba, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2827,7 +2845,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 71a49acdfc7b8f742b52ef38a6bf4d61, type: 2}
+    m_Motion: {fileID: 7400000, guid: 50e2cf8de5ee0e44abf86b03ef827cbf, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2835,7 +2853,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 8fbb52839148c89438bab6f7e4a1ba69, type: 2}
+    m_Motion: {fileID: 7400000, guid: a9e6a080b46b19743adc01f9e208930d, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2857,7 +2875,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 6540400dd6417774da409a71f9540727, type: 2}
+    m_Motion: {fileID: 7400000, guid: 451936089a452fc478161331df65126b, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2865,7 +2883,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 7e9ac6b7fd8631b4bbdbbcfaaf8ff3bf, type: 2}
+    m_Motion: {fileID: 7400000, guid: 694c0e88144353c40b21e63c00958279, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -2873,7 +2891,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: f7e839ee23cd4e241a854a730fbb763c, type: 2}
+    m_Motion: {fileID: 7400000, guid: d4db6fa4a0a498a4b8013ae5106d1439, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -3009,7 +3027,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 22eab9c271fada1468f10d93c0027ae6, type: 2}
+    m_Motion: {fileID: 7400000, guid: 8d58eef6f0e3d474482824769a67b8fc, type: 2}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -3017,7 +3035,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: a46ed003569cb954989a4a89b1ccc2f3, type: 2}
+    m_Motion: {fileID: 7400000, guid: a7ffdcd9e470ec745a9fd2b31a401b6a, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -3025,7 +3043,7 @@ BlendTree:
     m_DirectBlendParameter: Height
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: fbafdfb8f060f334db994b7734c9526d, type: 2}
+    m_Motion: {fileID: 7400000, guid: d0211572edf31b04a9aea5aed2a2de40, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -3112,7 +3130,7 @@ AnimatorStateTransition:
   m_Name: cut4modeflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102497736695311742}
@@ -3136,7 +3154,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: Hanging
@@ -3163,7 +3181,7 @@ AnimatorStateTransition:
   m_Name: cut1deflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102544321320410650}
@@ -3211,7 +3229,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102071555334373364}
@@ -3235,7 +3253,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102707430802118260}
@@ -3285,8 +3303,8 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: return
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: light
+  - m_ConditionMode: 2
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: Hanging
@@ -3313,7 +3331,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102723011966810666}
@@ -3417,7 +3435,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -3454,7 +3472,7 @@ AnimatorStateTransition:
   m_Name: cut3molightdeflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102343592428841202}
@@ -3478,7 +3496,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: Hanging
@@ -3505,7 +3523,7 @@ AnimatorStateTransition:
   m_Name: cut6lightdeflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102714518658861538}
@@ -3574,7 +3592,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102723011966810666}
@@ -3625,7 +3643,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102723011966810666}
@@ -3673,7 +3691,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102071555334373364}
@@ -3697,7 +3715,7 @@ AnimatorStateTransition:
   m_Name: cut4extend
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102648788915042268}
@@ -3783,7 +3801,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -3796,7 +3814,7 @@ AnimatorStateTransition:
   m_Name: cut5lightdeflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102342044613983868}
@@ -3820,7 +3838,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: Hanging
@@ -3874,7 +3892,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: Hanging
@@ -3901,7 +3919,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: Hanging
@@ -3928,7 +3946,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102071555334373364}
@@ -3952,7 +3970,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: Hanging
@@ -4033,7 +4051,7 @@ AnimatorStateTransition:
   m_Name: cut3deflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102164234746594346}
@@ -4126,7 +4144,7 @@ AnimatorStateTransition:
   m_Name: cut6extend
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102703158290932128}
@@ -4219,7 +4237,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102707430802118260}
@@ -4294,7 +4312,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102872309357413188}
@@ -4465,7 +4483,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102723011966810666}
@@ -4585,7 +4603,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102707430802118260}
@@ -4609,7 +4627,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: Hanging
@@ -4655,27 +4673,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 2
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1101 &1101338658719043740
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Return2light
-  m_Conditions: []
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 1102707430802118260}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 1
-  m_HasExitTime: 1
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
 --- !u!1101 &1101346459763058778
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -4684,7 +4681,7 @@ AnimatorStateTransition:
   m_Name: cut3moextend
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102804671014767808}
@@ -4708,7 +4705,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: Hanging
@@ -4823,48 +4820,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1101 &1101396699593190074
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Return1light
-  m_Conditions: []
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 1102872309357413188}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 1
-  m_HasExitTime: 1
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
---- !u!1101 &1101410835429796702
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Return3Light
-  m_Conditions: []
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 1102071555334373364}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 1
-  m_HasExitTime: 1
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
 --- !u!1101 &1101411756324430610
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -4873,7 +4828,7 @@ AnimatorStateTransition:
   m_Name: cut3molightdeflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102475787001115036}
@@ -4921,7 +4876,7 @@ AnimatorStateTransition:
   m_Name: cut5deflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102070642661049448}
@@ -4945,7 +4900,7 @@ AnimatorStateTransition:
   m_Name: cut2molightdeflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102397628717478884}
@@ -5010,7 +4965,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -5044,7 +4999,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: Hanging
@@ -5071,7 +5026,7 @@ AnimatorStateTransition:
   m_Name: cut1molightdeflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102654005694536722}
@@ -5170,7 +5125,7 @@ AnimatorStateTransition:
   m_Name: cut6molightdeflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102220602405162476}
@@ -5218,7 +5173,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: Hanging
@@ -5245,7 +5200,7 @@ AnimatorStateTransition:
   m_Name: cut4moextend
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102215556345522772}
@@ -5269,7 +5224,7 @@ AnimatorStateTransition:
   m_Name: cut2modeflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102554622278589120}
@@ -5407,7 +5362,7 @@ AnimatorStateTransition:
   m_Name: cut5molightdeflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102699637548445088}
@@ -5466,7 +5421,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -5479,7 +5434,7 @@ AnimatorStateTransition:
   m_Name: cut1modeflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102522240759998222}
@@ -5503,7 +5458,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: Hanging
@@ -5530,7 +5485,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102723011966810666}
@@ -5575,7 +5530,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102872309357413188}
@@ -5599,7 +5554,7 @@ AnimatorStateTransition:
   m_Name: cut5moextend
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102377216274531138}
@@ -5623,7 +5578,7 @@ AnimatorStateTransition:
   m_Name: cut6modeflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102907443377875856}
@@ -5674,7 +5629,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: Hanging
@@ -5725,7 +5680,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: Hanging
@@ -5824,7 +5779,7 @@ AnimatorStateTransition:
   m_Name: cut4deflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102739128560046138}
@@ -5920,7 +5875,7 @@ AnimatorStateTransition:
   m_Name: cut2extend
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102292069644961618}
@@ -5968,7 +5923,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: Hanging
@@ -5995,7 +5950,7 @@ AnimatorStateTransition:
   m_Name: cut5extend
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102992592111695390}
@@ -6088,7 +6043,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102071555334373364}
@@ -6181,7 +6136,7 @@ AnimatorStateTransition:
   m_Name: cut2moextend
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102552666403002732}
@@ -6246,7 +6201,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -6283,7 +6238,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102071555334373364}
@@ -6355,7 +6310,7 @@ AnimatorStateTransition:
   m_Name: cut2lightreflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102631576725281618}
@@ -6369,27 +6324,6 @@ AnimatorStateTransition:
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 2
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
---- !u!1101 &1101671759116261554
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Return4light
-  m_Conditions: []
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 1102723011966810666}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 1
-  m_HasExitTime: 1
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101672344450086212
@@ -6445,7 +6379,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: Hanging
@@ -6496,7 +6430,7 @@ AnimatorStateTransition:
   m_Name: cut2deflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102155859367004172}
@@ -6520,7 +6454,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: Hanging
@@ -6547,7 +6481,7 @@ AnimatorStateTransition:
   m_Name: cut4lightdeflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102555545835549062}
@@ -6649,7 +6583,7 @@ AnimatorStateTransition:
   m_Name: cut3modeflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102470197968058402}
@@ -6718,7 +6652,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102707430802118260}
@@ -6741,7 +6675,7 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
+  - m_ConditionMode: 2
     m_ConditionEvent: Interrupt
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -6766,7 +6700,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102872309357413188}
@@ -6814,7 +6748,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: Hanging
@@ -6841,7 +6775,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: Hanging
@@ -6868,7 +6802,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102071555334373364}
@@ -6892,7 +6826,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102872309357413188}
@@ -6930,7 +6864,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -6967,7 +6901,7 @@ AnimatorStateTransition:
   m_Name: cut3extend
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102096128348699958}
@@ -7045,7 +6979,7 @@ AnimatorStateTransition:
   m_Name: cut6deflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102266890600441922}
@@ -7069,7 +7003,7 @@ AnimatorStateTransition:
   m_Name: cut1lightreflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102506787393107852}
@@ -7117,7 +7051,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: Hanging
@@ -7144,7 +7078,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: Hanging
@@ -7198,7 +7132,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102707430802118260}
@@ -7222,7 +7156,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: Hanging
@@ -7369,7 +7303,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102723011966810666}
@@ -7417,7 +7351,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102872309357413188}
@@ -7516,7 +7450,7 @@ AnimatorStateTransition:
   m_Name: cut1moextend
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102478530133058560}
@@ -7585,7 +7519,7 @@ AnimatorStateTransition:
   m_Name: cut6moextend
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102080207077619022}
@@ -7654,7 +7588,7 @@ AnimatorStateTransition:
   m_Name: cut3lightdeflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102609628073208358}
@@ -7678,7 +7612,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: Hanging
@@ -7743,7 +7677,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -7756,7 +7690,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: Hanging
@@ -7783,7 +7717,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102707430802118260}
@@ -7852,7 +7786,7 @@ AnimatorStateTransition:
   m_Name: return
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: light
+    m_ConditionEvent: ALight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102872309357413188}
@@ -7876,7 +7810,7 @@ AnimatorStateTransition:
   m_Name: cut5modeflect
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Deflect
+    m_ConditionEvent: ADeflect
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102420508757417518}
@@ -7900,7 +7834,7 @@ AnimatorStateTransition:
   m_Name: cut1extend
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Interrupt
+    m_ConditionEvent: AExtend
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102920313920840450}
@@ -7908,7 +7842,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.05
+  m_TransitionDuration: 0.2
   m_TransitionOffset: 0
   m_ExitTime: 1
   m_HasExitTime: 0
@@ -8247,7 +8181,6 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
-  - {fileID: 1101338658719043740}
   - {fileID: 1101701261029712906}
   - {fileID: 1101581658698779180}
   - {fileID: 1101669543222618596}
@@ -8915,7 +8848,6 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
-  - {fileID: 1101671759116261554}
   - {fileID: 1101561735758914296}
   - {fileID: 1101139411263445226}
   - {fileID: 1101709422093162496}
@@ -9685,7 +9617,6 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
-  - {fileID: 1101410835429796702}
   - {fileID: 1101201362457737702}
   - {fileID: 1101784314339610396}
   - {fileID: 1101949398536402338}
@@ -10262,7 +10193,6 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
-  - {fileID: 1101396699593190074}
   - {fileID: 1101991245993755858}
   - {fileID: 1101067557289710288}
   - {fileID: 1101797283876003188}

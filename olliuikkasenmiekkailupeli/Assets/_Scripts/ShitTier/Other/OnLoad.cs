@@ -9,9 +9,9 @@ public class OnLoad : MonoBehaviour {
     {
         if(FindObjectOfType<AudioManager>() != null)
         {
-            AudioManager.instance.GetComponent<MusicManager>().PlayMusic();
-            AudioManager.instance.FadeInMusic();
-            Debug.Log("animate music in");
+            //AudioManager.instance.GetComponent<MusicManager>().PlayMusic();
+            //AudioManager.instance.FadeInMusic();
+            //Debug.Log("animate music in");
         }
     }
 }

@@ -29,7 +29,7 @@ public class LevelChanger : MonoBehaviour
         Debug.Log(level);
         anim.ResetTrigger("FadeOut");
 
-        if (level != 1)
+        if (level != 0)
             anim.SetTrigger("FadeIn");
     }
 

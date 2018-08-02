@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class MusicManager : MonoBehaviour
 {
 
-    public AudioClip mainTheme;
     public AudioClip menuTheme;
     public AudioClip gameTheme;
 
@@ -32,15 +31,11 @@ public class MusicManager : MonoBehaviour
     {
         AudioClip clipToPlay = null;
 
-        if (sceneName == "WorldSpaceUITestSceneAndOptions")
+        if (sceneName == "MenuScene")
         {
             clipToPlay = menuTheme;
         }
-        else if (sceneName == "MaunoManu")
-        {
-            clipToPlay = mainTheme;
-        }
-        else if(sceneName == "testifesti")
+        else if(sceneName == "GameScene")
         {
             clipToPlay = gameTheme;
         }

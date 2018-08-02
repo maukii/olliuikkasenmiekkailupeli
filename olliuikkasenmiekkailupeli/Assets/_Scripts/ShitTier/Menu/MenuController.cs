@@ -35,6 +35,7 @@ public class MenuController : MonoBehaviour
     {
         mainMenu.gameObject.SetActive(true);
         settingsMenu.gameObject.SetActive(false);
+        creditsMenu.gameObject.SetActive(false);
 
         DisableHighlights(Menu.MainMenu);
         DisableHighlights(Menu.Settings);
@@ -216,7 +217,6 @@ public class MenuController : MonoBehaviour
                         // START
                         Debug.Log("Start");
                         LevelChanger.instance.FadeToNextLevel();
-                        //AudioManager.instance.FadeOutMusic();
                         canInteract = false;
                     }
                     else if (activeNode == mainmenuNodes[1])
@@ -250,7 +250,6 @@ public class MenuController : MonoBehaviour
                         // START
                         Debug.Log("START");
                         LevelChanger.instance.FadeToNextLevel();
-                        //AudioManager.instance.FadeOutMusic();
                         canInteract = false;
                     }
                     else if (activeNode == mainmenuNodes[1])
@@ -344,6 +343,7 @@ public class MenuController : MonoBehaviour
         timer = 1f;
 
         Invoke("DisableSettings", 1);
+        Invoke("DisableCredits", 1);
         mainMenu.gameObject.SetActive(true);
 
         activeMenu = Menu.MainMenu;
@@ -382,6 +382,11 @@ public class MenuController : MonoBehaviour
     void DisableSettings()
     {
         settingsMenu.gameObject.SetActive(false);
+    }
+
+    void DisableCredits()
+    {
+        creditsMenu.gameObject.SetActive(false);
     }
 
     void GetInput()

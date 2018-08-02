@@ -8,11 +8,11 @@ public class HeightCollision : MonoBehaviour {
     RectTransform[] HeightMeterP1;
     RectTransform[] HeightMeterP2;
     float[] Height = new float[2];
-    public Vector3[] TipH = new Vector3[2];
+    Vector3[] TipH = new Vector3[2];
     Vector3[] MiddleH = new Vector3[2];
     Vector3[] BaseH = new Vector3[2];
     Vector3[] HandleH = new Vector3[2];
-    public float heightOffset;
+    float heightOffset;
 
 
     public bool ShowHeightMeters = false;

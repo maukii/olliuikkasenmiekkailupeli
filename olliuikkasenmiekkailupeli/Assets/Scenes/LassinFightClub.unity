@@ -337,25 +337,15 @@ MonoBehaviour:
   inputX: 0
   inputY: 0
   speed: 3
-  xLimit: 5
-  mouseX: 0
   forward: 0
   back: 0
   attacking: 0
-  inside: 0
-  hanging: 0
   p1StartPos: {fileID: 281844865}
   p2StartPos: {fileID: 0}
   facingRight: 1
+  controllerLayout: 0
   hor: 0
   ver: 0
-  controllerLayout: 0
-  swordAngle: 0
-  defaultTimer: 0.5
-  timer: 0.5
-  started: 0
-  ready: 0
-  forwards: 0
 --- !u!114 &281844864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,25 +502,15 @@ MonoBehaviour:
   inputX: 0
   inputY: 0
   speed: 3
-  xLimit: 5
-  mouseX: 0
   forward: 0
   back: 0
   attacking: 0
-  inside: 0
-  hanging: 0
   p1StartPos: {fileID: 0}
   p2StartPos: {fileID: 0}
   facingRight: 0
+  controllerLayout: 0
   hor: 0
   ver: 0
-  controllerLayout: 0
-  swordAngle: 0
-  defaultTimer: 0.5
-  timer: 0.5
-  started: 0
-  ready: 0
-  forwards: 0
 --- !u!65 &390767277
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -632,25 +612,15 @@ MonoBehaviour:
   inputX: 0
   inputY: 0
   speed: 3
-  xLimit: 5
-  mouseX: 0
   forward: 0
   back: 0
   attacking: 0
-  inside: 0
-  hanging: 0
   p1StartPos: {fileID: 281844865}
   p2StartPos: {fileID: 485980075}
   facingRight: 1
+  controllerLayout: 0
   hor: 0
   ver: 0
-  controllerLayout: 0
-  swordAngle: 0
-  defaultTimer: 0.5
-  timer: 0.5
-  started: 0
-  ready: 0
-  forwards: 0
 --- !u!4 &485980075
 Transform:
   m_ObjectHideFlags: 0
@@ -1508,6 +1478,11 @@ Prefab:
       propertyPath: CollisionTimeWeak
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 114266302690892870, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: startingDistance
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 852c08df0ef0e754f923a4ee72e95154, type: 2}
   m_IsPrefabParent: 0
@@ -1683,25 +1658,15 @@ MonoBehaviour:
   inputX: 0
   inputY: 0
   speed: 3
-  xLimit: 5
-  mouseX: 0
   forward: 0
   back: 0
   attacking: 0
-  inside: 0
-  hanging: 0
   p1StartPos: {fileID: 0}
   p2StartPos: {fileID: 0}
   facingRight: 0
+  controllerLayout: 0
   hor: 0
   ver: 0
-  controllerLayout: 0
-  swordAngle: 0
-  defaultTimer: 0.5
-  timer: 0.5
-  started: 0
-  ready: 0
-  forwards: 0
 --- !u!65 &1747312520
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2408,25 +2373,15 @@ MonoBehaviour:
   inputX: 0
   inputY: 0
   speed: 3
-  xLimit: 5
-  mouseX: 0
   forward: 0
   back: 0
   attacking: 0
-  inside: 0
-  hanging: 0
   p1StartPos: {fileID: 0}
   p2StartPos: {fileID: 0}
   facingRight: 0
+  controllerLayout: 0
   hor: 0
   ver: 0
-  controllerLayout: 0
-  swordAngle: 0
-  defaultTimer: 0.5
-  timer: 0.5
-  started: 0
-  ready: 0
-  forwards: 0
 --- !u!136 &2103654171
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2531,25 +2486,15 @@ MonoBehaviour:
   inputX: 0
   inputY: 0
   speed: 3
-  xLimit: 5
-  mouseX: 0
   forward: 0
   back: 0
   attacking: 0
-  inside: 0
-  hanging: 0
   p1StartPos: {fileID: 0}
   p2StartPos: {fileID: 0}
   facingRight: 0
+  controllerLayout: 0
   hor: 0
   ver: 0
-  controllerLayout: 0
-  swordAngle: 0
-  defaultTimer: 0.5
-  timer: 0.5
-  started: 0
-  ready: 0
-  forwards: 0
 --- !u!136 &2108149801
 CapsuleCollider:
   m_ObjectHideFlags: 0

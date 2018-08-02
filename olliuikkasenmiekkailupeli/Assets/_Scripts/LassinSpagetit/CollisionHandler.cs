@@ -61,7 +61,7 @@ public class CollisionHandler : MonoBehaviour {
     #region TimerVariables
 
     [Header("DelayTimerVariables")]
-    float[] interruptTimer = new float[2];
+    public float[] interruptTimer = new float[2];
     public float CollisionTimeWeak = 0.3f;
     public float CollisionTimeStrong = 0.7f;
     public float BaseDelay = 0.5f;
@@ -90,7 +90,7 @@ public class CollisionHandler : MonoBehaviour {
         
         if(asi[0].IsTag("Swing") && asi[1].IsTag("Swing"))
         {
-            Attack(WhoHitFirst);
+            //AttackBoth(WhoHitFirst);
         }
         else if (asi[0].IsTag("Swing"))
         {
@@ -149,7 +149,66 @@ public class CollisionHandler : MonoBehaviour {
                     else
                     {
                         OverExtend(player);
-                        calculateCollision = true;
+                    }
+                }
+            }
+        }
+    }
+    void AttackBoth(int FirstAttack)
+    {
+        int otherplayer = FirstAttack - 1 == -1 ? 1 : 0;
+        float collidetime1 = anim[FirstAttack].GetBool("Strong") ? CollisionTimeStrong : CollisionTimeWeak;
+        float collidetime2 = anim[otherplayer].GetBool("Strong") ? CollisionTimeStrong : CollisionTimeWeak;
+        if (asi[FirstAttack].normalizedTime > collidetime1 && calculateCollision)
+        {
+
+            calculateCollision = false;
+            if (CheckDistance(FirstAttack))
+            {
+                if (CheckHeight(FirstAttack))
+                {
+                    CalculateStrength(FirstAttack);
+                    if (!miss)
+                    {
+                        if (CheckQuard(FirstAttack))
+                        {
+                            Deflect(FirstAttack);
+                        }
+                        else
+                        {
+                            QuardBreak(FirstAttack);
+                        }
+                    }
+                    else
+                    {
+                        OverExtend(FirstAttack);
+                    }
+                }
+            }
+        }
+        if (asi[otherplayer].normalizedTime > collidetime2 && calculateCollision)
+        {
+
+            calculateCollision = false;
+            if (CheckDistance(otherplayer))
+            {
+                if (CheckHeight(otherplayer))
+                {
+                    CalculateStrength(otherplayer);
+                    if (!miss)
+                    {
+                        if (CheckQuard(otherplayer))
+                        {
+                            Deflect(otherplayer);
+                        }
+                        else
+                        {
+                            QuardBreak(otherplayer);
+                        }
+                    }
+                    else
+                    {
+                        OverExtend(otherplayer);
                     }
                 }
             }
@@ -224,7 +283,6 @@ public class CollisionHandler : MonoBehaviour {
     bool CheckHeight(int player)
     {
         int otherplayer = player - 1 == -1 ? 1 : 0;
-        Debug.Log(hc.GetBaseY(otherplayer + 1) + "," + hc.GetMiddleY(otherplayer + 1));
         if(hanging[otherplayer] == 1)
         {
             if (hc.GetHeightOffset() + height[player] < hc.GetBaseY(otherplayer + 1) && hc.GetHeightOffset() + height[player] > hc.GetMiddleY(otherplayer + 1) && !NoStrongCollision)
@@ -322,14 +380,14 @@ public class CollisionHandler : MonoBehaviour {
     }
     void OverExtend(int player)
     {
+        Debug.Log("mo");
         SetInterruptTimer(player, collisionStrength / 100);
         anim[player].SetBool("AExtend", true);
     }
 
     void SetInterruptTimer(int player, float time)
     {
-        interruptTimer[0] = time;
-        interruptTimer[1] = time;
+        interruptTimer[player] = time;
         
     }
     void Timer()

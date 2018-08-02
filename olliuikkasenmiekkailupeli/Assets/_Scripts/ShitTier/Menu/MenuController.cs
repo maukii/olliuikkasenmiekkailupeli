@@ -216,7 +216,6 @@ public class MenuController : MonoBehaviour
                         // START
                         Debug.Log("Start");
                         LevelChanger.instance.FadeToNextLevel();
-                        //AudioManager.instance.FadeOutMusic();
                         canInteract = false;
                     }
                     else if (activeNode == mainmenuNodes[1])
@@ -250,7 +249,6 @@ public class MenuController : MonoBehaviour
                         // START
                         Debug.Log("START");
                         LevelChanger.instance.FadeToNextLevel();
-                        //AudioManager.instance.FadeOutMusic();
                         canInteract = false;
                     }
                     else if (activeNode == mainmenuNodes[1])

@@ -357,7 +357,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -450,9 +450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07b3942a97cc7b14cb282e2e5984cc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainTheme: {fileID: 8300000, guid: 86b1383b0c6a29149bebcf80bad1cc38, type: 3}
-  menuTheme: {fileID: 8300000, guid: b6371285482a48c448a45f585af45e6f, type: 3}
-  gameTheme: {fileID: 8300000, guid: b6371285482a48c448a45f585af45e6f, type: 3}
+  menuTheme: {fileID: 8300000, guid: 776f643e8f8cf024da470a630e5e57ba, type: 3}
+  gameTheme: {fileID: 8300000, guid: 776f643e8f8cf024da470a630e5e57ba, type: 3}
   sceneName: 
 --- !u!82 &627650836
 AudioSource:
@@ -467,7 +466,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

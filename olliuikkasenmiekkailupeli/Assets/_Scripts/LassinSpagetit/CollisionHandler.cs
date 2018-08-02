@@ -224,7 +224,6 @@ public class CollisionHandler : MonoBehaviour {
     bool CheckHeight(int player)
     {
         int otherplayer = player - 1 == -1 ? 1 : 0;
-        Debug.Log(hc.GetBaseY(otherplayer + 1) + "," + hc.GetMiddleY(otherplayer + 1));
         if(hanging[otherplayer] == 1)
         {
             if (hc.GetHeightOffset() + height[player] < hc.GetBaseY(otherplayer + 1) && hc.GetHeightOffset() + height[player] > hc.GetMiddleY(otherplayer + 1) && !NoStrongCollision)

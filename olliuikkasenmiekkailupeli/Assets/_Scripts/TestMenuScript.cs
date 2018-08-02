@@ -225,7 +225,7 @@ public class TestMenuScript : MonoBehaviour
         }
     }
 
-    public float delayToLoadNextScene = 3f;
+    public float delayToLoadNextScene = 1f;
 
     void MoveCamera()
     {
@@ -237,6 +237,7 @@ public class TestMenuScript : MonoBehaviour
             Camera.main.GetComponent<PlayableDirector>().Play();
 
             LevelChanger.instance.FadeToNextLevel();
+            AudioManager.instance.FadeOutMusic();
         }
     }
 }

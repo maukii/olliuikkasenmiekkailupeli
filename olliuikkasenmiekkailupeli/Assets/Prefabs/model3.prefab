@@ -34,6 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4137500258818660}
+  - component: {fileID: 114540043919427378}
   m_Layer: 0
   m_Name: Handle
   m_TagString: SwordPointsP1
@@ -385,6 +386,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4295284526918224}
+  - component: {fileID: 114729965589480068}
   m_Layer: 0
   m_Name: Middle
   m_TagString: SwordPointsP1
@@ -587,6 +589,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4658858570573532}
+  - component: {fileID: 114412216281962350}
   m_Layer: 0
   m_Name: Tip
   m_TagString: SwordPointsP1
@@ -1233,6 +1236,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4198867566930934}
+  - component: {fileID: 114493886199707380}
   m_Layer: 0
   m_Name: Base
   m_TagString: SwordPointsP1
@@ -3384,6 +3388,39 @@ MonoBehaviour:
   partBlood: {fileID: 198430967591152532, guid: c674369de386c52428e1d4470748ad85,
     type: 2}
   trailSwoosh: {fileID: 96930902281961446}
+--- !u!114 &114412216281962350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1473922988043558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198e7da304baa2b43a6c8b5a7d3d3a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114493886199707380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1982972571562022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198e7da304baa2b43a6c8b5a7d3d3a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114540043919427378
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1016367510110788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198e7da304baa2b43a6c8b5a7d3d3a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114603852187083612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3393,6 +3430,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b5bfde9e9f6ba64980f34a8e1aba2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114729965589480068
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248677320020374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198e7da304baa2b43a6c8b5a7d3d3a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114813133643296044

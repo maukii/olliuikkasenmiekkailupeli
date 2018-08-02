@@ -7,6 +7,7 @@ public class StepCounter : MonoBehaviour {
     Animator P1Amim;
     Animator P2Amim;
 
+    public int startingDistance;
     AnimatorStateInfo asi;
     int[] PrevAnimHash = new int[2];
     int[] HalfStepCount = new int[2];
@@ -23,7 +24,7 @@ public class StepCounter : MonoBehaviour {
 	void Update () {
         CheckAnimationStateChange(P1Amim, 1);
         CheckAnimationStateChange(P2Amim, 2);
-        StepsBetweenPlayers = HalfStepCount[0] + HalfStepCount[1] - 16;
+        StepsBetweenPlayers = HalfStepCount[0] + HalfStepCount[1] - startingDistance;
 
     }
 

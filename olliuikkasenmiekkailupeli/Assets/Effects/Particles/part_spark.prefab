@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4544364908894608}
   - component: {fileID: 198168923250766394}
   - component: {fileID: 199852852896765008}
+  - component: {fileID: 114569665085317642}
   m_Layer: 0
   m_Name: part_spark
   m_TagString: Untagged
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114569665085317642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1502081298277678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147d0fe9422554c41a51910d17a3118c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198168923250766394
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -293,9 +293,14 @@ public class InputManager : MonoBehaviour
     {
         string[] names = Input.GetJoystickNames();
 
+        if (Input.GetKeyUp(KeyCode.F1))     //Voi poistaa
+        {
+            Debug.Log(names[0]);
+        }
+
         if (names.Length > 0)
         {
-            if (names[0].Contains("Xbox") || names[0].Contains("Controller (Gamepad F310)"))
+            if (names[0].Contains("XBOX 360") || names[0].Contains("Xbox One") || names[0].Contains("Controller (Gamepad F310)"))
             {
                 Debug.LogWarning(names[0] + " detected as joystick 1");
                 isXboxControllerP1 = true;
@@ -311,7 +316,7 @@ public class InputManager : MonoBehaviour
 
             if(names.Length > 1)
             {
-                if (names[1].Contains("Xbox") || names[1].Contains("Controller (Gamepad F310)"))
+                if (names[1].Contains("XBOX 360") || names[1].Contains("Xbox One") || names[1].Contains("Controller (Gamepad F310)"))
                 {
                     Debug.LogWarning(names[1] + " detected as joystick 2");
                     isXboxControllerP2 = true;

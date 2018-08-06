@@ -89,6 +89,14 @@ public class PauseMenuController : MonoBehaviour
                 Resume();
             }
 
+            if(gameIsPaused && MovelistUI.gameObject.activeSelf == true || gameIsPaused && OptionsUI.gameObject.activeSelf == true)
+            {
+                MovelistUI.gameObject.SetActive(false);
+                OptionsUI.gameObject.SetActive(false);
+                activeMenu = Menu.PauseMenu;
+                PauseMenuUI.gameObject.SetActive(true);
+            }
+
             else
             {
                 Pause();

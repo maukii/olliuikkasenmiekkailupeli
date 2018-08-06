@@ -89,12 +89,20 @@ public class PauseMenuController : MonoBehaviour
                 Resume();
             }
 
-            if(gameIsPaused && MovelistUI.gameObject.activeSelf == true || gameIsPaused && OptionsUI.gameObject.activeSelf == true)
+            if(gameIsPaused && MovelistUI.gameObject.activeSelf == true)
             {
                 MovelistUI.gameObject.SetActive(false);
-                OptionsUI.gameObject.SetActive(false);
-                activeMenu = Menu.PauseMenu;
                 PauseMenuUI.gameObject.SetActive(true);
+                activeMenu = Menu.PauseMenu;
+                activeNode = pauseMenuNodes[1];
+            }
+
+            if(gameIsPaused && OptionsUI.gameObject.activeSelf == true)
+            {
+                OptionsUI.gameObject.SetActive(false);
+                PauseMenuUI.gameObject.SetActive(true);
+                activeMenu = Menu.PauseMenu;
+                activeNode = pauseMenuNodes[2];
             }
 
             else

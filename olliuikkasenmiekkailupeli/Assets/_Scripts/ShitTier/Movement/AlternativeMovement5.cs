@@ -17,11 +17,10 @@ public class AlternativeMovement5 : MonoBehaviour
     public int playerIndex;
     public float playerMinDistance = 1f;
 
-    [Header("----- Player Movement Axis Names -----")]
+    [Header("--- Player Axises ---")]
     [SerializeField] string horizontal;
     [SerializeField] string vertical;
 
-    [SerializeField]
     float inputX, inputY, speed = 3f;
 
     float xLimit = 5f;
@@ -32,7 +31,6 @@ public class AlternativeMovement5 : MonoBehaviour
     [SerializeField] bool back;
     [SerializeField] bool attacking;
 
-    [SerializeField]
     Transform p1StartPos, p2StartPos;
 
     [SerializeField]
@@ -49,7 +47,10 @@ public class AlternativeMovement5 : MonoBehaviour
     Animator[] anims;
     Animator anim;
 
-    [SerializeField] GameObject P1, P2;
+    HandAnimationControl[] scripts;
+    HandAnimationControl script;
+
+    GameObject P1, P2;
     #endregion
 
 
@@ -64,6 +65,9 @@ public class AlternativeMovement5 : MonoBehaviour
     {
         P1 = GameObject.Find("P1").gameObject;
         P2 = GameObject.Find("P2").gameObject;
+
+        p1StartPos = GameObject.Find("P1_StartPosition").gameObject.transform;
+        p2StartPos = GameObject.Find("P2_StartPosition").gameObject.transform;
 
         controllerLayout = 1;
         distances = FindObjectOfType<Distances>();
@@ -80,6 +84,14 @@ public class AlternativeMovement5 : MonoBehaviour
         {
             if (anims[i].enabled)
                 anim = anims[i];
+        }
+
+        scripts = GetComponentsInChildren<HandAnimationControl>();
+
+        for (int i = 0; i < scripts.Length; i++)
+        {
+            if (scripts[i].enabled)
+                script = scripts[i];
         }
     }
 
@@ -139,6 +151,15 @@ public class AlternativeMovement5 : MonoBehaviour
 
         canBackup = distances.CanBackUp(playerIndex);
         playerDistance = distances.GetPlayerDistance();
+
+        if(PauseMenu.gameIsPaused)
+        {
+            script.enabled = false;
+        }
+        else
+        {
+            script.enabled = true;
+        }
     }
 
     void Inputs()

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 589600252}
-  m_IndirectSpecularColor: {r: 0.50865525, g: 0.6044467, b: 0.50860703, a: 1}
+  m_IndirectSpecularColor: {r: 0.5088928, g: 0.6039157, b: 0.5085435, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -970,16 +970,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 2
+  playerMinDistance: 1
   horizontal: 
   vertical: 
-  inputX: 0
-  inputY: 0
-  speed: 3
   forward: 0
   back: 0
   attacking: 0
-  p1StartPos: {fileID: 1310398215}
-  p2StartPos: {fileID: 1979031310}
   facingRight: 0
   controllerLayout: 0
   hor: 0
@@ -1401,16 +1397,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 1
+  playerMinDistance: 1
   horizontal: 
   vertical: 
-  inputX: 0
-  inputY: 0
-  speed: 3
   forward: 0
   back: 0
   attacking: 0
-  p1StartPos: {fileID: 1310398215}
-  p2StartPos: {fileID: 1979031310}
   facingRight: 1
   controllerLayout: 0
   hor: 0
@@ -2781,7 +2773,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4800215907111414, guid: 306af6ac740d5aa4e803edf97660055f, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4800215907111414, guid: 306af6ac740d5aa4e803edf97660055f, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -4191,7 +4183,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4800215907111414, guid: 306af6ac740d5aa4e803edf97660055f, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4800215907111414, guid: 306af6ac740d5aa4e803edf97660055f, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -5542,6 +5534,7 @@ MonoBehaviour:
   P2DistanceR: 0
   minDistance: 3.25
   maxDistance: 10
+  playerDistance: 0
 --- !u!1 &832689058
 GameObject:
   m_ObjectHideFlags: 0
@@ -6313,7 +6306,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4326944446756478, guid: 8d6845d470cb8354fb37656a56c877d3, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 95510413318369578, guid: 8d6845d470cb8354fb37656a56c877d3,
         type: 2}
@@ -7852,7 +7845,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4326944446756478, guid: 8d6845d470cb8354fb37656a56c877d3, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 95510413318369578, guid: 8d6845d470cb8354fb37656a56c877d3,
         type: 2}

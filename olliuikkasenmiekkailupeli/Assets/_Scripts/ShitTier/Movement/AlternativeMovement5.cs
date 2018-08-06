@@ -8,7 +8,6 @@ public class AlternativeMovement5 : MonoBehaviour
     #region Scripts
 
     Distances distances;
-    PlayerDistance playerDistance;
     InputManager im;
     HandAnimationControl hand;
 
@@ -16,6 +15,7 @@ public class AlternativeMovement5 : MonoBehaviour
 
     #region PlayerInfos
     public int playerIndex;
+    public float playerMinDistance = 1f;
 
     [Header("----- Player Movement Axis Names -----")]
     [SerializeField] string horizontal;
@@ -48,8 +48,12 @@ public class AlternativeMovement5 : MonoBehaviour
 
     Animator[] anims;
     Animator anim;
+
+    [SerializeField] GameObject P1, P2;
     #endregion
 
+
+    float playerDistance;
 
     private void Awake()
     {
@@ -58,9 +62,11 @@ public class AlternativeMovement5 : MonoBehaviour
 
     void Start()
     {
+        P1 = GameObject.Find("P1").gameObject;
+        P2 = GameObject.Find("P2").gameObject;
+
         controllerLayout = 1;
         distances = FindObjectOfType<Distances>();
-        playerDistance = FindObjectOfType<PlayerDistance>();
         im = FindObjectOfType<InputManager>();
         hand = GetComponentInChildren<HandAnimationControl>();
         FindActiveComponents();
@@ -119,12 +125,12 @@ public class AlternativeMovement5 : MonoBehaviour
         #endregion
     }
 
-    // ----- AFTER START -----
-
     public bool GetFacingRight(int PlayerNumber)
     {
         return facingRight;
     }
+
+    // ----- AFTER START -----
 
     void Update()
     {
@@ -132,6 +138,7 @@ public class AlternativeMovement5 : MonoBehaviour
         Move();
 
         canBackup = distances.CanBackUp(playerIndex);
+        playerDistance = distances.GetPlayerDistance();
     }
 
     void Inputs()
@@ -206,9 +213,20 @@ public class AlternativeMovement5 : MonoBehaviour
         if(facingRight)
         {
 
-            if (Input.GetAxis(horizontal) >= .1f)
+            if (Input.GetAxis(horizontal) >= .1f && playerDistance > playerMinDistance)
             {
                 forward = true;
+            }
+            else if(Input.GetAxis(horizontal) >= .1f && playerDistance <= playerMinDistance)
+            {
+                if(playerIndex == 1)
+                {
+                    // P2 jumps back
+                }
+                else
+                {
+                    // P1 jumps back
+                }
             }
             else
             {
@@ -235,9 +253,20 @@ public class AlternativeMovement5 : MonoBehaviour
                 back = false;
             }
 
-            if (Input.GetAxis(horizontal) <= -.1f)
+            if (Input.GetAxis(horizontal) <= -.1f && playerDistance > playerMinDistance)
             {
                 forward = true;
+            }
+            else if (Input.GetAxis(horizontal) >= .1f && playerDistance <= playerMinDistance)
+            {
+                if (playerIndex == 1)
+                {
+                    // P2 jumps back
+                }
+                else
+                {
+                    // P1 jumps back
+                }
             }
             else
             {

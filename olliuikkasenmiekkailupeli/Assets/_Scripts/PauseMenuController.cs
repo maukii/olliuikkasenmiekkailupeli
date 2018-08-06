@@ -395,16 +395,19 @@ public class PauseMenuController : MonoBehaviour
 
     public void SetMasterVolume(float value)
     {
+        value = AudioManager.instance.masterVolumePercent;
         AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Master);
     }
 
     public void SetMusicVolume(float value)
     {
+        value = AudioManager.instance.musicVolumePercent;
         AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Music);
     }
 
     public void SetSfxVolume(float value)
     {
+        value = AudioManager.instance.sfxVolumePercent;
         AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Sfx);
     }
 }

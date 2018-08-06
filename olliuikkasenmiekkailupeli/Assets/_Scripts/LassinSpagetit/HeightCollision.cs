@@ -14,7 +14,7 @@ public class HeightCollision : MonoBehaviour {
     Vector3[] HandleH = new Vector3[2];
     float heightOffset;
 
-
+    bool haveHeightMeters = false;
     public bool ShowHeightMeters = false;
     GameObject[] HeightMeters = new GameObject[2];
     CollisionHandler ch;
@@ -22,9 +22,12 @@ public class HeightCollision : MonoBehaviour {
 
     void Start () {
         ch = gameObject.GetComponent<CollisionHandler>();
-
+        if(GameObject.FindGameObjectsWithTag("HeightMeterP1").Length > 0)
+        {
+            haveHeightMeters = true;
+        }
         GameObject[] hm = GameObject.FindGameObjectsWithTag("HeightMeterP1");
-        if (ShowHeightMeters)
+        if (haveHeightMeters)
         {
             HeightMeterP1 = new RectTransform[hm.Length];
             for (int i = 0; hm.Length > i; i++)
@@ -55,15 +58,17 @@ public class HeightCollision : MonoBehaviour {
         UpdateSwordHeight();
         Height[0] = ch.GetHeight(1);
         Height[1] = ch.GetHeight(2);
-
-        if (ShowHeightMeters)
+        if (haveHeightMeters)
         {
-            EnableHeightMeter();
-            UpdateHeightMeter();
-        }
-        else
-        {
-            //DissableHeightMeter();
+            if (ShowHeightMeters)
+            {
+                EnableHeightMeter();
+                UpdateHeightMeter();
+            }
+            else
+            {
+                DissableHeightMeter();
+            }
         }
         
 	}

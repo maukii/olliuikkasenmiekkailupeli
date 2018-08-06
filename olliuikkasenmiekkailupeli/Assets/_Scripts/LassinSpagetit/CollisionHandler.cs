@@ -36,7 +36,7 @@ public class CollisionHandler : MonoBehaviour {
     public bool NoGuardCollision = false;
     public bool NoStrongCollision = false;
     public bool NoCollision = false;
-    public bool calculateCollision = false;
+    bool[] calculateCollision = new bool[2];
 
     #endregion
 
@@ -62,10 +62,11 @@ public class CollisionHandler : MonoBehaviour {
 
     [Header("DelayTimerVariables")]
     public float[] interruptTimer = new float[2];
-    public float CollisionTimeWeak = 0.3f;
-    public float CollisionTimeStrong = 0.7f;
+    public float CollisionTimeWeak = 0.9f;
+    public float CollisionTimeStrong = 0.9f;
     public float BaseDelay = 0.5f;
-
+    public float SlowMoMult = 0.9f;
+    float[] origSpeed = new float[2];
     #endregion
 
     #endregion
@@ -79,10 +80,13 @@ public class CollisionHandler : MonoBehaviour {
         ph[0] = GameObject.FindGameObjectWithTag("Player 1").GetComponentInChildren<ParticleHandler>();
         ph[1] = GameObject.FindGameObjectWithTag("Player 2").GetComponentInChildren<ParticleHandler>();
         //hac = gameObject.GetComponent<HandAnimationControl>();
-
+        origSpeed[0] = anim[0].speed;
+        origSpeed[1] = anim[1].speed;
 
         interruptTimer[1] = 0;
         interruptTimer[0] = 0;
+        calculateCollision[0] = false;
+        calculateCollision[1] = false;
     }
 	
 	void Update () {
@@ -90,7 +94,7 @@ public class CollisionHandler : MonoBehaviour {
         
         if(asi[0].IsTag("Swing") && asi[1].IsTag("Swing"))
         {
-            //AttackBoth(WhoHitFirst);
+            AttackBoth(WhoHitFirst);
         }
         else if (asi[0].IsTag("Swing"))
         {
@@ -106,7 +110,8 @@ public class CollisionHandler : MonoBehaviour {
         }
         else
         {
-            calculateCollision = true;
+            calculateCollision[0] = true;
+            calculateCollision[1] = true;
         }
         Timer();
     }
@@ -126,10 +131,10 @@ public class CollisionHandler : MonoBehaviour {
     void Attack(int player)
     {
         float collidetime = anim[player].GetBool("Strong") ? CollisionTimeStrong : CollisionTimeWeak;
-        if (asi[player].normalizedTime > collidetime && calculateCollision)
+        if (asi[player].normalizedTime > collidetime && calculateCollision[player])
         {
             
-            calculateCollision = false;
+            calculateCollision[player] = false;
             if (CheckDistance(player))
             {
                 if (CheckHeight(player))
@@ -159,10 +164,10 @@ public class CollisionHandler : MonoBehaviour {
         int otherplayer = FirstAttack - 1 == -1 ? 1 : 0;
         float collidetime1 = anim[FirstAttack].GetBool("Strong") ? CollisionTimeStrong : CollisionTimeWeak;
         float collidetime2 = anim[otherplayer].GetBool("Strong") ? CollisionTimeStrong : CollisionTimeWeak;
-        if (asi[FirstAttack].normalizedTime > collidetime1 && calculateCollision)
+        if (asi[FirstAttack].normalizedTime > collidetime1 && calculateCollision[FirstAttack])
         {
 
-            calculateCollision = false;
+            calculateCollision[FirstAttack] = false;
             if (CheckDistance(FirstAttack))
             {
                 if (CheckHeight(FirstAttack))
@@ -172,11 +177,13 @@ public class CollisionHandler : MonoBehaviour {
                     {
                         if (CheckQuard(FirstAttack))
                         {
-                            Deflect(FirstAttack);
+                            DeflectAttacker(FirstAttack);
+                            calculateCollision[otherplayer] = false;
                         }
                         else
                         {
-                            QuardBreak(FirstAttack);
+                            QuardBreakAttacker(FirstAttack);
+                            calculateCollision[otherplayer] = false;
                         }
                     }
                     else
@@ -186,10 +193,10 @@ public class CollisionHandler : MonoBehaviour {
                 }
             }
         }
-        if (asi[otherplayer].normalizedTime > collidetime2 && calculateCollision)
+        if (asi[otherplayer].normalizedTime > collidetime2 && calculateCollision[otherplayer])
         {
 
-            calculateCollision = false;
+            calculateCollision[otherplayer] = false;
             if (CheckDistance(otherplayer))
             {
                 if (CheckHeight(otherplayer))
@@ -199,11 +206,11 @@ public class CollisionHandler : MonoBehaviour {
                     {
                         if (CheckQuard(otherplayer))
                         {
-                            Deflect(otherplayer);
+                            DeflectAttacker(otherplayer);
                         }
                         else
                         {
-                            QuardBreak(otherplayer);
+                            QuardBreakAttacker(otherplayer);
                         }
                     }
                     else
@@ -345,8 +352,8 @@ public class CollisionHandler : MonoBehaviour {
     {
         
         int otherplayer = player - 1 == -1 ? 1 : 0;
-        SetInterruptTimer(player, collisionStrength / 100);
-        SetInterruptTimer(otherplayer, collisionStrength / 100);
+        SetInterruptTimer(player, 0.1f + collisionStrength / 100);
+        SetInterruptTimer(otherplayer, 0.1f + collisionStrength / 100);
         anim[player].SetBool("ALight", true);
         anim[otherplayer].SetBool("Deflect", true);
         if (!strongCollision)
@@ -375,31 +382,72 @@ public class CollisionHandler : MonoBehaviour {
             anim[otherplayer].SetBool("light", false);
             MakeSparks(hc.GetMiddle(otherplayer+1), transform.rotation);
         }
-        SetInterruptTimer(player, collisionStrength/2 / 100);
-        SetInterruptTimer(otherplayer, collisionStrength / 100);
+        SetInterruptTimer(player, 0.1f + collisionStrength /2 / 100);
+        SetInterruptTimer(otherplayer, 0.1f + collisionStrength / 100);
+    }
+    void DeflectAttacker(int player)
+    {
+
+        int otherplayer = player - 1 == -1 ? 1 : 0;
+        SetInterruptTimer(player, 0.1f + collisionStrength / 100);
+        SetInterruptTimer(otherplayer, 0.05f + collisionStrength / 100);
+        anim[player].SetBool("ALight", true);
+        
+        if (!strongCollision)
+        {
+            anim[otherplayer].SetBool("ALight", true);
+            MakeSparks(hc.GetTip(otherplayer + 1), transform.rotation);
+        }
+        else
+        {
+            anim[otherplayer].SetBool("ADeflect", true);
+            MakeSparks(hc.GetMiddle(otherplayer + 1), transform.rotation);
+        }
+    }
+    void QuardBreakAttacker(int player)
+    {
+        int otherplayer = player - 1 == -1 ? 1 : 0;
+        anim[player].SetBool("AExtend", true);
+        anim[otherplayer].SetBool("AExtend", true);
+        //if (!strongCollision)
+        //{
+        //    anim[otherplayer].SetBool("light", true);
+        //    MakeSparks(hc.GetTip(otherplayer + 1), transform.rotation);
+        //}
+        //else
+        //{
+        //    anim[otherplayer].SetBool("light", false);
+        //    MakeSparks(hc.GetMiddle(otherplayer + 1), transform.rotation);
+        //}
+        SetInterruptTimer(player, 0.05f + collisionStrength / 2 / 100);
+        SetInterruptTimer(otherplayer, 0.1f + collisionStrength / 100);
     }
     void OverExtend(int player)
     {
-        Debug.Log("mo");
-        SetInterruptTimer(player, collisionStrength / 100);
+        SetInterruptTimer(player,0.1f + collisionStrength / 100);
         anim[player].SetBool("AExtend", true);
     }
 
     void SetInterruptTimer(int player, float time)
     {
         interruptTimer[player] = time;
-        
+        origSpeed[player] = anim[player].speed;
     }
     void Timer()
     {
+        
         for(int i = 0; i < 2; i++)
         {
+            float SlowSpeed;
             if (interruptTimer[i] > 0)
             {
                 interruptTimer[i] -= Time.deltaTime;
+                SlowSpeed = origSpeed[i] * SlowMoMult;
+                anim[i].speed = SlowSpeed;
             }
             else
             {
+                anim[i].speed = origSpeed[i];
                 interruptTimer[i] = 0;
                 anim[i].SetBool("Deflect", false);
                 anim[i].SetBool("Interrupt", false);

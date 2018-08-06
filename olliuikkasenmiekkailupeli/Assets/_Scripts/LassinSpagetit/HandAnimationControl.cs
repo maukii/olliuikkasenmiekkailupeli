@@ -18,7 +18,8 @@ public class HandAnimationControl : MonoBehaviour
     float height;
     bool deflect = false;
     bool interrupt = false;
-
+    public float HeightSpeed = 3;
+   
     bool facingRight;
     public float xLimit = 5f;
 
@@ -347,8 +348,11 @@ public class HandAnimationControl : MonoBehaviour
 
     private void UpdateHandHeight(float y_input)
     {
-        height = y_input;
-        anim.SetFloat("Height", height);
+        if (!asi.IsTag("Swing"))
+        {
+            height = Mathf.Lerp(height, y_input, Time.deltaTime * HeightSpeed);
+            anim.SetFloat("Height", height);
+        }
     }
 
     private void ControllerInputs()
@@ -530,7 +534,7 @@ public class HandAnimationControl : MonoBehaviour
                 AddStanceId = 0;
             }
         }
-
+        
         UpdateHandHeight(-im.GetRS_Y(PlayerNumber));
         
     }

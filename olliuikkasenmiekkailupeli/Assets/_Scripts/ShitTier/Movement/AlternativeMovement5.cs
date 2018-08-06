@@ -63,8 +63,8 @@ public class AlternativeMovement5 : MonoBehaviour
 
     void Start()
     {
-        P1 = GameObject.Find("P1").gameObject;
-        P2 = GameObject.Find("P2").gameObject;
+        P1 = GameObject.FindGameObjectWithTag("Player 1");
+        P2 = GameObject.FindGameObjectWithTag("Player 2");
 
         p1StartPos = GameObject.Find("P1_StartPosition").gameObject.transform;
         p2StartPos = GameObject.Find("P2_StartPosition").gameObject.transform;

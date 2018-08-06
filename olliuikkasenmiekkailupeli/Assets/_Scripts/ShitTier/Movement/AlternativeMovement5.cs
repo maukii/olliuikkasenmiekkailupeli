@@ -301,36 +301,11 @@ public class AlternativeMovement5 : MonoBehaviour
         #endregion
 
         #region AnimatonStuffs
-        if(anim != null)
-        {
-            anim.SetFloat("InputX", hor);
-            anim.SetBool("forward", forward);
-            anim.SetBool("back", back);
-        }
 
-        if (ver >= 0.1f && inputY < 1f)
-        {
-            inputY += speed * Time.deltaTime;
-            if(anim != null)
-                anim.SetFloat("InputY", inputY);
-        }
-        if (ver <= -0.1f && inputY > -1f)
-        {
-            inputY -= speed * Time.deltaTime;
-            if(anim != null)
-                anim.SetFloat("InputY", inputY);
-        }
+        anim.SetFloat("InputX", hor);
+        anim.SetBool("forward", forward);
+        anim.SetBool("back", back);
 
-        if (ver == 0)
-        {
-            inputY = Mathf.Lerp(inputY, 0, speed * Time.deltaTime);
-            if ((inputY <= 0.02f && inputY > 0) || (inputY >= -0.02f && inputY < 0))
-            {
-                inputY = 0f;
-            }
-            if(anim != null)
-                anim.SetFloat("InputY", inputY);
-        }
         #endregion
 
     }

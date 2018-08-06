@@ -46,7 +46,7 @@ public class ChangeModel : MonoBehaviour
         {
             if (info.playerIndex != 0)
             {
-                if (Input.GetAxis(info.horizontalName) < -0.1 && !swapped) // toggle left
+                if (Input.GetAxisRaw(info.horizontalName) < -0.1 && !swapped) // toggle left
                 {
                     characterList[index].SetActive(false);
 
@@ -57,7 +57,7 @@ public class ChangeModel : MonoBehaviour
                     characterList[index].SetActive(true);
                     swapped = true;
                 }
-                else if (Input.GetAxis(info.horizontalName) > 0.1 && !swapped) // toggle right
+                else if (Input.GetAxisRaw(info.horizontalName) > 0.1 && !swapped) // toggle right
                 {
                     characterList[index].SetActive(false);
 
@@ -68,7 +68,7 @@ public class ChangeModel : MonoBehaviour
                     characterList[index].SetActive(true);
                     swapped = true;
                 }
-                if (Input.GetAxis(info.horizontalName) == 0)
+                if (Input.GetAxisRaw(info.horizontalName) == 0)
                 {
                     swapped = false;
                 }

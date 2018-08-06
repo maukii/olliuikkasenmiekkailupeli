@@ -11,10 +11,9 @@ public class Distances : MonoBehaviour
     [SerializeField] GameObject wallL, wallR;
     [SerializeField] Transform P1, P2;
 
-    public float P1DistanceL, P1DistanceR, P2DistanceL, P2DistanceR;
-    public float minDistance = 3.25f, maxDistance = 10f;
-
-    float playerDistance;
+    [SerializeField] float P1DistanceL, P1DistanceR, P2DistanceL, P2DistanceR;
+    [SerializeField] float minDistance = 3.25f, maxDistance = 10f;
+    [SerializeField] float playerDistance;
 
     void Start()
     {
@@ -55,5 +54,10 @@ public class Distances : MonoBehaviour
     {
         P1 = cs.P1;
         P2 = cs.P2;
+    }
+
+    public float GetPlayerDistance()
+    {
+        return Vector3.Distance(P1.position, P2.position);
     }
 }

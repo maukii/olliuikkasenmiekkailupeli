@@ -219,6 +219,8 @@ public class AlternativeMovement5 : MonoBehaviour
             }
             else if(Input.GetAxis(horizontal) >= .1f && playerDistance <= playerMinDistance)
             {
+                forward = false;
+
                 if(playerIndex == 1)
                 {
                     // P2 jumps back
@@ -259,6 +261,8 @@ public class AlternativeMovement5 : MonoBehaviour
             }
             else if (Input.GetAxis(horizontal) >= .1f && playerDistance <= playerMinDistance)
             {
+                forward = false;
+
                 if (playerIndex == 1)
                 {
                     // P2 jumps back

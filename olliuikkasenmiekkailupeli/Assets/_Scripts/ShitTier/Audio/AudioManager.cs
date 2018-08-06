@@ -17,9 +17,6 @@ public class AudioManager : MonoBehaviour
     public float sfxVolumePercent { get; private set; }
     public float musicVolumePercent { get; private set; }
 
-    float musicVolume;
-    float sfxVolume;
-
     public AudioSource musicSource, sfxSource;
 
     public void AddVolume(int index)
@@ -49,10 +46,7 @@ public class AudioManager : MonoBehaviour
     }
 
     private void Update()
-    {
-        musicVolume = musicVolumePercent;
-        sfxVolume = sfxVolumePercent;
-        
+    {        
         musicSource.volume = musicVolumePercent;
         sfxSource.volume = sfxVolumePercent;
     }
@@ -90,7 +84,21 @@ public class AudioManager : MonoBehaviour
             Debug.Log("sound not found");
             return;
         }
+        s.source.volume = sfxVolumePercent;
         s.source.Play();
+    }
+
+    public void PlaySoundeffect(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("sound not found");
+            return;
+        }
+        s.source.volume = sfxVolumePercent;
+        s.source.PlayOneShot(s.clip);
     }
 
     public void PlaySound(AudioClip clip, Vector3 pos)
@@ -162,7 +170,5 @@ public class AudioManager : MonoBehaviour
         //sfxSource.volume = sfxVolumePercent;
         //musicSources[0].volume = musicVolumePercent * masterVolumePercent;
         //musicSources[1].volume = musicVolumePercent * masterVolumePercent;
-
     }
-
 }

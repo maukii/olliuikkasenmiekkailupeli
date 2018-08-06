@@ -176,6 +176,9 @@ public class MenuController : MonoBehaviour
             DisableHighlights(Menu.Settings);
             settingsHighlights[index].SetActive(true);
         }
+
+        AudioManager.instance.PlaySoundeffect("uuf");
+
     }
 
     void ToggleDown()
@@ -205,6 +208,9 @@ public class MenuController : MonoBehaviour
             DisableHighlights(Menu.Settings);
             settingsHighlights[index].SetActive(true);
         }
+
+        AudioManager.instance.PlaySoundeffect("uuf");
+
     }
 
     private void ButtonLogic()
@@ -399,6 +405,7 @@ public class MenuController : MonoBehaviour
         hor = Input.GetAxisRaw("Horizontal");
         ver = Input.GetAxisRaw("Vertical");
     }
+
 
     public void SetMasterVolume(float value)
     {

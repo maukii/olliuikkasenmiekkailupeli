@@ -16,7 +16,7 @@ public class PauseMenuController : MonoBehaviour
     [SerializeField] GameObject activeNode;
 
     [SerializeField]
-    float timer = 0.5f, defaultTimer;
+    float timer = 0.2f, defaultTimer;
         
     float hor, ver;
     int index;
@@ -84,10 +84,11 @@ public class PauseMenuController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(startButton))
         {
-            if(gameIsPaused)
+            if(gameIsPaused && PauseMenuUI.gameObject.activeSelf == true)
             {
                 Resume();
             }
+
             else
             {
                 Pause();

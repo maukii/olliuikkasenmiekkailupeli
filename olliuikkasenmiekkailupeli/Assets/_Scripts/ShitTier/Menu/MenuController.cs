@@ -227,6 +227,7 @@ public class MenuController : MonoBehaviour
                     {
                         // START
                         Debug.Log("Start");
+                        AudioManager.instance.PlaySoundeffect("uuf");
                         LevelChanger.instance.FadeToNextLevel();
                         canInteract = false;
                     }

@@ -18,7 +18,8 @@ public class AlternativeMovement5 : MonoBehaviour
     public float playerMinDistance = 1f;
 
     [Header("--- Player Axises ---")]
-    [SerializeField] string horizontal;
+    [SerializeField]
+    string horizontal;
     [SerializeField] string vertical;
 
     float inputX, inputY, speed = 3f;
@@ -27,7 +28,8 @@ public class AlternativeMovement5 : MonoBehaviour
     float mouseX;
 
     [Header("--- Inputs ---")]
-    [SerializeField] bool forward;
+    [SerializeField]
+    bool forward;
     [SerializeField] bool back;
     [SerializeField] bool attacking;
 
@@ -102,7 +104,7 @@ public class AlternativeMovement5 : MonoBehaviour
 
         #region RotatePlayersRight
 
-        if(InputManager.IM.isLeftP1 && playerIndex == 1)
+        if (InputManager.IM.isLeftP1 && playerIndex == 1)
         {
             facingRight = true;
             transform.localScale = new Vector3(-1, 1, 1);
@@ -113,19 +115,19 @@ public class AlternativeMovement5 : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
             transform.Rotate(0, 180, 0);
         }
-        else if(InputManager.IM.isRightP1 && playerIndex == 1)
+        else if (InputManager.IM.isRightP1 && playerIndex == 1)
         {
             facingRight = false;
             transform.localScale = new Vector3(1, 1, 1);
             transform.Rotate(0, 180, 0);
         }
-        else if(InputManager.IM.isRightP2 && playerIndex == 2)
+        else if (InputManager.IM.isRightP2 && playerIndex == 2)
         {
             facingRight = false;
             transform.localScale = new Vector3(1, 1, 1);
         }
 
-        if(facingRight)
+        if (facingRight)
         {
             transform.position = p1StartPos.position;
         }
@@ -152,7 +154,7 @@ public class AlternativeMovement5 : MonoBehaviour
         canBackup = distances.CanBackUp(playerIndex);
         playerDistance = distances.GetPlayerDistance();
 
-        if(PauseMenu.gameIsPaused)
+        if (PauseMenu.gameIsPaused)
         {
             script.enabled = false;
         }
@@ -170,46 +172,53 @@ public class AlternativeMovement5 : MonoBehaviour
         inputX = Mathf.Clamp(inputX, -1, 1);
         inputY = Mathf.Clamp(inputY, -1, 1);
 
-        if(playerIndex == 1)
+        if (playerIndex == 1)
         {
             if (im.isXboxControllerP1)
                 ver = -Input.GetAxis(vertical);
             else
                 ver = Input.GetAxis(vertical);
         }
-        else if(playerIndex == 2)
+        else if (playerIndex == 2)
         {
-            if(im.isXboxControllerP2)
+            if (im.isXboxControllerP2)
                 ver = -Input.GetAxis(vertical);
             else
-                ver = Input.GetAxis(vertical);           
+                ver = Input.GetAxis(vertical);
         }
     }
+
+    // lunge variables
+    public float timer = .5f;
+    float defaultTimer = .5f;
+
+    bool holdingForward, firstF, lunged;
+    bool holdingBack, firstB, backed;
 
     void Move()
     {
 
         #region ControllerLayout
-        if(playerIndex == 1)
+        if (playerIndex == 1)
         {
-            if(im.P1_Dpad_Y == 1)
+            if (im.P1_Dpad_Y == 1)
             {
                 controllerLayout = 1;
             }
-            else if(im.P1_Dpad_X == -1)
+            else if (im.P1_Dpad_X == -1)
             {
                 controllerLayout = 2;
             }
-            else if(im.P1_Dpad_Y == -1)
+            else if (im.P1_Dpad_Y == -1)
             {
                 controllerLayout = 3;
             }
-            else if(im.P1_Dpad_X == 1)
+            else if (im.P1_Dpad_X == 1)
             {
                 controllerLayout = 4;
             }
         }
-        if(playerIndex == 2)
+        if (playerIndex == 2)
         {
             if (im.P2_Dpad_Y == 1)
             {
@@ -230,19 +239,20 @@ public class AlternativeMovement5 : MonoBehaviour
         }
         #endregion
 
+
         #region inputBools
-        if(facingRight)
+        if (facingRight)
         {
 
             if (Input.GetAxis(horizontal) >= .1f && playerDistance > playerMinDistance)
             {
                 forward = true;
             }
-            else if(Input.GetAxis(horizontal) >= .1f && playerDistance <= playerMinDistance)
+            else if (Input.GetAxis(horizontal) >= .1f && playerDistance <= playerMinDistance)
             {
                 forward = false;
 
-                if(playerIndex == 1)
+                if (playerIndex == 1)
                 {
                     // P2 jumps back
                 }
@@ -300,6 +310,135 @@ public class AlternativeMovement5 : MonoBehaviour
         }
         #endregion
 
+
+        #region Lunge
+
+        if (firstF)
+        {
+            timer -= Time.deltaTime;
+        }
+
+        if (timer <= 0)
+        {
+            timer = defaultTimer;
+            firstF = false;
+        }
+
+        if(facingRight)
+        {
+            if (Input.GetAxisRaw(horizontal) == 1)
+            {
+                holdingForward = true;
+            }
+
+            if (holdingForward && Input.GetAxisRaw(horizontal) != 1)
+            {
+                holdingForward = false;
+                firstF = true;
+            }
+
+            if (firstF && Input.GetAxisRaw(horizontal) == 1 && playerDistance > playerMinDistance) // TODO: change getaxis(hor) --> for both players
+            {
+                if (!lunged)
+                {
+                    anim.CrossFade("Lunge2", .5f);
+                    lunged = true;
+                    firstF = false;
+                    holdingForward = false;
+                    timer = 2f;
+                }
+            }
+        }
+        else
+        {
+            if (Input.GetAxisRaw(horizontal) == -1)
+            {
+                holdingForward = true;
+            }
+
+            if (holdingForward && Input.GetAxisRaw(horizontal) != -1)
+            {
+                holdingForward = false;
+                firstF = true;
+            }
+
+            if (firstF && Input.GetAxisRaw(horizontal) == -1 && playerDistance > playerMinDistance) // TODO: change getaxis(hor) --> for both players
+            {
+                if (!lunged)
+                {
+                    anim.CrossFade("Lunge2", .5f);
+                    lunged = true;
+                    firstF = false;
+                    holdingForward = false;
+                    timer = 2f;
+                }
+            }
+        }
+
+        if (lunged)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0f)
+            {
+                lunged = false;
+                //anim.CrossFade("ToLungeIdle", .8f);
+            }
+        }
+
+        #endregion
+
+
+        #region JumpBackwards
+
+        if (firstB)
+        {
+            timer -= Time.deltaTime;
+        }
+
+        if (timer <= 0)
+        {
+            timer = defaultTimer;
+            firstB = false;
+        }
+
+        if (Input.GetAxisRaw(horizontal) == -1)
+        {
+            holdingBack = true;
+        }
+
+        if (holdingBack && Input.GetAxisRaw(horizontal) != -1)
+        {
+            holdingBack = false;
+            firstB = true;
+        }
+
+        if (firstB && Input.GetAxisRaw(horizontal) == -1)
+        {
+            if (playerIndex == 1 && canBackup)
+            {
+                // logic
+                backed = true;
+            }
+            else if (playerIndex == 2 && canBackup)
+            {
+                // also logic
+                backed = true;
+            }
+        }
+
+        if (backed)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0f)
+            {
+                backed = false;
+                //anim.CrossFade("ToLungeIdle", .8f);
+            }
+        }
+
+        #endregion
+
+
         #region AnimatonStuffs
 
         anim.SetFloat("InputX", hor);
@@ -318,7 +457,7 @@ public class AlternativeMovement5 : MonoBehaviour
 
     public void PlaySound(string clipName)
     {
-        if(AudioManager.instance != null)
+        if (AudioManager.instance != null)
         {
             AudioManager.instance.PlaySound(clipName);
         }

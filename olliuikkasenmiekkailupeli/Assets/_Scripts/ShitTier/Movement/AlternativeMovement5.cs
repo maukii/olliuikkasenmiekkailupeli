@@ -177,15 +177,21 @@ public class AlternativeMovement5 : MonoBehaviour
             if (im.isXboxControllerP1)
                 ver = -Input.GetAxis(vertical);
             else
-                ver = Input.GetAxis(vertical);
+            {
+                //ver = Input.GetAxis(vertical);
+                ver = Mathf.Clamp(Input.GetAxis(vertical), -1, 1);
+            }
+
         }
         else if (playerIndex == 2)
         {
             if (im.isXboxControllerP2)
                 ver = -Input.GetAxis(vertical);
             else
-                ver = Input.GetAxis(vertical);
+                //ver = Input.GetAxis(vertical);
+                ver = Mathf.Clamp(Input.GetAxis(vertical), -1, 1);
         }
+
     }
 
     // lunge variables

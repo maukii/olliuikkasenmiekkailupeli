@@ -119,6 +119,8 @@ public class HandAnimationControl : MonoBehaviour
         }
     }
 
+    public float handHeight;
+
     void CheckInput()
     {
         if (!DEBUG_NoInput)
@@ -249,7 +251,24 @@ public class HandAnimationControl : MonoBehaviour
 
 
                 if ((PlayerNumber == 1 && im.isKeyboardAndMouseP1) || (PlayerNumber == 2 && im.isKeyboardAndMouseP2))
-                    UpdateHandHeight(im.GetVertical(PlayerNumber));
+                {
+                    //UpdateHandHeight(Mathf.Clamp(im.GetVertical(PlayerNumber), -1, 1));
+                    if(im.GetVertical(PlayerNumber) >= .1f)
+                    {
+                        handHeight += 5 * Time.deltaTime;
+                        if (handHeight >= 1)
+                            handHeight = 1;
+                    }
+                    else if(im.GetVertical(PlayerNumber) <= -.1f)
+                    {
+                        handHeight -= 5 * Time.deltaTime;
+                        if (handHeight <= -1)
+                            handHeight = -1;
+                    }
+
+                    UpdateHandHeight(handHeight);
+
+                }
                 else
                     UpdateHandHeight(-im.GetRS_Y(PlayerNumber));
 

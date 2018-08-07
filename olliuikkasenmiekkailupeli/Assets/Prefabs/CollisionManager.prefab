@@ -54,6 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc54bf8b2fc2d164c98a783d5f8866de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingDistance: 20
   StepsBetweenPlayers: 0
 --- !u!114 &114297569818067576
 MonoBehaviour:
@@ -66,15 +67,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd64151776d61944aec367df9651f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WhoHitFirst: 0
   strongCollision: 1
+  handGuardHit: 0
+  miss: 0
+  NoGuardCollision: 0
+  NoStrongCollision: 0
+  NoCollision: 0
   attackStrength: 0
   defenceStrength: 0
   BaseStrength: 10
   BaseDefence: 10
   collisionStrength: 0
+  interruptTimer:
+  - 0
+  - 0
   CollisionTimeWeak: 0.3
   CollisionTimeStrong: 0.6
   BaseDelay: 0.2
+  SlowMoMult: 0.9
 --- !u!114 &114399440146214800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b973a890208dd4296ea0c740ac1dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowHeightMeters: 1
+  ShowHeightMeters: 0
 --- !u!114 &114621997645846882
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -69,6 +69,17 @@ public class InputManager : MonoBehaviour
         }
         return "";
     }
+    public float GetVertical(int PlayerNumber)
+    {
+        switch (PlayerNumber)
+        {
+            case 1:
+                return Input.GetAxis(P1_Ver);
+            case 2:
+                return Input.GetAxis(P2_Ver);
+        }
+        return 0;
+    }
     public float GetLS_X(int PlayerNumber)
     {
         switch (PlayerNumber)

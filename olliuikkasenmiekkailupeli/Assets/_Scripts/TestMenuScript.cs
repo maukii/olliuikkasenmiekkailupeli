@@ -58,8 +58,8 @@ public class TestMenuScript : MonoBehaviour
 
         if(InputManager.IM.isOnlyKeyboard)
         {
-            L_ControllerType.text = "Press Q or keypad";        // what buttons join game?
-            R_ControllerType.text = " Enter to join";        // what buttons join game?
+            L_ControllerType.text = "Use WASD and ";                    // what buttons join game?
+            R_ControllerType.text = "ARROWKEYS to change model";        // what buttons join game?
         }
     }
 
@@ -90,6 +90,12 @@ public class TestMenuScript : MonoBehaviour
         {
             //P2 = right
             isLeftP2 = false;
+            isRightP2 = true;
+        }
+
+        if(InputManager.IM.isOnlyKeyboard)
+        {
+            isLeftP1 = true;
             isRightP2 = true;
         }
     }

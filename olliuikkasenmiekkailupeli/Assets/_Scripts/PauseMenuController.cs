@@ -84,20 +84,7 @@ public class PauseMenuController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(startButton))
         {
-            if(gameIsPaused && PauseMenuUI.gameObject.activeSelf == true)
-            {
-                Resume();
-            }
-
-            if(gameIsPaused && MovelistUI.gameObject.activeSelf == true || gameIsPaused && OptionsUI.gameObject.activeSelf == true)
-            {
-                MovelistUI.gameObject.SetActive(false);
-                OptionsUI.gameObject.SetActive(false);
-                activeMenu = Menu.PauseMenu;
-                PauseMenuUI.gameObject.SetActive(true);
-            }
-
-            else
+            if(!gameIsPaused)
             {
                 Pause();
             }
@@ -117,7 +104,7 @@ public class PauseMenuController : MonoBehaviour
             }
         }
 
-        if (activeMenu == Menu.PauseMenu)
+        if (activeMenu == Menu.PauseMenu && gameIsPaused)
         {
             if (ver >= .5f && canInteract)
             {
@@ -129,7 +116,7 @@ public class PauseMenuController : MonoBehaviour
             }
 
         }
-        else if (activeMenu == Menu.Options)
+        else if (activeMenu == Menu.Options && gameIsPaused)
         {
             if (ver >= .5f && canInteract)
             {

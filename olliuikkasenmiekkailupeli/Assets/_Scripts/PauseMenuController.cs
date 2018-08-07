@@ -84,28 +84,7 @@ public class PauseMenuController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(startButton))
         {
-            if(gameIsPaused && PauseMenuUI.gameObject.activeSelf == true)
-            {
-                Resume();
-            }
-
-            if(gameIsPaused && MovelistUI.gameObject.activeSelf == true)
-            {
-                MovelistUI.gameObject.SetActive(false);
-                PauseMenuUI.gameObject.SetActive(true);
-                activeMenu = Menu.PauseMenu;
-                activeNode = pauseMenuNodes[1];
-            }
-
-            if(gameIsPaused && OptionsUI.gameObject.activeSelf == true)
-            {
-                OptionsUI.gameObject.SetActive(false);
-                PauseMenuUI.gameObject.SetActive(true);
-                activeMenu = Menu.PauseMenu;
-                activeNode = pauseMenuNodes[2];
-            }
-
-            else
+            if(!gameIsPaused)
             {
                 Pause();
             }

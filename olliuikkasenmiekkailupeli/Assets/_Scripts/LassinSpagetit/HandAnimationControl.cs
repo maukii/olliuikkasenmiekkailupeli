@@ -80,6 +80,9 @@ public class HandAnimationControl : MonoBehaviour
         return controllerLayout;
     }
 
+    string ver;
+    float vertical;
+
     void Update()
     {
 
@@ -88,7 +91,7 @@ public class HandAnimationControl : MonoBehaviour
 
         AnimationStateUpdate();
 
-        
+
 
     }
 
@@ -135,20 +138,24 @@ public class HandAnimationControl : MonoBehaviour
                     {
                         Inputframe = true;
                         Swing();
+                        Debug.Log("swing");
                     }
-                    else if (Input.GetKeyUp(KeyCode.R) && swordSwinging && Inputframe)
+                    else if (Input.GetKeyUp(KeyCode.R) && !swordSwinging && Inputframe)
                     {
                         Weak();
+                        Debug.Log("weak");
                     }
 
                     if (Input.GetKeyDown(KeyCode.F) && !swordSwinging)
                     {
                         Inputframe = true;
                         SwingHor();
+                        Debug.Log("swinghor");
                     }
-                    else if (Input.GetKeyUp(KeyCode.F) && swordSwinging && Inputframe)
+                    else if (Input.GetKeyUp(KeyCode.F) && !swordSwinging && Inputframe)
                     {
                         WeakHor();
+                        Debug.Log("weakhor");
                     }
 
                     if (Input.GetKeyDown(KeyCode.H))
@@ -167,7 +174,7 @@ public class HandAnimationControl : MonoBehaviour
                     {
                         Swing();
                     }
-                    else if (Input.GetKeyUp(KeyCode.RightShift) && swordSwinging && Inputframe)
+                    else if (Input.GetKeyUp(KeyCode.RightShift) && !swordSwinging && Inputframe)
                     {
                         Weak();
                     }
@@ -176,7 +183,7 @@ public class HandAnimationControl : MonoBehaviour
                     {
                         SwingHor();
                     }
-                    else if (Input.GetKeyUp(KeyCode.RightControl) && swordSwinging && Inputframe)
+                    else if (Input.GetKeyUp(KeyCode.RightControl) && !swordSwinging && Inputframe)
                     {
                         WeakHor();
                     }
@@ -186,6 +193,9 @@ public class HandAnimationControl : MonoBehaviour
                         //Stab();
                     }
                 }
+
+                UpdateHandHeight(im.GetVertical(PlayerNumber));
+
             }
             else if(im.isKeyboardAndMouseP1 || im.isKeyboardAndMouseP2)
             {
@@ -196,7 +206,7 @@ public class HandAnimationControl : MonoBehaviour
                         Inputframe = true;
                         Swing();
                     }
-                    else if (Input.GetMouseButtonUp(0) && swordSwinging && Inputframe)
+                    else if (Input.GetMouseButtonUp(0) && !swordSwinging && Inputframe)
                     {
                         Inputframe = false;
                         Weak();
@@ -210,7 +220,7 @@ public class HandAnimationControl : MonoBehaviour
                         Inputframe = true;
                         SwingHor();
                     }
-                    else if (Input.GetKeyUp(KeyCode.F) && swordSwinging && Inputframe)
+                    else if (Input.GetKeyUp(KeyCode.F) && !swordSwinging && Inputframe)
                     {
                         Inputframe = false;
                         WeakHor();
@@ -236,6 +246,13 @@ public class HandAnimationControl : MonoBehaviour
                 {
                     ControllerInputs();
                 }
+
+
+                if ((PlayerNumber == 1 && im.isKeyboardAndMouseP1) || (PlayerNumber == 2 && im.isKeyboardAndMouseP2))
+                    UpdateHandHeight(im.GetVertical(PlayerNumber));
+                else
+                    UpdateHandHeight(-im.GetRS_Y(PlayerNumber));
+
             }                   // CONTROLS
             else if(!im.isKeyboardAndMouseP1 && !im.isKeyboardAndMouseP2)
             {
@@ -533,8 +550,9 @@ public class HandAnimationControl : MonoBehaviour
             {
                 AddStanceId = 0;
             }
-        }
-        
+
+        }        
+
         UpdateHandHeight(-im.GetRS_Y(PlayerNumber));
         
     }

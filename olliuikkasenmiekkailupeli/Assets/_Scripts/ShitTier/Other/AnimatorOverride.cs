@@ -14,4 +14,5 @@ public class AnimatorOverride : StateMachineBehaviour {
         base.OnStateExit(animator, stateInfo, layerIndex); // when animation ends set hands layer weight to 1
         animator.SetLayerWeight(1, 1);
     }
+
 }

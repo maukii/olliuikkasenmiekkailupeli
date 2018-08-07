@@ -136,7 +136,7 @@ public class MainMenuController : MonoBehaviour
                 characterAnim.SetFloat("Blend", -1f, dampTime, Time.deltaTime);
 
             else if (activeNode == mainmenuNodes[4])
-                characterAnim.SetFloat("Blend", -1f, dampTime, Time.deltaTime); //Tähän joku muu animaatio
+                characterAnim.SetFloat("Blend", -2f, dampTime, Time.deltaTime); //Tähän joku muu animaatio
 
         }
         else if (activeMenu == Menu.Settings)

@@ -24,6 +24,8 @@ public class CollisionHandler : MonoBehaviour {
     HeightCollision hc;
     CollisionDamage cd;
     int StepDistance;
+    float collisionOffsetSide = 0.9f;
+    float[] origCollisionTime = new float[2];
 
     #endregion
 
@@ -130,7 +132,9 @@ public class CollisionHandler : MonoBehaviour {
 
     void Attack(int player)
     {
-        float collidetime = anim[player].GetBool("Strong") ? CollisionTimeStrong : CollisionTimeWeak;
+        origCollisionTime[player] = anim[player].GetBool("Strong") ? CollisionTimeStrong : CollisionTimeWeak;
+        float collidetime = origCollisionTime[player];
+        collidetime = CheckCollideTime(player, origCollisionTime[player]);
         if (asi[player].normalizedTime > collidetime && calculateCollision[player])
         {
             
@@ -144,15 +148,18 @@ public class CollisionHandler : MonoBehaviour {
                     {
                         if (CheckQuard(player))
                         {
+                            cd.NoDamage();
                             Deflect(player);
                         }
                         else
                         {
+                            cd.ApplyDamage();
                             QuardBreak(player);
                         }
                     }
                     else
                     {
+                        cd.ApplyDamage();
                         OverExtend(player);
                     }
                 }
@@ -162,8 +169,12 @@ public class CollisionHandler : MonoBehaviour {
     void AttackBoth(int FirstAttack)
     {
         int otherplayer = FirstAttack - 1 == -1 ? 1 : 0;
-        float collidetime1 = anim[FirstAttack].GetBool("Strong") ? CollisionTimeStrong : CollisionTimeWeak;
-        float collidetime2 = anim[otherplayer].GetBool("Strong") ? CollisionTimeStrong : CollisionTimeWeak;
+        origCollisionTime[FirstAttack] = anim[FirstAttack].GetBool("Strong") ? CollisionTimeStrong : CollisionTimeWeak;
+        origCollisionTime[otherplayer]= anim[otherplayer].GetBool("Strong") ? CollisionTimeStrong : CollisionTimeWeak;
+        float collidetime1 = origCollisionTime[FirstAttack];
+        float collidetime2 = origCollisionTime[otherplayer];
+        collidetime1 = CheckCollideTime(FirstAttack, origCollisionTime[FirstAttack]);
+        collidetime2 = CheckCollideTime(otherplayer, origCollisionTime[otherplayer]);
         if (asi[FirstAttack].normalizedTime > collidetime1 && calculateCollision[FirstAttack])
         {
 
@@ -177,17 +188,20 @@ public class CollisionHandler : MonoBehaviour {
                     {
                         if (CheckQuard(FirstAttack))
                         {
+                            cd.NoDamage();
                             DeflectAttacker(FirstAttack);
                             calculateCollision[otherplayer] = false;
                         }
                         else
                         {
+                            cd.ApplyDamage();
                             QuardBreakAttacker(FirstAttack);
                             calculateCollision[otherplayer] = false;
                         }
                     }
                     else
                     {
+                        cd.ApplyDamage();
                         OverExtend(FirstAttack);
                     }
                 }
@@ -206,15 +220,18 @@ public class CollisionHandler : MonoBehaviour {
                     {
                         if (CheckQuard(otherplayer))
                         {
+                            cd.NoDamage();
                             DeflectAttacker(otherplayer);
                         }
                         else
                         {
+                            cd.ApplyDamage();
                             QuardBreakAttacker(otherplayer);
                         }
                     }
                     else
                     {
+                        cd.ApplyDamage();
                         OverExtend(otherplayer);
                     }
                 }
@@ -303,7 +320,6 @@ public class CollisionHandler : MonoBehaviour {
                 strongCollision = true;
                 handGuardHit = true;
                 miss = false;
-                handGuardHit = false;
             }
             else if (hc.GetHeightOffset() + height[player] < hc.GetMiddleY(otherplayer + 1) && hc.GetHeightOffset() + height[player] > hc.GetTipY(otherplayer + 1) && !NoCollision)
             {
@@ -330,7 +346,6 @@ public class CollisionHandler : MonoBehaviour {
                 strongCollision = true;
                 handGuardHit = true;
                 miss = false;
-                handGuardHit = false;
             }
             else if (hc.GetHeightOffset() + height[player] > hc.GetMiddleY(otherplayer + 1) && hc.GetHeightOffset() + height[player] < hc.GetTipY(otherplayer + 1) && !NoCollision)
             {
@@ -346,6 +361,107 @@ public class CollisionHandler : MonoBehaviour {
         }
         
         return true;
+    }
+
+    float CheckCollideTime(int player, float collideTime)
+    {
+
+        if (CheckQuard(player))
+        {
+            if(CheckHeightCollideTimeMult(player) != 0)
+            {
+                collideTime = collideTime * CheckDistanceCollideTimeMult(player);
+            }
+        }
+        return collideTime;
+    }
+    float CheckDistanceCollideTimeMult(int player)
+    {
+        float mult = 1;
+        StepDistance = -sc.GetStepDistance();
+        StepDistance = StepDistance / 2;
+        int otherplayer = player - 1 == -1 ? 1 : 0;
+        if (hanging[otherplayer] == 1)
+        {
+            switch (StepDistance)
+            {
+                case 1:
+                    mult = 0.3f;
+                    break;
+                case 2:
+                    mult = 0.5f;
+                    break;
+                case 3:
+                    mult = 0.8f;
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            switch (StepDistance)
+            {
+                case 1:
+                    mult = 0.3f;
+                    break;
+                case 2:
+                    mult = 0.5f;
+                    break;
+                case 3:
+                    mult = 0.8f;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return mult;
+    }
+    float CheckHeightCollideTimeMult(int player)
+    {
+        float mult = 1;
+        int otherplayer = player - 1 == -1 ? 1 : 0;
+        if (hanging[otherplayer] == 1)
+        {
+            if (hc.GetHeightOffset() + height[player] < hc.GetBaseY(otherplayer + 1) && hc.GetHeightOffset() + height[player] > hc.GetMiddleY(otherplayer + 1) && !NoStrongCollision)
+            {
+                //strong
+            }
+            else if (hc.GetHeightOffset() + height[player] < hc.GetHandleY(otherplayer + 1) && hc.GetHeightOffset() + height[player] > hc.GetBaseY(otherplayer + 1) && !NoGuardCollision)
+            {
+                //guard
+            }
+            else if (hc.GetHeightOffset() + height[player] < hc.GetMiddleY(otherplayer + 1) && hc.GetHeightOffset() + height[player] > hc.GetTipY(otherplayer + 1) && !NoCollision)
+            {
+                //weak
+            }
+            else
+            {
+                mult = 0;
+            }
+        }
+        else
+        {
+            if (hc.GetHeightOffset() + height[player] > hc.GetBaseY(otherplayer + 1) && hc.GetHeightOffset() + height[player] < hc.GetMiddleY(otherplayer + 1) && !NoStrongCollision)
+            {
+                
+            }
+            else if (hc.GetHeightOffset() + height[player] > hc.GetHandleY(otherplayer + 1) && hc.GetHeightOffset() + height[player] < hc.GetBaseY(otherplayer + 1) && !NoGuardCollision)
+            {
+                
+            }
+            else if (hc.GetHeightOffset() + height[player] > hc.GetMiddleY(otherplayer + 1) && hc.GetHeightOffset() + height[player] < hc.GetTipY(otherplayer + 1) && !NoCollision)
+            {
+                
+            }
+            else
+            {
+                mult = 0;
+            }
+        }
+
+        return mult;
     }
 
     void Deflect(int player)
@@ -381,6 +497,10 @@ public class CollisionHandler : MonoBehaviour {
         {
             anim[otherplayer].SetBool("light", false);
             MakeSparks(hc.GetMiddle(otherplayer+1), transform.rotation);
+        }
+        if (handGuardHit)
+        {
+            cd.DoDamage(CollisionDamage.Bodyparts.Hand, 1, otherplayer);
         }
         SetInterruptTimer(player, 0.1f + collisionStrength /2 / 100);
         SetInterruptTimer(otherplayer, 0.1f + collisionStrength / 100);
@@ -419,6 +539,10 @@ public class CollisionHandler : MonoBehaviour {
         //    anim[otherplayer].SetBool("light", false);
         //    MakeSparks(hc.GetMiddle(otherplayer + 1), transform.rotation);
         //}
+        if (handGuardHit)
+        {
+            cd.DoDamage(CollisionDamage.Bodyparts.Hand, 1, otherplayer);
+        }
         SetInterruptTimer(player, 0.05f + collisionStrength / 2 / 100);
         SetInterruptTimer(otherplayer, 0.1f + collisionStrength / 100);
     }

@@ -104,7 +104,7 @@ public class PauseMenuController : MonoBehaviour
             }
         }
 
-        if (activeMenu == Menu.PauseMenu)
+        if (activeMenu == Menu.PauseMenu && gameIsPaused)
         {
             if (ver >= .5f && canInteract)
             {
@@ -116,7 +116,7 @@ public class PauseMenuController : MonoBehaviour
             }
 
         }
-        else if (activeMenu == Menu.Options)
+        else if (activeMenu == Menu.Options && gameIsPaused)
         {
             if (ver >= .5f && canInteract)
             {

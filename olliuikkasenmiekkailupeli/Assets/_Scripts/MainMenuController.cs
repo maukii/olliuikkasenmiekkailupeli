@@ -22,7 +22,7 @@ public class MainMenuController : MonoBehaviour
 
     float hor, ver, dampTime = 0.5f;
     int index;
-    public bool canInteract;
+    public bool canInteract, isTutorial;
 
     enum Menu { MainMenu, Settings, Credits, };
     [SerializeField] GameObject mainmenuCharacter;
@@ -31,8 +31,12 @@ public class MainMenuController : MonoBehaviour
 
     [SerializeField] Slider[] volumeSliders;
 
+    public static MainMenuController MMC;
+
     void Start()
     {
+        MMC = this;
+
         foreach (Slider slider in volumeSliders)
         {
             slider.value = 0.1f;
@@ -238,8 +242,10 @@ public class MainMenuController : MonoBehaviour
                     {
                         // OPTIONS
                         Debug.Log("Tutorial");
-                        Tutorial();
+                        AudioManager.instance.PlaySoundeffect("uuf");
+                        LevelChanger.instance.FadeToNextLevel();
                         canInteract = false;
+                        isTutorial = true;
                     }
                     else if (activeNode == mainmenuNodes[2])
                     {
@@ -271,6 +277,7 @@ public class MainMenuController : MonoBehaviour
                     {
                         // START
                         Debug.Log("START");
+                        AudioManager.instance.PlaySoundeffect("uuf");
                         LevelChanger.instance.FadeToNextLevel();
                         canInteract = false;
                     }
@@ -278,8 +285,10 @@ public class MainMenuController : MonoBehaviour
                     {
                         // OPTIONS
                         Debug.Log("Tutorial");
-                        Tutorial();
+                        AudioManager.instance.PlaySoundeffect("uuf");
+                        LevelChanger.instance.FadeToNextLevel();
                         canInteract = false;
+                        isTutorial = true;
                     }
                     else if (activeNode == mainmenuNodes[2])
                     {
@@ -345,12 +354,6 @@ public class MainMenuController : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void Tutorial()
-    {
-        Debug.Log("Tutorial");
-        SceneManager.LoadScene(4);
     }
 
     public void Options()

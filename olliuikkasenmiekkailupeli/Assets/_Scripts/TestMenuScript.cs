@@ -235,7 +235,7 @@ public class TestMenuScript : MonoBehaviour
 
     void MoveCamera()
     {
-        if (isLeftReady && isRightReady)
+        if (isLeftReady && isRightReady && MainMenuController.MMC.isTutorial == false)
         {
             L_Ready.enabled = false;
             R_Ready.enabled = false;
@@ -243,6 +243,17 @@ public class TestMenuScript : MonoBehaviour
             Camera.main.GetComponent<PlayableDirector>().Play();
 
             LevelChanger.instance.FadeToNextLevel();
+            AudioManager.instance.FadeOutMusic();
+        }
+
+        if (isLeftReady && isRightReady && MainMenuController.MMC.isTutorial)
+        {
+            L_Ready.enabled = false;
+            R_Ready.enabled = false;
+
+            Camera.main.GetComponent<PlayableDirector>().Play();
+
+            SceneManager.LoadScene(4);
             AudioManager.instance.FadeOutMusic();
         }
     }

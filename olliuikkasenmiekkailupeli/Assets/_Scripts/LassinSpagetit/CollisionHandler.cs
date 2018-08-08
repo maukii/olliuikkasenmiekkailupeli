@@ -26,7 +26,8 @@ public class CollisionHandler : MonoBehaviour {
     int StepDistance;
     float collisionOffsetSide = 0.9f;
     float[] origCollisionTime = new float[2];
-
+    public float LungeHeightOffset;
+    float[] lungeOffset = new float[2];
     #endregion
 
     #region CollisionTriggers

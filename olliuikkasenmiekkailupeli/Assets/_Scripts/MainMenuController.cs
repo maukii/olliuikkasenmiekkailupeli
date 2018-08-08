@@ -237,6 +237,7 @@ public class MainMenuController : MonoBehaviour
                         AudioManager.instance.PlaySoundeffect("uuf");
                         LevelChanger.instance.FadeToNextLevel();
                         canInteract = false;
+                        isTutorial = false;
                     }
                     else if (activeNode == mainmenuNodes[1])
                     {
@@ -280,6 +281,7 @@ public class MainMenuController : MonoBehaviour
                         AudioManager.instance.PlaySoundeffect("uuf");
                         LevelChanger.instance.FadeToNextLevel();
                         canInteract = false;
+                        isTutorial = false;
                     }
                     else if (activeNode == mainmenuNodes[1])
                     {

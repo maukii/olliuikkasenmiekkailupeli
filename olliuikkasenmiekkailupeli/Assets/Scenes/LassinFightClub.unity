@@ -342,6 +342,7 @@ MonoBehaviour:
   controllerLayout: 0
   hor: 0
   ver: 0
+  timer: 0.5
 --- !u!114 &281844864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,6 +534,7 @@ MonoBehaviour:
   controllerLayout: 0
   hor: 0
   ver: 0
+  timer: 0.5
 --- !u!65 &390767277
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -639,6 +641,7 @@ MonoBehaviour:
   controllerLayout: 0
   hor: 0
   ver: 0
+  timer: 0.5
 --- !u!4 &485980075
 Transform:
   m_ObjectHideFlags: 0
@@ -1667,7 +1670,7 @@ Prefab:
     - target: {fileID: 114399440146214800, guid: 852c08df0ef0e754f923a4ee72e95154,
         type: 2}
       propertyPath: ShowHeightMeters
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114399440146214800, guid: 852c08df0ef0e754f923a4ee72e95154,
         type: 2}
@@ -1869,6 +1872,7 @@ MonoBehaviour:
   controllerLayout: 0
   hor: 0
   ver: 0
+  timer: 0.5
 --- !u!65 &1747312520
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2665,6 +2669,7 @@ MonoBehaviour:
   controllerLayout: 0
   hor: 0
   ver: 0
+  timer: 0.5
 --- !u!136 &2103654171
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2774,6 +2779,7 @@ MonoBehaviour:
   controllerLayout: 0
   hor: 0
   ver: 0
+  timer: 0.5
 --- !u!136 &2108149801
 CapsuleCollider:
   m_ObjectHideFlags: 0

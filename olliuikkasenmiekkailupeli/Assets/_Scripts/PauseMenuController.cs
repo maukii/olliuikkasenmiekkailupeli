@@ -380,6 +380,7 @@ public class PauseMenuController : MonoBehaviour
     public void Exit()
     {
         Debug.Log("Exit");
+        MainMenuController.MMC.isTutorial = false;
         SceneManager.LoadScene(0);  //TOIMII, MUTTA RIKKOO MENU-UKON KÄDEN
     }
 

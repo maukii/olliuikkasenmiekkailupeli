@@ -1,0 +1,404 @@
+fileFormatVersion: 2
+guid: 7c11998a0882eb247ac4fc6a40a8923c
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: "alaselk\xE4.L"
+    100002: Bone
+    100004: Bone_end
+    100006: hauis.L
+    100008: hauis.R
+    100010: hius
+    100012: hius 1
+    100014: hius1
+    100016: hius2
+    100018: hius3
+    100020: hius4
+    100022: hius5
+    100024: hius5_end
+    100026: hius_end
+    100028: hius_end 1
+    100030: IK-helper
+    100032: IK-helper.001
+    100034: jalkapampula.L
+    100036: jalkapampula.R
+    100038: jalkapohja.L
+    100040: jalkapohja.L_end
+    100042: jalkapohja.R
+    100044: jalkapohja.R_end
+    100046: kaula
+    100048: kaulakoriste
+    100050: kaularusetti
+    100052: kaularusetti.001
+    100054: "kenk\xE4pampula.L"
+    100056: "kenk\xE4pampula.R"
+    100058: "kenk\xE4solki.L"
+    100060: "kenk\xE4solki.R"
+    100062: kingshattu
+    100064: kori3
+    100066: kylkiluu.L
+    100068: kylkiluu.L_end
+    100070: kylkiluu.R
+    100072: kylkiluu.R_end
+    100074: "kyyn\xE4rp\xE4\xE4_oikea"
+    100076: "kyyn\xE4rp\xE4\xE4_oikea 1"
+    100078: "kyyn\xE4rp\xE4\xE4_oikea_end"
+    100080: "kyyn\xE4rp\xE4\xE4_oikea_end 1"
+    100082: "kyyn\xE4rp\xE4\xE4_vasen"
+    100084: "kyyn\xE4rp\xE4\xE4_vasen 1"
+    100086: "kyyn\xE4rp\xE4\xE4_vasen_end"
+    100088: "kyyn\xE4rp\xE4\xE4_vasen_end 1"
+    100090: "k\xE4mmen.L"
+    100092: "k\xE4mmen.R"
+    100094: leuka
+    100096: leuka_end
+    100098: LUURANKO
+    100100: miakka
+    100102: Move
+    100104: oikea_koipi
+    100106: oikea_koipi 1
+    100108: oikea_koipi_end
+    100110: oikea_koipi_end 1
+    100112: peruuki_arrogant
+    100114: peruuki_braveman
+    100116: peruuki_gentleman
+    100118: peruuki_king
+    100120: peruuki_prettyboy
+    100122: peruuki_sculpted
+    100124: pikkusormi.L
+    100126: pikkusormi.R
+    100128: pikkusormi2.L
+    100130: pikkusormi2.L_end
+    100132: pikkusormi2.R
+    100134: pikkusormi2.R_end
+    100136: pohje.L
+    100138: pohje.R
+    100140: pulisonki.L
+    100142: pulisonki.L_end
+    100144: pulisonki.R
+    100146: pulisonki.R_end
+    100148: "p\xE4\xE4"
+    100150: "p\xE4\xE4 1"
+    100152: ranne.L
+    100154: ranne.R
+    100156: reisi.L
+    100158: reisi.R
+    100160: ROOT
+    100162: ruho
+    100164: ruho.takki
+    100166: ruho_sculpted
+    100168: rusetti
+    100170: "selk\xE4.L"
+    100172: "selk\xE4.L.001"
+    100174: silma
+    100176: solisluu.L
+    100178: solisluu.L_end
+    100180: solisluu.R
+    100182: solisluu.R_end
+    100184: sormi.L
+    100186: sormi.L.001
+    100188: sormi.L.001_end
+    100190: sormi.R
+    100192: sormi.R.001
+    100194: sormi.R.001_end
+    100196: //RootNode
+    100198: "ter\xE4"
+    100200: vasen_koipi
+    100202: vasen_koipi 1
+    100204: vasen_koipi_end
+    100206: vasen_koipi_end 1
+    400000: "alaselk\xE4.L"
+    400002: Bone
+    400004: Bone_end
+    400006: hauis.L
+    400008: hauis.R
+    400010: hius
+    400012: hius 1
+    400014: hius1
+    400016: hius2
+    400018: hius3
+    400020: hius4
+    400022: hius5
+    400024: hius5_end
+    400026: hius_end
+    400028: hius_end 1
+    400030: IK-helper
+    400032: IK-helper.001
+    400034: jalkapampula.L
+    400036: jalkapampula.R
+    400038: jalkapohja.L
+    400040: jalkapohja.L_end
+    400042: jalkapohja.R
+    400044: jalkapohja.R_end
+    400046: kaula
+    400048: kaulakoriste
+    400050: kaularusetti
+    400052: kaularusetti.001
+    400054: "kenk\xE4pampula.L"
+    400056: "kenk\xE4pampula.R"
+    400058: "kenk\xE4solki.L"
+    400060: "kenk\xE4solki.R"
+    400062: kingshattu
+    400064: kori3
+    400066: kylkiluu.L
+    400068: kylkiluu.L_end
+    400070: kylkiluu.R
+    400072: kylkiluu.R_end
+    400074: "kyyn\xE4rp\xE4\xE4_oikea"
+    400076: "kyyn\xE4rp\xE4\xE4_oikea 1"
+    400078: "kyyn\xE4rp\xE4\xE4_oikea_end"
+    400080: "kyyn\xE4rp\xE4\xE4_oikea_end 1"
+    400082: "kyyn\xE4rp\xE4\xE4_vasen"
+    400084: "kyyn\xE4rp\xE4\xE4_vasen 1"
+    400086: "kyyn\xE4rp\xE4\xE4_vasen_end"
+    400088: "kyyn\xE4rp\xE4\xE4_vasen_end 1"
+    400090: "k\xE4mmen.L"
+    400092: "k\xE4mmen.R"
+    400094: leuka
+    400096: leuka_end
+    400098: LUURANKO
+    400100: miakka
+    400102: Move
+    400104: oikea_koipi
+    400106: oikea_koipi 1
+    400108: oikea_koipi_end
+    400110: oikea_koipi_end 1
+    400112: peruuki_arrogant
+    400114: peruuki_braveman
+    400116: peruuki_gentleman
+    400118: peruuki_king
+    400120: peruuki_prettyboy
+    400122: peruuki_sculpted
+    400124: pikkusormi.L
+    400126: pikkusormi.R
+    400128: pikkusormi2.L
+    400130: pikkusormi2.L_end
+    400132: pikkusormi2.R
+    400134: pikkusormi2.R_end
+    400136: pohje.L
+    400138: pohje.R
+    400140: pulisonki.L
+    400142: pulisonki.L_end
+    400144: pulisonki.R
+    400146: pulisonki.R_end
+    400148: "p\xE4\xE4"
+    400150: "p\xE4\xE4 1"
+    400152: ranne.L
+    400154: ranne.R
+    400156: reisi.L
+    400158: reisi.R
+    400160: ROOT
+    400162: ruho
+    400164: ruho.takki
+    400166: ruho_sculpted
+    400168: rusetti
+    400170: "selk\xE4.L"
+    400172: "selk\xE4.L.001"
+    400174: silma
+    400176: solisluu.L
+    400178: solisluu.L_end
+    400180: solisluu.R
+    400182: solisluu.R_end
+    400184: sormi.L
+    400186: sormi.L.001
+    400188: sormi.L.001_end
+    400190: sormi.R
+    400192: sormi.R.001
+    400194: sormi.R.001_end
+    400196: //RootNode
+    400198: "ter\xE4"
+    400200: vasen_koipi
+    400202: vasen_koipi 1
+    400204: vasen_koipi_end
+    400206: vasen_koipi_end 1
+    2100000: No Name
+    2100002: rusetti
+    2100004: hattu
+    2100006: eyes
+    2100008: miakka.kahva
+    2100010: "miakka.etuter\xE4"
+    2100012: "miakka.takater\xE4"
+    2100014: miakka.kori
+    2100016: pampula
+    2100018: kroppa
+    2100020: solki
+    2100022: prettyboyhiuxet
+    2100024: Material.002
+    2100026: hiuxet
+    2100028: kinghiuxet
+    2100030: hattuhiuxet
+    2100032: gebtlemanhiuxe
+    2300000: jalkapampula.L
+    2300002: jalkapampula.R
+    2300004: kaulakoriste
+    2300006: kaularusetti
+    2300008: kaularusetti.001
+    2300010: "kenk\xE4pampula.L"
+    2300012: "kenk\xE4pampula.R"
+    2300014: "kenk\xE4solki.L"
+    2300016: "kenk\xE4solki.R"
+    2300018: kingshattu
+    2300020: kori3
+    2300022: miakka
+    2300024: "p\xE4\xE4"
+    2300026: rusetti
+    2300028: silma
+    2300030: "ter\xE4"
+    3300000: jalkapampula.L
+    3300002: jalkapampula.R
+    3300004: kaulakoriste
+    3300006: kaularusetti
+    3300008: kaularusetti.001
+    3300010: "kenk\xE4pampula.L"
+    3300012: "kenk\xE4pampula.R"
+    3300014: "kenk\xE4solki.L"
+    3300016: "kenk\xE4solki.R"
+    3300018: kingshattu
+    3300020: kori3
+    3300022: miakka
+    3300024: "p\xE4\xE4"
+    3300026: rusetti
+    3300028: silma
+    3300030: "ter\xE4"
+    4300000: kaularusetti.001
+    4300002: kaularusetti
+    4300004: kaulakoriste
+    4300006: kingshattu
+    4300008: silma
+    4300010: rusetti
+    4300012: miakka
+    4300014: "ter\xE4"
+    4300016: kori3
+    4300018: jalkapampula.L
+    4300020: "kenk\xE4pampula.L"
+    4300022: "kenk\xE4solki.L"
+    4300024: jalkapampula.R
+    4300026: "kenk\xE4solki.R"
+    4300028: "kenk\xE4pampula.R"
+    4300030: ruho.takki
+    4300032: peruuki_prettyboy
+    4300034: peruuki_sculpted
+    4300036: ruho_sculpted
+    4300038: peruuki_arrogant
+    4300040: ruho
+    4300042: peruuki_king
+    4300044: peruuki_braveman
+    4300046: peruuki_gentleman
+    4300048: "p\xE4\xE4"
+    7400000: StepStart.move
+    7400002: FullStep1.move
+    7400004: FullStep2.move
+    7400006: HalfStep.move
+    7400008: T-pose
+    7400010: StepStart
+    7400012: FullStep1
+    7400014: FullStep2
+    7400016: HalfStep
+    7400018: Idle
+    7400020: StepReverse1
+    7400022: RetreatStart1
+    7400024: RetreatLegSlip1
+    7400026: RetreatFullStep1
+    7400028: RetreatHalfStep
+    7400030: Lunge1
+    7400032: Lunge2
+    7400034: ToLungeIdle
+    7400036: LungeIdle
+    7400038: FromLungeIdle
+    7400040: LungeRetreat
+    7400042: LungeAdvanced1
+    7400044: ThroathSlitDeath
+    7400046: StartAnimation1
+    7400048: StartAnimation1.001
+    9500000: //RootNode
+    13700000: peruuki_arrogant
+    13700002: peruuki_braveman
+    13700004: peruuki_gentleman
+    13700006: peruuki_king
+    13700008: peruuki_prettyboy
+    13700010: peruuki_sculpted
+    13700012: ruho
+    13700014: ruho.takki
+    13700016: ruho_sculpted
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

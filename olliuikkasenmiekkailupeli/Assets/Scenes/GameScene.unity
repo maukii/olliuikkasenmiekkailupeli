@@ -1279,6 +1279,12 @@ MonoBehaviour:
   hor: 0
   ver: 0
   timer: 0.5
+  holdingForward: 0
+  firstF: 0
+  lunged: 0
+  holdingBack: 0
+  firstB: 0
+  jumped: 0
 --- !u!4 &102844753
 Transform:
   m_ObjectHideFlags: 0
@@ -1881,6 +1887,12 @@ MonoBehaviour:
   hor: 0
   ver: 0
   timer: 0.5
+  holdingForward: 0
+  firstF: 0
+  lunged: 0
+  holdingBack: 0
+  firstB: 0
+  jumped: 0
 --- !u!4 &192891529
 Transform:
   m_ObjectHideFlags: 0
@@ -8298,6 +8310,11 @@ Prefab:
     - target: {fileID: 4711650951888822, guid: 852c08df0ef0e754f923a4ee72e95154, type: 2}
       propertyPath: m_RootOrder
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399440146214800, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: ShowHeightMeters
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 852c08df0ef0e754f923a4ee72e95154, type: 2}

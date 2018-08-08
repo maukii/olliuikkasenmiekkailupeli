@@ -349,7 +349,8 @@ public class MainMenuController : MonoBehaviour
 
     public void Tutorial()
     {
-        //Tutorial stuff here
+        Debug.Log("Tutorial");
+        SceneManager.LoadScene(4);
     }
 
     public void Options()

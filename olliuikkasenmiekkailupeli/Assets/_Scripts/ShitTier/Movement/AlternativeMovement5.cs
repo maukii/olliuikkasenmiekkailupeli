@@ -148,6 +148,12 @@ public class AlternativeMovement5 : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.Space))
+            anim.SetBool("space", true);
+        else
+            anim.SetBool("space", false);
+
+
         Inputs();
         Move();
 
@@ -198,8 +204,8 @@ public class AlternativeMovement5 : MonoBehaviour
     public float timer = .5f;
     float defaultTimer = .5f;
 
-    bool holdingForward, firstF, lunged;
-    bool holdingBack, firstB, backed;
+    public bool holdingForward, firstF, lunged;
+    public bool holdingBack, firstB, jumped;
 
     void Move()
     {
@@ -330,66 +336,26 @@ public class AlternativeMovement5 : MonoBehaviour
             firstF = false;
         }
 
-        if(facingRight)
+        if (Input.GetAxisRaw(horizontal) == 1 * (facingRight ? 1 : -1))
         {
-            if (Input.GetAxisRaw(horizontal) == 1)
-            {
-                holdingForward = true;
-            }
+            holdingForward = true;
+        }
 
-            if (holdingForward && Input.GetAxisRaw(horizontal) != 1)
+        if (holdingForward && Input.GetAxisRaw(horizontal) != 1 * (facingRight ? 1 : -1))
+        {
+            holdingForward = false;
+            firstF = true;
+        }
+
+        if (firstF && Input.GetAxisRaw(horizontal) == 1 * (facingRight ? 1 : -1) && playerDistance > playerMinDistance)
+        {
+            if (!lunged && !jumped)
             {
+                anim.CrossFade("Lunge2", .5f);
+                firstF = false;
                 holdingForward = false;
-                firstF = true;
             }
-
-            if (firstF && Input.GetAxisRaw(horizontal) == 1 && playerDistance > playerMinDistance) // TODO: change getaxis(hor) --> for both players
-            {
-                if (!lunged)
-                {
-                    anim.CrossFade("Lunge2", .5f);
-                    lunged = true;
-                    firstF = false;
-                    holdingForward = false;
-                    timer = 2f;
-                }
-            }
-        }
-        else
-        {
-            if (Input.GetAxisRaw(horizontal) == -1)
-            {
-                holdingForward = true;
-            }
-
-            if (holdingForward && Input.GetAxisRaw(horizontal) != -1)
-            {
-                holdingForward = false;
-                firstF = true;
-            }
-
-            if (firstF && Input.GetAxisRaw(horizontal) == -1 && playerDistance > playerMinDistance) // TODO: change getaxis(hor) --> for both players
-            {
-                if (!lunged)
-                {
-                    anim.CrossFade("Lunge2", .5f);
-                    lunged = true;
-                    firstF = false;
-                    holdingForward = false;
-                    timer = 2f;
-                }
-            }
-        }
-
-        if (lunged)
-        {
-            timer -= Time.deltaTime;
-            if (timer <= 0f)
-            {
-                lunged = false;
-                //anim.CrossFade("ToLungeIdle", .8f);
-            }
-        }
+        }     
 
         #endregion
 
@@ -407,38 +373,35 @@ public class AlternativeMovement5 : MonoBehaviour
             firstB = false;
         }
 
-        if (Input.GetAxisRaw(horizontal) == -1)
+        if (Input.GetAxisRaw(horizontal) == -1 * (facingRight ? 1 : -1))
         {
             holdingBack = true;
         }
 
-        if (holdingBack && Input.GetAxisRaw(horizontal) != -1)
+        if (holdingBack && Input.GetAxisRaw(horizontal) != -1 * (facingRight ? 1 : -1))
         {
             holdingBack = false;
             firstB = true;
         }
 
-        if (firstB && Input.GetAxisRaw(horizontal) == -1)
+        if (firstB && Input.GetAxisRaw(horizontal) == -1 * (facingRight ? 1 : -1))
         {
-            if (playerIndex == 1 && canBackup)
+            if(canBackup && !jumped)
             {
-                // logic
-                backed = true;
-            }
-            else if (playerIndex == 2 && canBackup)
-            {
-                // also logic
-                backed = true;
-            }
-        }
-
-        if (backed)
-        {
-            timer -= Time.deltaTime;
-            if (timer <= 0f)
-            {
-                backed = false;
-                //anim.CrossFade("ToLungeIdle", .8f);
+                if(!lunged)
+                {
+                    anim.CrossFade("Jump", .5f);
+                    anim.SetBool("Jumped", true);
+                    firstB = false;
+                    holdingBack = false;
+                }
+                else
+                {
+                    anim.CrossFade("Jump_Lunge", .5f);
+                    anim.SetBool("Jumped", true);
+                    firstB = false;
+                    holdingBack = false;
+                }
             }
         }
 
@@ -447,6 +410,8 @@ public class AlternativeMovement5 : MonoBehaviour
 
         #region AnimatonStuffs
 
+        jumped = anim.GetBool("Jumped");
+        lunged = anim.GetBool("Lunged");
         anim.SetFloat("InputX", hor);
         anim.SetBool("forward", forward);
         anim.SetBool("back", back);

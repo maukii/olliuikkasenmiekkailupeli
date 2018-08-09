@@ -1,22 +1,143 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
-	void Start ()
-    {
+    [Header("---Affects movement---")]
+    public bool moveLock;
+    public bool strongLock;
+    public bool guardLock;
+    public bool heightLock;
+    public bool lungeLock;
 
-	}
+    [Header("---Tutorial phases---")]
+    public bool phase1;
+    public bool phase2;
+    public bool phase3;
+    public bool phase4;
+    public bool phase5;
+    public bool phase6;
+    public bool phase7;
+    public bool phase8;
+    public bool phase9;
+    public bool phase10;
+    public bool phase11;
+    public bool tutorialClear;
+
+    InputManager im;
+    GameObject P1, P2;
+
+    void Start ()
+    {
+        im = FindObjectOfType<InputManager>();
+        
+        P1 = GameObject.FindGameObjectWithTag("Player 1");
+        P2 = GameObject.FindGameObjectWithTag("Player 2");
+
+        phase1 = true;
+        moveLock = true;
+        strongLock = true;
+        guardLock = true;
+        heightLock = true;
+        lungeLock = true;
+    }
 
 	void Update ()
     {
-		
-	}
+        StuffLock();
+
+        if (phase1)
+        {
+            Phase1(); //Only light vertical and horizontal attack
+        }
+
+        if (phase2)
+        {
+            //Unlock guard changes
+            guardLock = false;
+        }
+
+        if (phase3)
+        {
+            //Players step in striking distance
+            //Damage animations play but players don’t get hurt
+        }
+
+        if (phase4)
+        {
+            //Players step out of striking distance
+            //Moulinettes are unlocked
+            strongLock = false;
+        }
+
+        if (phase5)
+        {
+            //Players step in striking distance
+            //Instead of death animations play normal damage animations 
+        }
+
+        if (phase6)
+        {
+            //Players step out of striking distance
+        }
+
+        if (phase7)
+        {
+            //Sword height gets unlocked
+            heightLock = false;
+        }
+
+        if (phase8)
+        {
+            //Players step in striking distance
+        }
+
+        if (phase9)
+        {
+            //Normal steps get unlocked
+            moveLock = false;
+        }
+
+        if (phase10)
+        {
+            //Players Get introduced to basic footwork
+            //Unlock backward leap
+        }
+
+        if (phase11)
+        {
+            lungeLock = false; //Unlock lunge
+            //Everything is unlocked
+        }
+
+        if (tutorialClear)
+        {
+            //Move to duel mode
+        }
+
+        //IF PLAYER EXITS TUTORIAL, SET BOOLEANS TO FALSE!!!
+
+    }
+
+    void StuffLock ()
+    {
+        if (moveLock)
+        {
+            P1.GetComponent<AlternativeMovement5>().enabled = false;
+            P2.GetComponent<AlternativeMovement5>().enabled = false;
+        }
+    }
+
+    void Phase1 ()
+    {
+        
+    }
 }
 
 /*
- 1. Players start out of striking distance from eachother and can  only do light vertical and horizontal attack 
+1. Players start out of striking distance from eachother and can  only do light vertical and horizontal attack 
 
                     "Welcome noble gentlemen! Today I shall teach you how to defend your honour." 
 

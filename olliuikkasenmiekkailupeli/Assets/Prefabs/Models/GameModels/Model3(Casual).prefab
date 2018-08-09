@@ -612,7 +612,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1480969169813974
 GameObject:
   m_ObjectHideFlags: 1
@@ -1546,7 +1546,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1480473979427708}
-  m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1555,7 +1555,7 @@ Transform:
   - {fileID: 4973935342416470}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4239068381520730
 Transform:
   m_ObjectHideFlags: 1
@@ -2073,7 +2073,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1679332944318514}
-  m_LocalRotation: {x: 0.076408155, y: -0.09256662, z: 0.00055412273, w: 0.9927703}
+  m_LocalRotation: {x: 0.07010449, y: 0.31685326, z: -0.030393213, w: 0.94539183}
   m_LocalPosition: {x: -0, y: 0.005529797, z: -1.862645e-10}
   m_LocalScale: {x: 1.0000001, y: 0.99999976, z: 1.0000001}
   m_Children:
@@ -2082,7 +2082,7 @@ Transform:
   - {fileID: 4750738426439576}
   m_Father: {fileID: 4290559168943240}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 8.824422, y: 37.886295, z: 1.8113669}
+  m_LocalEulerAnglesHint: {x: 8.732, y: 37, z: -0.75600004}
 --- !u!4 &4727205703790370
 Transform:
   m_ObjectHideFlags: 1
@@ -3302,7 +3302,7 @@ Animator:
   m_GameObject: {fileID: 1480473979427708}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 795253ed216a92343aa311b2e46709c0, type: 3}
-  m_Controller: {fileID: 9100000, guid: b3a6b77fdfcf6454c87a86ad3130a0c1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6f606b3a68ad2e548839b267c14ec146, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -3527,6 +3527,7 @@ MonoBehaviour:
   Inputframe: 0
   swordSwinging: 0
   controllerLayout: 3
+  handHeight: 0
 --- !u!114 &114889954396348044
 MonoBehaviour:
   m_ObjectHideFlags: 1

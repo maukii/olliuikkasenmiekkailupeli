@@ -381,6 +381,10 @@ public class PauseMenuController : MonoBehaviour
     {
         Debug.Log("Exit");
         MainMenuController.MMC.isTutorial = false;
+        GameHandler.instance.BattleStarted = false;
+        gameIsPaused = false;
+        Time.timeScale = 1f;
+
         SceneManager.LoadScene(0);  //TOIMII, MUTTA RIKKOO MENU-UKON KÄDEN
     }
 

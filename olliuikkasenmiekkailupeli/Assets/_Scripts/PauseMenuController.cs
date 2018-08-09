@@ -380,12 +380,13 @@ public class PauseMenuController : MonoBehaviour
     public void Exit()
     {
         Debug.Log("Exit");
+        Resume();
         MainMenuController.MMC.isTutorial = false;
         GameHandler.instance.BattleStarted = false;
-        gameIsPaused = false;
-        Time.timeScale = 1f;
 
-        SceneManager.LoadScene(0);  //TOIMII, MUTTA RIKKOO MENU-UKON KÄDEN
+        LevelChanger.instance.FadeToMain(); // vaihtaa skenen level changerissa
+
+        //SceneManager.LoadScene(0);  //TOIMII, MUTTA RIKKOO MENU-UKON KÄDEN
     }
 
     void GetInput()

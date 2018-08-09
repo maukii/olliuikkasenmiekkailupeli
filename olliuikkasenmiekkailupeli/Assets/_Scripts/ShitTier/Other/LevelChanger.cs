@@ -44,4 +44,16 @@ public class LevelChanger : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void FadeToMain()
+    {
+        anim.SetTrigger("FadeToMain");
+        anim.ResetTrigger("FadeIn");
+        anim.ResetTrigger("FadeOut");
+    }
+
+    public void FadeToMainComplite()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }

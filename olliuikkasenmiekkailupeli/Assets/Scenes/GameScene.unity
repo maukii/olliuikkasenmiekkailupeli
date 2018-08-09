@@ -3360,11 +3360,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64eb997496461bb468034e3f436d187b, type: 2}
   m_IsPrefabParent: 0
---- !u!96 &333073991 stripped
-TrailRenderer:
-  m_PrefabParentObject: {fileID: 96780627767427246, guid: 64eb997496461bb468034e3f436d187b,
-    type: 2}
-  m_PrefabInternal: {fileID: 333073990}
 --- !u!1 &333809936
 GameObject:
   m_ObjectHideFlags: 0
@@ -4172,7 +4167,7 @@ Prefab:
         type: 2}
       propertyPath: trailSwoosh
       value: 
-      objectReference: {fileID: 685683898}
+      objectReference: {fileID: 457727141}
     - target: {fileID: 1763975309918250, guid: 0c4932d3e6fead0488e354a1cf04cb9a, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -4229,6 +4224,11 @@ Prefab:
 --- !u!4 &457727140 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4595572889181964, guid: 0c4932d3e6fead0488e354a1cf04cb9a,
+    type: 2}
+  m_PrefabInternal: {fileID: 457727139}
+--- !u!96 &457727141 stripped
+TrailRenderer:
+  m_PrefabParentObject: {fileID: 96601056139449308, guid: 0c4932d3e6fead0488e354a1cf04cb9a,
     type: 2}
   m_PrefabInternal: {fileID: 457727139}
 --- !u!1 &458447509
@@ -4482,7 +4482,7 @@ Prefab:
         type: 2}
       propertyPath: trailSwoosh
       value: 
-      objectReference: {fileID: 333073991}
+      objectReference: {fileID: 490575796}
     - target: {fileID: 1082529936078038, guid: 46a8cbd4b7f8b7343bdf2708cc88573d, type: 2}
       propertyPath: m_IsActive
       value: 1
@@ -4490,6 +4490,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46a8cbd4b7f8b7343bdf2708cc88573d, type: 2}
   m_IsPrefabParent: 0
+--- !u!96 &490575796 stripped
+TrailRenderer:
+  m_PrefabParentObject: {fileID: 96378142412692950, guid: 46a8cbd4b7f8b7343bdf2708cc88573d,
+    type: 2}
+  m_PrefabInternal: {fileID: 490575795}
 --- !u!1 &492435626
 GameObject:
   m_ObjectHideFlags: 0
@@ -5610,11 +5615,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4800215907111414, guid: 306af6ac740d5aa4e803edf97660055f,
     type: 2}
   m_PrefabInternal: {fileID: 685683896}
---- !u!96 &685683898 stripped
-TrailRenderer:
-  m_PrefabParentObject: {fileID: 96930902281961446, guid: 306af6ac740d5aa4e803edf97660055f,
-    type: 2}
-  m_PrefabInternal: {fileID: 685683896}
 --- !u!1 &712090337
 GameObject:
   m_ObjectHideFlags: 0
@@ -5726,10 +5726,19 @@ Prefab:
         type: 2}
       propertyPath: trailSwoosh
       value: 
-      objectReference: {fileID: 333073991}
+      objectReference: {fileID: 715782255}
+    - target: {fileID: 1332092491197148, guid: 5a414c1d772113a4bbe3049e709a9e07, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5a414c1d772113a4bbe3049e709a9e07, type: 2}
   m_IsPrefabParent: 0
+--- !u!96 &715782255 stripped
+TrailRenderer:
+  m_PrefabParentObject: {fileID: 96263176619790654, guid: 5a414c1d772113a4bbe3049e709a9e07,
+    type: 2}
+  m_PrefabInternal: {fileID: 715782254}
 --- !u!1 &716509516
 GameObject:
   m_ObjectHideFlags: 0
@@ -9389,10 +9398,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 1305712520634896, guid: ff523e68bdbfe7748875ad3fa1f73406, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff523e68bdbfe7748875ad3fa1f73406, type: 2}
   m_IsPrefabParent: 0
@@ -9889,7 +9894,7 @@ Prefab:
         type: 2}
       propertyPath: trailSwoosh
       value: 
-      objectReference: {fileID: 685683898}
+      objectReference: {fileID: 1190023176}
     - target: {fileID: 1082529936078038, guid: 46a8cbd4b7f8b7343bdf2708cc88573d, type: 2}
       propertyPath: m_IsActive
       value: 1
@@ -11636,6 +11641,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4700805800308888, guid: 46a8cbd4b7f8b7343bdf2708cc88573d,
     type: 2}
   m_PrefabInternal: {fileID: 1190023174}
+--- !u!96 &1190023176 stripped
+TrailRenderer:
+  m_PrefabParentObject: {fileID: 96378142412692950, guid: 46a8cbd4b7f8b7343bdf2708cc88573d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1190023174}
 --- !u!1 &1199772699
 GameObject:
   m_ObjectHideFlags: 0
@@ -13097,7 +13107,7 @@ Prefab:
         type: 2}
       propertyPath: trailSwoosh
       value: 
-      objectReference: {fileID: 685683898}
+      objectReference: {fileID: 1332714516}
     - target: {fileID: 1332092491197148, guid: 5a414c1d772113a4bbe3049e709a9e07, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -13134,6 +13144,11 @@ Prefab:
 --- !u!4 &1332714515 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4630564822957748, guid: 5a414c1d772113a4bbe3049e709a9e07,
+    type: 2}
+  m_PrefabInternal: {fileID: 1332714514}
+--- !u!96 &1332714516 stripped
+TrailRenderer:
+  m_PrefabParentObject: {fileID: 96263176619790654, guid: 5a414c1d772113a4bbe3049e709a9e07,
     type: 2}
   m_PrefabInternal: {fileID: 1332714514}
 --- !u!1 &1342854442
@@ -15604,7 +15619,7 @@ Prefab:
         type: 2}
       propertyPath: trailSwoosh
       value: 
-      objectReference: {fileID: 333073991}
+      objectReference: {fileID: 1605357287}
     - target: {fileID: 1763975309918250, guid: 0c4932d3e6fead0488e354a1cf04cb9a, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -15612,6 +15627,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c4932d3e6fead0488e354a1cf04cb9a, type: 2}
   m_IsPrefabParent: 0
+--- !u!96 &1605357287 stripped
+TrailRenderer:
+  m_PrefabParentObject: {fileID: 96601056139449308, guid: 0c4932d3e6fead0488e354a1cf04cb9a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1605357286}
 --- !u!1 &1630297018
 GameObject:
   m_ObjectHideFlags: 0
@@ -17936,10 +17956,19 @@ Prefab:
         type: 2}
       propertyPath: trailSwoosh
       value: 
-      objectReference: {fileID: 333073991}
+      objectReference: {fileID: 1949567050}
+    - target: {fileID: 1653247726348742, guid: ca6743649ad52c547b30e90c514ba47d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca6743649ad52c547b30e90c514ba47d, type: 2}
   m_IsPrefabParent: 0
+--- !u!96 &1949567050 stripped
+TrailRenderer:
+  m_PrefabParentObject: {fileID: 96114303139531782, guid: ca6743649ad52c547b30e90c514ba47d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1949567049}
 --- !u!1 &1960030810
 GameObject:
   m_ObjectHideFlags: 0
@@ -18946,7 +18975,7 @@ Prefab:
         type: 2}
       propertyPath: trailSwoosh
       value: 
-      objectReference: {fileID: 685683898}
+      objectReference: {fileID: 2048348724}
     - target: {fileID: 1653247726348742, guid: ca6743649ad52c547b30e90c514ba47d, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -18983,6 +19012,11 @@ Prefab:
 --- !u!4 &2048348723 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4861828929714758, guid: ca6743649ad52c547b30e90c514ba47d,
+    type: 2}
+  m_PrefabInternal: {fileID: 2048348722}
+--- !u!96 &2048348724 stripped
+TrailRenderer:
+  m_PrefabParentObject: {fileID: 96114303139531782, guid: ca6743649ad52c547b30e90c514ba47d,
     type: 2}
   m_PrefabInternal: {fileID: 2048348722}
 --- !u!1 &2048801220

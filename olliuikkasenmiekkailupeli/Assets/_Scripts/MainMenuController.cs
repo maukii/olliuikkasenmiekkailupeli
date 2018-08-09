@@ -184,7 +184,7 @@ public class MainMenuController : MonoBehaviour
             settingsHighlights[index].SetActive(true);
         }
 
-        AudioManager.instance.PlaySoundeffect("uuf");
+        AudioManager.instance.PlaySoundeffect("SwordSwing2");
 
     }
 
@@ -216,7 +216,7 @@ public class MainMenuController : MonoBehaviour
             settingsHighlights[index].SetActive(true);
         }
 
-        AudioManager.instance.PlaySoundeffect("uuf");
+        AudioManager.instance.PlaySoundeffect("SwordSwing2");
 
     }
 
@@ -234,7 +234,7 @@ public class MainMenuController : MonoBehaviour
                     {
                         // START
                         Debug.Log("Start");
-                        AudioManager.instance.PlaySoundeffect("uuf");
+                        AudioManager.instance.PlaySoundeffect("SwordClash1_2");
                         LevelChanger.instance.FadeToNextLevel();
                         canInteract = false;
                         isTutorial = false;
@@ -243,7 +243,7 @@ public class MainMenuController : MonoBehaviour
                     {
                         // OPTIONS
                         Debug.Log("Tutorial");
-                        AudioManager.instance.PlaySoundeffect("uuf");
+                        AudioManager.instance.PlaySoundeffect("SwordClash1_2");
                         LevelChanger.instance.FadeToNextLevel();
                         canInteract = false;
                         isTutorial = true;
@@ -278,7 +278,7 @@ public class MainMenuController : MonoBehaviour
                     {
                         // START
                         Debug.Log("START");
-                        AudioManager.instance.PlaySoundeffect("uuf");
+                        AudioManager.instance.PlaySoundeffect("SwordClash1_2");
                         LevelChanger.instance.FadeToNextLevel();
                         canInteract = false;
                         isTutorial = false;
@@ -287,7 +287,7 @@ public class MainMenuController : MonoBehaviour
                     {
                         // OPTIONS
                         Debug.Log("Tutorial");
-                        AudioManager.instance.PlaySoundeffect("uuf");
+                        AudioManager.instance.PlaySoundeffect("SwordClash1_2");
                         LevelChanger.instance.FadeToNextLevel();
                         canInteract = false;
                         isTutorial = true;
@@ -360,6 +360,8 @@ public class MainMenuController : MonoBehaviour
 
     public void Options()
     {
+        AudioManager.instance.PlaySoundeffect("SwordClash1_2");
+
         index = 0;
         timer = 1f;
 
@@ -379,6 +381,8 @@ public class MainMenuController : MonoBehaviour
 
     public void Back(int num)
     {
+        AudioManager.instance.PlaySoundeffect("SwordClash1_2");
+
         index = num;
         timer = 1f;
 
@@ -400,6 +404,8 @@ public class MainMenuController : MonoBehaviour
 
     public void Credits()
     {
+        AudioManager.instance.PlaySoundeffect("SwordClash1_2");
+
         timer = 1f;
 
         Invoke("DisableMain", 1);

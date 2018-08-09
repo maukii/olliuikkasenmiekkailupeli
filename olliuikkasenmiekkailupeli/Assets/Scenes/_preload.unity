@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -248,6 +248,41 @@ MonoBehaviour:
     volume: 1
   - name: uuf
     clip: {fileID: 8300000, guid: 370a587b469ba884bbdc0783b0f3633f, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 1
+  - name: SwordClash1_2
+    clip: {fileID: 8300000, guid: 9c67a12c35f453044bd7319c1529bf71, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 1
+  - name: SwordClash4_2
+    clip: {fileID: 8300000, guid: acf8050261f551a4ab22ad4a76b91591, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 1
+  - name: SwordClash4_3
+    clip: {fileID: 8300000, guid: aafd9a3b0b7f6a84d9d132c4f652f99f, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 1
+  - name: SwordClash5
+    clip: {fileID: 8300000, guid: 1abb3c9ad770f3842908faf3a684b286, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 1
+  - name: SwordSwing1
+    clip: {fileID: 8300000, guid: dca3cc07d4ac63f4a8d4e968f6971bb5, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 1
+  - name: SwordSwing2
+    clip: {fileID: 8300000, guid: 863e6c940b2fd1f45b39e76e2d65e7d3, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 1
+  - name: SwordSwing3
+    clip: {fileID: 8300000, guid: 9a077f522d5bad94f88e69d8a5ad4241, type: 3}
     source: {fileID: 0}
     loop: 0
     volume: 1

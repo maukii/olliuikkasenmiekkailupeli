@@ -47,7 +47,27 @@ public class TutorialManager : MonoBehaviour
 	void Update ()
     {
         StuffLock();
+        TutorialPhases();
+        TutorialExit();
+    }
 
+    void StuffLock ()
+    {
+        if (moveLock)
+        {
+            P1.GetComponent<AlternativeMovement5>().enabled = false;
+            P2.GetComponent<AlternativeMovement5>().enabled = false;
+        }
+
+        if (!moveLock)
+        {
+            P1.GetComponent<AlternativeMovement5>().enabled = false;
+            P2.GetComponent<AlternativeMovement5>().enabled = false;
+        }
+    }
+
+    void TutorialPhases ()
+    {
         if (phase1)
         {
             Phase1(); //Only light vertical and horizontal attack
@@ -116,17 +136,29 @@ public class TutorialManager : MonoBehaviour
         {
             //Move to duel mode
         }
-
-        //IF PLAYER EXITS TUTORIAL, SET BOOLEANS TO FALSE!!!
-
     }
 
-    void StuffLock ()
+    void TutorialExit ()     //IF PLAYER EXITS TUTORIAL, SET BOOLEANS TO FALSE!!!
     {
-        if (moveLock)
+        if (MainMenuController.MMC.isTutorial == false)
         {
-            P1.GetComponent<AlternativeMovement5>().enabled = false;
-            P2.GetComponent<AlternativeMovement5>().enabled = false;
+            moveLock = false;
+            strongLock = false;
+            guardLock = false;
+            heightLock = false;
+            lungeLock = false;
+            phase1 = false;
+            phase2 = false;
+            phase3 = false;
+            phase4 = false;
+            phase5 = false;
+            phase6 = false;
+            phase7 = false;
+            phase8 = false;
+            phase9 = false;
+            phase10 = false;
+            phase11 = false;
+            tutorialClear = false;
         }
     }
 

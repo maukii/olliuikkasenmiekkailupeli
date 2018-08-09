@@ -343,6 +343,12 @@ MonoBehaviour:
   hor: 0
   ver: 0
   timer: 0.5
+  holdingForward: 0
+  firstF: 0
+  lunged: 0
+  holdingBack: 0
+  firstB: 0
+  jumped: 0
 --- !u!114 &281844864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,6 +541,12 @@ MonoBehaviour:
   hor: 0
   ver: 0
   timer: 0.5
+  holdingForward: 0
+  firstF: 0
+  lunged: 0
+  holdingBack: 0
+  firstB: 0
+  jumped: 0
 --- !u!65 &390767277
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -642,6 +654,12 @@ MonoBehaviour:
   hor: 0
   ver: 0
   timer: 0.5
+  holdingForward: 0
+  firstF: 0
+  lunged: 0
+  holdingBack: 0
+  firstB: 0
+  jumped: 0
 --- !u!4 &485980075
 Transform:
   m_ObjectHideFlags: 0
@@ -777,6 +795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 607884140}
   - component: {fileID: 607884139}
+  - component: {fileID: 607884141}
   m_Layer: 0
   m_Name: Input
   m_TagString: Untagged
@@ -855,6 +874,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &607884141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607884138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d45bd069d71e343b72350cb1ca3be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameTimer: 0
+  maxTimer: 0
 --- !u!1 &667481606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,6 +1724,11 @@ Prefab:
       propertyPath: CollisionTimeStrong
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 114297569818067576, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: LungeHeightOffset
+      value: -0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 852c08df0ef0e754f923a4ee72e95154, type: 2}
   m_IsPrefabParent: 0
@@ -1815,6 +1852,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 95182157071375638, guid: 306af6ac740d5aa4e803edf97660055f,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6f606b3a68ad2e548839b267c14ec146, type: 2}
+    - target: {fileID: 4689716273171196, guid: 306af6ac740d5aa4e803edf97660055f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.058271967
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689716273171196, guid: 306af6ac740d5aa4e803edf97660055f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.09025281
+      objectReference: {fileID: 0}
+    - target: {fileID: 114867476737475870, guid: 306af6ac740d5aa4e803edf97660055f,
+        type: 2}
+      propertyPath: DEBUG_TestScene
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 306af6ac740d5aa4e803edf97660055f, type: 2}
   m_IsPrefabParent: 0
@@ -1873,6 +1928,12 @@ MonoBehaviour:
   hor: 0
   ver: 0
   timer: 0.5
+  holdingForward: 0
+  firstF: 0
+  lunged: 0
+  holdingBack: 0
+  firstB: 0
+  jumped: 0
 --- !u!65 &1747312520
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2281,6 +2342,11 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114867476737475870, guid: 306af6ac740d5aa4e803edf97660055f,
+        type: 2}
+      propertyPath: DEBUG_TestScene
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 306af6ac740d5aa4e803edf97660055f, type: 2}
   m_IsPrefabParent: 0
@@ -2670,6 +2736,12 @@ MonoBehaviour:
   hor: 0
   ver: 0
   timer: 0.5
+  holdingForward: 0
+  firstF: 0
+  lunged: 0
+  holdingBack: 0
+  firstB: 0
+  jumped: 0
 --- !u!136 &2103654171
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2780,6 +2852,12 @@ MonoBehaviour:
   hor: 0
   ver: 0
   timer: 0.5
+  holdingForward: 0
+  firstF: 0
+  lunged: 0
+  holdingBack: 0
+  firstB: 0
+  jumped: 0
 --- !u!136 &2108149801
 CapsuleCollider:
   m_ObjectHideFlags: 0

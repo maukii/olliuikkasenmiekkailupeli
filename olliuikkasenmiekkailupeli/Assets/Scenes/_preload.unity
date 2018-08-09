@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 627650828}
   - component: {fileID: 627650832}
   - component: {fileID: 627650833}
+  - component: {fileID: 627650838}
   - component: {fileID: 627650834}
   - component: {fileID: 627650836}
   m_Layer: 0
@@ -560,6 +561,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8303728c155f69846a666849b75e07b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &627650838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 627650827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca32ad10eb083e24a8481e927d923491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveLock: 0
+  strongLock: 0
+  guardLock: 0
+  heightLock: 0
+  lungeLock: 0
+  phase1: 0
+  phase2: 0
+  phase3: 0
+  phase4: 0
+  phase5: 0
+  phase6: 0
+  phase7: 0
+  phase8: 0
+  phase9: 0
+  phase10: 0
+  phase11: 0
+  tutorialClear: 0
 --- !u!1001 &901993077
 Prefab:
   m_ObjectHideFlags: 0

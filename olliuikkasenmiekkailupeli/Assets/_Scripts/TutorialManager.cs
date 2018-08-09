@@ -26,33 +26,44 @@ public class TutorialManager : MonoBehaviour
     public bool phase11;
     public bool tutorialClear;
 
+    string sceneName;
+
     InputManager im;
     GameObject P1, P2;
 
+    public static TutorialManager TM;
+
     void Start ()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
+
         im = FindObjectOfType<InputManager>();
+        TM = this;
         
         P1 = GameObject.FindGameObjectWithTag("Player 1");
         P2 = GameObject.FindGameObjectWithTag("Player 2");
+    }
 
+	void Update ()
+    {
+        if (MainMenuController.MMC.isTutorial && sceneName == "TutorialScene")
+        {
+            StuffLock();
+            TutorialPhases();
+            TutorialExit();
+        }
+    }
+
+    void StuffLock ()
+    {
         phase1 = true;
         moveLock = true;
         strongLock = true;
         guardLock = true;
         heightLock = true;
         lungeLock = true;
-    }
 
-	void Update ()
-    {
-        StuffLock();
-        TutorialPhases();
-        TutorialExit();
-    }
-
-    void StuffLock ()
-    {
         if (moveLock)
         {
             P1.GetComponent<AlternativeMovement5>().enabled = false;

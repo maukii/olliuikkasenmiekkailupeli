@@ -26,6 +26,8 @@ public class TutorialManager : MonoBehaviour
     public bool phase11;
     public bool tutorialClear;
 
+    string sceneName;
+
     InputManager im;
     GameObject P1, P2;
 
@@ -33,6 +35,9 @@ public class TutorialManager : MonoBehaviour
 
     void Start ()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
+
         im = FindObjectOfType<InputManager>();
         TM = this;
         
@@ -42,7 +47,7 @@ public class TutorialManager : MonoBehaviour
 
 	void Update ()
     {
-        if (MainMenuController.MMC.isTutorial)
+        if (MainMenuController.MMC.isTutorial && sceneName == "TutorialScene")
         {
             StuffLock();
             TutorialPhases();

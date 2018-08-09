@@ -86,10 +86,14 @@ public class HandAnimationControl : MonoBehaviour
     void Update()
     {
 
-        CheckInput();
-        CheckControllerLayout();
+        if(GameHandler.instance.BattleStarted)
+        {
 
-        AnimationStateUpdate();
+            CheckInput();
+            CheckControllerLayout();
+
+            AnimationStateUpdate();
+        }
 
 
 

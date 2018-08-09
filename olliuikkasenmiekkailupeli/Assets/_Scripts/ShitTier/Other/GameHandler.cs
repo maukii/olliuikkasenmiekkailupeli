@@ -58,7 +58,7 @@ public class GameHandler : MonoBehaviour
         battleStarted = false;
 
         if (player1Dead)
-            ScoreManager.instance.PlayerWon(1); // TODO: check which player won
+            ScoreManager.instance.PlayerWon(1);
         else if (player2Dead)
             ScoreManager.instance.PlayerWon(2);
     }

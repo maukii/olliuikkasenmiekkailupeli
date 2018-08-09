@@ -351,7 +351,8 @@ public class AlternativeMovement5 : MonoBehaviour
         {
             if (!lunged && !jumped)
             {
-                anim.CrossFade("Lunge2", .5f);
+                //anim.CrossFade("Lunge2", .5f);
+                anim.SetBool("Lunged", true);
                 firstF = false;
                 holdingForward = false;
             }
@@ -390,14 +391,14 @@ public class AlternativeMovement5 : MonoBehaviour
             {
                 if(!lunged)
                 {
-                    anim.CrossFade("Jump", .5f);
+                    //anim.CrossFade("Jump", .5f);
                     anim.SetBool("Jumped", true);
                     firstB = false;
                     holdingBack = false;
                 }
                 else
                 {
-                    anim.CrossFade("Jump_Lunge", .5f);
+                    //anim.CrossFade("Jump_Lunge", .5f);
                     anim.SetBool("Jumped", true);
                     firstB = false;
                     holdingBack = false;

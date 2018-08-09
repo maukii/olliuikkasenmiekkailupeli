@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HandAnimationControl : MonoBehaviour
 {
@@ -58,9 +59,14 @@ public class HandAnimationControl : MonoBehaviour
             if(GameHandler.instance.BattleStarted)
                 facingRight = GetComponentInParent<AlternativeMovement5>().GetFacingRight(PlayerNumber);
 
-        anim = gameObject.GetComponent<Animator>();
-        anim.SetFloat("Inside", inside);
+        if(SceneManager.GetActiveScene().name == "GameScene")
+        {
+            anim = gameObject.GetComponent<Animator>();
+            anim.SetFloat("Inside", inside);
+        }
+
         im = FindObjectOfType<InputManager>();
+
         if (transform.parent.name == "P2")
         {
             PlayerNumber = 2;
@@ -88,7 +94,6 @@ public class HandAnimationControl : MonoBehaviour
 
         if(GameHandler.instance.BattleStarted)
         {
-
             CheckInput();
             CheckControllerLayout();
 

@@ -46,17 +46,17 @@ public class TutorialManager : MonoBehaviour
             tutorialNotStarted = false;
         }
 
-        if (!tutorialNotStarted)
+        if (!tutorialNotStarted && MainMenuController.MMC.isTutorial)
         {
             TutorialPhases();
-            TutorialExit();
         }
 
+        TutorialExit();
     }
 
     void TutorialPhases ()
     {
-        if (!tutorialNotStarted)
+        if (!tutorialNotStarted && MainMenuController.MMC.isTutorial)
         {
             P1 = GameObject.FindGameObjectWithTag("Player 1");
             P2 = GameObject.FindGameObjectWithTag("Player 2");
@@ -145,8 +145,9 @@ public class TutorialManager : MonoBehaviour
 
     void TutorialExit ()     //IF PLAYER EXITS TUTORIAL, SET BOOLEANS TO FALSE!!!
     {
-        if (MainMenuController.MMC.isTutorial == false)
+        if (SceneManager.GetActiveScene().name != "TutorialScene")
         {
+            tutorialNotStarted = true;
             moveLock = false;
             strongLock = false;
             guardLock = false;

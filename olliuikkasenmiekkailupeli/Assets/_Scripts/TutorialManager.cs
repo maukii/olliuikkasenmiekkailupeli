@@ -7,7 +7,6 @@ public class TutorialManager : MonoBehaviour
 {
     [Header("---Affects movement---")]
     public bool moveLock;
-    public bool strongLock;
     public bool guardLock;
     public bool heightLock;
     public bool lungeLock;
@@ -65,7 +64,6 @@ public class TutorialManager : MonoBehaviour
             P2.GetComponent<AlternativeMovement5>().enabled = false;
 
             moveLock = true;
-            strongLock = true;
             guardLock = true;
             heightLock = true;
             lungeLock = true;
@@ -94,7 +92,6 @@ public class TutorialManager : MonoBehaviour
         {
             //Players step out of striking distance
             //Moulinettes are unlocked
-            strongLock = false;
         }
 
         if (phase5)
@@ -149,7 +146,6 @@ public class TutorialManager : MonoBehaviour
         {
             tutorialNotStarted = true;
             moveLock = false;
-            strongLock = false;
             guardLock = false;
             heightLock = false;
             lungeLock = false;

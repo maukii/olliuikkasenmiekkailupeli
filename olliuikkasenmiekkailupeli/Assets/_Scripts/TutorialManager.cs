@@ -13,6 +13,7 @@ public class TutorialManager : MonoBehaviour
     public bool lungeLock;
 
     [Header("---Tutorial phases---")]
+    public bool tutorialNotStarted;
     public bool phase1;
     public bool phase2;
     public bool phase3;
@@ -25,9 +26,7 @@ public class TutorialManager : MonoBehaviour
     public bool phase10;
     public bool phase11;
     public bool tutorialClear;
-
-    string sceneName;
-
+    
     InputManager im;
     GameObject P1, P2;
 
@@ -35,50 +34,45 @@ public class TutorialManager : MonoBehaviour
 
     void Start ()
     {
-        Scene currentScene = SceneManager.GetActiveScene();
-        sceneName = currentScene.name;
-
         im = FindObjectOfType<InputManager>();
         TM = this;
-        
-        P1 = GameObject.FindGameObjectWithTag("Player 1");
-        P2 = GameObject.FindGameObjectWithTag("Player 2");
+        tutorialNotStarted = true;
     }
 
 	void Update ()
     {
-        if (MainMenuController.MMC.isTutorial && sceneName == "TutorialScene")
+        if (MainMenuController.MMC.isTutorial && GameHandler.instance.BattleStarted)
         {
-            StuffLock();
+            tutorialNotStarted = false;
+        }
+
+        if (!tutorialNotStarted)
+        {
             TutorialPhases();
             TutorialExit();
         }
-    }
 
-    void StuffLock ()
-    {
-        phase1 = true;
-        moveLock = true;
-        strongLock = true;
-        guardLock = true;
-        heightLock = true;
-        lungeLock = true;
-
-        if (moveLock)
-        {
-            P1.GetComponent<AlternativeMovement5>().enabled = false;
-            P2.GetComponent<AlternativeMovement5>().enabled = false;
-        }
-
-        if (!moveLock)
-        {
-            P1.GetComponent<AlternativeMovement5>().enabled = false;
-            P2.GetComponent<AlternativeMovement5>().enabled = false;
-        }
     }
 
     void TutorialPhases ()
     {
+        if (!tutorialNotStarted)
+        {
+            P1 = GameObject.FindGameObjectWithTag("Player 1");
+            P2 = GameObject.FindGameObjectWithTag("Player 2");
+
+            P1.GetComponent<AlternativeMovement5>().enabled = false;
+            P2.GetComponent<AlternativeMovement5>().enabled = false;
+
+            moveLock = true;
+            strongLock = true;
+            guardLock = true;
+            heightLock = true;
+            lungeLock = true;
+
+            phase1 = true;
+        }
+
         if (phase1)
         {
             Phase1(); //Only light vertical and horizontal attack
@@ -175,10 +169,9 @@ public class TutorialManager : MonoBehaviour
 
     void Phase1 ()
     {
-        
+
     }
 }
-
 /*
 1. Players start out of striking distance from eachother and can  only do light vertical and horizontal attack 
 

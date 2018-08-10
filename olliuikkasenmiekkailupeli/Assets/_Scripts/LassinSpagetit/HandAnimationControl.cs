@@ -8,6 +8,7 @@ public class HandAnimationControl : MonoBehaviour
 {
     [Header("--DEBUG--")]
     public bool DEBUG_NoInput;
+    public bool DEBUG_testscene = false;
 
     [Header("--Input--")]
     public int PlayerNumber = 1;
@@ -70,6 +71,11 @@ public class HandAnimationControl : MonoBehaviour
             anim = gameObject.GetComponent<Animator>();
             anim.SetFloat("Inside", inside);
         }
+        else
+        {
+            anim = gameObject.GetComponent<Animator>();
+            anim.SetFloat("Inside", inside);
+        }
 
         im = FindObjectOfType<InputManager>();
 
@@ -98,7 +104,7 @@ public class HandAnimationControl : MonoBehaviour
     void Update()
     {
 
-        if(GameHandler.instance.BattleStarted)
+        if(GameHandler.instance.BattleStarted || DEBUG_testscene)
         {
             CheckInput();
             CheckControllerLayout();

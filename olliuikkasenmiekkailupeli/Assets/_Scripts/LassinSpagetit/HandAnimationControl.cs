@@ -65,6 +65,12 @@ public class HandAnimationControl : MonoBehaviour
             anim.SetFloat("Inside", inside);
         }
 
+        if (SceneManager.GetActiveScene().name == "TutorialScene")
+        {
+            anim = gameObject.GetComponent<Animator>();
+            anim.SetFloat("Inside", inside);
+        }
+
         im = FindObjectOfType<InputManager>();
 
         if (transform.parent.name == "P2")

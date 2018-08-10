@@ -144,6 +144,11 @@ public class AlternativeMovement5 : MonoBehaviour
         return facingRight;
     }
 
+    public Animator GetActiveAnimator()
+    {
+        return anim;
+    }
+
     // ----- AFTER START -----
 
     void Update()

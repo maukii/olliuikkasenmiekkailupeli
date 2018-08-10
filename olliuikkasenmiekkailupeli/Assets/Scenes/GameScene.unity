@@ -1432,7 +1432,7 @@ MonoBehaviour:
   players:
   - {fileID: 192891527}
   - {fileID: 102844751}
-  playerFreezeTimer: 5
+  playerFreezeTimer: 3
 --- !u!4 &110759322
 Transform:
   m_ObjectHideFlags: 0
@@ -8298,6 +8298,16 @@ Prefab:
       propertyPath: ShowHeightMeters
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114621997645846882, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: P1
+      value: 
+      objectReference: {fileID: 192891527}
+    - target: {fileID: 114621997645846882, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: P2
+      value: 
+      objectReference: {fileID: 102844751}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 852c08df0ef0e754f923a4ee72e95154, type: 2}
   m_IsPrefabParent: 0

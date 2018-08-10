@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -283,6 +283,16 @@ MonoBehaviour:
     volume: 1
   - name: SwordSwing3
     clip: {fileID: 8300000, guid: 9a077f522d5bad94f88e69d8a5ad4241, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 1
+  - name: Heavy hit placeholder
+    clip: {fileID: 8300000, guid: 1681c71f41417634bbfc070f58abf31c, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 1
+  - name: Light Hit Placeholder
+    clip: {fileID: 8300000, guid: 84f95ac27a6763349b4c6f8830bee25b, type: 3}
     source: {fileID: 0}
     loop: 0
     volume: 1

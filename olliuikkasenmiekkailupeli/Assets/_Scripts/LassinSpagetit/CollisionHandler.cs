@@ -33,13 +33,13 @@ public class CollisionHandler : MonoBehaviour {
 
     #region CollisionTriggers
 
-    public int WhoHitFirst;
-    public bool strongCollision = true;
-    public bool handGuardHit = false;
-    public bool miss = false;
-    public bool NoGuardCollision = false;
-    public bool NoStrongCollision = false;
-    public bool NoCollision = false;
+    int WhoHitFirst;
+    bool strongCollision = true;
+    bool handGuardHit = false;
+    bool miss = false;
+    bool NoGuardCollision = false;
+    bool NoStrongCollision = false;
+    bool NoCollision = false;
     bool[] calculateCollision = new bool[2];
 
     #endregion
@@ -313,7 +313,7 @@ public class CollisionHandler : MonoBehaviour {
         }
         else
         {
-            NoGuardCollision = StepDistance >= 8 ? true : false;
+            NoGuardCollision = StepDistance >= 10 ? true : false;
             NoStrongCollision = StepDistance >= 10 ? true : false;
             NoCollision = StepDistance >= 12 ? true : false;
         }
@@ -498,6 +498,7 @@ public class CollisionHandler : MonoBehaviour {
             anim[otherplayer].SetBool("light", false);
             MakeSparks(hc.GetMiddle(otherplayer+1), transform.rotation);
         }
+        
     }
     void QuardBreak(int player)
     {
@@ -547,7 +548,7 @@ public class CollisionHandler : MonoBehaviour {
         anim[otherplayer].SetBool("AExtend", true);
         //if (!strongCollision)
         //{
-        //    anim[otherplayer].SetBool("light", true);
+        //    anim[otherplayer].SetBool("ALight", true);
         //    MakeSparks(hc.GetTip(otherplayer + 1), transform.rotation);
         //}
         //else
@@ -571,7 +572,7 @@ public class CollisionHandler : MonoBehaviour {
     void SetInterruptTimer(int player, float time)
     {
         interruptTimer[player] = time;
-        origSpeed[player] = anim[player].speed;
+        //origSpeed[player] = anim[player].speed;
     }
     void Timer()
     {
@@ -584,6 +585,7 @@ public class CollisionHandler : MonoBehaviour {
                 interruptTimer[i] -= Time.deltaTime;
                 SlowSpeed = origSpeed[i] * SlowMoMult;
                 anim[i].speed = SlowSpeed;
+                ph[i].swoosh = false;
             }
             else
             {
@@ -595,6 +597,8 @@ public class CollisionHandler : MonoBehaviour {
                 anim[i].SetBool("ADeflect", false);
                 anim[i].SetBool("AExtend", false);
                 anim[i].SetBool("ALight", false);
+                ph[i].swoosh = true;
+                
             }
         }
     }

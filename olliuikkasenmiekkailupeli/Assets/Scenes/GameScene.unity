@@ -1425,6 +1425,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511344c725e3c934c8e91929470f34d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndex: 0
+  anim: {fileID: 0}
+  dead: 0
+  scoreGiven: 0
 --- !u!1 &106886086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,6 +1991,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511344c725e3c934c8e91929470f34d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndex: 0
+  anim: {fileID: 0}
+  dead: 0
+  scoreGiven: 0
 --- !u!114 &192891533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8900,6 +8908,11 @@ Prefab:
       propertyPath: P2_sword
       value: 
       objectReference: {fileID: 1664776095}
+    - target: {fileID: 114266302690892870, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: startingDistance
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 852c08df0ef0e754f923a4ee72e95154, type: 2}
   m_IsPrefabParent: 0

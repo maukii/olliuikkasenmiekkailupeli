@@ -153,25 +153,22 @@ public class AlternativeMovement5 : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
-            anim.SetBool("space", true);
-        else
-            anim.SetBool("space", false);
-
-
-        Inputs();
-        Move();
-
-        canBackup = distances.CanBackUp(playerIndex);
-        playerDistance = distances.GetPlayerDistance();
-
-        if (PauseMenu.gameIsPaused)
+        if(!GameHandler.instance.battleEnded)
         {
-            script.enabled = false;
-        }
-        else
-        {
-            script.enabled = true;
+            Inputs();
+            Move();
+
+            canBackup = distances.CanBackUp(playerIndex);
+            playerDistance = distances.GetPlayerDistance();
+
+            if (PauseMenu.gameIsPaused)
+            {
+                script.enabled = false;
+            }
+            else
+            {
+                script.enabled = true;
+            }
         }
     }
 

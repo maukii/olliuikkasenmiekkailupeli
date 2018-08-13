@@ -8,9 +8,6 @@ public class OnSceneLoaded : MonoBehaviour
 {
     public List<GameObject> players = new List<GameObject>();
 
-    //[SerializeField] GameObject countdown;
-    //Animator countdownAnim;
-
     public float playerFreezeTimer = 3;
     float reset;
     bool timerStarted;
@@ -22,12 +19,6 @@ public class OnSceneLoaded : MonoBehaviour
 
     private void Start()
     {
-        //if(countdown != null)
-        //{
-        //    countdownAnim = countdown.GetComponent<Animator>();
-        //    countdownAnim.SetTrigger("CountDown");
-        //}
-
         if (FindObjectOfType<AudioManager>() != null)
         {
             AudioManager.instance.FadeInMusic();

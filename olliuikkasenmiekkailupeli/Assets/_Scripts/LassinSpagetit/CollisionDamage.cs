@@ -1,8 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CollisionDamage : MonoBehaviour {
+
+    [SerializeField]
+    GameObject P1, P2, P1_sword, P2_sword, swordPrefab;
 
     CollisionHandler ch;
     public enum Bodyparts { Head, Torso, Leg, Arm, Hand }
@@ -23,6 +27,8 @@ public class CollisionDamage : MonoBehaviour {
     private void Start()
     {
         ch = GetComponent<CollisionHandler>();
+        P1 = GameObject.FindGameObjectWithTag("Player 1");
+        P2 = GameObject.FindGameObjectWithTag("Player 2");
     }
 
     public void StartCollisionDetection(int player)
@@ -130,16 +136,22 @@ public class CollisionDamage : MonoBehaviour {
     void PlayDamageAnimation(Bodyparts body, int player)
     {
         //Play
+        int bodypart = (int)body;
+
+        var anim = (player == 0 ? P1 : P2).GetComponent<AlternativeMovement5>().GetActiveAnimator();
+        anim.SetInteger("Bodypart", bodypart);
+        anim.SetTrigger("TakeDamage");
+        AudioManager.instance.PlaySoundeffect("Light Hit Placeholder");
         Debug.Log("osuma animaatio");
     }
 
     void CheckHealth(int player)
     {
-        if (HeadTreshold[player] == 0) Die(Bodyparts.Head);
-        if (TorsoTreshold[player] == 0) Die(Bodyparts.Torso);
-        if (LegTreshold[player] == 0) Die(Bodyparts.Leg);
-        if (ArmTreshold[player] == 0) Die(Bodyparts.Arm);
-        if (HandTreshold[player] == 0) Die(Bodyparts.Hand);
+        if (HeadTreshold[player] == 0) Die(Bodyparts.Head, player);
+        if (TorsoTreshold[player] == 0) Die(Bodyparts.Torso, player);
+        if (LegTreshold[player] == 0) Die(Bodyparts.Leg, player);
+        if (ArmTreshold[player] == 0) Die(Bodyparts.Arm, player);
+        if (HandTreshold[player] == 0) Die(Bodyparts.Hand, player);
         if(HandTreshold[player] == 1 && ArmTreshold[player] == 1 && LegTreshold[player] == 1 && TorsoTreshold[player] == 1 && HeadTreshold[player] == 1)
         {
             Debug.Log("let him die!");
@@ -147,8 +159,11 @@ public class CollisionDamage : MonoBehaviour {
 
     }
 
-    void Die(Bodyparts part)
+    void Die(Bodyparts part, int player)
     {
+
+        int playerModel = (player == 0 ? GameHandler.instance.GetPlayer1Model() : GameHandler.instance.GetPlayer2Model());
+
         switch (part)
         {
             case Bodyparts.Head:
@@ -168,5 +183,50 @@ public class CollisionDamage : MonoBehaviour {
                 break;
         }
         Debug.Log("död");
+
+        int bodypart = (int)part;
+
+        var anim = (player == 0 ? P1 : P2).GetComponent<AlternativeMovement5>().GetActiveAnimator();
+        anim.SetInteger("Bodypart", bodypart);
+        anim.SetTrigger("Die");
+        AudioManager.instance.PlaySoundeffect("Heavy hit placeholder");
+
+        if(bodypart > 2 && playerModel != 2 && playerModel != 5)
+        {
+            DeactivateSword(player);
+            DropAnim(player);
+        }
+
     }
+
+    private void DeactivateSword(int player)
+    {
+        (player == 0 ? P1 : P2).GetComponent<DeactiveSwords>().DeactivateSowrds(player);
+    }
+
+    private void DropAnim(int player)
+    {
+        var playerPos = (player == 0 ? P1 : P2);
+
+        //miekkaDrop.gameObject.SetActive(true);
+        //miekkaDrop.GetComponent<Animator>().SetTrigger("Drop");
+
+        var Player = Instantiate(swordPrefab, playerPos.transform.position, Quaternion.identity);
+
+        if(player == 0)
+        {
+            Player.transform.Rotate(0, 90, 0);
+        }
+        else if(player == 1)
+        {
+            Player.transform.Rotate(0, -90, 0);
+        }
+
+        Player.GetComponent<Animator>().SetTrigger("Drop");
+
+        //var dropSword = Instantiate(swordPrefab, sword.transform.position, Quaternion.identity);
+        //dropSword.transform.localScale = sword.transform.localScale;
+        //dropSword.GetComponent<Animator>().SetTrigger("Drop");
+    }
+
 }

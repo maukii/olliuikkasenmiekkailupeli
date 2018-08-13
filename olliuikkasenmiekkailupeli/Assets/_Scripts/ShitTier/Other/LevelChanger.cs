@@ -51,6 +51,19 @@ public class LevelChanger : MonoBehaviour
         anim.ResetTrigger("FadeOut");
     }
 
+    public void FadeToCharacterSelect()
+    {
+        anim.SetTrigger("FadeToCharacterSelect");
+        anim.ResetTrigger("FadeToMain");
+        anim.ResetTrigger("FadeIn");
+        anim.ResetTrigger("FadeOut");
+    }
+
+    public void FadeToCharacterSelectComplite()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
     public void FadeToMainComplite()
     {
         SceneManager.LoadScene(0);

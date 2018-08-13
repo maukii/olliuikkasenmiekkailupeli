@@ -11,11 +11,18 @@ public class GameHandler : MonoBehaviour
     int player1Model, player2Model;                            
     bool player1Dead, player2Dead;
 
-    private bool battleStarted;
+    public bool battleStarted;
     public bool BattleStarted
     {
         get { return battleStarted; }
         set { battleStarted = value; }
+    }
+
+    public bool battleEnded;
+    public bool BattleEnded
+    {
+        get { return battleEnded; }
+        set { battleEnded = value; }
     }
 
     public float gameTimer;
@@ -38,6 +45,9 @@ public class GameHandler : MonoBehaviour
     private void Update()
     {
         Timer();
+
+        if (SceneManager.GetActiveScene().name != "GameScene")
+            battleEnded = false;
     }
 
     void Timer()

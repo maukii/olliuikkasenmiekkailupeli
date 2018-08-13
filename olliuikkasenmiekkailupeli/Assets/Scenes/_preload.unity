@@ -217,6 +217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d45bd069d71e343b72350cb1ca3be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleStarted: 0
+  battleEnded: 0
   gameTimer: 0
   maxTimer: 240
 --- !u!114 &627650829
@@ -622,6 +624,7 @@ MonoBehaviour:
   guardLock: 0
   heightLock: 0
   lungeLock: 0
+  tutorialNotStarted: 0
   phase1: 0
   phase2: 0
   phase3: 0

@@ -26,7 +26,6 @@ public class LevelChanger : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        Debug.Log(level);
         anim.ResetTrigger("FadeOut");
 
         if (level != 0)

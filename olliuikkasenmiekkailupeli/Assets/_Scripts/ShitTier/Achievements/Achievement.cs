@@ -1,11 +1,12 @@
 ﻿using System.Linq;
 using UnityEngine;
 using System.Collections;
+using Steamworks;
 
 [System.Serializable]
 public class Achievement
 {
-    public string ID = "Achievement00";
+    public string ID = "ACHIEVEMENT_00";
     public string Name;
     [SerializeField] string Description;
     [SerializeField] Texture2D IconIncomplete, IconComplete;
@@ -28,6 +29,13 @@ public class Achievement
         }
 
         return false;
+    }
+
+    public void LockAchievement()
+    {
+        Earned = false;
+        currentProgress = 0f;
+        SteamUserStats.ClearAchievement(ID);
     }
 
     // Returns true if this progress set results in the Achievement being earned.

@@ -80,7 +80,8 @@ public class MainMenuController : MonoBehaviour
         // DELETE AFTER TESTING
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            AchievementManager.instance.AddProgressToAchievement("Pacifist run", 50);
+            //AchievementManager.instance.AddProgressToAchievement("Pacifist run", 50);
+            AchievementManager.instance.SetProgressToAchievement("CompleteTutorial", 100);
         }
 
     }

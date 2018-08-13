@@ -23,6 +23,9 @@ public class EndGameMenu : MonoBehaviour
     {
         defaultTimer = timer;
         menuUI.gameObject.SetActive(false);
+
+        DisableHighlights();
+        highlights[index].SetActive(true);
     }
 
     private void Update()

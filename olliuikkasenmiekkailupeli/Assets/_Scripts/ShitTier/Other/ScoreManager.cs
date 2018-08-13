@@ -29,10 +29,12 @@ public class ScoreManager : MonoBehaviour
         if(playerNumber == 1)
         {
             p1_wins++;
+            Debug.Log(p1_wins);
         }
         else if(playerNumber == 2)
         {
             p2_wins++;
+            Debug.Log(p2_wins);
         }
     }
         

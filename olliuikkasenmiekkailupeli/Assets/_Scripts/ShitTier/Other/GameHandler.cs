@@ -57,20 +57,24 @@ public class GameHandler : MonoBehaviour
             gameTimer += Time.deltaTime;
             if(gameTimer >= maxTimer)
             {
-                GameEnded();
+                GameEnded(-1);
             }
         }
     }
 
-    public void GameEnded()
+    public void GameEnded(int playerIndex)
     {
         gameTimer = 0f;
         battleStarted = false;
 
-        if (player1Dead)
-            ScoreManager.instance.PlayerWon(1);
-        else if (player2Dead)
-            ScoreManager.instance.PlayerWon(2);
+        if (playerIndex == 1 || playerIndex == 2)
+        {
+            ScoreManager.instance.PlayerWon(playerIndex);
+        }
+        else if(playerIndex == -1) // time ended
+        {
+            Debug.Log("time ended");
+        }
     }
 
 

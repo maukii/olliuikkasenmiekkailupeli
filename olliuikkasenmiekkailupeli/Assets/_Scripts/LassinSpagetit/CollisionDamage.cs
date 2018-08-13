@@ -207,26 +207,11 @@ public class CollisionDamage : MonoBehaviour {
     private void DropAnim(int player)
     {
         var playerPos = (player == 0 ? P1 : P2);
+        var sword = Instantiate(swordPrefab, playerPos.transform.position, playerPos.transform.rotation);
+        var playerModel = playerPos.GetComponent<AlternativeMovement5>().GetActiveAnimator();
 
-        //miekkaDrop.gameObject.SetActive(true);
-        //miekkaDrop.GetComponent<Animator>().SetTrigger("Drop");
-
-        var Player = Instantiate(swordPrefab, playerPos.transform.position, Quaternion.identity);
-
-        if(player == 0)
-        {
-            Player.transform.Rotate(0, 90, 0);
-        }
-        else if(player == 1)
-        {
-            Player.transform.Rotate(0, -90, 0);
-        }
-
-        Player.GetComponent<Animator>().SetTrigger("Drop");
-
-        //var dropSword = Instantiate(swordPrefab, sword.transform.position, Quaternion.identity);
-        //dropSword.transform.localScale = sword.transform.localScale;
-        //dropSword.GetComponent<Animator>().SetTrigger("Drop");
+        sword.transform.position = playerModel.transform.position;
+        sword.GetComponent<Animator>().SetTrigger("Drop");
     }
 
 }

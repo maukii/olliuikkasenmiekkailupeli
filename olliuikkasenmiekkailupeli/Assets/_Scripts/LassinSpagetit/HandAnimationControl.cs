@@ -8,6 +8,7 @@ public class HandAnimationControl : MonoBehaviour
 {
     [Header("--DEBUG--")]
     public bool DEBUG_NoInput;
+    public bool DEBUG_testscene = false;
 
     [Header("--Input--")]
     public int PlayerNumber = 1;
@@ -65,6 +66,17 @@ public class HandAnimationControl : MonoBehaviour
             anim.SetFloat("Inside", inside);
         }
 
+        if (SceneManager.GetActiveScene().name == "TutorialScene")
+        {
+            anim = gameObject.GetComponent<Animator>();
+            anim.SetFloat("Inside", inside);
+        }
+        else
+        {
+            anim = gameObject.GetComponent<Animator>();
+            anim.SetFloat("Inside", inside);
+        }
+
         im = FindObjectOfType<InputManager>();
 
         if (transform.parent.name == "P2")
@@ -92,7 +104,7 @@ public class HandAnimationControl : MonoBehaviour
     void Update()
     {
 
-        if(GameHandler.instance.BattleStarted)
+        if(GameHandler.instance.BattleStarted || DEBUG_testscene)
         {
             CheckInput();
             CheckControllerLayout();
@@ -145,11 +157,16 @@ public class HandAnimationControl : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.C) && !TutorialManager.TM.guardLock)
                         SwapHanging();
 
-                    if (Input.GetKeyDown(KeyCode.R) && !swordSwinging && !TutorialManager.TM.strongLock)
+                    if (Input.GetKeyDown(KeyCode.R) && !swordSwinging)
                     {
                         Inputframe = true;
                         Swing();
                         Debug.Log("swing");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.R) && !swordSwinging)
+                    {
+                        Weak();
+                        Debug.Log("weak");
                     }
                     else if (Input.GetKeyUp(KeyCode.R) && !swordSwinging && Inputframe)
                     {
@@ -157,11 +174,16 @@ public class HandAnimationControl : MonoBehaviour
                         Debug.Log("weak");
                     }
 
-                    if (Input.GetKeyDown(KeyCode.F) && !swordSwinging && !TutorialManager.TM.strongLock)
+                    if (Input.GetKeyDown(KeyCode.F) && !swordSwinging)
                     {
                         Inputframe = true;
                         SwingHor();
                         Debug.Log("swinghor");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.F) && !swordSwinging)
+                    {
+                        Weak();
+                        Debug.Log("weak");
                     }
                     else if (Input.GetKeyUp(KeyCode.F) && !swordSwinging && Inputframe)
                     {
@@ -181,18 +203,26 @@ public class HandAnimationControl : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.I) && !TutorialManager.TM.guardLock)
                         SwapHanging();
 
-                    if (Input.GetKeyDown(KeyCode.RightShift) && !swordSwinging && !TutorialManager.TM.strongLock)
+                    if (Input.GetKeyDown(KeyCode.RightShift) && !swordSwinging)
                     {
                         Swing();
+                    }
+                    else if (Input.GetKeyUp(KeyCode.RightShift) && !swordSwinging)
+                    {
+                        Weak();
                     }
                     else if (Input.GetKeyUp(KeyCode.RightShift) && !swordSwinging && Inputframe)
                     {
                         Weak();
                     }
 
-                    if (Input.GetKeyDown(KeyCode.RightControl) && !swordSwinging && !TutorialManager.TM.strongLock)
+                    if (Input.GetKeyDown(KeyCode.RightControl) && !swordSwinging)
                     {
                         SwingHor();
+                    }
+                    else if (Input.GetKeyUp(KeyCode.RightControl) && !swordSwinging)
+                    {
+                        WeakHor();
                     }
                     else if (Input.GetKeyUp(KeyCode.RightControl) && !swordSwinging && Inputframe)
                     {
@@ -212,10 +242,15 @@ public class HandAnimationControl : MonoBehaviour
             {
                 if((im.isKeyboardAndMouseP1 && PlayerNumber == 1) || (im.isKeyboardAndMouseP2 && PlayerNumber == 2))
                 {
-                    if (Input.GetMouseButtonDown(0) && !swordSwinging && !TutorialManager.TM.strongLock)
+                    if (Input.GetMouseButtonDown(0) && !swordSwinging)
                     {
                         Inputframe = true;
                         Swing();
+                    }
+                    else if (Input.GetMouseButtonUp(0) && !swordSwinging)
+                    {
+                        Inputframe = false;
+                        Weak();
                     }
                     else if (Input.GetMouseButtonUp(0) && !swordSwinging && Inputframe)
                     {
@@ -226,10 +261,15 @@ public class HandAnimationControl : MonoBehaviour
                         SwapHanging();
                     if (Input.GetMouseButtonDown(2) && !TutorialManager.TM.guardLock)
                         SwapInside();
-                    if (Input.GetKeyDown(KeyCode.F) && !swordSwinging && !TutorialManager.TM.strongLock)
+                    if (Input.GetKeyDown(KeyCode.F) && !swordSwinging)
                     {
                         Inputframe = true;
                         SwingHor();
+                    }
+                    else if (Input.GetKeyUp(KeyCode.F) && !swordSwinging)
+                    {
+                        Inputframe = false;
+                        WeakHor();
                     }
                     else if (Input.GetKeyUp(KeyCode.F) && !swordSwinging && Inputframe)
                     {
@@ -406,13 +446,13 @@ public class HandAnimationControl : MonoBehaviour
         {
             if (controllerLayout == 1)
             {
-                if (im.GetTriggers(PlayerNumber) > 0 && !swordSwinging && !inputDown[8])
+                if (im.GetTriggers(PlayerNumber) > 0 && !swordSwinging && !inputDown[8] && !TutorialManager.TM.guardLock)
                 {
                     inputDown[8] = true;
                     SwapHanging();
                 }
 
-                if (im.GetLB(PlayerNumber) && !swordSwinging && !inputDown[5])
+                if (im.GetLB(PlayerNumber) && !swordSwinging && !inputDown[5] && !TutorialManager.TM.guardLock)
                 {
                     inputDown[5] = true;
                     SwapInside();
@@ -424,7 +464,7 @@ public class HandAnimationControl : MonoBehaviour
                     Inputframe = true;
                     Swing();
                 }
-                else if (im.GetTriggers(PlayerNumber) == 0  && Inputframe && inputDown[7])
+                else if (im.GetTriggers(PlayerNumber) == 0 && Inputframe && inputDown[7])
                 {
                     inputDown[7] = false;
                     Inputframe = false;
@@ -437,7 +477,7 @@ public class HandAnimationControl : MonoBehaviour
                     Inputframe = true;
                     SwingHor();
                 }
-                else if (!im.GetRB(PlayerNumber) && Inputframe  && inputDown[6])
+                else if (!im.GetRB(PlayerNumber) && Inputframe && inputDown[6])
                 {
                     inputDown[6] = false;
                     Inputframe = false;
@@ -460,7 +500,7 @@ public class HandAnimationControl : MonoBehaviour
                     WeakHor();
                 }
 
-                if (im.GetLB(PlayerNumber) && !swordSwinging && !inputDown[5])
+                if (im.GetLB(PlayerNumber) && !swordSwinging && !inputDown[5] && !TutorialManager.TM.guardLock)
                 {
                     inputDown[5] = true;
                     SwapInside();
@@ -479,7 +519,7 @@ public class HandAnimationControl : MonoBehaviour
                     Weak();
                 }
 
-                if (im.GetRB(PlayerNumber) && !swordSwinging && !inputDown[6])
+                if (im.GetRB(PlayerNumber) && !swordSwinging && !inputDown[6] && !TutorialManager.TM.guardLock)
                 {
                     inputDown[6] = true;
                     SwapHanging();
@@ -503,7 +543,7 @@ public class HandAnimationControl : MonoBehaviour
                     WeakHor();
                 }
 
-                if (im.GetLB(PlayerNumber) && !swordSwinging && !inputDown[5])
+                if (im.GetLB(PlayerNumber) && !swordSwinging && !inputDown[5] && !TutorialManager.TM.guardLock)
                 {
                     inputDown[5] = true;
                     AddStanceId = AdditiveInverted ? AddStanceId + 1 : AddStanceId - 1;
@@ -522,7 +562,7 @@ public class HandAnimationControl : MonoBehaviour
                     Weak();
                 }
 
-                if (im.GetRB(PlayerNumber) && !swordSwinging && !inputDown[6])
+                if (im.GetRB(PlayerNumber) && !swordSwinging && !inputDown[6] && !TutorialManager.TM.guardLock)
                 {
                     inputDown[6] = true;
                     AddStanceId = AdditiveInverted ? AddStanceId - 1 : AddStanceId + 1;
@@ -530,13 +570,13 @@ public class HandAnimationControl : MonoBehaviour
             }
             else if (controllerLayout == 4)
             {
-                if (im.GetTriggers(PlayerNumber) > 0 && !swordSwinging && !inputDown[8])
+                if (im.GetTriggers(PlayerNumber) > 0 && !swordSwinging && !inputDown[8] && !TutorialManager.TM.guardLock)
                 {
                     inputDown[8] = true;
                     AddStanceId = AdditiveInverted ? AddStanceId - 1 : AddStanceId + 1;
                 }
 
-                if (im.GetLB(PlayerNumber) && !swordSwinging && !inputDown[5])
+                if (im.GetLB(PlayerNumber) && !swordSwinging && !inputDown[5] && !TutorialManager.TM.guardLock)
                 {
                     inputDown[5] = true;
                     AddStanceId = AdditiveInverted ? AddStanceId + 1 : AddStanceId - 1;

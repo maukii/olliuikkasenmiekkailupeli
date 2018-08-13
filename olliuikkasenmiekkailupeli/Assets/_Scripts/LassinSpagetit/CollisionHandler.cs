@@ -27,6 +27,7 @@ public class CollisionHandler : MonoBehaviour {
     float collisionOffsetSide = 0.9f;
     float[] origCollisionTime = new float[2];
     public float LungeHeightOffset = -0.5f;
+    public float heightOffsetMult = 0.5f;
     float[] lungeOffset = new float[2];
     #endregion
 
@@ -322,22 +323,21 @@ public class CollisionHandler : MonoBehaviour {
     bool CheckHeight(int player)
     {
         int otherplayer = player - 1 == -1 ? 1 : 0;
-        Debug.Log((height[player] + lungeOffset[player]));
         if(hanging[otherplayer] == 1)
         {
-            if (hc.GetHeightOffset() + (height[player] + lungeOffset[player]) < hc.GetBaseY(otherplayer + 1) && hc.GetHeightOffset() + (height[player] + lungeOffset[player]) > hc.GetMiddleY(otherplayer + 1) && !NoStrongCollision)
+            if (hc.GetHeightOffset() + (height[player]* heightOffsetMult + lungeOffset[player]) < hc.GetBaseY(otherplayer + 1) && hc.GetHeightOffset() + (height[player] * heightOffsetMult + lungeOffset[player]) > hc.GetMiddleY(otherplayer + 1) && !NoStrongCollision)
             {
                 strongCollision = true;
                 miss = false;
                 handGuardHit = false;
             }
-            else if (hc.GetHeightOffset() + (height[player] + lungeOffset[player]) < hc.GetHandleY(otherplayer + 1) && hc.GetHeightOffset() + (height[player] + lungeOffset[player]) > hc.GetBaseY(otherplayer + 1) && !NoGuardCollision)
+            else if (hc.GetHeightOffset() + (height[player] * heightOffsetMult + lungeOffset[player]) < hc.GetHandleY(otherplayer + 1) && hc.GetHeightOffset() + (height[player] * heightOffsetMult + lungeOffset[player]) > hc.GetBaseY(otherplayer + 1) && !NoGuardCollision)
             {
                 strongCollision = true;
                 handGuardHit = true;
                 miss = false;
             }
-            else if (hc.GetHeightOffset() + (height[player] + lungeOffset[player]) < hc.GetMiddleY(otherplayer + 1) && hc.GetHeightOffset() + (height[player] + lungeOffset[player]) > hc.GetTipY(otherplayer + 1) && !NoCollision)
+            else if (hc.GetHeightOffset() + (height[player] * heightOffsetMult + lungeOffset[player]) < hc.GetMiddleY(otherplayer + 1) && hc.GetHeightOffset() + (height[player] * heightOffsetMult + lungeOffset[player]) > hc.GetTipY(otherplayer + 1) && !NoCollision)
             {
                 strongCollision = false;
                 miss = false;
@@ -351,19 +351,19 @@ public class CollisionHandler : MonoBehaviour {
         }
         else
         {
-            if (hc.GetHeightOffset() + (height[player] + lungeOffset[player]) > hc.GetBaseY(otherplayer + 1) && hc.GetHeightOffset() + (height[player] + lungeOffset[player]) < hc.GetMiddleY(otherplayer + 1) && !NoStrongCollision)
+            if (hc.GetHeightOffset() + (height[player] * heightOffsetMult + lungeOffset[player]) > hc.GetBaseY(otherplayer + 1) && hc.GetHeightOffset() + (height[player] * heightOffsetMult + lungeOffset[player]) < hc.GetMiddleY(otherplayer + 1) && !NoStrongCollision)
             {
                 strongCollision = true;
                 miss = false;
                 handGuardHit = false;
             }
-            else if (hc.GetHeightOffset() + (height[player] + lungeOffset[player]) > hc.GetHandleY(otherplayer + 1) && hc.GetHeightOffset() + (height[player] + lungeOffset[player]) < hc.GetBaseY(otherplayer + 1) && !NoGuardCollision)
+            else if (hc.GetHeightOffset() + (height[player] * heightOffsetMult + lungeOffset[player]) > hc.GetHandleY(otherplayer + 1) && hc.GetHeightOffset() + (height[player] * heightOffsetMult + lungeOffset[player]) < hc.GetBaseY(otherplayer + 1) && !NoGuardCollision)
             {
                 strongCollision = true;
                 handGuardHit = true;
                 miss = false;
             }
-            else if (hc.GetHeightOffset() + (height[player] + lungeOffset[player]) > hc.GetMiddleY(otherplayer + 1) && hc.GetHeightOffset() + (height[player] + lungeOffset[player]) < hc.GetTipY(otherplayer + 1) && !NoCollision)
+            else if (hc.GetHeightOffset() + (height[player] * heightOffsetMult + lungeOffset[player]) > hc.GetMiddleY(otherplayer + 1) && hc.GetHeightOffset() + (height[player] * heightOffsetMult + lungeOffset[player]) < hc.GetTipY(otherplayer + 1) && !NoCollision)
             {
                 strongCollision = false;
                 miss = false;

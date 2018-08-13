@@ -15,6 +15,7 @@ public class HeightCollision : MonoBehaviour {
     float heightOffset;
 
     bool haveHeightMeters = false;
+    
     public bool ShowHeightMeters = false;
     GameObject[] HeightMeters = new GameObject[2];
     CollisionHandler ch;

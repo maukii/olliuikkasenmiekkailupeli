@@ -1803,6 +1803,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d45bd069d71e343b72350cb1ca3be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleStarted: 0
+  battleEnded: 0
   gameTimer: 0
   maxTimer: 0
 --- !u!114 &607884142
@@ -3633,6 +3635,7 @@ MonoBehaviour:
   partBlood: {fileID: 198430967591152532, guid: c674369de386c52428e1d4470748ad85,
     type: 2}
   trailSwoosh: {fileID: 774936023}
+  swoosh: 0
 --- !u!114 &1250844631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4497,6 +4500,16 @@ Prefab:
         type: 2}
       propertyPath: heightOffsetMult
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114297569818067576, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: BaseDelay
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114297569818067576, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: SlowMoMult
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 852c08df0ef0e754f923a4ee72e95154, type: 2}

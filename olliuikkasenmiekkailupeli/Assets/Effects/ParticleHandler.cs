@@ -27,6 +27,7 @@ public class ParticleHandler : MonoBehaviour {
 
     ParticleSystem.EmissionModule bloodEmi, sparkEmi;
     float swooshDefaultTime;
+    public bool swoosh;
 
     void Start ()
     {
@@ -46,7 +47,7 @@ public class ParticleHandler : MonoBehaviour {
     {
         #region SwooshCheck
         // --- Check if trailSwoosh should be played --- //
-        if(hcon.swordSwinging == true)
+        if(hcon.swordSwinging == true && swoosh)
         {
             trailSwoosh.enabled = true;
             if (trailSwoosh.time == 0)
@@ -54,7 +55,7 @@ public class ParticleHandler : MonoBehaviour {
                 trailSwoosh.time = swooshDefaultTime;
             }
         }
-        if (hcon.swordSwinging == false)
+        else
         {
             trailSwoosh.enabled = false;
             if (trailSwoosh.time == swooshDefaultTime)

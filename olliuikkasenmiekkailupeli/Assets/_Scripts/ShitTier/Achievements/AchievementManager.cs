@@ -6,6 +6,8 @@ using System;
 
 public class AchievementManager : MonoBehaviour
 {
+    public bool debuggings = false;
+
     public static AchievementManager instance = null;
     private bool unlockTest = false;
 
@@ -28,6 +30,36 @@ public class AchievementManager : MonoBehaviour
             return;
         }
 
+        DontDestroyOnLoad(gameObject);
+    }
+
+    //private void Start()
+    //{
+    //    if(SteamManager.Initialized)
+    //    {
+    //        string name = SteamFriends.GetPersonaName();
+    //        Debug.Log(name);
+    //    }
+    //}
+
+    private void Update()
+    {
+        if(debuggings)
+        {
+            if(!SteamManager.Initialized)
+            {
+                if (Input.GetKeyDown(KeyCode.Keypad0))
+                {
+                    Debug.Log("lock");
+                    DEBUG_LockAchievement("CompleteTutorial");
+                }
+            }
+            else if(Input.GetKeyDown(KeyCode.Keypad0)) // DEBUGGING
+            {
+                Debug.Log("lock");
+                DEBUG_LockAchievement("CompleteTutorial");
+            }
+        }
     }
 
     private Achievement GetAchievementByName(string achievementName)
@@ -39,19 +71,35 @@ public class AchievementManager : MonoBehaviour
     {
         Achievement achievement = GetAchievementByName(achievementName);
 
-        // unlock steam achievement
-        TestSteamAchievement(achievement.ID);
-        if(!unlockTest)
+        if(!SteamManager.Initialized)
         {
-            SteamUserStats.SetAchievement(achievementName);
-            SteamUserStats.StoreStats();
+            Debug.Log("Steam not initialized...trying to get achievement");
+        }
+        else
+        {
+            // unlock steam achievement
+            TestSteamAchievement(achievement.ID);
+            if(!unlockTest)
+            {
+                SteamUserStats.SetAchievement(achievementName);
+                SteamUserStats.StoreStats();
+                Debug.Log(achievement + " unlocked");
+            }
+            else
+            {
+                Debug.Log("achievement already achieved?");
+            }
         }
     }
 
-    // tests if achievement is locked
     private void TestSteamAchievement(string ID)
     {
         SteamUserStats.GetAchievement(ID, out unlockTest);
+
+        if (!unlockTest)
+            Debug.Log("Achievement not unlocked yet");
+        else
+            Debug.Log("Achievement is unlocked");
     }
 
     public void AddProgressToAchievement(string achievementName, float progressAmount)
@@ -82,6 +130,31 @@ public class AchievementManager : MonoBehaviour
         if (achievement.SetProgress(newProgress))
         {
             AchievementEarned(achievementName);
+        }
+    }
+
+    public void DEBUG_LockAchievement(string achievementName)
+    {
+        var achievement = GetAchievementByName(achievementName);
+
+        if(SteamManager.Initialized)
+        {
+            //TestSteamAchievement(achievement.ID);
+            //if (unlockTest)
+            //{
+            //    SteamUserStats.ClearAchievement(achievement.ID);
+            //}
+            //else
+            //{
+            //    Debug.Log("unlockTest failed while locking");
+            //}
+
+            achievement.LockAchievement();
+
+        }
+        else
+        {
+            Debug.Log("steam not initialized");
         }
     }
 }

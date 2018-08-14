@@ -44,7 +44,10 @@ public class GameHandler : MonoBehaviour
 
     private void Update()
     {
-        Timer();
+        if (!MainMenuController.MMC.isTutorial)
+        {
+            Timer();
+        }
 
         if (SceneManager.GetActiveScene().name != "GameScene")
             battleEnded = false;

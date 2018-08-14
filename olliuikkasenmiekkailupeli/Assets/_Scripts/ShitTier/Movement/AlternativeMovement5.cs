@@ -170,6 +170,23 @@ public class AlternativeMovement5 : MonoBehaviour
                 script.enabled = true;
             }
         }
+        else
+        {
+            anim.SetBool("back", false);
+            anim.SetBool("forward", false);
+            anim.SetBool("Strong", false);
+            anim.SetBool("SwingDia", false);
+            anim.SetBool("SwingHor", false);
+            anim.SetBool("Deflect", false);
+            anim.SetBool("Interrupt", false);
+            anim.SetBool("light", false);
+            anim.SetBool("ADeflect", false);
+            anim.SetBool("AExtend", false);
+            anim.SetBool("ALight", false);
+            anim.SetBool("Idle", true);
+            anim.SetBool("Lunged", false);
+            anim.SetBool("Jumped", false);
+        }
     }
 
     void Inputs()

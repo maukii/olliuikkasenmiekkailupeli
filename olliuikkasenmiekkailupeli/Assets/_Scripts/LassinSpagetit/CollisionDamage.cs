@@ -22,7 +22,7 @@ public class CollisionDamage : MonoBehaviour {
     [SerializeField]
     int[] HandTreshold = new int[2] { 4, 4 };
     int player = -1;
-    bool applyDamage;
+    bool[] applyDamage = new bool[2];
 
     private void Start()
     {
@@ -33,13 +33,12 @@ public class CollisionDamage : MonoBehaviour {
 
     public void ApplyDamage(int player)
     {
-        applyDamage = true;
+        applyDamage[player] = true;
         this.player = player;
     }
-    public void NoDamage()
+    public void NoDamage(int player)
     {
-        applyDamage = false;
-        player = -1;
+        applyDamage[player] = false;
     }
     public void DissableDamageTo(Bodyparts part)
     {
@@ -70,40 +69,44 @@ public class CollisionDamage : MonoBehaviour {
     public void GetCollision(Collision col)
     {
         Debug.Log(col.gameObject.name);
-        if (player != -1 && applyDamage)
+        if (player != -1)
         {
-            int otherplayer = player - 1 == -1 ? 1 : 0;
-            switch (col.gameObject.name)
+            if (applyDamage[player])
             {
-                case "alaselkä.L":
-                    DoDamage(Bodyparts.Torso, 1, otherplayer);
-                    break;
-                case "reisi.R":
-                    DoDamage(Bodyparts.Leg, 1, otherplayer);
-                    break;
-                case "pohje.R":
-                    DoDamage(Bodyparts.Leg, 1, otherplayer);
-                    break;
-                case "selkä.L":
-                    DoDamage(Bodyparts.Torso, 1, otherplayer);
-                    break;
-                case "selkä.L.001":
-                    DoDamage(Bodyparts.Torso, 1, otherplayer);
-                    break;
-                case "hauis.R":
-                    DoDamage(Bodyparts.Arm, 1, otherplayer);
-                    break;
-                case "ranne.R":
-                    DoDamage(Bodyparts.Arm, 1, otherplayer);
-                    break;
-                case "pää":
-                    DoDamage(Bodyparts.Head, 1, otherplayer);
-                    break;
-                default:
-                    break;
+                int otherplayer = player - 1 == -1 ? 1 : 0;
+                switch (col.gameObject.name)
+                {
+                    case "alaselkä.L":
+                        DoDamage(Bodyparts.Torso, 1, otherplayer);
+                        break;
+                    case "reisi.R":
+                        DoDamage(Bodyparts.Leg, 1, otherplayer);
+                        break;
+                    case "pohje.R":
+                        DoDamage(Bodyparts.Leg, 1, otherplayer);
+                        break;
+                    case "selkä.L":
+                        DoDamage(Bodyparts.Torso, 1, otherplayer);
+                        break;
+                    case "selkä.L.001":
+                        DoDamage(Bodyparts.Torso, 1, otherplayer);
+                        break;
+                    case "hauis.R":
+                        DoDamage(Bodyparts.Arm, 1, otherplayer);
+                        break;
+                    case "ranne.R":
+                        DoDamage(Bodyparts.Arm, 1, otherplayer);
+                        break;
+                    case "pää":
+                        DoDamage(Bodyparts.Head, 1, otherplayer);
+                        break;
+                    default:
+                        break;
+                }
+                ch.SummonBlood(col.contacts[0].point, Quaternion.FromToRotation(transform.up, col.contacts[0].normal));
+                applyDamage[player] = false;
             }
-            ch.SummonBlood(col.contacts[0].point, Quaternion.FromToRotation(transform.up, col.contacts[0].normal));
-            applyDamage = false;
+            
         }
     }
     public void DoDamage(Bodyparts part, int amount, int player)

@@ -1818,12 +1818,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca32ad10eb083e24a8481e927d923491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultTimer: 0
+  timer: 5
+  defaultInputTimer: 0
+  inputTimerP1: 0.5
+  inputTimerP2: 0.5
   moveLock: 0
   guardLock: 0
   heightLock: 0
   lungeLock: 0
+  P1_OK: 0
+  P2_OK: 0
+  P1Clear: 0
+  P2Clear: 0
   tutorialNotStarted: 0
   tutorialClear: 0
+  phase1: 0
+  phase2: 0
+  phase3: 0
+  phase4: 0
+  phase5: 0
+  phase6: 0
+  phase7: 0
+  phase8: 0
+  phase9: 0
+  hangingP1: 0
+  hangingP2: 0
+  insideP1: 0
+  insideP2: 0
 --- !u!1 &615104685
 GameObject:
   m_ObjectHideFlags: 0
@@ -5042,6 +5064,11 @@ Prefab:
         type: 2}
       propertyPath: SlowMoMult
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114266302690892870, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: stepCountFromActualDistance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 852c08df0ef0e754f923a4ee72e95154, type: 2}

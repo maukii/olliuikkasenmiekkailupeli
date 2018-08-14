@@ -52,14 +52,14 @@ public class TestMenuScript : MonoBehaviour
 
         if (InputManager.IM.isKeyboardAndMouseP1 || InputManager.IM.isKeyboardAndMouseP2)
         {
-            L_ControllerType.text = "Press controller button ";
-            R_ControllerType.text = "or mouse button to join";
+            L_ControllerType.text = "Press A / LeftMouseButton to join ";
+            R_ControllerType.text = "Press A / LeftMouseButton to join";
         }
 
         if(InputManager.IM.isOnlyKeyboard)
         {
-            L_ControllerType.text = "Use WASD and ";                    // what buttons join game?
-            R_ControllerType.text = "ARROWKEYS to change model";        // what buttons join game?
+            L_CharacterChoose.text = "A and D to change model";      
+            R_CharacterChoose.text = "Arrows to change model";       
         }
     }
 
@@ -121,6 +121,8 @@ public class TestMenuScript : MonoBehaviour
         //Tässä pelaaja valitsee hahmonsa
     }
 
+    bool playedAudioP1 = false, playedAudioP2 = false;
+
     void PlayersReady()
     {
         if (isLeftChoosing)
@@ -137,6 +139,13 @@ public class TestMenuScript : MonoBehaviour
                     L.gameObject.GetComponent<PlayerInfo>().ready = true;
                     L.gameObject.GetComponent<PlayerInfo>().ChooseCharacter();
                     GameHandler.instance.SetPlayer1Model(L.gameObject.GetComponent<PlayerInfo>().modelIndex);
+
+                    if(!playedAudioP1)
+                    {
+                        AudioManager.instance.PlayHmmph();
+                        playedAudioP1 = true;
+                    }
+
                 }
 
                 if (L.gameObject.tag == "Player 2" && InputManager.IM.P2_A)
@@ -145,6 +154,12 @@ public class TestMenuScript : MonoBehaviour
                     L.gameObject.GetComponent<PlayerInfo>().ready = true;
                     L.gameObject.GetComponent<PlayerInfo>().ChooseCharacter();
                     GameHandler.instance.SetPlayer2Model(L.gameObject.GetComponent<PlayerInfo>().modelIndex);
+
+                    if(!playedAudioP2)
+                    {
+                        AudioManager.instance.PlayHmmph();
+                        playedAudioP2 = true;
+                    }
                 }
 
 
@@ -166,6 +181,11 @@ public class TestMenuScript : MonoBehaviour
                     R.gameObject.GetComponent<PlayerInfo>().ChooseCharacter();
                     GameHandler.instance.SetPlayer1Model(R.gameObject.GetComponent<PlayerInfo>().modelIndex);
 
+                    if (!playedAudioP1)
+                    {
+                        AudioManager.instance.PlayHmmph();
+                        playedAudioP1 = true;
+                    }
                 }
 
                 if (R.gameObject.tag == "Player 2" && InputManager.IM.P2_A)
@@ -174,6 +194,12 @@ public class TestMenuScript : MonoBehaviour
                     R.gameObject.GetComponent<PlayerInfo>().ready = true;
                     R.gameObject.GetComponent<PlayerInfo>().ChooseCharacter();
                     GameHandler.instance.SetPlayer2Model(R.gameObject.GetComponent<PlayerInfo>().modelIndex);
+
+                    if (!playedAudioP2)
+                    {
+                        AudioManager.instance.PlayHmmph();
+                        playedAudioP2 = true;
+                    }
                 }
             }
         }
@@ -191,7 +217,7 @@ public class TestMenuScript : MonoBehaviour
                 isLeftChoosing = true;
                 isLeftReady = false;
                 L.gameObject.GetComponent<PlayerInfo>().ready = false;
-
+                playedAudioP1 = false;
             }
 
             if (L.gameObject.tag == "Player 2" && InputManager.IM.P2_B)
@@ -201,7 +227,7 @@ public class TestMenuScript : MonoBehaviour
                 isLeftChoosing = true;
                 isLeftReady = false;
                 L.gameObject.GetComponent<PlayerInfo>().ready = false;
-
+                playedAudioP2 = false;
             }
         }
 
@@ -218,6 +244,7 @@ public class TestMenuScript : MonoBehaviour
                 isRightChoosing = true;
                 isRightReady = false;
                 R.gameObject.GetComponent<PlayerInfo>().ready = false;
+                playedAudioP1 = false;
             }
 
             if (R.gameObject.tag == "Player 2" && InputManager.IM.P2_B)
@@ -227,6 +254,7 @@ public class TestMenuScript : MonoBehaviour
                 isRightChoosing = true;
                 isRightReady = false;
                 R.gameObject.GetComponent<PlayerInfo>().ready = false;
+                playedAudioP2 = false;
             }
         }
     }

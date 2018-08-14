@@ -300,6 +300,11 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
     volume: 1
+  - name: Touche
+    clip: {fileID: 8300000, guid: f6981f0d27c07fa48ab7588fafcb4d6d, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 1
   musicSource: {fileID: 627650834}
   sfxSource: {fileID: 627650836}
   lightHitSounds:
@@ -316,6 +321,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dca3cc07d4ac63f4a8d4e968f6971bb5, type: 3}
   - {fileID: 8300000, guid: 863e6c940b2fd1f45b39e76e2d65e7d3, type: 3}
   - {fileID: 8300000, guid: 9a077f522d5bad94f88e69d8a5ad4241, type: 3}
+  hmphSounds:
+  - {fileID: 8300000, guid: 09fd5146dce8fd04eb1f1bce96a3930f, type: 3}
+  - {fileID: 8300000, guid: bfdbc12d85c5ac34496967bb99bfeec0, type: 3}
+  - {fileID: 8300000, guid: 725e3c04a893db94aaaf91de9344f075, type: 3}
+  - {fileID: 8300000, guid: 431e79288b0fb6646a33c132bd260b5e, type: 3}
+  - {fileID: 8300000, guid: c5d02648f9584f2488ab6623a6104858, type: 3}
+  - {fileID: 8300000, guid: fd8be7b0d849ab541864462784f7c173, type: 3}
+  - {fileID: 8300000, guid: 66a10e87d39d87f47907ffba2e0295f0, type: 3}
 --- !u!114 &627650830
 MonoBehaviour:
   m_ObjectHideFlags: 0

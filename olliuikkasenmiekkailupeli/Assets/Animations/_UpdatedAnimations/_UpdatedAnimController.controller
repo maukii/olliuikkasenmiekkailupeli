@@ -395,6 +395,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a4060d4fb7396439e9f7028ad37cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114936017015583696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e76cb178e299f1488e9be9163d0ae01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114994773133654610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8145,6 +8156,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: Bodypart
     m_EventTreshold: 4
+  - m_ConditionMode: 2
+    m_ConditionEvent: Dead
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102141154305904260}
   m_Solo: 0
@@ -8597,6 +8611,9 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: Lunged
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Dead
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102745087080551068}
@@ -13692,6 +13709,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: Lunged
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Dead
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102554237617455990}
   m_Solo: 0
@@ -14399,6 +14419,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: Die
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Dead
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102206366005882256}
@@ -15480,6 +15503,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: Bodypart
     m_EventTreshold: 1
+  - m_ConditionMode: 2
+    m_ConditionEvent: Dead
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102073126058896390}
   m_Solo: 0
@@ -17038,7 +17064,8 @@ AnimatorState:
   - {fileID: 1101633601751919144}
   - {fileID: 1101340401234704044}
   - {fileID: 1101406559730356648}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 114936017015583696}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

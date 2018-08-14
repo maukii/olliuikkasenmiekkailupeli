@@ -112,6 +112,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip[] lightHitSounds = new AudioClip[4];
     [SerializeField] AudioClip[] swordClashSounds = new AudioClip[4];
     [SerializeField] AudioClip[] swordsSwingSounds = new AudioClip[3];
+    [SerializeField] AudioClip[] hmphSounds = new AudioClip[7];
 
     public void PlayLightHitSound()
     {
@@ -128,6 +129,12 @@ public class AudioManager : MonoBehaviour
     public void PlaySwordsSwingSound()
     {
         AudioClip clip = swordsSwingSounds[UnityEngine.Random.Range(0, swordsSwingSounds.Length)];
+        sfxSource.PlayOneShot(clip);
+    }
+
+    public void PlayHmmph()
+    {
+        AudioClip clip = hmphSounds[UnityEngine.Random.Range(0, hmphSounds.Length)];
         sfxSource.PlayOneShot(clip);
     }
 

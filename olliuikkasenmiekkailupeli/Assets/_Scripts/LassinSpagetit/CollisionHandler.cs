@@ -170,11 +170,13 @@ public class CollisionHandler : MonoBehaviour {
                             cd.ApplyDamage(player);
                             QuardBreak(player);
                         }
+                        AudioManager.instance.PlaySwordClashSound();
                     }
                     else
                     {
                         cd.ApplyDamage(player);
                         OverExtend(player);
+                        AudioManager.instance.PlaySwordsSwingSound();
                     }
                 }
             }
@@ -212,11 +214,13 @@ public class CollisionHandler : MonoBehaviour {
                             QuardBreakAttacker(FirstAttack);
                             calculateCollision[otherplayer] = false;
                         }
+                        AudioManager.instance.PlaySwordClashSound();
                     }
                     else
                     {
                         cd.ApplyDamage(FirstAttack);
                         OverExtend(FirstAttack);
+                        AudioManager.instance.PlaySwordsSwingSound();
                     }
                 }
             }
@@ -242,11 +246,13 @@ public class CollisionHandler : MonoBehaviour {
                             cd.ApplyDamage(otherplayer);
                             QuardBreakAttacker(otherplayer);
                         }
+                        AudioManager.instance.PlaySwordClashSound();
                     }
                     else
                     {
                         cd.ApplyDamage(otherplayer);
                         OverExtend(otherplayer);
+                        AudioManager.instance.PlaySwordsSwingSound();
                     }
                 }
             }

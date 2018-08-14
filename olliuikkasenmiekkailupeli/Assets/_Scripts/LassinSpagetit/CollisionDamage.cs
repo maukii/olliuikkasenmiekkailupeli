@@ -31,17 +31,15 @@ public class CollisionDamage : MonoBehaviour {
         P2 = GameObject.FindGameObjectWithTag("Player 2");
     }
 
-    public void StartCollisionDetection(int player)
-    {
-        this.player = player;
-    }
-    public void ApplyDamage()
+    public void ApplyDamage(int player)
     {
         applyDamage = true;
+        this.player = player;
     }
     public void NoDamage()
     {
         applyDamage = false;
+        player = -1;
     }
     public void DissableDamageTo(Bodyparts part)
     {

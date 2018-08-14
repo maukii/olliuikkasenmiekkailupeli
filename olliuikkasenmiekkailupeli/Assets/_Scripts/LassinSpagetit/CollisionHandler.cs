@@ -104,13 +104,11 @@ public class CollisionHandler : MonoBehaviour {
         {
             Attack(0);
             WhoHitFirst = 0;
-            cd.StartCollisionDetection(WhoHitFirst);
         }
         else if (asi[1].IsTag("Swing"))
         {
             Attack(1);
             WhoHitFirst = 1;
-            cd.StartCollisionDetection(WhoHitFirst);
         }
         else
         {
@@ -169,13 +167,13 @@ public class CollisionHandler : MonoBehaviour {
                         }
                         else
                         {
-                            cd.ApplyDamage();
+                            cd.ApplyDamage(player);
                             QuardBreak(player);
                         }
                     }
                     else
                     {
-                        cd.ApplyDamage();
+                        cd.ApplyDamage(player);
                         OverExtend(player);
                     }
                 }
@@ -210,14 +208,14 @@ public class CollisionHandler : MonoBehaviour {
                         }
                         else
                         {
-                            cd.ApplyDamage();
+                            cd.ApplyDamage(FirstAttack);
                             QuardBreakAttacker(FirstAttack);
                             calculateCollision[otherplayer] = false;
                         }
                     }
                     else
                     {
-                        cd.ApplyDamage();
+                        cd.ApplyDamage(FirstAttack);
                         OverExtend(FirstAttack);
                     }
                 }
@@ -241,13 +239,13 @@ public class CollisionHandler : MonoBehaviour {
                         }
                         else
                         {
-                            cd.ApplyDamage();
+                            cd.ApplyDamage(otherplayer);
                             QuardBreakAttacker(otherplayer);
                         }
                     }
                     else
                     {
-                        cd.ApplyDamage();
+                        cd.ApplyDamage(otherplayer);
                         OverExtend(otherplayer);
                     }
                 }

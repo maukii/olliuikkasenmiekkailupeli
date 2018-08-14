@@ -110,10 +110,15 @@ public class CollisionHandler : MonoBehaviour {
             Attack(1);
             WhoHitFirst = 1;
         }
-        else
+        if (!asi[0].IsTag("Swing"))
         {
             calculateCollision[0] = true;
+            cd.NoDamage(0);
+        }
+        if (!asi[1].IsTag("Swing"))
+        {
             calculateCollision[1] = true;
+            cd.NoDamage(1);
         }
         Timer();
     }
@@ -162,7 +167,7 @@ public class CollisionHandler : MonoBehaviour {
                     {
                         if (CheckQuard(player))
                         {
-                            cd.NoDamage();
+                            cd.NoDamage(player);
                             Deflect(player);
                         }
                         else
@@ -204,7 +209,7 @@ public class CollisionHandler : MonoBehaviour {
                     {
                         if (CheckQuard(FirstAttack))
                         {
-                            cd.NoDamage();
+                            cd.NoDamage(FirstAttack);
                             DeflectAttacker(FirstAttack);
                             calculateCollision[otherplayer] = false;
                         }
@@ -238,7 +243,7 @@ public class CollisionHandler : MonoBehaviour {
                     {
                         if (CheckQuard(otherplayer))
                         {
-                            cd.NoDamage();
+                            cd.NoDamage(otherplayer);
                             DeflectAttacker(otherplayer);
                         }
                         else
@@ -311,9 +316,9 @@ public class CollisionHandler : MonoBehaviour {
         int otherplayer = player - 1 == -1 ? 1 : 0;
         if(hanging[otherplayer] == 1)
         {
-            NoGuardCollision = StepDistance >= 8 ? true : false;
-            NoStrongCollision = StepDistance >= 8 ? true : false;
-            NoCollision = StepDistance >= 8 ? true : false;
+            NoGuardCollision = StepDistance >= 10 ? true : false;
+            NoStrongCollision = StepDistance >= 10 ? true : false;
+            NoCollision = StepDistance >= 10 ? true : false;
         }
         else
         {

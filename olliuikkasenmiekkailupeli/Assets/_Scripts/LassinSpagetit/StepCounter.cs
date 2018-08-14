@@ -31,7 +31,14 @@ public class StepCounter : MonoBehaviour {
         P2 = GameObject.FindGameObjectWithTag("Player 2").transform;
         P1model = P1.GetComponentInChildren<HandAnimationControl>().transform;
         P2model = P2.GetComponentInChildren<HandAnimationControl>().transform;
-        actualDistance = P1model.position.x - P2model.position.x;
+        if (P1model.position.x < P2model.position.x)
+        {
+            actualDistance = P1model.position.x - P2model.position.x;
+        }
+        else
+        {
+            actualDistance = P2model.position.x - P1model.position.x;
+        }
     }
 	
 	
@@ -51,7 +58,15 @@ public class StepCounter : MonoBehaviour {
 
     void CalculateActualDistance()
     {
-        actualDistance = P1model.position.x - P2model.position.x;
+        if(P1model.position.x < P2model.position.x)
+        {
+            actualDistance = P1model.position.x - P2model.position.x;
+        }
+        else
+        {
+            actualDistance = P2model.position.x - P1model.position.x;
+        }
+       
         StepsBetweenPlayers = Mathf.FloorToInt(actualDistance / 0.3f) + (int)(2/SceneScaleMult);
         StepsBetweenPlayers = (int)(StepsBetweenPlayers * SceneScaleMult * 2);
     }

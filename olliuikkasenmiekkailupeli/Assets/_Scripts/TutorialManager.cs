@@ -250,6 +250,8 @@ public class TutorialManager : MonoBehaviour
             P1_OK = false;
             P2_OK = false;
 
+            timer = timer - Time.deltaTime; // LAITA TIMERI SAATANA!
+
             /*
             "Just marvelous! Note that doing a moulinette is only way to generate enough force for a fatal blow, lighter attack will only wound your opponent."
 
@@ -260,7 +262,6 @@ public class TutorialManager : MonoBehaviour
 
 
             /*
-
             "To block the attacks coming you have to make sure that you are guarding the correct side. The side you are guarding in indicated by the colour of your blade"
 
             "You can also change between hanging(sword pointing down) and regular(sword pointing up) guard"
@@ -268,62 +269,65 @@ public class TutorialManager : MonoBehaviour
             "Now please rotate through each of your guard (The guard changing button or the other guard changing button)"
             */
 
-
-            if (Input.anyKey && hangingP1 == 0f || insideP1 == 0f)
+            if (timer < 2)
             {
-                if (hangingP1 == 1f)
+                if (Input.anyKey && hangingP1 == 0f || insideP1 == 0f)
                 {
-                    P1_OK = true;
+                    if (hangingP1 == 1f)
+                    {
+                        P1_OK = true;
+                    }
+
+                    if (insideP1 == 1f)
+                    {
+                        P1_OK = true;
+                    }
                 }
 
-                if (insideP1 == 1f)
+                if (Input.anyKey && hangingP1 == 1f || insideP1 == 1f)
                 {
-                    P1_OK = true;
-                }
-            }
+                    if (hangingP1 == 0f)
+                    {
+                        P1_OK = true;
+                    }
 
-            if (Input.anyKey && hangingP1 == 1f || insideP1 == 1f)
-            {
-                if (hangingP1 == 0f)
-                {
-                    P1_OK = true;
-                }
-
-                if (insideP1 == 0f)
-                {
-                    P1_OK = true;
-                }
-            }
-
-            if (Input.anyKey && hangingP2 == 0f || insideP2 == 0f)
-            {
-                if (hangingP2 == 1f)
-                {
-                    P2_OK = true;
+                    if (insideP1 == 0f)
+                    {
+                        P1_OK = true;
+                    }
                 }
 
-                if (insideP2 == 1f)
+                if (Input.anyKey && hangingP2 == 0f || insideP2 == 0f)
                 {
-                    P2_OK = true;
-                }
-            }
+                    if (hangingP2 == 1f)
+                    {
+                        P2_OK = true;
+                    }
 
-            if (Input.anyKey && hangingP2 == 1f || insideP2 == 1f)
-            {
-                if (hangingP2 == 0f)
+                    if (insideP2 == 1f)
+                    {
+                        P2_OK = true;
+                    }
+                }
+
+                if (Input.anyKey && hangingP2 == 1f || insideP2 == 1f)
                 {
-                    P1_OK = true;
+                    if (hangingP2 == 0f)
+                    {
+                        P1_OK = true;
+                    }
+
+                    if (insideP2 == 0f)
+                    {
+                        P1_OK = true;
+                    }
                 }
 
-                if (insideP2 == 0f)
+                if (P1_OK && P2_OK)
                 {
-                    P1_OK = true;
+                    timer = defaultTimer;
+                    phase4 = true;
                 }
-            }
-
-            if (P1_OK && P2_OK)
-            {
-                phase4 = true;
             }
         }
 
@@ -334,23 +338,23 @@ public class TutorialManager : MonoBehaviour
 
             timer = timer - Time.deltaTime;
 
-            if (timer > 2)
+            /*
+            Players step in striking distance
+            */
+
+            if (timer > 4.5)
             {
                 animP1.SetBool("forward", true);
                 animP2.SetBool("forward", true);
             }
 
-            if (timer < 1.5f)
+            if (timer < 2)
             {
                 animP1.SetBool("forward", false);
                 animP2.SetBool("forward", false);
             }
-
-
-
+            
             /*
-            Players step in striking distance
-
             Damage animations play but players don’t get hurt 
 
             "Very good sirs! On top of affecting the direction you're blocking guards also determine which direction your attacks will come from. Please try hitting eachother untill one of you has landed three hits"

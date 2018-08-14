@@ -245,9 +245,9 @@ public class MainMenuController : MonoBehaviour
                         // OPTIONS
                         Debug.Log("Tutorial");
                         AudioManager.instance.PlaySoundeffect("SwordClash1_2");
-                        LevelChanger.instance.FadeToNextLevel();
-                        canInteract = false;
-                        isTutorial = true;
+                        //LevelChanger.instance.FadeToNextLevel();            //DISABLOI QA-BUILDIIN!!!
+                        //canInteract = false;                                //DISABLOI QA-BUILDIIN!!!
+                        //isTutorial = true;                                  //DISABLOI QA-BUILDIIN!!!
                     }
                     else if (activeNode == mainmenuNodes[2])
                     {
@@ -289,9 +289,9 @@ public class MainMenuController : MonoBehaviour
                         // OPTIONS
                         Debug.Log("Tutorial");
                         AudioManager.instance.PlaySoundeffect("SwordClash1_2");
-                        LevelChanger.instance.FadeToNextLevel();
-                        canInteract = false;
-                        isTutorial = true;
+                        //LevelChanger.instance.FadeToNextLevel();                //DISABLOI QA-BUILDIIN!!!
+                        //canInteract = false;                                    //DISABLOI QA-BUILDIIN!!!
+                        //isTutorial = true;                                      //DISABLOI QA-BUILDIIN!!!
                     }
                     else if (activeNode == mainmenuNodes[2])
                     {

@@ -131,7 +131,11 @@ public class EndGameMenu : MonoBehaviour
     {
         Debug.Log("PlayAgain");
         GameHandler.instance.battleStarted = false;
-        LevelChanger.instance.FadeToCharacterSelect();
+        GameHandler.instance.battleEnded = false;
+        //LevelChanger.instance.FadeToCharacterSelect();
+        LevelChanger.instance.FadeToPlayAgain();
+        canInteract = false;
+        timer = 3f;
     }
 
     public void BackToMenu()
@@ -139,6 +143,8 @@ public class EndGameMenu : MonoBehaviour
         Debug.Log("BackToMain");
         MainMenuController.MMC.isTutorial = false;
         GameHandler.instance.BattleStarted = false;
+        canInteract = false;
+        timer = 3f;
 
         LevelChanger.instance.FadeToMain(); // vaihtaa skenen level changerissa
 

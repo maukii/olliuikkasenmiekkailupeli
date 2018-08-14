@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
 {
-    public KeyCode startButton; // can have own for p1 and p2
 
     [SerializeField] GameObject PauseMenuUI, MovelistUI, OptionsUI;
     public static bool gameIsPaused = false;
@@ -82,7 +81,7 @@ public class PauseMenuController : MonoBehaviour
 
     private void MenuLogic()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(startButton))
+        if(Input.GetKeyDown(KeyCode.Escape) || InputManager.IM.P1_Start || InputManager.IM.P2_Start)
         {
             if(!gameIsPaused)
             {
@@ -132,6 +131,7 @@ public class PauseMenuController : MonoBehaviour
     void ToggleUp()
     {
         index++;
+        canInteract = false;
 
         if (activeMenu == Menu.PauseMenu)
         {
@@ -139,7 +139,6 @@ public class PauseMenuController : MonoBehaviour
             {
                 index = 0;
             }
-            canInteract = false;
 
             DisableHighlights(Menu.PauseMenu);
             pauseMenuHighlights[index].SetActive(true);
@@ -151,7 +150,6 @@ public class PauseMenuController : MonoBehaviour
             {
                 index = 0;
             }
-            canInteract = false;
 
             DisableHighlights(Menu.Options);
             optionsHighlights[index].SetActive(true);
@@ -161,6 +159,7 @@ public class PauseMenuController : MonoBehaviour
     void ToggleDown()
     {
         index--;
+        canInteract = false;
 
         if (activeMenu == Menu.PauseMenu)
         {
@@ -168,7 +167,6 @@ public class PauseMenuController : MonoBehaviour
             {
                 index = pauseMenuNodes.Length - 1;
             }
-            canInteract = false;
 
             DisableHighlights(Menu.PauseMenu);
             pauseMenuHighlights[index].SetActive(true);
@@ -180,7 +178,6 @@ public class PauseMenuController : MonoBehaviour
             {
                 index = optionsNodes.Length - 1;
             }
-            canInteract = false;
 
             DisableHighlights(Menu.Options);
             optionsHighlights[index].SetActive(true);
@@ -383,6 +380,7 @@ public class PauseMenuController : MonoBehaviour
         Resume();
         MainMenuController.MMC.isTutorial = false;
         GameHandler.instance.BattleStarted = false;
+        timer = 3f;
 
         LevelChanger.instance.FadeToMain(); // vaihtaa skenen level changerissa
 

@@ -302,6 +302,20 @@ MonoBehaviour:
     volume: 1
   musicSource: {fileID: 627650834}
   sfxSource: {fileID: 627650836}
+  lightHitSounds:
+  - {fileID: 8300000, guid: a2af624016f22ef459ed491e18f28aba, type: 3}
+  - {fileID: 8300000, guid: 6e06a5462ab4b3f4a915ff1d7371bb46, type: 3}
+  - {fileID: 8300000, guid: 87619f5c4a934d5429dca0f8cdfef896, type: 3}
+  - {fileID: 8300000, guid: 3eace3f6b1aefc8499d4590671dacfb4, type: 3}
+  swordClashSounds:
+  - {fileID: 8300000, guid: 9c67a12c35f453044bd7319c1529bf71, type: 3}
+  - {fileID: 8300000, guid: acf8050261f551a4ab22ad4a76b91591, type: 3}
+  - {fileID: 8300000, guid: aafd9a3b0b7f6a84d9d132c4f652f99f, type: 3}
+  - {fileID: 8300000, guid: 1abb3c9ad770f3842908faf3a684b286, type: 3}
+  swordsSwingSounds:
+  - {fileID: 8300000, guid: dca3cc07d4ac63f4a8d4e968f6971bb5, type: 3}
+  - {fileID: 8300000, guid: 863e6c940b2fd1f45b39e76e2d65e7d3, type: 3}
+  - {fileID: 8300000, guid: 9a077f522d5bad94f88e69d8a5ad4241, type: 3}
 --- !u!114 &627650830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,7 +619,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 627650827}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8303728c155f69846a666849b75e07b8, type: 3}
   m_Name: 
@@ -709,13 +723,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940491e5934e8d84889fbbbe37d87579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DEBUG: 1
+  debuggings: 1
   Achievements:
   - ID: ACHIEVEMENT_00
     Name: CompleteTutorial
     Description: duh
-    IconIncomplete: {fileID: 0}
-    IconComplete: {fileID: 0}
+    IconIncomplete: {fileID: 2800000, guid: d6092a18d041522438243276aaf2e9ff, type: 3}
+    IconComplete: {fileID: 2800000, guid: 74871b82b3143e542b557f1d5f3133a7, type: 3}
     currentProgress: 0
     TargetProgress: 100
     Earned: 0

@@ -68,4 +68,17 @@ public class LevelChanger : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void FadeToPlayAgain()
+    {
+        anim.SetTrigger("PlayAgain");
+        anim.ResetTrigger("FadeToMain");
+        anim.ResetTrigger("FadeIn");
+        anim.ResetTrigger("FadeOut");
+    }
+
+    public void FadeToPlayAgainComplete()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
 }

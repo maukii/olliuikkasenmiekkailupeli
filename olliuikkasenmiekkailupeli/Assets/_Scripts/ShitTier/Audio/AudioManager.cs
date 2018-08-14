@@ -109,10 +109,31 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    [SerializeField] AudioClip[] lightHitSounds = new AudioClip[4];
+    [SerializeField] AudioClip[] swordClashSounds = new AudioClip[4];
+    [SerializeField] AudioClip[] swordsSwingSounds = new AudioClip[3];
+
+    public void PlayLightHitSound()
+    {
+        AudioClip clip = lightHitSounds[UnityEngine.Random.Range(0, lightHitSounds.Length)];
+        sfxSource.PlayOneShot(clip);
+    }
+
+    public void PlaySwordClashSound()
+    {
+        AudioClip clip = swordClashSounds[UnityEngine.Random.Range(0, swordClashSounds.Length)];
+        sfxSource.PlayOneShot(clip);
+    }
+
+    public void PlaySwordsSwingSound()
+    {
+        AudioClip clip = swordsSwingSounds[UnityEngine.Random.Range(0, swordsSwingSounds.Length)];
+        sfxSource.PlayOneShot(clip);
+    }
+
     public void PlayMusic(AudioClip clip, float fadeDuration = 1)
     {
         musicSource.Stop();
-
         musicSource.clip = clip;
         musicSource.Play();
     }

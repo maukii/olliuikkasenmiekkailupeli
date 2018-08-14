@@ -468,32 +468,32 @@ Prefab:
     - target: {fileID: 224135948481806594, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224135948481806594, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224135948481806594, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224135948481806594, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224135948481806594, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 1598
+      value: 1693.2
       objectReference: {fileID: 0}
     - target: {fileID: 224135948481806594, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 1000
+      value: 357.4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114726462985951446, guid: 52d988f36a2e1164690ead9acb78f29b, type: 2}
@@ -530,7 +530,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daccbb9eba06cb041b48ada04f5f4555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: 337
   PauseMenuUI: {fileID: 18114262}
   MovelistUI: {fileID: 1283496210}
   OptionsUI: {fileID: 1019403172}
@@ -2135,7 +2134,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1791380051808050, guid: 52d988f36a2e1164690ead9acb78f29b, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114935900599056536, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
@@ -8279,7 +8278,6 @@ MonoBehaviour:
   zoomIn: 0
   zoomOut: 0
   distanceBetweenPlayers: 0
-  speed: 0
 --- !u!1 &934800152
 GameObject:
   m_ObjectHideFlags: 0
@@ -13942,7 +13940,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daccbb9eba06cb041b48ada04f5f4555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: 337
   PauseMenuUI: {fileID: 1871488325}
   MovelistUI: {fileID: 0}
   OptionsUI: {fileID: 0}
@@ -15076,7 +15073,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 100}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1432264189
 MonoBehaviour:
@@ -15090,7 +15087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.5019608, g: 0.050980393, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -15099,9 +15096,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 40
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
     m_MaxSize: 50
     m_Alignment: 4
@@ -17273,7 +17270,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 100}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1694987494
 MonoBehaviour:
@@ -17287,7 +17284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.5, g: 0.04933858, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -17296,9 +17293,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 40
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
     m_MaxSize: 50
     m_Alignment: 4

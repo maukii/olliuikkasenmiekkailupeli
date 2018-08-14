@@ -74,6 +74,7 @@ public class CollisionDamage : MonoBehaviour {
             if (applyDamage[player])
             {
                 int otherplayer = player - 1 == -1 ? 1 : 0;
+                applyDamage[player] = false;
                 switch (col.gameObject.name)
                 {
                     case "alaselkä.L":
@@ -104,7 +105,7 @@ public class CollisionDamage : MonoBehaviour {
                         break;
                 }
                 ch.SummonBlood(col.contacts[0].point, Quaternion.FromToRotation(transform.up, col.contacts[0].normal));
-                applyDamage[player] = false;
+                
             }
             
         }

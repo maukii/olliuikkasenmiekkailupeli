@@ -11,6 +11,7 @@ public class TutorialManager : MonoBehaviour
     [Header("---Affects movement---")]
     public bool moveLock;
     public bool guardLock;
+    public bool deathLock;
     public bool heightLock;
     public bool lungeLock;
 
@@ -79,14 +80,17 @@ public class TutorialManager : MonoBehaviour
             hangingP2 = animP2.GetFloat("Hanging");
             insideP2 = animP2.GetFloat("Inside");
 
-            moveLock = true;
-            guardLock = true;
-            heightLock = true;
-            lungeLock = true;
-
             phase1 = true;
 
             #region PhaseFalseStuff
+
+            if (phase1)
+            {
+                moveLock = true;
+                guardLock = true;
+                heightLock = true;
+                lungeLock = true;
+            }
 
             if (phase2)
             {
@@ -97,12 +101,15 @@ public class TutorialManager : MonoBehaviour
             {
                 phase1 = false;
                 phase2 = false;
+                guardLock = false;
             }
 
             if (phase4)
             {
                 phase1 = false;
                 phase3 = false;
+                guardLock = false;
+                deathLock = true;
             }
 
             if (phase5)
@@ -115,6 +122,7 @@ public class TutorialManager : MonoBehaviour
             {
                 phase1 = false;
                 phase5 = false;
+                heightLock = false;
             }
 
             if (phase7)
@@ -286,7 +294,7 @@ public class TutorialManager : MonoBehaviour
             "Well done sirs! When duelling with sabres you can be attacked from two different sides: outside (the side your back is pointing) and inside (the side your chest is pointing)"
             */
             
-            guardLock = false;                                  //Unlock guard changes
+            //Unlock guard changes
 
             /*
             "To block the attacks coming you have to make sure that you are guarding the correct side. The side you are guarding in indicated by the colour of your blade"
@@ -343,6 +351,8 @@ public class TutorialManager : MonoBehaviour
                 animP1.SetBool("forward", false);
                 animP2.SetBool("forward", false);
             }
+
+            
             
             /*
             Damage animations play but players don’t get hurt 
@@ -373,7 +383,7 @@ public class TutorialManager : MonoBehaviour
             "Now that you've become adept at attacking and defending from different sides, we'll add a new factor to our equation: Sword height!"
             */
 
-            heightLock = false;                                 //Sword height gets unlocked
+                                             //Sword height gets unlocked
 
             /*
             "Use your (right controller stick, mouse or  t and g for player1 and O and L for player2) to change the height of your sword now."
@@ -446,6 +456,7 @@ public class TutorialManager : MonoBehaviour
             tutorialNotStarted = true;
             moveLock = false;
             guardLock = false;
+            deathLock = false;
             heightLock = false;
             lungeLock = false;
             tutorialClear = false;

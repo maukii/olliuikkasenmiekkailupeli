@@ -6,7 +6,7 @@ using UnityEngine;
 public class CollisionDamage : MonoBehaviour {
 
     [SerializeField]
-    GameObject P1, P2, P1_sword, P2_sword, swordPrefab;
+    GameObject P1, P2, swordPrefab;
 
     CollisionHandler ch;
     public enum Bodyparts { Head, Torso, Leg, Arm, Hand }

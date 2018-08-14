@@ -14,6 +14,7 @@ public class Distances : MonoBehaviour
     [SerializeField] float P1DistanceL, P1DistanceR, P2DistanceL, P2DistanceR;
     [SerializeField] float minDistance = 3.25f, maxDistance = 10f;
     [SerializeField] float playerDistance;
+    [SerializeField] float extraDistance = 0.2f;
 
     void Start()
     {
@@ -35,11 +36,11 @@ public class Distances : MonoBehaviour
         P2DistanceL = Vector3.Distance(P2.position, wallL.transform.position);
         P2DistanceR = Vector3.Distance(P2.position, wallR.transform.position);
 
-        if((P1DistanceL < minDistance || P1DistanceR < minDistance) && playerNumber == 1 || playerDistance >= maxDistance)
+        if((P1DistanceL < minDistance + extraDistance || P1DistanceR < minDistance + extraDistance) && playerNumber == 1 || playerDistance >= maxDistance)
         {
             return false;
         }
-        else if((P2DistanceL < minDistance || P2DistanceR < minDistance) && playerNumber == 2 || playerDistance >= maxDistance)
+        else if((P2DistanceL < minDistance + extraDistance || P2DistanceR < minDistance + extraDistance) && playerNumber == 2 || playerDistance >= maxDistance)
         {
             return false;
         }

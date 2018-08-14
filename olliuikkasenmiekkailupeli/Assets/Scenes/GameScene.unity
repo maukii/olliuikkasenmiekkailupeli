@@ -7373,6 +7373,7 @@ MonoBehaviour:
   minDistance: 3.25
   maxDistance: 10
   playerDistance: 0
+  extraDistance: 0.2
 --- !u!1 &832689058
 GameObject:
   m_ObjectHideFlags: 0
@@ -8917,6 +8918,36 @@ Prefab:
         type: 2}
       propertyPath: stepCountFromActualDistance
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621997645846882, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: TorsoTreshold.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621997645846882, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: TorsoTreshold.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621997645846882, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: LegTreshold.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621997645846882, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: LegTreshold.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621997645846882, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: ArmTreshold.Array.data[0]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621997645846882, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: ArmTreshold.Array.data[1]
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 852c08df0ef0e754f923a4ee72e95154, type: 2}

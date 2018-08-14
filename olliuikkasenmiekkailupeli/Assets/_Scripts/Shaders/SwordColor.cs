@@ -8,6 +8,8 @@ public class SwordColor : MonoBehaviour {
     HandAnimationControl hac;
     public bool useShaderColors = true;
     float inside = -1;
+    float hanging = -1;
+    float swordShade = 0;
     void Start()
     {
         rend = GetComponent<Renderer>();
@@ -36,12 +38,21 @@ public class SwordColor : MonoBehaviour {
         }
         if (useShaderColors)
         {
-            if (inside != hac.GetInside())
+            if (inside != hac.GetInside() || hanging != hac.GetHanging())
             {
                 inside = hac.GetInside();
+                hanging = hac.GetHanging();
+                if(hanging == inside)
+                {
+                    swordShade = 1;
+                }
+                else
+                {
+                    swordShade = 0;
+                }
                 for (int i = 0; i < rend.materials.Length; i++)
                 {
-                    rend.materials[i].SetFloat("_ColorScale", inside);
+                    rend.materials[i].SetFloat("_ColorScale", swordShade);
                 }
             }
         }

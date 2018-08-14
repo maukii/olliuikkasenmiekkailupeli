@@ -97,7 +97,6 @@ public class TutorialManager : MonoBehaviour
             {
                 phase1 = false;
                 phase2 = false;
-                guardLock = false;
             }
 
             if (phase4)
@@ -116,7 +115,6 @@ public class TutorialManager : MonoBehaviour
             {
                 phase1 = false;
                 phase5 = false;
-                heightLock = false;
             }
 
             if (phase7)
@@ -153,24 +151,45 @@ public class TutorialManager : MonoBehaviour
 
             "Let’s start with doing a vertical attack (Vertical attack button) and a horizontal attack (Horizontal attack button)."
             */
-
-            if (animP1.GetBool("SwingDia"))
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 P1_OK = true;
             }
 
-            if (P1_OK && animP1.GetBool("SwingHor"))
+            if (P1_OK && Input.GetKeyDown(KeyCode.F))
             {
                 P1_OK = false;
                 P1Clear = true;
             }
 
-            if (animP2.GetBool("SwingDia"))
+            if (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(1))
+            {
+                P1_OK = true;
+            }
+
+            if (P1_OK && InputManager.IM.isKeyboardAndMouseP1 && Input.GetKeyDown(KeyCode.F))
+            {
+                P1_OK = false;
+                P1Clear = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.RightShift))
             {
                 P2_OK = true;
             }
 
-            if (P2_OK && animP2.GetBool("SwingHor"))
+            if (P2_OK && Input.GetKeyDown(KeyCode.RightControl))
+            {
+                P2_OK = false;
+                P2Clear = true;
+            }
+
+            if (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(1))
+            {
+                P2_OK = true;
+            }
+
+            if (P2_OK && InputManager.IM.isKeyboardAndMouseP2 && Input.GetKeyDown(KeyCode.F))
             {
                 P2_OK = false;
                 P2Clear = true;
@@ -200,22 +219,34 @@ public class TutorialManager : MonoBehaviour
             "You never seize to amaze sirs! You can also spin your sword around and do an attack from the opposite direction(Hold down attack button). This technique is called a moulinette."
             */
 
-            if (animP1.GetBool("Strong"))
+            if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.F))
             {
                 inputTimerP1 -= Time.deltaTime;
             }
 
-            if (animP2.GetBool("Strong"))
+            else if (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButton(1) || InputManager.IM.isKeyboardAndMouseP1 && Input.GetKey(KeyCode.F))
             {
-                inputTimerP2 -= Time.deltaTime;
+                inputTimerP1 -= Time.deltaTime;
             }
 
-            if (!animP1.GetBool("Strong"))
+            else
             {
                 inputTimerP1 = defaultInputTimer;
             }
 
-            if (!animP2.GetBool("Strong"))
+            //MUISTA LAITTAA KONTROLLERIEN INPUTIT!!!
+
+            if (Input.GetKey(KeyCode.RightShift) || Input.GetKey(KeyCode.RightControl))
+            {
+                inputTimerP2 -= Time.deltaTime;
+            }
+
+            else if (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButton(1) || InputManager.IM.isKeyboardAndMouseP2 && Input.GetKey(KeyCode.F))
+            {
+                inputTimerP2 -= Time.deltaTime;
+            }
+
+            else
             {
                 inputTimerP2 = defaultInputTimer;
             }
@@ -245,21 +276,17 @@ public class TutorialManager : MonoBehaviour
             }
         }
 
-        if (phase3)     //NEEDS SOME FIXING
+        if (phase3)
         {
-            P1_OK = false;
-            P2_OK = false;
-
-            timer = timer - Time.deltaTime; // LAITA TIMERI SAATANA!
+            //READY FOR TEXTS
 
             /*
             "Just marvelous! Note that doing a moulinette is only way to generate enough force for a fatal blow, lighter attack will only wound your opponent."
 
             "Well done sirs! When duelling with sabres you can be attacked from two different sides: outside (the side your back is pointing) and inside (the side your chest is pointing)"
-
-            Unlock guard changes
             */
-
+            
+            guardLock = false;                                  //Unlock guard changes
 
             /*
             "To block the attacks coming you have to make sure that you are guarding the correct side. The side you are guarding in indicated by the colour of your blade"
@@ -269,65 +296,32 @@ public class TutorialManager : MonoBehaviour
             "Now please rotate through each of your guard (The guard changing button or the other guard changing button)"
             */
 
-            if (timer < 2)
+            if (Input.GetKeyUp(KeyCode.X) || Input.GetKeyUp(KeyCode.C))
             {
-                if (Input.anyKey && hangingP1 == 0f || insideP1 == 0f)
-                {
-                    if (hangingP1 == 1f)
-                    {
-                        P1_OK = true;
-                    }
+                P1_OK = true;
+            }
 
-                    if (insideP1 == 1f)
-                    {
-                        P1_OK = true;
-                    }
-                }
+            if (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(1) || InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(2))
+            {
+                P1_OK = true;
+            }
 
-                if (Input.anyKey && hangingP1 == 1f || insideP1 == 1f)
-                {
-                    if (hangingP1 == 0f)
-                    {
-                        P1_OK = true;
-                    }
+            //LAITA KONTROLLERIN INPUTIT MYÖS!!!
 
-                    if (insideP1 == 0f)
-                    {
-                        P1_OK = true;
-                    }
-                }
+            if (Input.GetKeyUp(KeyCode.P) || Input.GetKeyUp(KeyCode.I))
+            {
+                P2_OK = true;
+            }
 
-                if (Input.anyKey && hangingP2 == 0f || insideP2 == 0f)
-                {
-                    if (hangingP2 == 1f)
-                    {
-                        P2_OK = true;
-                    }
+            if (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(1) || InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(2))
+            {
+                P2_OK = true;
+            }
 
-                    if (insideP2 == 1f)
-                    {
-                        P2_OK = true;
-                    }
-                }
-
-                if (Input.anyKey && hangingP2 == 1f || insideP2 == 1f)
-                {
-                    if (hangingP2 == 0f)
-                    {
-                        P1_OK = true;
-                    }
-
-                    if (insideP2 == 0f)
-                    {
-                        P1_OK = true;
-                    }
-                }
-
-                if (P1_OK && P2_OK)
-                {
-                    timer = defaultTimer;
-                    phase4 = true;
-                }
+            if (P1_OK && P2_OK)
+            {
+                timer = defaultTimer;
+                phase4 = true;
             }
         }
 
@@ -338,11 +332,7 @@ public class TutorialManager : MonoBehaviour
 
             timer = timer - Time.deltaTime;
 
-            /*
-            Players step in striking distance
-            */
-
-            if (timer > 4.5)
+            if (timer > 4.5)                                    //Players step in striking distance
             {
                 animP1.SetBool("forward", true);
                 animP2.SetBool("forward", true);
@@ -381,9 +371,11 @@ public class TutorialManager : MonoBehaviour
             Players step out of striking distance
 
             "Now that you've become adept at attacking and defending from different sides, we'll add a new factor to our equation: Sword height!"
+            */
 
-            Sword height gets unlocked
+            heightLock = false;                                 //Sword height gets unlocked
 
+            /*
             "Use your (right controller stick, mouse or  t and g for player1 and O and L for player2) to change the height of your sword now."
 
             "Absolutely splendid work sirs! The height of your sword affects both where your attack will land and where you are blocking. Even if your guard is on correct side, it can't parry the attack if the blade isn't on the way of the attack."

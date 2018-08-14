@@ -1425,7 +1425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511344c725e3c934c8e91929470f34d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: 0
+  playerIndex: 2
   anim: {fileID: 0}
   dead: 0
   scoreGiven: 0
@@ -1991,7 +1991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511344c725e3c934c8e91929470f34d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: 0
+  playerIndex: 1
   anim: {fileID: 0}
   dead: 0
   scoreGiven: 0
@@ -8912,6 +8912,11 @@ Prefab:
         type: 2}
       propertyPath: startingDistance
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 114266302690892870, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: stepCountFromActualDistance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 852c08df0ef0e754f923a4ee72e95154, type: 2}

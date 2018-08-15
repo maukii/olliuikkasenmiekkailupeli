@@ -27,9 +27,8 @@ public class TutorialManager : MonoBehaviour
     public bool tutorialClear;
     
     public bool phase1, phase2, phase3, phase4, phase5, phase6, phase7, phase8, phase9;
-
-    [SerializeField]
-    float hangingP1, hangingP2, insideP1, insideP2, heightP1, heightP2;     //FOR TEST PURPOSES
+    
+    float hangingP1, hangingP2, insideP1, insideP2, heightP1, heightP2;
     
     Animator animP1, animP2;
     InputManager im;
@@ -131,6 +130,7 @@ public class TutorialManager : MonoBehaviour
             {
                 phase1 = false;
                 phase4 = false;
+                guardLock = false;
                 heightLock = false;
             }
 
@@ -138,12 +138,16 @@ public class TutorialManager : MonoBehaviour
             {
                 phase1 = false;
                 phase5 = false;
+                guardLock = false;
+                heightLock = false;
             }
 
             if (phase7)
             {
                 phase1 = false;
                 phase6 = false;
+                guardLock = false;
+                heightLock = false;
                 moveLock = false;
             }
 
@@ -151,13 +155,15 @@ public class TutorialManager : MonoBehaviour
             {
                 phase1 = false;
                 phase7 = false;
+                guardLock = false;
+                heightLock = false;
+                moveLock = false;
+                lungeLock = false;
             }
 
             if (phase9)
             {
-                phase1 = false;
-                phase8 = false;
-                lungeLock = false;
+
             }
             #endregion
         }
@@ -357,9 +363,12 @@ public class TutorialManager : MonoBehaviour
                 animP2.SetBool("forward", false);
                 
                 //"Very good sirs! On top of affecting the direction you're blocking guards also determine which direction your attacks will come from. Please try hitting eachother untill one of you has landed three hits");
-                    
-                timer = defaultTimer;
-                phase5 = true;
+
+                if (Input.GetKeyUp(KeyCode.Return) || InputManager.IM.GetA(1) || InputManager.IM.GetA(2))
+                {
+                    timer = defaultTimer;
+                    phase5 = true;
+                }
             }
         }
 
@@ -367,83 +376,106 @@ public class TutorialManager : MonoBehaviour
         {
             timer -= Time.deltaTime;
 
-            if (timer > 4.5)                                    //Players step out of striking distance
+            if (!P1_OK && timer > 4.5)                                    //Players step out of striking distance
             {
                 animP1.SetBool("back", true);
                 animP2.SetBool("back", true);
             }
 
-            if (timer < 2)
+            if (!P1_OK && timer < 2)
             {
                 animP1.SetBool("back", false);
                 animP2.SetBool("back", false);
+            }
+            if (heightP1 < 0 || heightP1 > 0)
+            {
+                P1_OK = true;
+            }
 
-                //"You can also change your sword’s height (right controller stick, mouse or  t and g for player1 and O and L for player2) to attack and protect on different bodyparts."
+            if (heightP2 < 0 || heightP2 > 0)
+            {
+                P2_OK = true;
+            }
 
-                if (heightP1 < 0 || heightP1 > 0)
-                {
-                    P1_OK = true;
-                }
+            //"You can also change your sword’s height (right controller stick, mouse or  t and g for player1 and O and L for player2) to attack and protect on different bodyparts."
 
-                if (heightP1 < 0 || heightP1 > 0)
-                {
-                    P2_OK = true;
-                }
-
-                if (P1_OK && P2_OK)
-                {
-                    P1Clear = true;
-                    P2Clear = true;
-                }
-
-                if (P1Clear && P2Clear)
-                {
-                    timer = defaultTimer;
-                    P1_OK = false;
-                    P2_OK = false;
-
-                    //"Absolutely splendid work sirs! Even if your guard is on correct side, it can't parry the attack if the blade isn't on the way of the attack."
-
-                    //"Now before we move on to footwork, I want to tell you a bit about what happens when your swords collide."
-
-                    //"Your sword's blade can be divided to roughly two parts in lengthwise: the strong of the blade(The half closer to your hand, used for parrying) and the weak of the blade(the half further from the hand, used for attacking)"
-
-                    //"The laws of leverage dictate that when weak of the blade hits strong the former will bounce back more"
-
-                    //"How sword collisions end up are also affected by multitude of other factors such as momentum and the direction of the swings.But fun comes from figuring these things yourself.So once more, first to three!"
-
-                    timer = defaultTimer;
-                    phase6 = true;
-                }
+            if (P1_OK && P2_OK)
+            {
+                timer = defaultTimer;
+                phase6 = true;
             }
         }
 
         if (phase6)
         {
-            timer -= Time.deltaTime;
+            P1_OK = false;
+            P2_OK = false;
+            P1Clear = false;
+            P2Clear = false;
 
-            if (timer > 4.5)
+            //"Absolutely splendid work sirs! Even if your guard is on correct side, it can't parry the attack if the blade isn't on the way of the attack."
+
+            //"Now before we move on to footwork, I want to tell you a bit about what happens when your swords collide."
+
+            //"Your sword's blade can be divided to roughly two parts in lengthwise: the strong of the blade(The half closer to your hand, used for parrying) and the weak of the blade(the half further from the hand, used for attacking)"
+
+            //"The laws of leverage dictate that when weak of the blade hits strong the former will bounce back more"
+
+            if (Input.GetKeyUp(KeyCode.Return) || InputManager.IM.GetA(1) || InputManager.IM.GetA(2))
             {
-                animP1.SetBool("forward", true);
-                animP2.SetBool("forward", true);
-            }
+                timer -= Time.deltaTime;
 
-            if (timer < 2)
-            {
-                animP1.SetBool("forward", false);
-                animP2.SetBool("forward", false);
-            }
+                if (timer > 4.5)
+                {
+                    animP1.SetBool("forward", true);
+                    animP2.SetBool("forward", true);
+                }
 
+                if (timer < 2)
+                {
+                    animP1.SetBool("forward", false);
+                    animP2.SetBool("forward", false);
+                }
+
+                //"How sword collisions end up are also affected by multitude of other factors such as momentum and the direction of the swings.But fun comes from figuring these things yourself.So once more, first to three!"
+
+                if (timer < 0 && Input.GetKeyUp(KeyCode.Return) || InputManager.IM.GetA(1) || InputManager.IM.GetA(2))
+                {
+                    phase7 = true;
+                }
+            }
+        }
+
+        if (phase7)
+        {
             //"Being able to swing your sword is all well and good, but you’ll soon be hit by the swings of your opponent, lest you learn how to move out of the way of those swings."
 
             //"Footwork basicly boils down to stepping forward(tilt left stick towards your opponent, press D or left arrow) and stepping backward(tilt left stick away from your opponent, press A or right arrow).Give me one step in either direction."
 
-            //"Very impressive! You can also fool your opponents by cancelling your steps(While making the step tilt the right stick to opposite direction / press the opposite movement key)."
+            if (animP1.GetBool("forward") || animP1.GetBool("back"))
+            {
+                P1_OK = true;
+            }
 
-            //"Now test what you’ve learned with by sparring with first to three hits and we can move to final lessons!"
+            if (animP2.GetBool("forward") || animP2.GetBool("back"))
+            {
+                P2_OK = true;
+            }
+
+            if (P1_OK && P2_OK)
+            {
+                //"Very impressive! You can also fool your opponents by cancelling your steps(While making the step tilt the right stick to opposite direction / press the opposite movement key)."
+
+                //"Now test what you’ve learned with by sparring with first to three hits and we can move to final lessons!"
+            }
+            
+
+            
+
+            
         }
 
-        if (phase7)
+        if (phase8)
         {
             //Unlock backward leap
 
@@ -464,15 +496,11 @@ public class TutorialManager : MonoBehaviour
             //Move to duel mode
         }
 
-        if (phase8)
-        {
-
-        }
-
         if (phase9)
         {
 
         }
+
         #endregion
     }
 

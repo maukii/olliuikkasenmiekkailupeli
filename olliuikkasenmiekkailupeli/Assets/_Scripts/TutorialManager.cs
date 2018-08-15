@@ -26,7 +26,7 @@ public class TutorialManager : MonoBehaviour
     public bool tutorialNotStarted;
     public bool tutorialClear;
     
-    public bool phase1, phase2, phase3, phase4, phase5, phase6, phase7, phase8, phase9;
+    public bool phase1, phase2, phase3, phase4, phase5, phase6, phase7, phase8;
     
     float hangingP1, hangingP2, insideP1, insideP2, heightP1, heightP2;
     
@@ -62,6 +62,7 @@ public class TutorialManager : MonoBehaviour
         }
 
         TutorialExit();
+        TutorialClear();
     }
 
     void TutorialPhases ()
@@ -165,11 +166,6 @@ public class TutorialManager : MonoBehaviour
                 heightLock = false;
                 moveLock = false;
                 lungeLock = false;
-            }
-
-            if (phase9)
-            {
-
             }
             #endregion
         }
@@ -467,36 +463,52 @@ public class TutorialManager : MonoBehaviour
 
             if (P1_OK && P2_OK)
             {
-                //"Very impressive! You can also fool your opponents by cancelling your steps(While making the step tilt the right stick to opposite direction / press the opposite movement key)."
-
                 //"Now test what you’ve learned with by sparring with first to three hits and we can move to final lessons!"
+
+                P1_OK = false;
+                P2_OK = false;
+                phase8 = true;
             }
         }
 
         if (phase8)
         {
-            //Unlock backward leap
-
             //"Now I shall teach you some advanced footwork. First show me a leap backwards(Double tap leftstick away from opponent)!"
 
-            //Unlock lunge 
+            if (animP1.GetBool("Jumped"))
+            {
+                P1_OK = true;
+            }
+
+            if (animP2.GetBool("Jumped"))
+            {
+                P2_OK = true;
+            }
 
             //"Clearly you’re no peasants!  And now for for the last and propably the most important move show me a Lunge(Double tap leftstick towards opponent)"
 
-            //"You inbred bastards! You can leave your lunged position by moving forward(move forward) or backward(move backward)"
+            if (P1_OK && animP1.GetBool("Lunged"))
+            {
+                P1Clear = true;
+            }
 
-            //"In most cases you want to start preparing your swing just before lunging. Also don’t let yourself get too close to opponent, lest your fight will detoriate to a common brawl!"
+            if (P2_OK && animP2.GetBool("Lunged"))
+            {
+                P2Clear = true;
+            }
 
-            //"The ideal distance from your opponent is from where you can hit your opponent by lunging but can’t be reached when standing in normally. This is called being at measure."
+            if (P1Clear && P2Clear)
+            {
+                //"You inbred bastards! You can leave your lunged position by moving forward(move forward) or backward(move backward)"
 
-            //"I hope you swift deaths."
-            
-            //Move to duel mode
-        }
+                //"In most cases you want to start preparing your swing just before lunging. Also don’t let yourself get too close to opponent, lest your fight will detoriate to a common brawl!"
 
-        if (phase9)
-        {
+                //"The ideal distance from your opponent is from where you can hit your opponent by lunging but can’t be reached when standing in normally. This is called being at measure."
 
+                //"I hope you swift deaths."
+
+                tutorialClear = true;        //Move to duel mode
+            }
         }
 
         #endregion
@@ -519,6 +531,9 @@ public class TutorialManager : MonoBehaviour
 
     void TutorialClear()
     {
-        //Move to duel mode
+        if (tutorialClear)
+        {
+            SceneManager.LoadScene(3);
+        }
     }
 }

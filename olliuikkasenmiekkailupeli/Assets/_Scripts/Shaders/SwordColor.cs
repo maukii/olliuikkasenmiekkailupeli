@@ -52,7 +52,7 @@ public class SwordColor : MonoBehaviour {
                 }
                 for (int i = 0; i < rend.materials.Length; i++)
                 {
-                    rend.materials[i].SetFloat("_ColorScale", swordShade);
+                    rend.materials[i].SetFloat("_ColorScale", inside);
                 }
             }
         }

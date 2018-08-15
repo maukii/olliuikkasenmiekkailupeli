@@ -7,6 +7,7 @@ public class TutorialManager : MonoBehaviour
 {
     public float defaultTimer, timer = 5f;
     public float defaultInputTimer, inputTimerP1 = 0.5f, inputTimerP2 = 0.5f;
+    public float defaultTextTimer, textTimer;
 
     [Header("---Affects movement---")]
     public bool moveLock;
@@ -26,9 +27,8 @@ public class TutorialManager : MonoBehaviour
     public bool tutorialClear;
     
     public bool phase1, phase2, phase3, phase4, phase5, phase6, phase7, phase8, phase9;
-
-    [SerializeField]
-    float hangingP1, hangingP2, insideP1, insideP2, heightP1, heightP2;     //FOR TEST PURPOSES
+    
+    float hangingP1, hangingP2, insideP1, insideP2, heightP1, heightP2;
     
     Animator animP1, animP2;
     InputManager im;
@@ -41,7 +41,11 @@ public class TutorialManager : MonoBehaviour
         im = FindObjectOfType<InputManager>();
         TM = this;
         tutorialNotStarted = true;
+
+        textTimer = 1f;
+
         defaultTimer = timer;
+        defaultTextTimer = textTimer;
         defaultInputTimer = inputTimerP1;
     }
 
@@ -126,6 +130,7 @@ public class TutorialManager : MonoBehaviour
             {
                 phase1 = false;
                 phase4 = false;
+                guardLock = false;
                 heightLock = false;
             }
 
@@ -133,12 +138,16 @@ public class TutorialManager : MonoBehaviour
             {
                 phase1 = false;
                 phase5 = false;
+                guardLock = false;
+                heightLock = false;
             }
 
             if (phase7)
             {
                 phase1 = false;
                 phase6 = false;
+                guardLock = false;
+                heightLock = false;
                 moveLock = false;
             }
 
@@ -146,13 +155,15 @@ public class TutorialManager : MonoBehaviour
             {
                 phase1 = false;
                 phase7 = false;
+                guardLock = false;
+                heightLock = false;
+                moveLock = false;
+                lungeLock = false;
             }
 
             if (phase9)
             {
-                phase1 = false;
-                phase8 = false;
-                lungeLock = false;
+
             }
             #endregion
         }
@@ -160,15 +171,14 @@ public class TutorialManager : MonoBehaviour
         #region Tutorial
         if (phase1)
         {
-            //READY FOR TEXTS
+            //textTimer4 < 0 && Input.GetKeyUp(KeyCode.Return) || textTimer < 0 && InputManager.IM.GetA(1) || textTimer < 0 && InputManager.IM.GetA(2))
 
-            /*
-            Players start out of striking distance from eachother and can only do light vertical and horizontal attack
+            //"Welcome noble gentlemen! Today I shall teach you how to defend your honour."
 
-            "Welcome noble gentlemen! Today I shall teach you how to defend your honour."
+            textTimer -= Time.deltaTime;
 
-            "Let’s start with doing a vertical attack (Vertical attack button) and a horizontal attack (Horizontal attack button)."
-            */
+            //"Let’s start with doing a vertical attack (Vertical attack button) and a horizontal attack (Horizontal attack button)."
+
             if (Input.GetKeyDown(KeyCode.R))
             {
                 P1_OK = true;
@@ -226,18 +236,12 @@ public class TutorialManager : MonoBehaviour
 
         if (phase2)
         {
-            //READY FOR TEXTS
-
             P1Clear = false;
             P2Clear = false;
 
-            /*
-            Moulinettes are unlocked
-
-            "You never seize to amaze sirs! You can also spin your sword around and do an attack from the opposite direction(Hold down attack button). This technique is called a moulinette."
-            "Note that doing a moulinette is only way to generate enough force for any proper damage, lighter attack will only wound your opponent."
-        
-            */
+            //"You never seize to amaze sirs! You can also spin your sword around and do an attack from the opposite direction(Hold down attack button). This technique is called a moulinette."
+            
+            //"Note that doing a moulinette is only way to generate enough force for any proper damage, lighter attack will only wound your opponent."
 
             if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.F))
             {
@@ -298,11 +302,7 @@ public class TutorialManager : MonoBehaviour
 
         if (phase3)
         {
-            //READY FOR TEXTS
-
-            /*
-            "Well done sirs! When duelling with sabres you can be attacked from two different sides: outside (the side your back is pointing) and inside (the side your chest is pointing)"
-            */
+            //"Well done sirs! When duelling with sabres you can be attacked from two different sides: outside (the side your back is pointing) and inside (the side your chest is pointing)"
 
             //LAITA KONTROLLERIN INPUTIT MYÖS!!!
 
@@ -318,13 +318,11 @@ public class TutorialManager : MonoBehaviour
 
             if (P1_OK && P2_OK)
             {
-                /*
-                "To block the attacks coming you have to make sure that you are guarding the correct side. The side you are guarding in indicated by the colour of your blade"
+                //"To block the attacks coming you have to make sure that you are guarding the correct side. The side you are guarding in indicated by the colour of your blade"
 
-                "You can also change between hanging(sword pointing down) and regular(sword pointing up) guard"
+                //"You can also change between hanging(sword pointing down) and regular(sword pointing up) guard"
 
-                "Now please rotate through each of your guard (The guard changing button or the other guard changing button)"
-                */
+                //"Now please rotate through each of your guard (The guard changing button or the other guard changing button)"
 
                 if (Input.GetKeyUp(KeyCode.C) || InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(2))
                 {
@@ -335,12 +333,12 @@ public class TutorialManager : MonoBehaviour
                 {
                     P2Clear = true;
                 }
+            }
 
-                if (P2Clear && P2Clear)
-                {
-                    timer = defaultTimer;
-                    phase4 = true;
-                }
+            if (P2Clear && P2Clear)
+            {
+                timer = defaultTimer;
+                phase4 = true;
             }
         }
 
@@ -351,9 +349,9 @@ public class TutorialManager : MonoBehaviour
             P1Clear = false;
             P2Clear = false;
 
-            timer = timer - Time.deltaTime;
+            timer -= Time.deltaTime;
 
-            if (timer > 4.5)                                    //Players step in striking distance
+            if (timer > 4.5)
             {
                 animP1.SetBool("forward", true);
                 animP2.SetBool("forward", true);
@@ -363,80 +361,146 @@ public class TutorialManager : MonoBehaviour
             {
                 animP1.SetBool("forward", false);
                 animP2.SetBool("forward", false);
-            }
+                
+                //"Very good sirs! On top of affecting the direction you're blocking guards also determine which direction your attacks will come from. Please try hitting eachother untill one of you has landed three hits");
 
-            /*
-            "Very good sirs! On top of affecting the direction you're blocking guards also determine which direction your attacks will come from.
-            Please try hitting eachother untill one of you has landed three hits"
-            */
-
-            if (Input.GetKeyUp(KeyCode.Return) || InputManager.IM.GetA(1) || InputManager.IM.GetA(2))
-            {
-                phase5 = true;
-                timer = defaultTimer;
+                if (Input.GetKeyUp(KeyCode.Return) || InputManager.IM.GetA(1) || InputManager.IM.GetA(2))
+                {
+                    timer = defaultTimer;
+                    phase5 = true;
+                }
             }
         }
 
         if (phase5)
         {
-            timer = timer - Time.deltaTime;
+            timer -= Time.deltaTime;
 
-            if (timer > 4.5)                                    //Players step out of striking distance
+            if (!P1_OK && timer > 4.5)                                    //Players step out of striking distance
             {
                 animP1.SetBool("back", true);
                 animP2.SetBool("back", true);
             }
 
-            if (timer < 2)
+            if (!P1_OK && timer < 2)
             {
                 animP1.SetBool("back", false);
                 animP2.SetBool("back", false);
             }
-            //Sword height gets unlocked
-
-            /*
-            "You can also change your sword’s height (right controller stick, mouse or  t and g for player1 and O and L for player2) to attack and protect on different bodyparts." 
-            */
-
-            //Height stuff
-
-            /*
-            "Absolutely splendid work sirs! Even if your guard is on correct side, it can't parry the attack if the blade isn't on the way of the attack."
-            
-            "Now before we move on to footwork, I want to tell you a bit about what happens when your swords collide." 
-
-            "Your sword's blade can be divided to roughly two parts in lengthwise: the strong of the blade(The half closer to your hand, used for parrying)
-            and the weak of the blade(the half further from the hand, used for attacking)" 
-
-            "The laws of leverage dictate that when weak of the blade hits strong the former will bounce back more"
-            */
-
-            /*
-            if (Input.GetKeyUp(KeyCode.Return) || InputManager.IM.GetA(1) || InputManager.IM.GetA(2))
+            if (heightP1 < 0 || heightP1 > 0)
             {
+                P1_OK = true;
+            }
+
+            if (heightP2 < 0 || heightP2 > 0)
+            {
+                P2_OK = true;
+            }
+
+            //"You can also change your sword’s height (right controller stick, mouse or  t and g for player1 and O and L for player2) to attack and protect on different bodyparts."
+
+            if (P1_OK && P2_OK)
+            {
+                timer = defaultTimer;
                 phase6 = true;
-            }*/
+            }
         }
 
         if (phase6)
         {
+            P1_OK = false;
+            P2_OK = false;
+            P1Clear = false;
+            P2Clear = false;
 
+            //"Absolutely splendid work sirs! Even if your guard is on correct side, it can't parry the attack if the blade isn't on the way of the attack."
+
+            //"Now before we move on to footwork, I want to tell you a bit about what happens when your swords collide."
+
+            //"Your sword's blade can be divided to roughly two parts in lengthwise: the strong of the blade(The half closer to your hand, used for parrying) and the weak of the blade(the half further from the hand, used for attacking)"
+
+            //"The laws of leverage dictate that when weak of the blade hits strong the former will bounce back more"
+
+            if (Input.GetKeyUp(KeyCode.Return) || InputManager.IM.GetA(1) || InputManager.IM.GetA(2))
+            {
+                timer -= Time.deltaTime;
+
+                if (timer > 4.5)
+                {
+                    animP1.SetBool("forward", true);
+                    animP2.SetBool("forward", true);
+                }
+
+                if (timer < 2)
+                {
+                    animP1.SetBool("forward", false);
+                    animP2.SetBool("forward", false);
+                }
+
+                //"How sword collisions end up are also affected by multitude of other factors such as momentum and the direction of the swings.But fun comes from figuring these things yourself.So once more, first to three!"
+
+                if (timer < 0 && Input.GetKeyUp(KeyCode.Return) || InputManager.IM.GetA(1) || InputManager.IM.GetA(2))
+                {
+                    phase7 = true;
+                }
+            }
         }
 
         if (phase7)
         {
+            //"Being able to swing your sword is all well and good, but you’ll soon be hit by the swings of your opponent, lest you learn how to move out of the way of those swings."
 
+            //"Footwork basicly boils down to stepping forward(tilt left stick towards your opponent, press D or left arrow) and stepping backward(tilt left stick away from your opponent, press A or right arrow).Give me one step in either direction."
+
+            if (animP1.GetBool("forward") || animP1.GetBool("back"))
+            {
+                P1_OK = true;
+            }
+
+            if (animP2.GetBool("forward") || animP2.GetBool("back"))
+            {
+                P2_OK = true;
+            }
+
+            if (P1_OK && P2_OK)
+            {
+                //"Very impressive! You can also fool your opponents by cancelling your steps(While making the step tilt the right stick to opposite direction / press the opposite movement key)."
+
+                //"Now test what you’ve learned with by sparring with first to three hits and we can move to final lessons!"
+            }
+            
+
+            
+
+            
         }
 
         if (phase8)
         {
+            //Unlock backward leap
 
+            //"Now I shall teach you some advanced footwork. First show me a leap backwards(Double tap leftstick away from opponent)!"
+
+            //Unlock lunge 
+
+            //"Clearly you’re no peasants!  And now for for the last and propably the most important move show me a Lunge(Double tap leftstick towards opponent)"
+
+            //"You inbred bastards! You can leave your lunged position by moving forward(move forward) or backward(move backward)"
+
+            //"In most cases you want to start preparing your swing just before lunging. Also don’t let yourself get too close to opponent, lest your fight will detoriate to a common brawl!"
+
+            //"The ideal distance from your opponent is from where you can hit your opponent by lunging but can’t be reached when standing in normally. This is called being at measure."
+
+            //"I hope you swift deaths."
+            
+            //Move to duel mode
         }
 
         if (phase9)
         {
 
         }
+
         #endregion
     }
 

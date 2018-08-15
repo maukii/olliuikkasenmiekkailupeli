@@ -25,6 +25,8 @@ public class HandAnimationControl : MonoBehaviour
     bool facingRight;
     public float xLimit = 5f;
 
+    [SerializeField] int controllerLayout;
+
     [Header("--AnimatorSpeed--")]
     public bool LetThisScriptControlAnimatorSpeeds = false;
     public float AnimatorSpeed = 1f;
@@ -52,7 +54,10 @@ public class HandAnimationControl : MonoBehaviour
 
     InputManager im;
 
-    [SerializeField] int controllerLayout;
+    [Header("--Indicator--")]
+    public bool UseGuardIndicators;
+    GuardIndicator GI;
+    
 
     void Start()
     {
@@ -87,7 +92,11 @@ public class HandAnimationControl : MonoBehaviour
         {
             PlayerNumber = 1;
         }
-
+        GI = GetComponentInChildren<GuardIndicator>();
+        if (UseGuardIndicators)
+        {
+            GI.UseIndicators(true);
+        }
         controllerLayout = 3; //Best Layout
         AdditiveStanceInput = true;
 
@@ -112,7 +121,17 @@ public class HandAnimationControl : MonoBehaviour
             AnimationStateUpdate();
         }
 
-
+        if(GI != null)
+        {
+            if (UseGuardIndicators)
+            {
+                GI.UseIndicators(true);
+            }
+            else
+            {
+                GI.UseIndicators(false);
+            }
+        }
 
     }
 
@@ -140,7 +159,7 @@ public class HandAnimationControl : MonoBehaviour
         }
     }
 
-    public float handHeight;
+    float handHeight;
 
     void CheckInput()
     {

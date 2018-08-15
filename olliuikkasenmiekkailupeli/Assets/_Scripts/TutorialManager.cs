@@ -71,10 +71,16 @@ public class TutorialManager : MonoBehaviour
             P1 = GameObject.FindGameObjectWithTag("Player 1");
             P2 = GameObject.FindGameObjectWithTag("Player 2");
 
-            if (phase1 || phase2 || phase3 || phase4 || phase5)
+            if (moveLock)
             {
                 P1.GetComponent<AlternativeMovement5>().enabled = false;
                 P2.GetComponent<AlternativeMovement5>().enabled = false;
+            }
+
+            if (!moveLock)
+            {
+                P1.GetComponent<AlternativeMovement5>().enabled = true;
+                P2.GetComponent<AlternativeMovement5>().enabled = true;
             }
 
             animP1 = P1.GetComponentInChildren<Animator>();
@@ -420,29 +426,26 @@ public class TutorialManager : MonoBehaviour
             //"Your sword's blade can be divided to roughly two parts in lengthwise: the strong of the blade(The half closer to your hand, used for parrying) and the weak of the blade(the half further from the hand, used for attacking)"
 
             //"The laws of leverage dictate that when weak of the blade hits strong the former will bounce back more"
+            
+            timer -= Time.deltaTime;
 
-            if (Input.GetKeyUp(KeyCode.Return) || InputManager.IM.GetA(1) || InputManager.IM.GetA(2))
+            if (timer < 4.5)
             {
-                timer -= Time.deltaTime;
+                animP1.SetBool("forward", true);
+                animP2.SetBool("forward", true);
+            }
 
-                if (timer > 4.5)
-                {
-                    animP1.SetBool("forward", true);
-                    animP2.SetBool("forward", true);
-                }
+            if (timer < 2)
+            {
+                animP1.SetBool("forward", false);
+                animP2.SetBool("forward", false);
+            }
 
-                if (timer < 2)
-                {
-                    animP1.SetBool("forward", false);
-                    animP2.SetBool("forward", false);
-                }
+            //"How sword collisions end up are also affected by multitude of other factors such as momentum and the direction of the swings.But fun comes from figuring these things yourself.So once more, first to three!"
 
-                //"How sword collisions end up are also affected by multitude of other factors such as momentum and the direction of the swings.But fun comes from figuring these things yourself.So once more, first to three!"
-
-                if (timer < 0 && Input.GetKeyUp(KeyCode.Return) || InputManager.IM.GetA(1) || InputManager.IM.GetA(2))
-                {
-                    phase7 = true;
-                }
+            if (timer < 0 && Input.GetKeyUp(KeyCode.Return) || InputManager.IM.GetA(1) || InputManager.IM.GetA(2))
+            {
+                phase7 = true;
             }
         }
 
@@ -468,11 +471,6 @@ public class TutorialManager : MonoBehaviour
 
                 //"Now test what you’ve learned with by sparring with first to three hits and we can move to final lessons!"
             }
-            
-
-            
-
-            
         }
 
         if (phase8)

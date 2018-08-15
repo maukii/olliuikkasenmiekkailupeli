@@ -105,7 +105,12 @@ public class CollisionDamage : MonoBehaviour {
                         break;
                 }
                 ch.SummonBlood(col.contacts[0].point, Quaternion.FromToRotation(transform.up, col.contacts[0].normal));
-                
+
+                if (player == 0)
+                    CollisionHandler.deflectsP1 = 0;
+                else if (player == 1)
+                    CollisionHandler.deflectsP2 = 0;
+
             }
             
         }
@@ -143,7 +148,7 @@ public class CollisionDamage : MonoBehaviour {
         var anim = (player == 0 ? P1 : P2).GetComponent<AlternativeMovement5>().GetActiveAnimator();
         anim.SetInteger("Bodypart", bodypart);
         anim.SetTrigger("TakeDamage");
-        AudioManager.instance.PlaySoundeffect("Light Hit Placeholder");
+        AudioManager.instance.PlayHmmph();
         Debug.Log("osuma animaatio");
     }
 
@@ -157,6 +162,7 @@ public class CollisionDamage : MonoBehaviour {
         if(HandTreshold[player] == 1 && ArmTreshold[player] == 1 && LegTreshold[player] == 1 && TorsoTreshold[player] == 1 && HeadTreshold[player] == 1)
         {
             Debug.Log("let him die!");
+            AchievementManager.instance.SetProgressToAchievement("Death by thousand cuts", 1);
         }
 
     }
@@ -171,6 +177,7 @@ public class CollisionDamage : MonoBehaviour {
             {
                 case Bodyparts.Head:
                     Debug.Log("pää kuolema");
+                    AchievementManager.instance.SetProgressToAchievement("Headshot", 1);
                     break;
                 case Bodyparts.Torso:
                     Debug.Log("Perus Död");
@@ -180,9 +187,11 @@ public class CollisionDamage : MonoBehaviour {
                     break;
                 case Bodyparts.Arm:
                     Debug.Log("ase putoaa");
+                    AchievementManager.instance.SetProgressToAchievement("Disarmed", 1);
                     break;
                 case Bodyparts.Hand:
                     Debug.Log("ase putoaa");
+                    AchievementManager.instance.SetProgressToAchievement("Disarmed", 1);
                     break;
             }
             Debug.Log("död");
@@ -194,7 +203,12 @@ public class CollisionDamage : MonoBehaviour {
             anim.SetTrigger("Die");
             AudioManager.instance.PlaySoundeffect("Heavy hit placeholder");
 
-            if (bodypart > 2 && playerModel != 2 && playerModel != 5)
+            // achievement stuff
+            int gamesPlayed = PlayerPrefs.GetInt("gamesPlayed");
+            PlayerPrefs.SetInt("gamesPlayed", gamesPlayed++);
+            AchievementManager.instance.AddProgressToAchievement("Master the blade", 1);
+
+            if (bodypart > 2/* && playerModel != 2 && playerModel != 5 */)
             {
                 DeactivateSword(player);
                 DropAnim(player);

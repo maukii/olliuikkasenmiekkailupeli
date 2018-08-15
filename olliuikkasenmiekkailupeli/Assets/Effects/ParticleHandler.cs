@@ -21,9 +21,12 @@ public class ParticleHandler : MonoBehaviour {
     // partSpark = When sword collides with other sword.
     // partBlood = When sword collides with player
 
+        //swordcolor scriptin gameobjcetctcttctctct getcomp in child
+
     public ParticleSystem partSpark, partBlood;
     public TrailRenderer trailSwoosh;
     HandAnimationControl hcon;
+    SwordColor sc;
 
     ParticleSystem.EmissionModule bloodEmi, sparkEmi;
     float swooshDefaultTime;
@@ -40,6 +43,11 @@ public class ParticleHandler : MonoBehaviour {
         // ---- STUFF FOR partBlood --- //
         bloodEmi = partBlood.emission;
         //bloodEmi.rate = new ParticleSystem.MinMaxCurve(0.0f, 10.0f);
+
+        // ---- STUFF FOR partSpark ---- //
+        // 0 = outside
+        // 1 = inside
+        sc = hcon.gameObject.GetComponentInChildren<SwordColor>();
 
     }
 	
@@ -80,11 +88,21 @@ public class ParticleHandler : MonoBehaviour {
     }
     public void InstantiateSpark(Vector3 position, Quaternion rotation)
     {
-        Instantiate(partSpark, position, rotation);
+        //Instantiate(partSpark, position, rotation);
+        Debug.Log("Hit");
+
+        if (sc.inside == 0)
+        {
+            Instantiate(partSpark, position, Quaternion.Euler(new Vector3(0, 0, -45)));
+        }
+
+        else if (sc.inside == 1)
+        {
+            Instantiate(partSpark, position, Quaternion.Euler(new Vector3(0, 0, 45)));
+        }
     }
     public void InstantiateBlood(Vector3 position, Quaternion rotation)
     {
         Instantiate(partBlood, position, rotation);
     }
-
 }

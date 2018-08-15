@@ -75,6 +75,9 @@ public class CollisionHandler : MonoBehaviour {
 
     #endregion
 
+    public static int deflectsP1 = 0, deflectsP2 = 0;
+    public int p1parrys, p2parrys;
+
     void Start () {
         sc = gameObject.GetComponent<StepCounter>();
         hc = gameObject.GetComponent<HeightCollision>();
@@ -121,7 +124,17 @@ public class CollisionHandler : MonoBehaviour {
             cd.NoDamage(1);
         }
         Timer();
+
+        if((deflectsP1 == 3 || deflectsP2 == 3) && !earned)
+        {
+            AchievementManager.instance.SetProgressToAchievement("Parry!", 1);
+            earned = true;
+        }
+        p1parrys = deflectsP1;
+        p2parrys = deflectsP2;
     }
+
+    bool earned;
 
     void UpdateVariables()
     {
@@ -506,6 +519,14 @@ public class CollisionHandler : MonoBehaviour {
         {
             anim[otherplayer].SetBool("light", false);
             MakeSparks(hc.GetMiddle(otherplayer+1), transform.rotation);
+        }
+
+        if(!earned)
+        {
+            if(player == 0)
+                deflectsP1++;
+            else if(player == 1)
+                deflectsP2++;
         }
         
     }

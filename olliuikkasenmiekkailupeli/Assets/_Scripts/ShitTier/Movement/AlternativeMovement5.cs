@@ -55,7 +55,7 @@ public class AlternativeMovement5 : MonoBehaviour
     GameObject P1, P2;
     #endregion
 
-
+    [SerializeField] Animator otherPlayerAnim;
     float playerDistance;
 
     private void Awake()
@@ -149,10 +149,27 @@ public class AlternativeMovement5 : MonoBehaviour
         return anim;
     }
 
+    public HandAnimationControl GetActiveHandScript()
+    {
+        return script;
+    }
+
     // ----- AFTER START -----
+
+    bool gotAnim;
 
     void Update()
     {
+        if (GameHandler.instance.BattleStarted && !gotAnim)
+        {
+            if (playerIndex == 1)
+                otherPlayerAnim = P2.GetComponent<AlternativeMovement5>().GetActiveAnimator();
+            else if (playerIndex == 2)
+                otherPlayerAnim = P1.GetComponent<AlternativeMovement5>().GetActiveAnimator();
+            if (otherPlayerAnim != null)
+                gotAnim = true;
+        }
+
         if(!GameHandler.instance.battleEnded)
         {
             Inputs();
@@ -164,10 +181,12 @@ public class AlternativeMovement5 : MonoBehaviour
             if (PauseMenu.gameIsPaused)
             {
                 script.enabled = false;
+                anim.enabled = false;
             }
             else
             {
                 script.enabled = true;
+                anim.enabled = true;
             }
         }
         else
@@ -223,8 +242,10 @@ public class AlternativeMovement5 : MonoBehaviour
     public float timer = .5f;
     float defaultTimer = .5f;
 
-    public bool holdingForward, firstF, lunged;
-    public bool holdingBack, firstB, jumped;
+    [SerializeField] bool holdingForward, firstF, lunged;
+    [SerializeField] bool holdingBack, firstB, jumped;
+
+    [SerializeField] float extraDistance = 0.1f;
 
     void Move()
     {
@@ -370,10 +391,13 @@ public class AlternativeMovement5 : MonoBehaviour
         {
             if (!lunged && !jumped)
             {
-                //anim.CrossFade("Lunge2", .5f);
-                anim.SetBool("Lunged", true);
-                firstF = false;
-                holdingForward = false;
+                if((otherPlayerAnim.GetBool("Lunged") && playerDistance > playerMinDistance + extraDistance) || !otherPlayerAnim.GetBool("Lunged"))
+                {
+                    //anim.CrossFade("Lunge2", .5f);
+                    anim.SetBool("Lunged", true);
+                    firstF = false;
+                    holdingForward = false;
+                }
             }
         }     
 

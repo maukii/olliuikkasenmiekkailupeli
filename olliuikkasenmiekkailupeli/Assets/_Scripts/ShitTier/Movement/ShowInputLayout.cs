@@ -14,6 +14,7 @@ public class ShowInputLayout : MonoBehaviour
 
     void Start ()
     {
+        Left_Layout.transform.parent.gameObject.SetActive(true);
         playerIndex = GetComponentInChildren<HandAnimationControl>().PlayerNumber;
         controllerLayout = GetComponentInChildren<HandAnimationControl>().GetControllerLayout();
     }

@@ -36,11 +36,11 @@ public class MainMenuController : MonoBehaviour
     void Start()
     {
         MMC = this;
-
-        foreach (Slider slider in volumeSliders)
-        {
-            slider.value = 0.1f;
-        }
+        
+        //foreach (Slider slider in volumeSliders)
+        //{
+        //    slider.value = 0.1f;
+        //}
 
         mainMenu.gameObject.SetActive(true);
         settingsMenu.gameObject.SetActive(false);
@@ -81,7 +81,7 @@ public class MainMenuController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             //AchievementManager.instance.AddProgressToAchievement("Pacifist run", 50);
-            //AchievementManager.instance.SetProgressToAchievement("CompleteTutorial", 100);
+            AchievementManager.instance.SetProgressToAchievement("CompleteTutorial", 1);
         }
 
     }

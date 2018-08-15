@@ -24,6 +24,9 @@ public class Distances : MonoBehaviour
     void Update()
     {
         GetPlayerPosition();
+
+        if (!CanBackUp(1) || !CanBackUp(2))
+            AchievementManager.instance.SetProgressToAchievement("Back against the wall", 1);
     }
 
     public bool CanBackUp(int playerNumber)

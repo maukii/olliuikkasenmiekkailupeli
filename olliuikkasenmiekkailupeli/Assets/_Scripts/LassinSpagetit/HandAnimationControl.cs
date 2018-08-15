@@ -25,6 +25,8 @@ public class HandAnimationControl : MonoBehaviour
     bool facingRight;
     public float xLimit = 5f;
 
+    [SerializeField] int controllerLayout;
+
     [Header("--AnimatorSpeed--")]
     public bool LetThisScriptControlAnimatorSpeeds = false;
     public float AnimatorSpeed = 1f;
@@ -52,7 +54,10 @@ public class HandAnimationControl : MonoBehaviour
 
     InputManager im;
 
-    [SerializeField] int controllerLayout;
+    [Header("--Indicator--")]
+    public bool UseGuardIndicators;
+    GuardIndicator GI;
+    
 
     void Start()
     {
@@ -87,7 +92,11 @@ public class HandAnimationControl : MonoBehaviour
         {
             PlayerNumber = 1;
         }
-
+        GI = GetComponentInChildren<GuardIndicator>();
+        if (UseGuardIndicators)
+        {
+            GI.UseIndicators(true);
+        }
         controllerLayout = 3; //Best Layout
         AdditiveStanceInput = true;
 
@@ -104,7 +113,7 @@ public class HandAnimationControl : MonoBehaviour
     void Update()
     {
 
-        if((GameHandler.instance.BattleStarted && !GameHandler.instance.BattleEnded) || DEBUG_testscene)
+        if((GameHandler.instance.BattleStarted && !GameHandler.instance.BattleEnded) || DEBUG_testscene || !PauseMenu.gameIsPaused)
         {
             CheckInput();
             CheckControllerLayout();
@@ -112,18 +121,28 @@ public class HandAnimationControl : MonoBehaviour
             AnimationStateUpdate();
         }
 
-
+        if(GI != null)
+        {
+            if (UseGuardIndicators)
+            {
+                GI.UseIndicators(true);
+            }
+            else
+            {
+                GI.UseIndicators(false);
+            }
+        }
 
     }
 
     private void CheckControllerLayout()
     {
-        if (im.GetDpad_Y(PlayerNumber) == 1)
+        if (im.GetDpad_Y(PlayerNumber) == 1 && false)
         {
             AdditiveStanceInput = false;
             controllerLayout = 1;
         }
-        else if (im.GetDpad_X(PlayerNumber) == -1)
+        else if (im.GetDpad_X(PlayerNumber) == -1 && false)
         {
             AdditiveStanceInput = false;
             controllerLayout = 2;
@@ -140,7 +159,7 @@ public class HandAnimationControl : MonoBehaviour
         }
     }
 
-    public float handHeight;
+    float handHeight;
 
     void CheckInput()
     {
@@ -576,13 +595,13 @@ public class HandAnimationControl : MonoBehaviour
                 if (im.GetTriggers(PlayerNumber) > 0 && !swordSwinging && !inputDown[8] && !TutorialManager.TM.guardLock)
                 {
                     inputDown[8] = true;
-                    AddStanceId = AdditiveInverted ? AddStanceId - 1 : AddStanceId + 1;
+                    AddStanceId = AdditiveInverted ? AddStanceId + 1 : AddStanceId - 1;
                 }
 
                 if (im.GetLB(PlayerNumber) && !swordSwinging && !inputDown[5] && !TutorialManager.TM.guardLock)
                 {
                     inputDown[5] = true;
-                    AddStanceId = AdditiveInverted ? AddStanceId + 1 : AddStanceId - 1;
+                    AddStanceId = AdditiveInverted ? AddStanceId - 1 : AddStanceId + 1;
                 }
 
                 if (im.GetTriggers(PlayerNumber) < 0 && !swordSwinging && !inputDown[7])

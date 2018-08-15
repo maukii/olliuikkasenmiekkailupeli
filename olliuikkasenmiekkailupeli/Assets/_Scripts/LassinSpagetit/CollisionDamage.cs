@@ -163,7 +163,7 @@ public class CollisionDamage : MonoBehaviour {
 
     void Die(Bodyparts part, int player)
     {
-        if (TutorialManager.TM.deathLock)
+        if (!TutorialManager.TM.deathLock)
         {
             int playerModel = (player == 0 ? GameHandler.instance.GetPlayer1Model() : GameHandler.instance.GetPlayer2Model());
 

@@ -298,28 +298,31 @@ public class HandAnimationControl : MonoBehaviour
                     ControllerInputs();
                 }
 
-
-                if ((PlayerNumber == 1 && im.isKeyboardAndMouseP1) || (PlayerNumber == 2 && im.isKeyboardAndMouseP2))
+                if (!TutorialManager.TM.heightLock)
                 {
-                    //UpdateHandHeight(Mathf.Clamp(im.GetVertical(PlayerNumber), -1, 1));
-                    if(im.GetVertical(PlayerNumber) >= .1f)
+                    if ((PlayerNumber == 1 && im.isKeyboardAndMouseP1) || (PlayerNumber == 2 && im.isKeyboardAndMouseP2))
                     {
-                        handHeight += 5 * Time.deltaTime;
-                        if (handHeight >= 1)
-                            handHeight = 1;
-                    }
-                    else if(im.GetVertical(PlayerNumber) <= -.1f)
-                    {
-                        handHeight -= 5 * Time.deltaTime;
-                        if (handHeight <= -1)
-                            handHeight = -1;
-                    }
+                        //UpdateHandHeight(Mathf.Clamp(im.GetVertical(PlayerNumber), -1, 1));
+                        if (im.GetVertical(PlayerNumber) >= .1f)
+                        {
+                            handHeight += 5 * Time.deltaTime;
+                            if (handHeight >= 1)
+                                handHeight = 1;
+                        }
+                        else if (im.GetVertical(PlayerNumber) <= -.1f)
+                        {
+                            handHeight -= 5 * Time.deltaTime;
+                            if (handHeight <= -1)
+                                handHeight = -1;
+                        }
 
-                    UpdateHandHeight(handHeight);
+                        UpdateHandHeight(handHeight);
 
+                    }
+                    else
+                        UpdateHandHeight(-im.GetRS_Y(PlayerNumber));
                 }
-                else
-                    UpdateHandHeight(-im.GetRS_Y(PlayerNumber));
+                
 
             }                   // CONTROLS
             else if(!im.isKeyboardAndMouseP1 && !im.isKeyboardAndMouseP2)
@@ -433,7 +436,7 @@ public class HandAnimationControl : MonoBehaviour
 
     private void UpdateHandHeight(float y_input)
     {
-        if (!asi.IsTag("Swing"))
+        if (!asi.IsTag("Swing") && !TutorialManager.TM.heightLock)
         {
             height = Mathf.Lerp(height, y_input, Time.deltaTime * HeightSpeed);
             anim.SetFloat("Height", height);

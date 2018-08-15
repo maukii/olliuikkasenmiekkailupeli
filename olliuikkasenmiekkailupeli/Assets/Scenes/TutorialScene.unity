@@ -414,7 +414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daccbb9eba06cb041b48ada04f5f4555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: 337
   PauseMenuUI: {fileID: 20410538}
   MovelistUI: {fileID: 77292721}
   OptionsUI: {fileID: 1269044724}
@@ -17816,6 +17815,7 @@ MonoBehaviour:
   minDistance: 3.25
   maxDistance: 10
   playerDistance: 0
+  extraDistance: 0.2
 --- !u!4 &1485124361
 Transform:
   m_ObjectHideFlags: 0
@@ -20929,6 +20929,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114621997645846882, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: swordPrefab
+      value: 
+      objectReference: {fileID: 1317063541852140, guid: 9fd944b1a091ffd489b0ff1f4477ba68,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 852c08df0ef0e754f923a4ee72e95154, type: 2}
   m_IsPrefabParent: 0

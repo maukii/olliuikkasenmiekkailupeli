@@ -163,42 +163,43 @@ public class CollisionDamage : MonoBehaviour {
 
     void Die(Bodyparts part, int player)
     {
-
-        int playerModel = (player == 0 ? GameHandler.instance.GetPlayer1Model() : GameHandler.instance.GetPlayer2Model());
-
-        switch (part)
+        if (TutorialManager.TM.deathLock)
         {
-            case Bodyparts.Head:
-                Debug.Log("pää kuolema");
-                break;
-            case Bodyparts.Torso:
-                Debug.Log("Perus Död");
-                break;
-            case Bodyparts.Leg:
-                Debug.Log("jalaka hajoaa");
-                break;
-            case Bodyparts.Arm:
-                Debug.Log("ase putoaa");
-                break;
-            case Bodyparts.Hand:
-                Debug.Log("ase putoaa");
-                break;
+            int playerModel = (player == 0 ? GameHandler.instance.GetPlayer1Model() : GameHandler.instance.GetPlayer2Model());
+
+            switch (part)
+            {
+                case Bodyparts.Head:
+                    Debug.Log("pää kuolema");
+                    break;
+                case Bodyparts.Torso:
+                    Debug.Log("Perus Död");
+                    break;
+                case Bodyparts.Leg:
+                    Debug.Log("jalaka hajoaa");
+                    break;
+                case Bodyparts.Arm:
+                    Debug.Log("ase putoaa");
+                    break;
+                case Bodyparts.Hand:
+                    Debug.Log("ase putoaa");
+                    break;
+            }
+            Debug.Log("död");
+
+            int bodypart = (int)part;
+
+            var anim = (player == 0 ? P1 : P2).GetComponent<AlternativeMovement5>().GetActiveAnimator();
+            anim.SetInteger("Bodypart", bodypart);
+            anim.SetTrigger("Die");
+            AudioManager.instance.PlaySoundeffect("Heavy hit placeholder");
+
+            if (bodypart > 2 && playerModel != 2 && playerModel != 5)
+            {
+                DeactivateSword(player);
+                DropAnim(player);
+            }
         }
-        Debug.Log("död");
-
-        int bodypart = (int)part;
-
-        var anim = (player == 0 ? P1 : P2).GetComponent<AlternativeMovement5>().GetActiveAnimator();
-        anim.SetInteger("Bodypart", bodypart);
-        anim.SetTrigger("Die");
-        AudioManager.instance.PlaySoundeffect("Heavy hit placeholder");
-
-        if(bodypart > 2 && playerModel != 2 && playerModel != 5)
-        {
-            DeactivateSword(player);
-            DropAnim(player);
-        }
-
     }
 
     private void DeactivateSword(int player)

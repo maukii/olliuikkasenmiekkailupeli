@@ -7,8 +7,8 @@ public class SwordColor : MonoBehaviour {
     Renderer rend;
     HandAnimationControl hac;
     public bool useShaderColors = true;
-    float inside = -1;
-    float hanging = -1;
+    public float inside = -1;
+    public float hanging = -1;
     float swordShade = 0;
     void Start()
     {

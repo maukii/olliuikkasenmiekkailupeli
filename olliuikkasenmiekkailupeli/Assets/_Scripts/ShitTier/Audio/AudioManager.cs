@@ -75,6 +75,12 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        musicVolumePercent = 0.1f;
+        sfxVolumePercent = 0.1f;
+    }
+
     public void PlaySound(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);

@@ -36,11 +36,11 @@ public class MainMenuController : MonoBehaviour
     void Start()
     {
         MMC = this;
-
-        foreach (Slider slider in volumeSliders)
-        {
-            slider.value = 0.1f;
-        }
+        
+        //foreach (Slider slider in volumeSliders)
+        //{
+        //    slider.value = 0.1f;
+        //}
 
         mainMenu.gameObject.SetActive(true);
         settingsMenu.gameObject.SetActive(false);

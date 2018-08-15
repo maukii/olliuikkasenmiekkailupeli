@@ -104,7 +104,7 @@ public class HandAnimationControl : MonoBehaviour
     void Update()
     {
 
-        if((GameHandler.instance.BattleStarted && !GameHandler.instance.BattleEnded) || DEBUG_testscene)
+        if((GameHandler.instance.BattleStarted && !GameHandler.instance.BattleEnded) || DEBUG_testscene || !PauseMenu.gameIsPaused)
         {
             CheckInput();
             CheckControllerLayout();

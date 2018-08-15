@@ -27,8 +27,11 @@ public class PauseMenuController : MonoBehaviour
 
     [SerializeField] Slider[] volumeSliders;
 
+    [SerializeField] GameObject[] players = new GameObject[2];
+
     void Start()
     {
+
         foreach (Slider slider in volumeSliders)
         {
             slider.value = 0.1f;
@@ -331,6 +334,16 @@ public class PauseMenuController : MonoBehaviour
     public void Pause()
     {
         Debug.Log("Pause");
+
+        for (int i = 0; i < players.Length; i++)
+        {
+            Animator anim = players[i].gameObject.GetComponent<AlternativeMovement5>().GetActiveAnimator();
+            anim.enabled = false;
+            HandAnimationControl script = players[i].gameObject.GetComponent<AlternativeMovement5>().GetActiveHandScript();
+            script.enabled = false;
+            players[i].gameObject.GetComponent<AlternativeMovement5>().enabled = false;
+        }
+
         PauseMenuUI.gameObject.SetActive(true);
         pauseMenuHighlights[index].SetActive(true);
         gameIsPaused = true;
@@ -340,6 +353,16 @@ public class PauseMenuController : MonoBehaviour
     public void Resume()
     {
         Debug.Log("Resume");
+
+        for (int i = 0; i < players.Length; i++)
+        {
+            Animator anim = players[i].gameObject.GetComponent<AlternativeMovement5>().GetActiveAnimator();
+            anim.enabled = true;
+            HandAnimationControl script = players[i].gameObject.GetComponent<AlternativeMovement5>().GetActiveHandScript();
+            script.enabled = true;
+            players[i].gameObject.GetComponent<AlternativeMovement5>().enabled = true;
+        }
+
         PauseMenuUI.gameObject.SetActive(false);
         gameIsPaused = false;
         Time.timeScale = 1f;

@@ -595,13 +595,13 @@ public class HandAnimationControl : MonoBehaviour
                 if (im.GetTriggers(PlayerNumber) > 0 && !swordSwinging && !inputDown[8] && !TutorialManager.TM.guardLock)
                 {
                     inputDown[8] = true;
-                    AddStanceId = AdditiveInverted ? AddStanceId - 1 : AddStanceId + 1;
+                    AddStanceId = AdditiveInverted ? AddStanceId + 1 : AddStanceId - 1;
                 }
 
                 if (im.GetLB(PlayerNumber) && !swordSwinging && !inputDown[5] && !TutorialManager.TM.guardLock)
                 {
                     inputDown[5] = true;
-                    AddStanceId = AdditiveInverted ? AddStanceId + 1 : AddStanceId - 1;
+                    AddStanceId = AdditiveInverted ? AddStanceId - 1 : AddStanceId + 1;
                 }
 
                 if (im.GetTriggers(PlayerNumber) < 0 && !swordSwinging && !inputDown[7])

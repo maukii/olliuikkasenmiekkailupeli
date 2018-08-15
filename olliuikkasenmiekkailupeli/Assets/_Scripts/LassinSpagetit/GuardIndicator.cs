@@ -24,12 +24,12 @@ public class GuardIndicator : MonoBehaviour {
         if (useIndicator)
         {
             
-                inside = hac.GetInside();
-                hanging = hac.GetHanging();
-                if (inside == 0 && hanging == 0) EnableIndicator(0);
-                else if (inside == 1 && hanging == 0) EnableIndicator(1);
-                else if (inside == 0 && hanging == 1) EnableIndicator(2);
-                else if (inside == 1 && hanging == 1) EnableIndicator(3);
+            inside = hac.GetInside();
+            hanging = hac.GetHanging();
+            if (inside == 0 && hanging == 0) EnableIndicator(0);
+            else if (inside == 1 && hanging == 0) EnableIndicator(1);
+            else if (inside == 0 && hanging == 1) EnableIndicator(2);
+            else if (inside == 1 && hanging == 1) EnableIndicator(3);
             
         }
         else

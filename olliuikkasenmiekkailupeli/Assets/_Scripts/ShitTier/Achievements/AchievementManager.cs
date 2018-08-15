@@ -24,7 +24,7 @@ public class AchievementManager : MonoBehaviour
         }
 
         // deactivate this is no connection to steam
-        if(!SteamManager.Initialized) 
+        if(!SteamManager.Initialized && !debuggings) 
         {
             gameObject.SetActive(false);
             return;
@@ -33,18 +33,17 @@ public class AchievementManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    //private void Start()
-    //{
-    //    if(SteamManager.Initialized)
-    //    {
-    //        string name = SteamFriends.GetPersonaName();
-    //        Debug.Log(name);
-    //    }
-    //}
+    private void Start()
+    {
+        SetProgressToAchievement("Master the blade", PlayerPrefs.GetInt("gamesPlayed"));
+        if (debuggings)
+            SetProgressToAchievement("Master the blade", 0);
+    }
 
     private void Update()
     {
-        if(debuggings)
+
+        if (debuggings)
         {
             if(!SteamManager.Initialized)
             {
@@ -60,6 +59,7 @@ public class AchievementManager : MonoBehaviour
                 DEBUG_LockAchievement("CompleteTutorial");
             }
         }
+
     }
 
     private Achievement GetAchievementByName(string achievementName)

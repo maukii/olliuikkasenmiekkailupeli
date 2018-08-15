@@ -1397,7 +1397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 2
-  playerMinDistance: 1.5
+  playerMinDistance: 1.25
   horizontal: 
   vertical: 
   forward: 0
@@ -1415,7 +1415,7 @@ MonoBehaviour:
   holdingBack: 0
   firstB: 0
   jumped: 0
-  extraDistance: 0.1
+  extraDistance: 0.125
 --- !u!4 &102844753
 Transform:
   m_ObjectHideFlags: 0
@@ -1990,7 +1990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 1
-  playerMinDistance: 1.5
+  playerMinDistance: 1.25
   horizontal: 
   vertical: 
   forward: 0
@@ -2008,7 +2008,7 @@ MonoBehaviour:
   holdingBack: 0
   firstB: 0
   jumped: 0
-  extraDistance: 0.1
+  extraDistance: 0.125
 --- !u!4 &192891529
 Transform:
   m_ObjectHideFlags: 0

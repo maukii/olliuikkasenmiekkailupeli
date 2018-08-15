@@ -677,6 +677,8 @@ MonoBehaviour:
   hangingP2: 0
   insideP1: 0
   insideP2: 0
+  heightP1: 0
+  heightP2: 0
 --- !u!114 &627650839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,15 +761,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940491e5934e8d84889fbbbe37d87579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debuggings: 0
+  debuggings: 1
   Achievements:
   - ID: ACHIEVEMENT_00
     Name: CompleteTutorial
-    Description: duh
+    Description: Play tutorial and finnish it
     IconIncomplete: {fileID: 2800000, guid: d6092a18d041522438243276aaf2e9ff, type: 3}
     IconComplete: {fileID: 2800000, guid: 74871b82b3143e542b557f1d5f3133a7, type: 3}
     currentProgress: 0
-    TargetProgress: 100
+    TargetProgress: 1
+    Earned: 0
+  - ID: ACHIEVEMENT_01
+    Name: Master the blade
+    Description: Play 15 matches
+    IconIncomplete: {fileID: 0}
+    IconComplete: {fileID: 0}
+    currentProgress: 0
+    TargetProgress: 15
+    Earned: 0
+  - ID: ACHIEVEMENT_02
+    Name: Parry!
+    Description: Deflect 3 times a row
+    IconIncomplete: {fileID: 0}
+    IconComplete: {fileID: 0}
+    currentProgress: 0
+    TargetProgress: 1
+    Earned: 0
+  - ID: ACHIEVEMENT_03
+    Name: Back against the wall
+    Description: Player can't move back anymore
+    IconIncomplete: {fileID: 2800000, guid: b961d581478d87049be639db61087e16, type: 3}
+    IconComplete: {fileID: 2800000, guid: d116075e1859fbd49a029cbc3df58ce8, type: 3}
+    currentProgress: 0
+    TargetProgress: 1
+    Earned: 0
+  - ID: ACHIEVEMENT_04
+    Name: Disarmed
+    Description: Win game by disarming enemy
+    IconIncomplete: {fileID: 2800000, guid: 73feeb378194b7246800b39d6b3046ab, type: 3}
+    IconComplete: {fileID: 2800000, guid: b208cf8d286b11d4aa6437104e90074c, type: 3}
+    currentProgress: 0
+    TargetProgress: 1
+    Earned: 0
+  - ID: ACHIEVEMENT_05
+    Name: Death by thousand cuts
+    Description: Get every bodypart low health
+    IconIncomplete: {fileID: 2800000, guid: 5fd06c11bf4f82249bae784ea5c44ff7, type: 3}
+    IconComplete: {fileID: 2800000, guid: e0dc40f52db01cd4f90879c10698f351, type: 3}
+    currentProgress: 0
+    TargetProgress: 1
+    Earned: 0
+  - ID: ACHIEVEMENT_06
+    Name: Headshot
+    Description: Win game by headshotting the enemy
+    IconIncomplete: {fileID: 2800000, guid: a25e4376814f3bf438d9fbead36498a8, type: 3}
+    IconComplete: {fileID: 2800000, guid: 1254fb06e2c474646b07d0624b751368, type: 3}
+    currentProgress: 0
+    TargetProgress: 1
     Earned: 0
 --- !u!4 &1293556244
 Transform:
@@ -1059,4 +1109,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4bffeda13d7a748973ff9204401c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steamEnabled: 0
+  steamEnabled: 1

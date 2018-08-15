@@ -218,6 +218,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a4060d4fb7396439e9f7028ad37cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114154155128442226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0411c29df8549546a239d69be3e8daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 0.5
 --- !u!114 &114392447862738122
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8056,9 +8068,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: TakeDamage
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 3
     m_ConditionEvent: Bodypart
-    m_EventTreshold: 4
+    m_EventTreshold: 2
   - m_ConditionMode: 2
     m_ConditionEvent: Dead
     m_EventTreshold: 0
@@ -15412,9 +15424,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: TakeDamage
     m_EventTreshold: 0
-  - m_ConditionMode: 6
+  - m_ConditionMode: 4
     m_ConditionEvent: Bodypart
-    m_EventTreshold: 1
+    m_EventTreshold: 3
   - m_ConditionMode: 2
     m_ConditionEvent: Dead
     m_EventTreshold: 0
@@ -16616,7 +16628,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101994188603144644}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 114154155128442226}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -16625,7 +16638,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: fef9412d598cef24aae29d80ae05f975, type: 2}
+  m_Motion: {fileID: 7400000, guid: 966aa909abd083d48b836d2c8388eac7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -21331,8 +21344,8 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: -336, y: 96, z: 0}
-  m_EntryPosition: {x: -336, y: 60, z: 0}
+  m_AnyStatePosition: {x: -336, y: 60, z: 0}
+  m_EntryPosition: {x: -336, y: 96, z: 0}
   m_ExitPosition: {x: -336, y: 132, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 1102484348374585654}

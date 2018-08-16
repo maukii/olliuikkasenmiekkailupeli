@@ -27,7 +27,7 @@ public class TutorialManager : MonoBehaviour
     public bool tutorialNotStarted;
     public bool tutorialClear;
     
-    public bool phase1, phase2, phase3, phase4, phase5, phase6, phase7, phase8, phase9, phase10, phase11, phase12;
+    public bool phase1, phase2, phase3, phase4, phase5, phase6, phase7, phase8, phase9, phase10, phase11, phase12, phase13, phase14, phase15;
     
     float hangingP1, hangingP2, insideP1, insideP2, heightP1, heightP2;
     
@@ -180,7 +180,6 @@ public class TutorialManager : MonoBehaviour
                 phase9 = false;
                 guardLock = false;
                 heightLock = false;
-                moveLock = false;
             }
 
             if (phase11)
@@ -199,7 +198,41 @@ public class TutorialManager : MonoBehaviour
                 guardLock = false;
                 heightLock = false;
                 moveLock = false;
+            }
+
+            if (phase13)
+            {
+                phase1 = false;
+                phase12 = false;
+                guardLock = false;
+                heightLock = false;
+                moveLock = false;
                 lungeLock = false;
+            }
+
+            if (phase14)
+            {
+                phase1 = false;
+                phase13 = false;
+                guardLock = false;
+                heightLock = false;
+                moveLock = false;
+                lungeLock = false;
+            }
+
+            if (phase15)
+            {
+                phase1 = false;
+                phase14 = false;
+                guardLock = false;
+                heightLock = false;
+                moveLock = false;
+                lungeLock = false;
+            }
+
+            if (tutorialClear)
+            {
+                deathLock = false;
             }
             #endregion
         }
@@ -507,49 +540,53 @@ public class TutorialManager : MonoBehaviour
         if (phase8)
         {
             TutorialTextController.TTC.texts[10].SetActive(true); //"Your sword's blade can be divided to roughly two parts in lengthwise: the strong of the blade(The half closer to your hand, used for parrying) and the weak of the blade(the half further from the hand, used for attacking)"
-            phase7 = false;
 
-            if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
+            timer -= Time.deltaTime;
+
+            if (timer < 4)
             {
-                P1Clear = true;
-            }
-
-            if (P1Clear)
-            {
-                TutorialTextController.TTC.texts[10].SetActive(false);
-
-                timer -= Time.deltaTime;
-
-                if (timer < 4.5)
+                if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
                 {
-                    animP1.SetBool("forward", true);
-                    animP2.SetBool("forward", true);
-                }
-
-                if (timer < 2)
-                {
-                    animP1.SetBool("forward", false);
-                    animP2.SetBool("forward", false);
-
-                    if (!animP1.GetBool("back") && !animP2.GetBool("back"))
-                    {
-                        TutorialTextController.TTC.texts[11].SetActive(true); //"The laws of leverage dictate that when weak of the blade hits strong the former will bounce back more. How sword collisions end up are also affected by multitude of other factors such as momentum and the direction of the swings.But fun comes from figuring these things yourself.So once more, first to three!"
-
-                        if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
-                        {
-                            timer = defaultTimer;
-                            phase9 = true;
-                        }
-                    }
+                    timer = defaultTimer;
+                    phase9 = true;
                 }
             }
         }
 
         if (phase9)
         {
+            TutorialTextController.TTC.texts[10].SetActive(false);
+
             timer -= Time.deltaTime;
 
-            phase8 = false;
+            if (timer < 4.5)
+            {
+                animP1.SetBool("forward", true);
+                animP2.SetBool("forward", true);
+            }
+
+            if (timer < 2)
+            {
+                animP1.SetBool("forward", false);
+                animP2.SetBool("forward", false);
+
+                if (!animP1.GetBool("back") && !animP2.GetBool("back"))
+                {
+                    TutorialTextController.TTC.texts[11].SetActive(true); //"The laws of leverage dictate that when weak of the blade hits strong the former will bounce back more. How sword collisions end up are also affected by multitude of other factors such as momentum and the direction of the swings.But fun comes from figuring these things yourself.So once more, first to three!"
+
+                    if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
+                    {
+                        timer = defaultTimer;
+                        phase10 = true;
+                    }
+                }
+            }
+        }
+
+        if (phase10)
+        {
+            timer -= Time.deltaTime;
+
             P1Clear = false;
 
             TutorialTextController.TTC.texts[11].SetActive(false);
@@ -559,12 +596,12 @@ public class TutorialManager : MonoBehaviour
             {
                 if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
                 {
-                    phase10 = true;
+                    phase11 = true;
                 }
             }
         }
 
-        if (phase10)
+        if (phase11)
         {
             TutorialTextController.TTC.texts[12].SetActive(false);
             TutorialTextController.TTC.texts[13].SetActive(true); //"Footwork basicly boils down to stepping forward(tilt left stick towards your opponent, press D or left arrow) and stepping backward(tilt left stick away from your opponent, press A or right arrow).Give me one step in either direction."
@@ -584,11 +621,11 @@ public class TutorialManager : MonoBehaviour
                 timer = defaultTimer;
                 P1_OK = false;
                 P2_OK = false;
-                phase11 = true;
+                phase12 = true;
             }
         }
 
-        if (phase11)
+        if (phase12)
         {
             TutorialTextController.TTC.texts[13].SetActive(false);
             TutorialTextController.TTC.texts[14].SetActive(true); //"Now I shall teach you some advanced footwork. First show me a leap backwards(Double tap leftstick away from opponent)!"
@@ -605,22 +642,22 @@ public class TutorialManager : MonoBehaviour
 
             if (P1_OK && P2_OK)
             {
-                phase12 = true;
+                phase13 = true;
             }
         }
 
-        if (phase12)
+        if (phase13)
         {
             TutorialTextController.TTC.texts[14].SetActive(false);
             TutorialTextController.TTC.texts[15].SetActive(true); //"Clearly you’re no peasants!  And now for for the last and propably the most important move show me a Lunge(Double tap leftstick towards opponent)"
 
-            if (P1_OK && animP1.GetBool("Lunged"))
+            if (animP1.GetBool("Lunged"))
             {
                 P1_OK = false;
                 P1Clear = true;
             }
 
-            if (P2_OK && animP2.GetBool("Lunged"))
+            if (animP2.GetBool("Lunged"))
             {
                 P2_OK = false;
                 P2Clear = true;
@@ -628,36 +665,50 @@ public class TutorialManager : MonoBehaviour
 
             if (P1Clear && P2Clear)
             {
-                TutorialTextController.TTC.texts[14].SetActive(false);
-                TutorialTextController.TTC.texts[15].SetActive(true); //"You inbred bastards! You can leave your lunged position by moving forward(move forward) or backward(move backward)"
+                TutorialTextController.TTC.texts[15].SetActive(false);
+                TutorialTextController.TTC.texts[16].SetActive(true); //"You inbred bastards! You can leave your lunged position by moving forward(move forward) or backward(move backward)"
 
-                if (animP1.GetBool("forward") || animP1.GetBool("back"))
-                {
-                    P1_OK = true;
-                }
+                phase14 = true;
+            }
+        }
 
-                if (animP2.GetBool("forward") || animP2.GetBool("back"))
-                {
-                    P2_OK = true;
-                }
-
-                if (P1_OK && P2_OK)
-                {
-                    TutorialTextController.TTC.texts[15].SetActive(false);
-                    TutorialTextController.TTC.texts[16].SetActive(true); //"In most cases you want to start preparing your swing just before lunging. Also don’t let yourself get too close to opponent, lest your fight will detoriate to a common brawl!"
-
-                    if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
-                    {
-                        TutorialTextController.TTC.texts[16].SetActive(false);
-                        TutorialTextController.TTC.texts[17].SetActive(true); //"The ideal distance from your opponent is from where you can hit your opponent by lunging but can’t be reached when standing in normally. This is called being at measure."
-                    }
-                }
+        if (phase14)
+        {
+            if (animP1.GetBool("forward") || animP1.GetBool("back"))
+            {
+                P1_OK = true;
             }
 
-            if (TutorialTextController.TTC.texts[17].activeSelf)
+            if (animP2.GetBool("forward") || animP2.GetBool("back"))
+            {
+                P2_OK = true;
+            }
+
+            if (P1_OK && P2_OK)
+            {
+                TutorialTextController.TTC.texts[16].SetActive(false);
+                TutorialTextController.TTC.texts[17].SetActive(true); //"In most cases you want to start preparing your swing just before lunging. Also don’t let yourself get too close to opponent, lest your fight will detoriate to a common brawl!"
+
+                if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
+                {
+                    timer = defaultTimer;
+                    phase15 = true;
+                }
+            }
+        }
+
+        if (phase15)
+        {
+            timer -= defaultTimer;
+
+            TutorialTextController.TTC.texts[17].SetActive(false);
+            TutorialTextController.TTC.texts[18].SetActive(true); //"The ideal distance from your opponent is from where you can hit your opponent by lunging but can’t be reached when standing in normally. This is called being at measure."
+            
+            if (timer < 0)
             {
                 if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
                 {
+                    timer = defaultTimer;
                     tutorialClear = true;        //Move to duel mode
                 }
             }
@@ -685,6 +736,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (tutorialClear)
         {
+            deathLock = false;
             TutorialTextController.TTC.texts[18].SetActive(false);
             TutorialTextController.TTC.texts[19].SetActive(true); //"I hope you swift deaths."
 
@@ -695,8 +747,6 @@ public class TutorialManager : MonoBehaviour
                 SceneManager.LoadScene(3);
             }
         }
-        
-            
     }
 
     void TextInteraction()

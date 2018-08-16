@@ -747,7 +747,7 @@ public class TutorialManager : MonoBehaviour
             }
         }
 
-        if (phase15)
+        if (phase15 && SceneManager.GetActiveScene().name == "TutorialScene")
         {
             timer -= defaultTimer;
 
@@ -790,6 +790,7 @@ public class TutorialManager : MonoBehaviour
             TutorialTextController.TTC.texts[18].SetActive(false);
             TutorialTextController.TTC.texts[19].SetActive(true); //"I hope you swift deaths."
 
+            LevelChanger.instance.FadeToMain();
             timer -= Time.deltaTime;
 
             if (timer < 0)

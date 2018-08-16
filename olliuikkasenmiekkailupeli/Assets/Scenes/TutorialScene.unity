@@ -7858,8 +7858,9 @@ GameObject:
   - component: {fileID: 636045545}
   - component: {fileID: 636045544}
   - component: {fileID: 636045543}
+  - component: {fileID: 636045547}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: TextBoxController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7941,6 +7942,42 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &636045547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 636045542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f0776cd58d2a44fb15eda937c14572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texts:
+  - {fileID: 269636710}
+  - {fileID: 1579867460}
+  - {fileID: 477996031}
+  - {fileID: 1172626599}
+  - {fileID: 1561492611}
+  - {fileID: 1523779804}
+  - {fileID: 146419539}
+  - {fileID: 436231619}
+  - {fileID: 1561024956}
+  - {fileID: 1267934485}
+  - {fileID: 849613193}
+  - {fileID: 1108388765}
+  - {fileID: 693631776}
+  - {fileID: 128961572}
+  - {fileID: 1609950768}
+  - {fileID: 2011404798}
+  - {fileID: 1499394304}
+  - {fileID: 1071447001}
+  - {fileID: 562112509}
+  - {fileID: 408340661}
+  - {fileID: 938090971}
+  - {fileID: 1709142943}
+  - {fileID: 2105049792}
+  buttons: []
 --- !u!1 &637512290
 GameObject:
   m_ObjectHideFlags: 0

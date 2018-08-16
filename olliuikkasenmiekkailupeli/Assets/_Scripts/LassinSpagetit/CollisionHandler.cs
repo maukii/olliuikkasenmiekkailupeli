@@ -126,7 +126,7 @@ public class CollisionHandler : MonoBehaviour {
         }
         Timer();
 
-        if((deflectsP1 == 3 || deflectsP2 == 3) && !earned)
+        if((deflectsP1 == 5 && deflectsP2 == 5) && !earned)
         {
             AchievementManager.instance.SetProgressToAchievement("Parry!", 1);
             earned = true;

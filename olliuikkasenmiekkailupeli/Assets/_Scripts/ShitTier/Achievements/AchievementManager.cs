@@ -73,7 +73,7 @@ public class AchievementManager : MonoBehaviour
 
         if(!SteamManager.Initialized)
         {
-            Debug.Log("Steam not initialized...trying to get achievement");
+            Debug.Log("Steam not initialized...trying to get achievement: " + achievement.Name);
         }
         else
         {

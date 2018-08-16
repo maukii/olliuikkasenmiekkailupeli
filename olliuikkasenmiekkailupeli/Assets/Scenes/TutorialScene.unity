@@ -379,6 +379,76 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 224303192789832824, guid: 52d988f36a2e1164690ead9acb78f29b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 224379810211452382, guid: 52d988f36a2e1164690ead9acb78f29b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 224003871122288056, guid: 52d988f36a2e1164690ead9acb78f29b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 224811051579522120, guid: 52d988f36a2e1164690ead9acb78f29b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 224795584076239458, guid: 52d988f36a2e1164690ead9acb78f29b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 224654561625949608, guid: 52d988f36a2e1164690ead9acb78f29b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 224931364918437124, guid: 52d988f36a2e1164690ead9acb78f29b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224718553238905990, guid: 52d988f36a2e1164690ead9acb78f29b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224604845343094520, guid: 52d988f36a2e1164690ead9acb78f29b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 224609288723573546, guid: 52d988f36a2e1164690ead9acb78f29b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 224573340271616478, guid: 52d988f36a2e1164690ead9acb78f29b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 224768770377509670, guid: 52d988f36a2e1164690ead9acb78f29b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 224393342912431622, guid: 52d988f36a2e1164690ead9acb78f29b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 224912272334062284, guid: 52d988f36a2e1164690ead9acb78f29b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114726462985951446, guid: 52d988f36a2e1164690ead9acb78f29b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 52d988f36a2e1164690ead9acb78f29b, type: 2}
@@ -3034,7 +3104,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.6
-  m_Text: Welcome noble gentlemen! Today I shall teach you how to defend your honour.
+  m_Text: Welcome, noble gentlemen! Today I shall teach you how to defend your honour.
 --- !u!222 &269636713
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5659,8 +5729,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.6
-  m_Text: You never seize to amaze sirs! You can also spin your sword around and do
-    an attack from the opposite direction (Hold down attack button). This technique
+  m_Text: You never seize to amaze, sirs! You can also spin your sword around and
+    do an attack from the opposite direction (Hold down attack button). This technique
     is called a moulinette.
 --- !u!222 &477996034
 CanvasRenderer:
@@ -10890,7 +10960,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.6
-  m_Text: Absolutely splendid work sirs! Even if your guard is on correct side, it
+  m_Text: Absolutely splendid work, sirs! Even if your guard is on correct side, it
     can't parry the attack if the blade isn't on the way of the attack.
 --- !u!222 &849613196
 CanvasRenderer:
@@ -16126,8 +16196,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.6
-  m_Text: Note that doing a moulinette is only way to generate enough force for any
-    proper damage, lighter attack will only wound your opponent.
+  m_Text: Well done, sirs! Note that doing a moulinette is only way to generate enough
+    force for any proper damage, lighter attack will only wound your opponent.
 --- !u!222 &1172626602
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20129,7 +20199,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.6
-  m_Text: Very good sirs! On top of affecting the direction you're blocking guards
+  m_Text: Very good, sirs! On top of affecting the direction you're blocking guards
     also determine which direction your attacks will come from. Please try hitting
     each other.
 --- !u!222 &1561024959
@@ -20205,8 +20275,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.6
-  m_Text: 'Well done sirs! When duelling with sabres you can be attacked from two
-    different sides:
+  m_Text: 'When duelling with sabres you can be attacked from two different sides:
 
     outside (the side your back is pointing) and
 

@@ -55,24 +55,24 @@ public class CollisionDamage : MonoBehaviour {
         switch (part)
         {
             case Bodyparts.Head:
-                HeadTreshold[0] = -1;
-                HeadTreshold[1] = -1;
+                HeadTreshold[0] = -100;
+                HeadTreshold[1] = -100;
                 break;
             case Bodyparts.Torso:
-                TorsoTreshold[0] = -1;
-                TorsoTreshold[1] = -1;
+                TorsoTreshold[0] = -100;
+                TorsoTreshold[1] = -100;
                 break;
             case Bodyparts.Leg:
-                LegTreshold[0] = -1;
-                LegTreshold[1] = -1;
+                LegTreshold[0] = -100;
+                LegTreshold[1] = -100;
                 break;
             case Bodyparts.Arm:
-                ArmTreshold[0] = -1;
-                ArmTreshold[1] = -1;
+                ArmTreshold[0] = -100;
+                ArmTreshold[1] = -100;
                 break;
             case Bodyparts.Hand:
-                HandTreshold[0] = -1;
-                HandTreshold[1] = -1;
+                HandTreshold[0] = -100;
+                HandTreshold[1] = -100;
                 break;
         }
     }
@@ -164,11 +164,11 @@ public class CollisionDamage : MonoBehaviour {
 
     void CheckHealth(int player)
     {
-        if (HeadTreshold[player] == 0) Die(Bodyparts.Head, player);
-        if (TorsoTreshold[player] == 0) Die(Bodyparts.Torso, player);
-        if (LegTreshold[player] == 0) Die(Bodyparts.Leg, player);
-        if (ArmTreshold[player] == 0) Die(Bodyparts.Arm, player);
-        if (HandTreshold[player] == 0) Die(Bodyparts.Hand, player);
+        if (HeadTreshold[player] <= 0 && HeadTreshold[player] >= -99) Die(Bodyparts.Head, player);
+        if (TorsoTreshold[player] <= 0 && HeadTreshold[player] >= -99) Die(Bodyparts.Torso, player);
+        if (LegTreshold[player] <= 0 && HeadTreshold[player] >= -99) Die(Bodyparts.Leg, player);
+        if (ArmTreshold[player] <= 0 && HeadTreshold[player] >= -99) Die(Bodyparts.Arm, player);
+        if (HandTreshold[player] <= 0 && HeadTreshold[player] >= -99) Die(Bodyparts.Hand, player);
         if(HandTreshold[player] == 1 && ArmTreshold[player] == 1 && LegTreshold[player] == 1 && TorsoTreshold[player] == 1 && HeadTreshold[player] == 1)
         {
             Debug.Log("let him die!");

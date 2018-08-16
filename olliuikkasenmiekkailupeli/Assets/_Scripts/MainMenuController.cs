@@ -240,6 +240,7 @@ public class MainMenuController : MonoBehaviour
                         Debug.Log("Tutorial");
                         AudioManager.instance.PlaySoundeffect("SwordClash1_2");
                         LevelChanger.instance.FadeToNextLevel();
+                        GameHandler.indicators = true;
                         canInteract = false;
                         isTutorial = true;
                     }

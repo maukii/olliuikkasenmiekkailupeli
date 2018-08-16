@@ -27,7 +27,7 @@ public class TutorialManager : MonoBehaviour
     public bool tutorialNotStarted;
     public bool tutorialClear;
     
-    public bool phase1, phase2, phase3, phase4, phase5, phase6, phase7, phase8, phase9, phase10, phase11;
+    public bool phase1, phase2, phase3, phase4, phase5, phase6, phase7, phase8, phase9, phase10, phase11, phase12;
     
     float hangingP1, hangingP2, insideP1, insideP2, heightP1, heightP2;
     
@@ -187,6 +187,15 @@ public class TutorialManager : MonoBehaviour
             {
                 phase1 = false;
                 phase10 = false;
+                guardLock = false;
+                heightLock = false;
+                moveLock = false;
+            }
+
+            if (phase12)
+            {
+                phase1 = false;
+                phase11 = false;
                 guardLock = false;
                 heightLock = false;
                 moveLock = false;

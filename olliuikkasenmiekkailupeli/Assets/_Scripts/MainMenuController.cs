@@ -283,6 +283,7 @@ public class MainMenuController : MonoBehaviour
                     {
                         // OPTIONS
                         Debug.Log("Tutorial");
+                        TutorialManager.TM.moveLock = true;
                         AudioManager.instance.PlaySoundeffect("SwordClash1_2");
                         LevelChanger.instance.FadeToNextLevel();
                         canInteract = false;

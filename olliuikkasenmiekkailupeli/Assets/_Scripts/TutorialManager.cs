@@ -177,16 +177,16 @@ public class TutorialManager : MonoBehaviour
         {
             TutorialTextController.TTC.texts[0].SetActive(true);
 
-            textTimer -= Time.deltaTime;
-
-            if (textTimer < 0 && Input.GetKeyUp(KeyCode.Return) || textTimer < 0 && InputManager.IM.GetA(1) || textTimer < 0 && InputManager.IM.GetA(2))
+            if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
+            {
+                TutorialTextController.TTC.texts[1].SetActive(true);
+                canInteractText = false;
+            }
+            
+            if (TutorialTextController.TTC.texts[1].activeSelf)
             {
                 TutorialTextController.TTC.texts[0].SetActive(false);
-                TutorialTextController.TTC.texts[1].SetActive(true); //"Let’s start with doing a vertical attack (Vertical attack button) and a horizontal attack (Horizontal attack button)."
-            }
 
-            if (TutorialTextController.TTC.texts[1])
-            {
                 if (Input.GetKeyDown(KeyCode.R))
                 {
                     P1_OK = true;
@@ -251,91 +251,131 @@ public class TutorialManager : MonoBehaviour
 
             TutorialTextController.TTC.texts[1].SetActive(false); 
             TutorialTextController.TTC.texts[2].SetActive(true); //"You never seize to amaze sirs! You can also spin your sword around and do an attack from the opposite direction(Hold down attack button). This technique is called a moulinette."
-
-
-
-            //"Note that doing a moulinette is only way to generate enough force for any proper damage, lighter attack will only wound your opponent."
-
-            if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.F))
+            
+            if (TutorialTextController.TTC.texts[2].activeSelf)
             {
-                inputTimerP1 -= Time.deltaTime;
-            }
+                if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.F))
+                {
+                    inputTimerP1 -= Time.deltaTime;
+                }
 
-            else if (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButton(1) || InputManager.IM.isKeyboardAndMouseP1 && Input.GetKey(KeyCode.F))
-            {
-                inputTimerP1 -= Time.deltaTime;
-            }
+                else if (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButton(1) || InputManager.IM.isKeyboardAndMouseP1 && Input.GetKey(KeyCode.F))
+                {
+                    inputTimerP1 -= Time.deltaTime;
+                }
 
-            else
-            {
-                inputTimerP1 = defaultInputTimer;
-            }
-
-            //MUISTA LAITTAA KONTROLLERIEN INPUTIT!!!
-
-            if (Input.GetKey(KeyCode.RightShift) || Input.GetKey(KeyCode.RightControl))
-            {
-                inputTimerP2 -= Time.deltaTime;
-            }
-
-            else if (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButton(1) || InputManager.IM.isKeyboardAndMouseP2 && Input.GetKey(KeyCode.F))
-            {
-                inputTimerP2 -= Time.deltaTime;
-            }
-
-            else
-            {
-                inputTimerP2 = defaultInputTimer;
-            }
-
-            if (inputTimerP1 <= 0.2f)
-            {
-                P1_OK = true;
-            }
-
-            if (inputTimerP2 <= 0.2f)
-            {
-                P2_OK = true;
-            }
-
-            if (P1_OK && P2_OK)
-            {
-                timer -= Time.deltaTime;
-
-                if (timer <= 4.5f)
+                else
                 {
                     inputTimerP1 = defaultInputTimer;
+                }
+
+                //MUISTA LAITTAA KONTROLLERIEN INPUTIT!!!
+
+                if (Input.GetKey(KeyCode.RightShift) || Input.GetKey(KeyCode.RightControl))
+                {
+                    inputTimerP2 -= Time.deltaTime;
+                }
+
+                else if (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButton(1) || InputManager.IM.isKeyboardAndMouseP2 && Input.GetKey(KeyCode.F))
+                {
+                    inputTimerP2 -= Time.deltaTime;
+                }
+
+                else
+                {
                     inputTimerP2 = defaultInputTimer;
-                    P1_OK = false;
-                    P2_OK = false;
-                    phase3 = true;
+                }
+
+                if (inputTimerP1 <= 0.2f)
+                {
+                    P1_OK = true;
+                }
+
+                if (inputTimerP2 <= 0.2f)
+                {
+                    P2_OK = true;
+                }
+
+                if (P1_OK && P2_OK)
+                {
+                    timer -= Time.deltaTime;
+
+                    if (timer <= 4.5f)
+                    {
+                        inputTimerP1 = defaultInputTimer;
+                        inputTimerP2 = defaultInputTimer;
+                        P1_OK = false;
+                        P2_OK = false;
+                        phase3 = true;
+                    }
                 }
             }
         }
 
         if (phase3)
         {
-            //"Well done sirs! When duelling with sabres you can be attacked from two different sides: outside (the side your back is pointing) and inside (the side your chest is pointing)"
-
-            //LAITA KONTROLLERIN INPUTIT MYÖS!!!
-
-            if (Input.GetKeyUp(KeyCode.X) || InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(1))
+            TutorialTextController.TTC.texts[2].SetActive(false);
+            TutorialTextController.TTC.texts[3].SetActive(true); //"Well done, sirs! Note that doing a moulinette is only way to generate enough force for any proper damage, lighter attack will only wound your opponent."
+            
+            if (TutorialTextController.TTC.texts[3].activeSelf)
             {
-                P1_OK = true;
+                if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
+                {
+                    TutorialTextController.TTC.texts[3].SetActive(false);
+                    TutorialTextController.TTC.texts[4].SetActive(true); //"When duelling with sabres you can be attacked from two different sides: outside (the side your back is pointing) and inside (the side your chest is pointing)"
+                    canInteractText = false;
+                }
             }
-
-            if (Input.GetKeyUp(KeyCode.P) || InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(1))
+            
+            if (TutorialTextController.TTC.texts[4].activeSelf)
             {
-                P2_OK = true;
+                TutorialTextController.TTC.texts[3].SetActive(false);
+
+                //LAITA KONTROLLERIN INPUTIT MYÖS!!!
+
+                if (Input.GetKeyUp(KeyCode.X) || InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(1))
+                {
+                    P1_OK = true;
+                }
+
+                if (Input.GetKeyUp(KeyCode.P) || InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(1))
+                {
+                    P2_OK = true;
+                }
             }
 
             if (P1_OK && P2_OK)
             {
-                //"To block the attacks coming you have to make sure that you are guarding the correct side. The side you are guarding in indicated by the colour of your blade"
+                TutorialTextController.TTC.texts[3].SetActive(false);
+                TutorialTextController.TTC.texts[4].SetActive(false);
+                TutorialTextController.TTC.texts[5].SetActive(true); //"To block the attacks coming you have to make sure that you are guarding the correct side. The side you are guarding in indicated by the colour of your blade"
+            }
 
-                //"You can also change between hanging(sword pointing down) and regular(sword pointing up) guard"
+            if (TutorialTextController.TTC.texts[5].activeSelf)
+            {
+                if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
+                {
+                    TutorialTextController.TTC.texts[5].SetActive(false);
+                    TutorialTextController.TTC.texts[6].SetActive(true); //"You can also change between hanging(sword pointing down) and regular(sword pointing up) guard"
+                    canInteractText = false;
+                }
+            }
 
-                //"Now please rotate through each of your guard (The guard changing button or the other guard changing button)"
+            if (TutorialTextController.TTC.texts[6].activeSelf)
+            {
+                TutorialTextController.TTC.texts[5].SetActive(false);
+
+                if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
+                {
+                    TutorialTextController.TTC.texts[6].SetActive(false);
+                    TutorialTextController.TTC.texts[7].SetActive(true); //"Now please rotate through each of your guard (The guard changing button or the other guard changing button)"
+                    canInteractText = false;
+                }
+            }
+
+            if (TutorialTextController.TTC.texts[7].activeSelf)
+            {
+                TutorialTextController.TTC.texts[5].SetActive(false);
 
                 if (Input.GetKeyUp(KeyCode.C) || InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(2))
                 {
@@ -374,10 +414,10 @@ public class TutorialManager : MonoBehaviour
             {
                 animP1.SetBool("forward", false);
                 animP2.SetBool("forward", false);
-                
-                //"Very good sirs! On top of affecting the direction you're blocking guards also determine which direction your attacks will come from. Please try hitting eachother untill one of you has landed three hits");
 
-                if (Input.GetKeyUp(KeyCode.Return) || InputManager.IM.GetA(1) || InputManager.IM.GetA(2))
+                TutorialTextController.TTC.texts[8].SetActive(true); //Very good, sirs! On top of affecting the direction you're blocking guards also determine which direction your attacks will come from. Please try hitting each other.
+
+                if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
                 {
                     timer = defaultTimer;
                     phase5 = true;
@@ -400,22 +440,26 @@ public class TutorialManager : MonoBehaviour
                 animP1.SetBool("back", false);
                 animP2.SetBool("back", false);
             }
-            if (heightP1 < 0 || heightP1 > 0)
-            {
-                P1_OK = true;
-            }
 
-            if (heightP2 < 0 || heightP2 > 0)
+            if (!animP1.GetBool("back") && !animP2.GetBool("back"))
             {
-                P2_OK = true;
-            }
+                TutorialTextController.TTC.texts[9].SetActive(true); //"You can also change your sword’s height (right controller stick, mouse or  t and g for player1 and O and L for player2) to attack and protect on different bodyparts."
 
-            //"You can also change your sword’s height (right controller stick, mouse or  t and g for player1 and O and L for player2) to attack and protect on different bodyparts."
+                if (heightP1 < 0 || heightP1 > 0)
+                {
+                    P1_OK = true;
+                }
 
-            if (P1_OK && P2_OK)
-            {
-                timer = defaultTimer;
-                phase6 = true;
+                if (heightP2 < 0 || heightP2 > 0)
+                {
+                    P2_OK = true;
+                }
+
+                if (P1_OK && P2_OK)
+                {
+                    timer = defaultTimer;
+                    phase6 = true;
+                }
             }
         }
 
@@ -548,18 +592,13 @@ public class TutorialManager : MonoBehaviour
 
     void TextInteraction()
     {
-        if (canInteractText)
-        {
-            
-        }
-
         if (!canInteractText)
         {
-            timer -= Time.deltaTime;
+            textTimer -= Time.deltaTime;
 
-            if (timer <= 0)
+            if (textTimer <= 0)
             {
-                timer = defaultTimer;
+                textTimer = defaultTextTimer;
                 canInteractText = true;
             }
         }

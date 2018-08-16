@@ -6,7 +6,7 @@ public class SwordColor : MonoBehaviour {
 
     Renderer rend;
     HandAnimationControl hac;
-    public bool useShaderColors = true;
+    public bool UseShaderColors = true;
     public float inside = -1;
     public float hanging = -1;
     float swordShade = 0;
@@ -20,8 +20,8 @@ public class SwordColor : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.KeypadMultiply))
         {
-            useShaderColors = !useShaderColors;
-            if (useShaderColors)
+            UseShaderColors = !UseShaderColors;
+            if (UseShaderColors)
             {
                 for (int i = 0; i < rend.materials.Length; i++)
                 {
@@ -36,7 +36,7 @@ public class SwordColor : MonoBehaviour {
                 }
             }
         }
-        if (useShaderColors)
+        if (UseShaderColors)
         {
             if (inside != hac.GetInside() || hanging != hac.GetHanging())
             {

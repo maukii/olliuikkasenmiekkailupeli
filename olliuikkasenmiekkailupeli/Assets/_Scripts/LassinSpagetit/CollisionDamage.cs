@@ -11,8 +11,10 @@ public class CollisionDamage : MonoBehaviour {
     bool throat;
 
     CollisionHandler ch;
+
     public enum Bodyparts { Head, Torso, Leg, Arm, Hand }
     Bodyparts bodyparthit;
+
     [SerializeField]
     int[] HeadTreshold = new int[2] { 2, 2 };
     [SerializeField]
@@ -23,8 +25,10 @@ public class CollisionDamage : MonoBehaviour {
     int[] ArmTreshold = new int[2] { 3, 3 };
     [SerializeField]
     int[] HandTreshold = new int[2] { 4, 4 };
+
     int player = -1;
     bool[] applyDamage = new bool[2];
+    int[] AttackStrength = new int[2];
 
     private void Start()
     {
@@ -35,14 +39,16 @@ public class CollisionDamage : MonoBehaviour {
         P2 = GameObject.FindGameObjectWithTag("Player 2");
     }
 
-    public void ApplyDamage(int player)
+    public void ApplyDamage(int player, int Damage)
     {
         applyDamage[player] = true;
+        AttackStrength[player] = Damage;
         this.player = player;
     }
     public void NoDamage(int player)
     {
         applyDamage[player] = false;
+        AttackStrength[player] = 0;
     }
     public void DissableDamageTo(Bodyparts part)
     {
@@ -82,28 +88,28 @@ public class CollisionDamage : MonoBehaviour {
                 switch (col.gameObject.name)
                 {
                     case "alaselkä.L":
-                        DoDamage(Bodyparts.Torso, 1, otherplayer);
+                        DoDamage(Bodyparts.Torso, AttackStrength[player], otherplayer);
                         break;
                     case "reisi.R":
-                        DoDamage(Bodyparts.Leg, 1, otherplayer);
+                        DoDamage(Bodyparts.Leg, AttackStrength[player], otherplayer);
                         break;
                     case "pohje.R":
-                        DoDamage(Bodyparts.Leg, 1, otherplayer);
+                        DoDamage(Bodyparts.Leg, AttackStrength[player], otherplayer);
                         break;
                     case "selkä.L":
-                        DoDamage(Bodyparts.Torso, 1, otherplayer);
+                        DoDamage(Bodyparts.Torso, AttackStrength[player], otherplayer);
                         break;
                     case "selkä.L.001":
-                        DoDamage(Bodyparts.Torso, 1, otherplayer);
+                        DoDamage(Bodyparts.Torso, AttackStrength[player], otherplayer);
                         break;
                     case "hauis.R":
-                        DoDamage(Bodyparts.Arm, 1, otherplayer);
+                        DoDamage(Bodyparts.Arm, AttackStrength[player], otherplayer);
                         break;
                     case "ranne.R":
-                        DoDamage(Bodyparts.Arm, 1, otherplayer);
+                        DoDamage(Bodyparts.Arm, AttackStrength[player], otherplayer);
                         break;
                     case "pää":
-                        DoDamage(Bodyparts.Head, 1, otherplayer);
+                        DoDamage(Bodyparts.Head, AttackStrength[player], otherplayer);
                         break;
                     default:
                         break;

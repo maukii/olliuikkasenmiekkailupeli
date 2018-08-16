@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HeightCollision : MonoBehaviour {
-    GameObject[] SwordCollisionPartsP1;
-    GameObject[] SwordCollisionPartsP2;
-    RectTransform[] HeightMeterP1;
-    RectTransform[] HeightMeterP2;
+
+    GameObject[] SwordCollisionPartsP1 , SwordCollisionPartsP2;
+    RectTransform[] HeightMeterP1, HeightMeterP2;
+
     float[] Height = new float[2];
-    Vector3[] TipH = new Vector3[2];
-    Vector3[] MiddleH = new Vector3[2];
-    Vector3[] BaseH = new Vector3[2];
-    Vector3[] HandleH = new Vector3[2];
+    Vector3[] TipH = new Vector3[2], MiddleH = new Vector3[2], BaseH = new Vector3[2], HandleH = new Vector3[2];
+
     float heightOffset;
 
     bool haveHeightMeters = false;
     
+    [Header("For Only FightClub Scene")]
     public bool ShowHeightMeters = false;
     GameObject[] HeightMeters = new GameObject[2];
-    CollisionHandler ch;
 
+    CollisionHandler ch;
 
     void Start () {
         ch = gameObject.GetComponent<CollisionHandler>();

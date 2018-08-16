@@ -137,24 +137,10 @@ public class AchievementManager : MonoBehaviour
     {
         var achievement = GetAchievementByName(achievementName);
 
-        if(SteamManager.Initialized)
-        {
-            //TestSteamAchievement(achievement.ID);
-            //if (unlockTest)
-            //{
-            //    SteamUserStats.ClearAchievement(achievement.ID);
-            //}
-            //else
-            //{
-            //    Debug.Log("unlockTest failed while locking");
-            //}
-
-            achievement.LockAchievement();
-
-        }
-        else
+        if(!SteamManager.Initialized)
         {
             Debug.Log("steam not initialized");
+            achievement.LockAchievement();
         }
     }
 }

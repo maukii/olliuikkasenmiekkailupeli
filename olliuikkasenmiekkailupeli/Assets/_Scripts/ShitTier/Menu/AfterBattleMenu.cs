@@ -8,9 +8,9 @@ public class AfterBattleMenu : MonoBehaviour
 {
     [SerializeField] GameObject UI;
 
-    [SerializeField] Image[] buttons = new Image[2];
+    [SerializeField] GameObject[] buttons = new GameObject[2];
 
-    [SerializeField] Image[] playAgainButtons = new Image[2], mainmenuButtons = new Image[2];
+    [SerializeField] Sprite[] controllerButtons = new Sprite[2], keyboardButtons = new Sprite[2];
     [SerializeField] bool usingController;
 
     private void Start()
@@ -25,14 +25,14 @@ public class AfterBattleMenu : MonoBehaviour
         if (usingController)
         {
             // use controller images
-            buttons[1] = playAgainButtons[1];
-            buttons[2] = mainmenuButtons[1];
+            buttons[0].GetComponent<Image>().sprite = controllerButtons[0];
+            buttons[1].GetComponent<Image>().sprite = controllerButtons[1];
         }
         else
         {
             // use keyboard images
-            buttons[1] = playAgainButtons[2];
-            buttons[2] = mainmenuButtons[2];
+            buttons[1].GetComponent<Image>().sprite = keyboardButtons[0];
+            buttons[2].GetComponent<Image>().sprite = keyboardButtons[1];
         }
     }
 

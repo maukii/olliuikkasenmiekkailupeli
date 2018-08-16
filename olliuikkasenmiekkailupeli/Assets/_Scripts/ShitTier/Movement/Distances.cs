@@ -54,20 +54,6 @@ public class Distances : MonoBehaviour
 
     }
 
-    public bool CanMoveForwards()
-    {
-        playerDistance = Vector3.Distance(P1.position, P2.position);
-
-        if(playerDistance < minDistance + extraDistance)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-
     private void GetPlayerPosition()
     {
         P1 = cs.P1;

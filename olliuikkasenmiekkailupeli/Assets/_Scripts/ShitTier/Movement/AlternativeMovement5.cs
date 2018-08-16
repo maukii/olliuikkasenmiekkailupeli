@@ -177,7 +177,6 @@ public class AlternativeMovement5 : MonoBehaviour
             Move();
 
             canBackup = distances.CanBackUp(playerIndex);
-            canMoveForward = distances.CanMoveForwards();
             playerDistance = distances.GetPlayerDistance();
 
             if (PauseMenu.gameIsPaused)
@@ -347,7 +346,7 @@ public class AlternativeMovement5 : MonoBehaviour
             {
                 forward = true;
             }
-            else if (Input.GetAxis(horizontal) >= .1f && playerDistance <= playerMinDistance)
+            else if (Input.GetAxis(horizontal) <= -.1f && playerDistance <= playerMinDistance)
             {
                 forward = false;
                 anim.SetBool("TryToMoveForward", true);

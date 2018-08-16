@@ -14,7 +14,7 @@ public class HandAnimationControl : MonoBehaviour
     public int PlayerNumber = 1;
     public bool AdditiveStanceInput;
     public bool AdditiveInverted;
-    int AddStanceId = 1;
+    public int AddStanceId = 1;
     float hanging;
     float inside;
     float height;
@@ -270,6 +270,7 @@ public class HandAnimationControl : MonoBehaviour
                 }
 
                 UpdateHandHeight(im.GetVertical(PlayerNumber));
+                //UpdateStance(AddStanceId);
 
             }
             else if(im.isKeyboardAndMouseP1 || im.isKeyboardAndMouseP2)
@@ -487,6 +488,16 @@ public class HandAnimationControl : MonoBehaviour
         {
             anim.speed = AnimatorSpeed;
         }
+
+        if (AddStanceId > 3)
+        {
+            AddStanceId = 3;
+        }
+        else if (AddStanceId < 0)
+        {
+            AddStanceId = 0;
+        }
+
     }
 
     private void UpdateHandHeight(float y_input)
@@ -666,15 +677,6 @@ public class HandAnimationControl : MonoBehaviour
                     WeakHor();
                 }
 
-            }
-
-            if (AddStanceId > 3)
-            {
-                AddStanceId = 3;
-            }
-            else if (AddStanceId < 0)
-            {
-                AddStanceId = 0;
             }
 
         }        

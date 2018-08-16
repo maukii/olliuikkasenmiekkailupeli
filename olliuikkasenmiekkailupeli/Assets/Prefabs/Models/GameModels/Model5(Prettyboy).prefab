@@ -1125,7 +1125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1654702387392498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2999,7 +2999,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1653247726348742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -15.738558, y: -1.9304994, z: -10.919922}
   m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000005}
   m_Children:
   - {fileID: 4728307905355792}
@@ -4493,7 +4493,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0125, y: 0.0075, z: 0.01}
+  m_Size: {x: 0.0125, y: 0.0075, z: 0.008}
   m_Center: {x: 0, y: -0.0045, z: 0}
 --- !u!65 &65596661281475468
 BoxCollider:
@@ -4529,7 +4529,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.007, y: 0.0095, z: 0.005}
+  m_Size: {x: 0.004, y: 0.0095, z: 0.004}
   m_Center: {x: 0, y: 0.005, z: -0.0005}
 --- !u!65 &65695028162443572
 BoxCollider:
@@ -4541,7 +4541,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0125, y: 0.015, z: 0.01}
+  m_Size: {x: 0.0125, y: 0.015, z: 0.008}
   m_Center: {x: 0, y: 0.001, z: 0}
 --- !u!65 &65758761916930146
 BoxCollider:
@@ -4553,7 +4553,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.01, y: 0.01, z: 0.01}
+  m_Size: {x: 0.01, y: 0.01, z: 0.008}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65810394297640472
 BoxCollider:
@@ -4589,7 +4589,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.007, y: 0.0095, z: 0.005}
+  m_Size: {x: 0.005, y: 0.0095, z: 0.005}
   m_Center: {x: 0, y: 0.005, z: -0.0005}
 --- !u!65 &65989073412821966
 BoxCollider:
@@ -4776,19 +4776,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DEBUG_NoInput: 0
+  DEBUG_testscene: 0
   PlayerNumber: 1
   AdditiveStanceInput: 1
   AdditiveInverted: 1
   HeightSpeed: 3
   xLimit: 5
+  controllerLayout: 3
   LetThisScriptControlAnimatorSpeeds: 0
   AnimatorSpeed: 1
   HandAnimSpeed: 1
   InputAnimSpeed: 0.8
   Inputframe: 0
   swordSwinging: 0
-  controllerLayout: 3
-  handHeight: 0
+  UseGuardIndicators: 0
 --- !u!114 &114337776669593846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4801,6 +4802,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useShaderColors: 1
+  inside: -1
+  hanging: -1
 --- !u!114 &114419159691554022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4839,6 +4842,7 @@ MonoBehaviour:
   partBlood: {fileID: 198430967591152532, guid: c674369de386c52428e1d4470748ad85,
     type: 2}
   trailSwoosh: {fileID: 96114303139531782}
+  swoosh: 0
 --- !u!114 &114716259406479114
 MonoBehaviour:
   m_ObjectHideFlags: 1

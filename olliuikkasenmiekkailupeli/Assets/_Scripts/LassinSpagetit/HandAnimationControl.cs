@@ -118,7 +118,7 @@ public class HandAnimationControl : MonoBehaviour
             if(!PauseMenuController.gameIsPaused)
             {
                 CheckInput();
-                CheckControllerLayout();
+                //CheckControllerLayout();
 
                 AnimationStateUpdate();
             }

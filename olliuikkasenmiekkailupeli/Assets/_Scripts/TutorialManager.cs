@@ -250,7 +250,7 @@ public class TutorialManager : MonoBehaviour
             P2Clear = false;
 
             TutorialTextController.TTC.texts[1].SetActive(false); 
-            TutorialTextController.TTC.texts[2].SetActive(true); //"You never seize to amaze sirs! You can also spin your sword around and do an attack from the opposite direction(Hold down attack button). This technique is called a moulinette."
+            TutorialTextController.TTC.texts[2].SetActive(true);
             
             if (TutorialTextController.TTC.texts[2].activeSelf)
             {
@@ -342,39 +342,29 @@ public class TutorialManager : MonoBehaviour
                 {
                     P2_OK = true;
                 }
-            }
 
-            if (P1_OK && P2_OK)
+                if (P1_OK && P2_OK)
+                {
+                    TutorialTextController.TTC.texts[5].SetActive(true); //"To block the attacks coming you have to make sure that you are guarding the correct side. The side you are guarding in indicated by the colour of your blade"
+                }
+            }
+            
+            if (TutorialTextController.TTC.texts[5].activeSelf)
             {
                 TutorialTextController.TTC.texts[3].SetActive(false);
                 TutorialTextController.TTC.texts[4].SetActive(false);
-                TutorialTextController.TTC.texts[5].SetActive(true); //"To block the attacks coming you have to make sure that you are guarding the correct side. The side you are guarding in indicated by the colour of your blade"
-            }
 
-            if (TutorialTextController.TTC.texts[5].activeSelf)
-            {
                 if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
                 {
-                    TutorialTextController.TTC.texts[5].SetActive(false);
-                    TutorialTextController.TTC.texts[6].SetActive(true); //"You can also change between hanging(sword pointing down) and regular(sword pointing up) guard"
+                    TutorialTextController.TTC.texts[6].SetActive(true); //"You can also change between hanging(sword pointing down) and regular(sword pointing up) guard. Now please rotate through each of your guard (The guard changing button or the other guard changing button)""
                     canInteractText = false;
                 }
             }
 
             if (TutorialTextController.TTC.texts[6].activeSelf)
             {
-                TutorialTextController.TTC.texts[5].SetActive(false);
-
-                if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
-                {
-                    TutorialTextController.TTC.texts[6].SetActive(false);
-                    TutorialTextController.TTC.texts[7].SetActive(true); //"Now please rotate through each of your guard (The guard changing button or the other guard changing button)"
-                    canInteractText = false;
-                }
-            }
-
-            if (TutorialTextController.TTC.texts[7].activeSelf)
-            {
+                TutorialTextController.TTC.texts[3].SetActive(false);
+                TutorialTextController.TTC.texts[4].SetActive(false);
                 TutorialTextController.TTC.texts[5].SetActive(false);
 
                 if (Input.GetKeyUp(KeyCode.C) || InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(2))
@@ -415,7 +405,7 @@ public class TutorialManager : MonoBehaviour
                 animP1.SetBool("forward", false);
                 animP2.SetBool("forward", false);
 
-                TutorialTextController.TTC.texts[8].SetActive(true); //Very good, sirs! On top of affecting the direction you're blocking guards also determine which direction your attacks will come from. Please try hitting each other.
+                TutorialTextController.TTC.texts[7].SetActive(true); //Very good, sirs! On top of affecting the direction you're blocking guards also determine which direction your attacks will come from. Please try hitting each other.
 
                 if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
                 {
@@ -443,7 +433,7 @@ public class TutorialManager : MonoBehaviour
 
             if (!animP1.GetBool("back") && !animP2.GetBool("back"))
             {
-                TutorialTextController.TTC.texts[9].SetActive(true); //"You can also change your sword’s height (right controller stick, mouse or  t and g for player1 and O and L for player2) to attack and protect on different bodyparts."
+                TutorialTextController.TTC.texts[8].SetActive(true); //"You can also change your sword’s height (right controller stick, mouse or  t and g for player1 and O and L for player2) to attack and protect on different bodyparts."
 
                 if (heightP1 < 0 || heightP1 > 0)
                 {

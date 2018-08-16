@@ -166,6 +166,7 @@ public class AlternativeMovement5 : MonoBehaviour
                 otherPlayerAnim = P2.GetComponent<AlternativeMovement5>().GetActiveAnimator();
             else if (playerIndex == 2)
                 otherPlayerAnim = P1.GetComponent<AlternativeMovement5>().GetActiveAnimator();
+
             if (otherPlayerAnim != null)
                 gotAnim = true;
         }
@@ -206,6 +207,7 @@ public class AlternativeMovement5 : MonoBehaviour
             anim.SetBool("Idle", true);
             anim.SetBool("Lunged", false);
             anim.SetBool("Jumped", false);
+            anim.SetBool("TryToMoveForward", false);
         }
     }
 

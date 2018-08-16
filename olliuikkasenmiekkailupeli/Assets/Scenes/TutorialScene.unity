@@ -1920,7 +1920,7 @@ GameObject:
   - component: {fileID: 128961575}
   - component: {fileID: 128961574}
   m_Layer: 5
-  m_Name: Text14
+  m_Name: Text13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1976,9 +1976,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.6
-  m_Text: How sword collisions end up are also affected by multitude of other factors
-    such as momentum and the direction of the swings. But fun comes from figuring
-    these things yourself. Try them out!
+  m_Text: Footwork basically boils down to stepping forward (tilt left stick towards
+    your opponent, press D or left arrow) and stepping backward (tilt left stick away
+    from your opponent, press A or right arrow). Give me one step in either direction.
 --- !u!222 &128961575
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2273,7 +2273,7 @@ GameObject:
   - component: {fileID: 146419542}
   - component: {fileID: 146419541}
   m_Layer: 5
-  m_Name: Text7
+  m_Name: Text6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3050,7 +3050,7 @@ GameObject:
   - component: {fileID: 269636713}
   - component: {fileID: 269636712}
   m_Layer: 5
-  m_Name: Text1
+  m_Name: Text0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4687,7 +4687,7 @@ GameObject:
   - component: {fileID: 408340664}
   - component: {fileID: 408340663}
   m_Layer: 5
-  m_Name: Text20
+  m_Name: Text19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4743,9 +4743,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.6
-  m_Text: "In most cases you want to start preparing your swing just before lunging.
-    Also don\u2019t let yourself get too close to opponent, lest your fight will deteriorate
-    to a common brawl!"
+  m_Text: I hope you swift deaths.
 --- !u!222 &408340664
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5345,7 +5343,7 @@ GameObject:
   - component: {fileID: 436231622}
   - component: {fileID: 436231621}
   m_Layer: 5
-  m_Name: Text8
+  m_Name: Text7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5677,7 +5675,7 @@ GameObject:
   - component: {fileID: 477996034}
   - component: {fileID: 477996033}
   m_Layer: 5
-  m_Name: Text3
+  m_Name: Text2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6774,7 +6772,7 @@ GameObject:
   - component: {fileID: 562112512}
   - component: {fileID: 562112511}
   m_Layer: 5
-  m_Name: Text19
+  m_Name: Text18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6830,8 +6828,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.6
-  m_Text: You inbred bastards! You can leave your lunged position by moving forward
-    (move forward) or backward (move backward).
+  m_Text: "The ideal distance from your opponent is from where you can hit your opponent
+    by lunging but can\u2019t be reached when standing in normally. This is called
+    being at measure."
 --- !u!222 &562112512
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8048,8 +8047,6 @@ MonoBehaviour:
   - {fileID: 1071447001}
   - {fileID: 562112509}
   - {fileID: 408340661}
-  - {fileID: 938090971}
-  - {fileID: 1709142943}
   buttons: []
 --- !u!1 &637512290
 GameObject:
@@ -8944,7 +8941,7 @@ GameObject:
   - component: {fileID: 693631779}
   - component: {fileID: 693631778}
   m_Layer: 5
-  m_Name: Text13
+  m_Name: Text12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9000,8 +8997,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.6
-  m_Text: The laws of leverage dictate that when weak of the blade hits strong the
-    former will bounce back more.
+  m_Text: "Being able to swing your sword is all well and good, but you\u2019ll soon
+    be hit by the swings of your opponent, lest you learn how to move out of the way
+    of those swings."
 --- !u!222 &693631779
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10906,7 +10904,7 @@ GameObject:
   - component: {fileID: 849613196}
   - component: {fileID: 849613195}
   m_Layer: 5
-  m_Name: Text11
+  m_Name: Text10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10927,7 +10925,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6, y: -208}
+  m_AnchoredPosition: {x: 6, y: -190}
   m_SizeDelta: {x: 952, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &849613195
@@ -10962,8 +10960,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.6
-  m_Text: Now before we move on to footwork, I want to tell you a bit about what happens
-    when your swords collide.
+  m_Text: 'Your sword''s blade can be divided to roughly two parts in lengthwise:
+    the strong of the blade (The half closer to your hand, used for parrying) and
+    the weak of the blade (the half further from the hand, used for attacking). '
 --- !u!222 &849613196
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12710,82 +12709,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.79999924}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &938090971
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 938090972}
-  - component: {fileID: 938090974}
-  - component: {fileID: 938090973}
-  m_Layer: 5
-  m_Name: Text21
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &938090972
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 938090971}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1936765736}
-  m_RootOrder: 20
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.7, y: -209.00006}
-  m_SizeDelta: {x: 913.5, y: 600}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &938090973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 938090971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: ce766686cb0bc414eadefdd43c0fa178, type: 3}
-    m_FontSize: 35
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 72
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 0.6
-  m_Text: "The ideal distance from your opponent is from where you can hit your opponent
-    by lunging but can\u2019t be reached when standing in normally. This is called
-    being at measure."
---- !u!222 &938090974
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 938090971}
 --- !u!1 &938552807
 GameObject:
   m_ObjectHideFlags: 0
@@ -14597,7 +14520,7 @@ GameObject:
   - component: {fileID: 1071447004}
   - component: {fileID: 1071447003}
   m_Layer: 5
-  m_Name: Text18
+  m_Name: Text17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14653,8 +14576,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.6
-  m_Text: "Clearly you\u2019re no peasants! And now for for the last and probably
-    the most important move show me a lunge (Double tap leftstick towards opponent)."
+  m_Text: "In most cases you want to start preparing your swing just before lunging.
+    Also don\u2019t let yourself get too close to opponent, lest your fight will deteriorate
+    to a common brawl!"
 --- !u!222 &1071447004
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14993,7 +14917,7 @@ GameObject:
   - component: {fileID: 1108388768}
   - component: {fileID: 1108388767}
   m_Layer: 5
-  m_Name: Text12
+  m_Name: Text11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15014,7 +14938,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.7, y: -208}
+  m_AnchoredPosition: {x: 13, y: -186}
   m_SizeDelta: {x: 913.5, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1108388767
@@ -15049,9 +14973,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.6
-  m_Text: 'Your sword''s blade can be divided to roughly two parts in lengthwise:
-    the strong of the blade (The half closer to your hand, used for parrying) and
-    the weak of the blade (the half further from the hand, used for attacking).'
+  m_Text: The laws of leverage dictate that when weak of the blade hits strong the
+    former will bounce back more. How sword collisions end up are also affected by
+    multitude of other factors such as momentum and the direction of the swings. But
+    fun comes from figuring these things yourself. Try them out!
 --- !u!222 &1108388768
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16143,7 +16068,7 @@ GameObject:
   - component: {fileID: 1172626602}
   - component: {fileID: 1172626601}
   m_Layer: 5
-  m_Name: Text4
+  m_Name: Text3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17187,7 +17112,7 @@ GameObject:
   - component: {fileID: 1267934488}
   - component: {fileID: 1267934487}
   m_Layer: 5
-  m_Name: Text10
+  m_Name: Text9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17208,7 +17133,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12, y: -208}
+  m_AnchoredPosition: {x: 7, y: -200}
   m_SizeDelta: {x: 913.5, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1267934487
@@ -17244,7 +17169,9 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 0.6
   m_Text: Absolutely splendid work, sirs! Even if your guard is on correct side, it
-    can't parry the attack if the blade isn't on the way of the attack.
+    can't parry the attack if the blade isn't on the way of the attack. Now before
+    we move on to footwork, I want to tell you a bit about what happens when your
+    swords collide.
 --- !u!222 &1267934488
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19263,7 +19190,7 @@ GameObject:
   - component: {fileID: 1499394307}
   - component: {fileID: 1499394306}
   m_Layer: 5
-  m_Name: Text17
+  m_Name: Text16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19319,8 +19246,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.6
-  m_Text: Now I shall teach you some advanced footwork. First show me a leap backwards
-    (Double tap leftstick away from opponent)!
+  m_Text: You inbred bastards! You can leave your lunged position by moving forward
+    (move forward) or backward (move backward).
 --- !u!222 &1499394307
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19580,7 +19507,7 @@ GameObject:
   - component: {fileID: 1523779807}
   - component: {fileID: 1523779806}
   m_Layer: 5
-  m_Name: Text6
+  m_Name: Text5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20144,7 +20071,7 @@ GameObject:
   - component: {fileID: 1561024959}
   - component: {fileID: 1561024958}
   m_Layer: 5
-  m_Name: Text9
+  m_Name: Text8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20220,7 +20147,7 @@ GameObject:
   - component: {fileID: 1561492614}
   - component: {fileID: 1561492613}
   m_Layer: 5
-  m_Name: Text5
+  m_Name: Text4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20442,7 +20369,7 @@ GameObject:
   - component: {fileID: 1579867463}
   - component: {fileID: 1579867462}
   m_Layer: 5
-  m_Name: Text2
+  m_Name: Text1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20913,7 +20840,7 @@ GameObject:
   - component: {fileID: 1609950771}
   - component: {fileID: 1609950770}
   m_Layer: 5
-  m_Name: Text15
+  m_Name: Text14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20969,9 +20896,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.6
-  m_Text: "Being able to swing your sword is all well and good, but you\u2019ll soon
-    be hit by the swings of your opponent, lest you learn how to move out of the way
-    of those swings."
+  m_Text: Now I shall teach you some advanced footwork. First show me a leap backwards
+    (Double tap leftstick away from opponent)!
 --- !u!222 &1609950771
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22395,80 +22321,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1704172542}
---- !u!1 &1709142943
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1709142944}
-  - component: {fileID: 1709142946}
-  - component: {fileID: 1709142945}
-  m_Layer: 5
-  m_Name: Text22
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1709142944
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1709142943}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1936765736}
-  m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.7, y: -209.00006}
-  m_SizeDelta: {x: 913.5, y: 600}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1709142945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1709142943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: ce766686cb0bc414eadefdd43c0fa178, type: 3}
-    m_FontSize: 35
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 72
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 0.6
-  m_Text: I hope you swift deaths.
---- !u!222 &1709142946
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1709142943}
 --- !u!1 &1710544215
 GameObject:
   m_ObjectHideFlags: 0
@@ -25357,8 +25209,6 @@ RectTransform:
   - {fileID: 1071447002}
   - {fileID: 562112510}
   - {fileID: 408340662}
-  - {fileID: 938090972}
-  - {fileID: 1709142944}
   m_Father: {fileID: 636045546}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26024,7 +25874,7 @@ GameObject:
   - component: {fileID: 2011404801}
   - component: {fileID: 2011404800}
   m_Layer: 5
-  m_Name: Text16
+  m_Name: Text15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26080,9 +25930,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.6
-  m_Text: Footwork basically boils down to stepping forward (tilt left stick towards
-    your opponent, press D or left arrow) and stepping backward (tilt left stick away
-    from your opponent, press A or right arrow). Give me one step in either direction.
+  m_Text: "Clearly you\u2019re no peasants! And now for for the last and probably
+    the most important move show me a lunge (Double tap leftstick towards opponent)."
 --- !u!222 &2011404801
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -137,12 +137,12 @@ public class HandAnimationControl : MonoBehaviour
 
     private void CheckControllerLayout()
     {
-        if (im.GetDpad_Y(PlayerNumber) == 1)
+        if (im.GetDpad_Y(PlayerNumber) == 1 && false)
         {
             AdditiveStanceInput = false;
             controllerLayout = 1;
         }
-        else if (im.GetDpad_X(PlayerNumber) == -1)
+        else if (im.GetDpad_X(PlayerNumber) == -1 && false)
         {
             AdditiveStanceInput = false;
             controllerLayout = 2;

@@ -335,14 +335,14 @@ public class MainMenuController : MonoBehaviour
                 {
                     AudioManager.instance.AddVolume(0);
                     canInteract = false;
-                    volumeSliders[index].value = AudioManager.instance.musicVolumePercent;
+                    volumeSliders[0].value = AudioManager.instance.musicVolumePercent;
                     AudioManager.instance.PlaySoundeffect("SwordSwing1");
                 }
                 if(hor <= -.5 && volumeSliders[0].value > 0 && canInteract)
                 {
                     AudioManager.instance.LessVolume(0);
                     canInteract = false;
-                    volumeSliders[index].value = AudioManager.instance.musicVolumePercent;
+                    volumeSliders[0].value = AudioManager.instance.musicVolumePercent;
                     AudioManager.instance.PlaySoundeffect("SwordSwing1");
                 }
             }
@@ -352,14 +352,14 @@ public class MainMenuController : MonoBehaviour
                 {
                     AudioManager.instance.AddVolume(1);
                     canInteract = false;
-                    volumeSliders[index].value = AudioManager.instance.sfxVolumePercent;
+                    volumeSliders[1].value = AudioManager.instance.sfxVolumePercent;
                     AudioManager.instance.PlaySoundeffect("SwordSwing1");
                 }
                 if (hor <= -.5f && volumeSliders[1].value > 0 && canInteract)
                 {
                     AudioManager.instance.LessVolume(1);
                     canInteract = false;
-                    volumeSliders[index].value = AudioManager.instance.sfxVolumePercent;
+                    volumeSliders[1].value = AudioManager.instance.sfxVolumePercent;
                     AudioManager.instance.PlaySoundeffect("SwordSwing1");
                 }
             }

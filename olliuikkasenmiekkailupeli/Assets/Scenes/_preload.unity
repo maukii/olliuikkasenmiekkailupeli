@@ -653,6 +653,8 @@ MonoBehaviour:
   defaultInputTimer: 0
   inputTimerP1: 0.5
   inputTimerP2: 0.5
+  defaultTextTimer: 0
+  textTimer: 0
   moveLock: 0
   guardLock: 0
   deathLock: 0
@@ -673,12 +675,6 @@ MonoBehaviour:
   phase7: 0
   phase8: 0
   phase9: 0
-  hangingP1: 0
-  hangingP2: 0
-  insideP1: 0
-  insideP2: 0
-  heightP1: 0
-  heightP2: 0
 --- !u!114 &627650839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,7 +757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940491e5934e8d84889fbbbe37d87579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debuggings: 1
+  debuggings: 0
   Achievements:
   - ID: ACHIEVEMENT_00
     Name: CompleteTutorial
@@ -1109,4 +1105,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4bffeda13d7a748973ff9204401c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steamEnabled: 1
+  steamEnabled: 0

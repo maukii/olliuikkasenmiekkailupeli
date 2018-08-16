@@ -28,8 +28,7 @@ public class AlternativeMovement5 : MonoBehaviour
     float mouseX;
 
     [Header("--- Inputs ---")]
-    [SerializeField]
-    bool forward;
+    [SerializeField] bool forward;
     [SerializeField] bool back;
     [SerializeField] bool attacking;
 
@@ -44,7 +43,8 @@ public class AlternativeMovement5 : MonoBehaviour
     [SerializeField]
     float hor, ver;
 
-    bool canBackup;
+    [SerializeField] bool canBackup;
+    [SerializeField] bool canMoveForward;
 
     Animator[] anims;
     Animator anim;
@@ -176,6 +176,7 @@ public class AlternativeMovement5 : MonoBehaviour
             Move();
 
             canBackup = distances.CanBackUp(playerIndex);
+            canMoveForward = distances.CanMoveForwards();
             playerDistance = distances.GetPlayerDistance();
 
             if (PauseMenu.gameIsPaused)
@@ -303,6 +304,7 @@ public class AlternativeMovement5 : MonoBehaviour
             else if (Input.GetAxis(horizontal) >= .1f && playerDistance <= playerMinDistance)
             {
                 forward = false;
+                anim.SetBool("TryToMoveForward", true);
 
                 if (playerIndex == 1)
                 {
@@ -315,6 +317,7 @@ public class AlternativeMovement5 : MonoBehaviour
             }
             else
             {
+                anim.SetBool("TryToMoveForward", false);
                 forward = false;
             }
 
@@ -345,6 +348,7 @@ public class AlternativeMovement5 : MonoBehaviour
             else if (Input.GetAxis(horizontal) >= .1f && playerDistance <= playerMinDistance)
             {
                 forward = false;
+                anim.SetBool("TryToMoveForward", true);
 
                 if (playerIndex == 1)
                 {
@@ -357,6 +361,7 @@ public class AlternativeMovement5 : MonoBehaviour
             }
             else
             {
+                anim.SetBool("TryToMoveForward", false);
                 forward = false;
             }
         }

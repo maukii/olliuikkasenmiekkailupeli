@@ -8,6 +8,8 @@ public class CollisionDamage : MonoBehaviour {
     [SerializeField]
     GameObject P1, P2, swordPrefab;
 
+    bool throat;
+
     CollisionHandler ch;
     public enum Bodyparts { Head, Torso, Leg, Arm, Hand }
     Bodyparts bodyparthit;
@@ -26,6 +28,8 @@ public class CollisionDamage : MonoBehaviour {
 
     private void Start()
     {
+        throat = false;
+
         ch = GetComponent<CollisionHandler>();
         P1 = GameObject.FindGameObjectWithTag("Player 1");
         P2 = GameObject.FindGameObjectWithTag("Player 2");
@@ -172,12 +176,28 @@ public class CollisionDamage : MonoBehaviour {
         if (!TutorialManager.TM.deathLock)
         {
             int playerModel = (player == 0 ? GameHandler.instance.GetPlayer1Model() : GameHandler.instance.GetPlayer2Model());
+            var animator = (player == 0 ? P1 : P2).GetComponent<AlternativeMovement5>().GetActiveAnimator();
 
             switch (part)
             {
                 case Bodyparts.Head:
                     Debug.Log("pää kuolema");
                     AchievementManager.instance.SetProgressToAchievement("Headshot", 1);
+                    if(player == 0)
+                    {                      
+                        if (animator.GetInteger("StartAnim") == 0)
+                        {
+                            animator.SetBool("throat", true);
+                        }
+                    }
+                    else if(player == 1)
+                    {
+                        if (animator.GetInteger("StartAnim") == 0)
+                        {
+                            animator.SetBool("throat", true);
+                        }
+                    }
+                    throat = animator.GetBool("throat");
                     break;
                 case Bodyparts.Torso:
                     Debug.Log("Perus Död");
@@ -208,7 +228,7 @@ public class CollisionDamage : MonoBehaviour {
             PlayerPrefs.SetInt("gamesPlayed", gamesPlayed++);
             AchievementManager.instance.AddProgressToAchievement("Master the blade", 1);
 
-            if (bodypart > 2/* && playerModel != 2 && playerModel != 5 */)
+            if (bodypart > 2 || throat/* && playerModel != 2 && playerModel != 5 */)
             {
                 DeactivateSword(player);
                 DropAnim(player);

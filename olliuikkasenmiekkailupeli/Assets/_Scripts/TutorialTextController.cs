@@ -12,9 +12,4 @@ public class TutorialTextController : MonoBehaviour
     {
         TTC = this;
     }
-
-    void Update()
-    {
-
-    }
 }

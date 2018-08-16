@@ -126,6 +126,14 @@ public class HandAnimationControl : MonoBehaviour
 
         if(GI != null)
         {
+            if (GameHandler.indicators)
+            {
+                UseGuardIndicators = true;
+            }
+            else
+            {
+                UseGuardIndicators = false;
+            }
             if (UseGuardIndicators)
             {
                 GI.UseIndicators(true);

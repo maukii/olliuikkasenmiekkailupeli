@@ -274,6 +274,17 @@ public class TutorialManager : MonoBehaviour
                     P1Clear = true;
                 }
 
+                if (InputManager.IM.P1_Triggers < 0)
+                {
+                    P1_OK = true;
+                }
+
+                if (P1_OK && InputManager.IM.P1_RB)
+                {
+                    P1_OK = false;
+                    P1Clear = true;
+                }
+
                 if (Input.GetKeyDown(KeyCode.RightShift))
                 {
                     P2_OK = true;
@@ -291,6 +302,17 @@ public class TutorialManager : MonoBehaviour
                 }
 
                 if (P2_OK && InputManager.IM.isKeyboardAndMouseP2 && Input.GetKeyDown(KeyCode.F))
+                {
+                    P2_OK = false;
+                    P2Clear = true;
+                }
+
+                if (InputManager.IM.P2_Triggers < 0)
+                {
+                    P2_OK = true;
+                }
+
+                if (P2_OK && InputManager.IM.P2_RB)
                 {
                     P2_OK = false;
                     P2Clear = true;
@@ -329,12 +351,15 @@ public class TutorialManager : MonoBehaviour
                     inputTimerP1 -= Time.deltaTime;
                 }
 
+                else if (InputManager.IM.P1_Triggers < 0 || InputManager.IM.P1_RB)
+                {
+                    inputTimerP1 -= Time.deltaTime;
+                }
+
                 else
                 {
                     inputTimerP1 = defaultInputTimer;
                 }
-
-                //MUISTA LAITTAA KONTROLLERIEN INPUTIT!!!
 
                 if (Input.GetKey(KeyCode.RightShift) || Input.GetKey(KeyCode.RightControl))
                 {
@@ -342,6 +367,11 @@ public class TutorialManager : MonoBehaviour
                 }
 
                 else if (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButton(1) || InputManager.IM.isKeyboardAndMouseP2 && Input.GetKey(KeyCode.F))
+                {
+                    inputTimerP2 -= Time.deltaTime;
+                }
+
+                else if (InputManager.IM.P2_Triggers < 0 || InputManager.IM.P2_RB)
                 {
                     inputTimerP2 -= Time.deltaTime;
                 }
@@ -403,7 +433,17 @@ public class TutorialManager : MonoBehaviour
                     P1_OK = true;
                 }
 
+                if (InputManager.IM.P1_LB || InputManager.IM.P1_Triggers > 0)
+                {
+                    P1_OK = true;
+                }
+
                 if (Input.GetKeyUp(KeyCode.P) || InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(1))
+                {
+                    P2_OK = true;
+                }
+
+                if (InputManager.IM.P2_LB || InputManager.IM.P2_Triggers > 0)
                 {
                     P2_OK = true;
                 }
@@ -436,6 +476,16 @@ public class TutorialManager : MonoBehaviour
                 }
 
                 if (Input.GetKeyUp(KeyCode.I) || InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(2))
+                {
+                    P2Clear = true;
+                }
+
+                if (InputManager.IM.P1_LB || InputManager.IM.P1_Triggers > 0)
+                {
+                    P1Clear = true;
+                }
+
+                if (InputManager.IM.P2_LB || InputManager.IM.P2_Triggers > 0)
                 {
                     P2Clear = true;
                 }

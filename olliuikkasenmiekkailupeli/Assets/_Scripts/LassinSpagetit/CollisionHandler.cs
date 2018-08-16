@@ -29,6 +29,8 @@ public class CollisionHandler : MonoBehaviour {
     public float LungeHeightOffset = -0.5f;
     public float heightOffsetMult = 0.5f;
     float[] lungeOffset = new float[2];
+
+    public int StrongHitDamage = 2;
     #endregion
 
     #region CollisionTriggers
@@ -148,6 +150,7 @@ public class CollisionHandler : MonoBehaviour {
         asi[0] = anim[0].GetCurrentAnimatorStateInfo(1);
         asi[1] = anim[1].GetCurrentAnimatorStateInfo(1);
     }
+
     void CheckLunge(AnimatorStateInfo asi, int player)
     {
         if(asi.IsName("Base Layer.LungeIdle") || asi.IsName("Base Layer.ToLungeIdle") || asi.IsName("Base Layer.Lunge1") || asi.IsName("Base Layer.Lunge2") || asi.IsName("Base Layer.LungeAdvanced1") || asi.IsName("Base Layer.LungeRetreat"))
@@ -159,6 +162,7 @@ public class CollisionHandler : MonoBehaviour {
             lungeOffset[player] = 0;
         }
     }
+
     void Attack(int player)
     {
         origCollisionTime[player] = anim[player].GetBool("Strong") ? CollisionTimeStrong : CollisionTimeWeak;
@@ -182,14 +186,16 @@ public class CollisionHandler : MonoBehaviour {
                         }
                         else
                         {
-                            cd.ApplyDamage(player);
+                            int damage = anim[player].GetBool("Strong") ? StrongHitDamage : 1;
+                            cd.ApplyDamage(player, damage);
                             QuardBreak(player);
                         }
                         AudioManager.instance.PlaySwordClashSound();
                     }
                     else
                     {
-                        cd.ApplyDamage(player);
+                        int damage = anim[player].GetBool("Strong") ? StrongHitDamage : 1;
+                        cd.ApplyDamage(player, damage);
                         OverExtend(player);
                         AudioManager.instance.PlaySwordsSwingSound();
                     }
@@ -225,7 +231,8 @@ public class CollisionHandler : MonoBehaviour {
                         }
                         else
                         {
-                            cd.ApplyDamage(FirstAttack);
+                            int damage = anim[FirstAttack].GetBool("Strong") ? StrongHitDamage : 1;
+                            cd.ApplyDamage(FirstAttack, damage);
                             QuardBreakAttacker(FirstAttack);
                             calculateCollision[otherplayer] = false;
                         }
@@ -233,7 +240,8 @@ public class CollisionHandler : MonoBehaviour {
                     }
                     else
                     {
-                        cd.ApplyDamage(FirstAttack);
+                        int damage = anim[FirstAttack].GetBool("Strong") ? StrongHitDamage : 1;
+                        cd.ApplyDamage(FirstAttack, damage);
                         OverExtend(FirstAttack);
                         AudioManager.instance.PlaySwordsSwingSound();
                     }
@@ -258,14 +266,16 @@ public class CollisionHandler : MonoBehaviour {
                         }
                         else
                         {
-                            cd.ApplyDamage(otherplayer);
+                            int damage = anim[FirstAttack].GetBool("Strong") ? StrongHitDamage : 1;
+                            cd.ApplyDamage(otherplayer, damage);
                             QuardBreakAttacker(otherplayer);
                         }
                         AudioManager.instance.PlaySwordClashSound();
                     }
                     else
                     {
-                        cd.ApplyDamage(otherplayer);
+                        int damage = anim[FirstAttack].GetBool("Strong") ? StrongHitDamage : 1;
+                        cd.ApplyDamage(otherplayer, damage);
                         OverExtend(otherplayer);
                         AudioManager.instance.PlaySwordsSwingSound();
                     }

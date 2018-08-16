@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GuardIndicator : MonoBehaviour {
     HandAnimationControl hac;
-    public GameObject[] guardIndicators;
+    GameObject[] guardIndicators;
     float inside = -1;
     float hanging = -1;
     bool useIndicator = false;
@@ -30,7 +30,6 @@ public class GuardIndicator : MonoBehaviour {
             else if (inside == 1 && hanging == 0) EnableIndicator(1);
             else if (inside == 0 && hanging == 1) EnableIndicator(2);
             else if (inside == 1 && hanging == 1) EnableIndicator(3);
-            
         }
         else
         {

@@ -31,8 +31,8 @@ public class AfterBattleMenu : MonoBehaviour
         else
         {
             // use keyboard images
-            buttons[1].GetComponent<Image>().sprite = keyboardButtons[0];
-            buttons[2].GetComponent<Image>().sprite = keyboardButtons[1];
+            buttons[0].GetComponent<Image>().sprite = keyboardButtons[0];
+            buttons[1].GetComponent<Image>().sprite = keyboardButtons[1];
         }
     }
 

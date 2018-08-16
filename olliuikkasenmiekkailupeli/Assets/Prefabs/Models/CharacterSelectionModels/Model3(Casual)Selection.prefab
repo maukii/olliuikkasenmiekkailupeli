@@ -410,7 +410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1273020919152736
 GameObject:
   m_ObjectHideFlags: 1
@@ -2440,7 +2440,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100004, guid: 795253ed216a92343aa311b2e46709c0, type: 3}
+  - {fileID: 2100000, guid: 4522ae0068b7955429e27493e8cf9f2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2791,7 +2791,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 0f400f011ad139145aa03cd4a483e5ec, type: 2}
+  - {fileID: 2100000, guid: 4522ae0068b7955429e27493e8cf9f2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2861,7 +2861,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 795253ed216a92343aa311b2e46709c0, type: 3}
+  - {fileID: 2100000, guid: 4522ae0068b7955429e27493e8cf9f2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3458,6 +3458,7 @@ MonoBehaviour:
   partBlood: {fileID: 198430967591152532, guid: c674369de386c52428e1d4470748ad85,
     type: 2}
   trailSwoosh: {fileID: 96612342686151542}
+  swoosh: 0
 --- !u!114 &114402042206764074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3492,19 +3493,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DEBUG_NoInput: 0
+  DEBUG_testscene: 0
   PlayerNumber: 1
   AdditiveStanceInput: 1
   AdditiveInverted: 1
   HeightSpeed: 3
   xLimit: 5
+  controllerLayout: 3
   LetThisScriptControlAnimatorSpeeds: 0
   AnimatorSpeed: 1
   HandAnimSpeed: 1
   InputAnimSpeed: 0.8
   Inputframe: 0
   swordSwinging: 0
-  controllerLayout: 3
-  handHeight: 0
+  UseGuardIndicators: 0
 --- !u!114 &114792255842273446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3538,7 +3540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d715dc41c1a1049a40cc15dc9db17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useShaderColors: 1
+  UseShaderColors: 1
+  inside: -1
+  hanging: -1
 --- !u!114 &114936293551473830
 MonoBehaviour:
   m_ObjectHideFlags: 1

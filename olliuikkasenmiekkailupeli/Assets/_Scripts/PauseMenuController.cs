@@ -400,7 +400,8 @@ public class PauseMenuController : MonoBehaviour
     public void Exit()
     {
         Debug.Log("Exit");
-        Resume();
+        gameIsPaused = false;
+        Time.timeScale = 1f;
         MainMenuController.MMC.isTutorial = false;
         GameHandler.instance.BattleStarted = false;
         timer = 3f;

@@ -73,7 +73,6 @@ public class AfterBattleMenu : MonoBehaviour
         Debug.Log("PlayAgain");
         GameHandler.instance.battleStarted = false;
         GameHandler.instance.battleEnded = false;
-        //LevelChanger.instance.FadeToCharacterSelect();
         LevelChanger.instance.FadeToPlayAgain();
     }
 

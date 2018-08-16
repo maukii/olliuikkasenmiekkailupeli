@@ -21,6 +21,7 @@ public class TutorialManager : MonoBehaviour
     public bool P2_OK;
     public bool P1Clear;
     public bool P2Clear;
+    public bool canInteractText;
 
     [Header("---Tutorial phases---")]
     public bool tutorialNotStarted;
@@ -61,6 +62,7 @@ public class TutorialManager : MonoBehaviour
             TutorialPhases();
         }
 
+        TextInteraction();
         TutorialExit();
         TutorialClear();
     }
@@ -173,65 +175,71 @@ public class TutorialManager : MonoBehaviour
         #region Tutorial
         if (phase1)
         {
-            //textTimer4 < 0 && Input.GetKeyUp(KeyCode.Return) || textTimer < 0 && InputManager.IM.GetA(1) || textTimer < 0 && InputManager.IM.GetA(2))
-
-            //"Welcome noble gentlemen! Today I shall teach you how to defend your honour."
+            TutorialTextController.TTC.texts[0].SetActive(true);
 
             textTimer -= Time.deltaTime;
 
-            //"Let’s start with doing a vertical attack (Vertical attack button) and a horizontal attack (Horizontal attack button)."
-
-            if (Input.GetKeyDown(KeyCode.R))
+            if (textTimer < 0 && Input.GetKeyUp(KeyCode.Return) || textTimer < 0 && InputManager.IM.GetA(1) || textTimer < 0 && InputManager.IM.GetA(2))
             {
-                P1_OK = true;
+                TutorialTextController.TTC.texts[0].SetActive(false);
+                TutorialTextController.TTC.texts[1].SetActive(true); //"Let’s start with doing a vertical attack (Vertical attack button) and a horizontal attack (Horizontal attack button)."
             }
 
-            if (P1_OK && Input.GetKeyDown(KeyCode.F))
+            if (TutorialTextController.TTC.texts[1])
             {
-                P1_OK = false;
-                P1Clear = true;
-            }
-
-            if (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(1))
-            {
-                P1_OK = true;
-            }
-
-            if (P1_OK && InputManager.IM.isKeyboardAndMouseP1 && Input.GetKeyDown(KeyCode.F))
-            {
-                P1_OK = false;
-                P1Clear = true;
-            }
-
-            if (Input.GetKeyDown(KeyCode.RightShift))
-            {
-                P2_OK = true;
-            }
-
-            if (P2_OK && Input.GetKeyDown(KeyCode.RightControl))
-            {
-                P2_OK = false;
-                P2Clear = true;
-            }
-
-            if (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(1))
-            {
-                P2_OK = true;
-            }
-
-            if (P2_OK && InputManager.IM.isKeyboardAndMouseP2 && Input.GetKeyDown(KeyCode.F))
-            {
-                P2_OK = false;
-                P2Clear = true;
-            }
-
-            if (P1Clear && P2Clear)
-            {
-                timer -= Time.deltaTime;
-
-                if (timer <= 4.75f)
+                if (Input.GetKeyDown(KeyCode.R))
                 {
-                    phase2 = true;
+                    P1_OK = true;
+                }
+
+                if (P1_OK && Input.GetKeyDown(KeyCode.F))
+                {
+                    P1_OK = false;
+                    P1Clear = true;
+                }
+
+                if (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(1))
+                {
+                    P1_OK = true;
+                }
+
+                if (P1_OK && InputManager.IM.isKeyboardAndMouseP1 && Input.GetKeyDown(KeyCode.F))
+                {
+                    P1_OK = false;
+                    P1Clear = true;
+                }
+
+                if (Input.GetKeyDown(KeyCode.RightShift))
+                {
+                    P2_OK = true;
+                }
+
+                if (P2_OK && Input.GetKeyDown(KeyCode.RightControl))
+                {
+                    P2_OK = false;
+                    P2Clear = true;
+                }
+
+                if (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(1))
+                {
+                    P2_OK = true;
+                }
+
+                if (P2_OK && InputManager.IM.isKeyboardAndMouseP2 && Input.GetKeyDown(KeyCode.F))
+                {
+                    P2_OK = false;
+                    P2Clear = true;
+                }
+
+                if (P1Clear && P2Clear)
+                {
+                    timer -= Time.deltaTime;
+
+                    if (timer <= 4.75f)
+                    {
+                        textTimer = defaultTextTimer;
+                        phase2 = true;
+                    }
                 }
             }
         }
@@ -241,8 +249,11 @@ public class TutorialManager : MonoBehaviour
             P1Clear = false;
             P2Clear = false;
 
-            //"You never seize to amaze sirs! You can also spin your sword around and do an attack from the opposite direction(Hold down attack button). This technique is called a moulinette."
-            
+            TutorialTextController.TTC.texts[1].SetActive(false); 
+            TutorialTextController.TTC.texts[2].SetActive(true); //"You never seize to amaze sirs! You can also spin your sword around and do an attack from the opposite direction(Hold down attack button). This technique is called a moulinette."
+
+
+
             //"Note that doing a moulinette is only way to generate enough force for any proper damage, lighter attack will only wound your opponent."
 
             if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.F))
@@ -463,8 +474,6 @@ public class TutorialManager : MonoBehaviour
 
             if (P1_OK && P2_OK)
             {
-                //"Now test what you’ve learned with by sparring with first to three hits and we can move to final lessons!"
-
                 P1_OK = false;
                 P2_OK = false;
                 phase8 = true;
@@ -534,6 +543,25 @@ public class TutorialManager : MonoBehaviour
         if (tutorialClear)
         {
             SceneManager.LoadScene(3);
+        }
+    }
+
+    void TextInteraction()
+    {
+        if (canInteractText)
+        {
+            
+        }
+
+        if (!canInteractText)
+        {
+            timer -= Time.deltaTime;
+
+            if (timer <= 0)
+            {
+                timer = defaultTimer;
+                canInteractText = true;
+            }
         }
     }
 }

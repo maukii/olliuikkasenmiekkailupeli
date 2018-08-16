@@ -11,6 +11,8 @@ public class GameHandler : MonoBehaviour
     int player1Model, player2Model;                            
     bool player1Dead, player2Dead;
 
+    public static bool indicators;
+
     public bool battleStarted;
     public bool BattleStarted
     {

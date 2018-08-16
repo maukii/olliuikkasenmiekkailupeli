@@ -33,14 +33,12 @@ public class MainMenuController : MonoBehaviour
 
     public static MainMenuController MMC;
 
+    [SerializeField] Toggle indicators;
+    [SerializeField] GameObject checkmark;
+
     void Start()
     {
         MMC = this;
-        
-        //foreach (Slider slider in volumeSliders)
-        //{
-        //    slider.value = 0.1f;
-        //}
 
         mainMenu.gameObject.SetActive(true);
         settingsMenu.gameObject.SetActive(false);
@@ -75,13 +73,6 @@ public class MainMenuController : MonoBehaviour
         {
             if (Input.anyKeyDown)
                 Back(3);
-        }
-
-        // DELETE AFTER TESTING
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            //AchievementManager.instance.AddProgressToAchievement("Pacifist run", 50);
-            AchievementManager.instance.SetProgressToAchievement("CompleteTutorial", 1);
         }
 
     }
@@ -321,6 +312,25 @@ public class MainMenuController : MonoBehaviour
 
             if (activeNode == settingsNodes[0]) // volume
             {
+                if((InputManager.IM.P1_A || InputManager.IM.P2_A || Input.GetKeyDown(KeyCode.Return)) && canInteract)
+                {
+                    if(indicators.isOn)
+                    {
+                        indicators.isOn = false;
+                        checkmark.SetActive(false);
+                        GameHandler.indicators = false;
+                    }
+                    else
+                    {
+                        indicators.isOn = true;
+                        checkmark.SetActive(true);
+                        GameHandler.indicators = true;
+                    }
+                    canInteract = false;
+                }
+            }
+            else if (activeNode == settingsNodes[1]) // volume
+            {
                 if(hor >= .5f && volumeSliders[0].value < 1 && canInteract)
                 {
                     AudioManager.instance.AddVolume(0);
@@ -336,7 +346,7 @@ public class MainMenuController : MonoBehaviour
                     AudioManager.instance.PlaySoundeffect("SwordSwing1");
                 }
             }
-            else if(activeNode == settingsNodes[1]) // sfx
+            else if(activeNode == settingsNodes[2]) // sfx
             {
                 if (hor >= .5f && volumeSliders[1].value < 1 && canInteract)
                 {
@@ -353,7 +363,7 @@ public class MainMenuController : MonoBehaviour
                     AudioManager.instance.PlaySoundeffect("SwordSwing1");
                 }
             }
-            else if (activeNode == settingsNodes[2])
+            else if (activeNode == settingsNodes[3])
             {
                 if ((InputManager.IM.P1_A || InputManager.IM.P2_A || Input.GetKeyDown(KeyCode.Return)) && canInteract)
                 {

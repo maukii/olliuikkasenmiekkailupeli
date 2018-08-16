@@ -97,7 +97,7 @@ public class HandAnimationControl : MonoBehaviour
         {
             GI.UseIndicators(true);
         }
-        controllerLayout = 3; //Best Layout
+        controllerLayout = 4; //Not-Best Layout
         AdditiveStanceInput = true;
 
     }

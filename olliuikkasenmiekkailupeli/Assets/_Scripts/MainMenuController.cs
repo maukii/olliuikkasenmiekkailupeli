@@ -61,6 +61,9 @@ public class MainMenuController : MonoBehaviour
 
         volumeSliders[0].value = AudioManager.instance.musicVolumePercent;
         volumeSliders[1].value = AudioManager.instance.sfxVolumePercent;
+
+        indicators.isOn = GameHandler.indicators;
+        checkmark.SetActive(GameHandler.indicators);
     }
 
     void Update()

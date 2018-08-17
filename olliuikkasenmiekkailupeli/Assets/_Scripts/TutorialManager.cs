@@ -513,7 +513,7 @@ public class TutorialManager : MonoBehaviour        //  MUUTEN OK, MUTTA LISÄÄ
                     P1Clear = true;
                 }
 
-                if ((Input.GetKeyUp(KeyCode.I) && InputManager.IM.isOnlyKeyboard) || (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(2)))
+                if ((Input.GetKeyUp(KeyCode.K) && InputManager.IM.isOnlyKeyboard) || (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(2)))
                 {
                     P2Clear = true;
                 }

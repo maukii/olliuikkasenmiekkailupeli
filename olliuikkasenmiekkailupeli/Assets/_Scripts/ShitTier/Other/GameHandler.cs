@@ -48,7 +48,7 @@ public class GameHandler : MonoBehaviour
     {
         if (!MainMenuController.MMC.isTutorial)
         {
-            Timer();
+            //Timer();
         }
 
         if (SceneManager.GetActiveScene().name != "GameScene")

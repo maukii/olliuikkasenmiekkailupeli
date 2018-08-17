@@ -2185,7 +2185,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1317063541852140}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 185.35703, y: -9.183368e-17, z: -3.7808895}
+  m_LocalPosition: {x: 182.051, y: -2.1195297, z: 6.162077}
   m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000005}
   m_Children:
   - {fileID: 4433282341755386}
@@ -4013,7 +4013,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 0f400f011ad139145aa03cd4a483e5ec, type: 2}
+  - {fileID: 2100000, guid: 4522ae0068b7955429e27493e8cf9f2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4764,7 +4764,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d715dc41c1a1049a40cc15dc9db17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useShaderColors: 1
+  UseShaderColors: 1
+  inside: -1
+  hanging: -1
 --- !u!114 &114321862476051018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4814,16 +4816,17 @@ MonoBehaviour:
   PlayerNumber: 1
   AdditiveStanceInput: 1
   AdditiveInverted: 1
+  AddStanceId: 1
   HeightSpeed: 3
   xLimit: 5
+  controllerLayout: 3
   LetThisScriptControlAnimatorSpeeds: 0
   AnimatorSpeed: 1
   HandAnimSpeed: 1
   InputAnimSpeed: 0.8
   Inputframe: 0
   swordSwinging: 0
-  controllerLayout: 3
-  handHeight: 0
+  UseGuardIndicators: 0
 --- !u!114 &114562704300371800
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -158,7 +158,7 @@ public class CollisionDamage : MonoBehaviour {
         var anim = (player == 0 ? P1 : P2).GetComponent<AlternativeMovement5>().GetActiveAnimator();
         anim.SetInteger("Bodypart", bodypart);
         anim.SetTrigger("TakeDamage");
-        AudioManager.instance.PlayHmmph();
+        AudioManager.instance.PlayLightHitSound();
         Debug.Log("osuma animaatio");
     }
 
@@ -228,6 +228,7 @@ public class CollisionDamage : MonoBehaviour {
             anim.SetInteger("Bodypart", bodypart);
             anim.SetTrigger("Die");
             AudioManager.instance.PlaySoundeffect("Heavy hit placeholder");
+            AudioManager.instance.PlaySoundeffect("Touche");
 
             // achievement stuff
             int gamesPlayed = PlayerPrefs.GetInt("gamesPlayed");

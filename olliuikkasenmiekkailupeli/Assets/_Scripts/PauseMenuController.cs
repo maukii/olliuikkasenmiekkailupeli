@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
 {
+    ShowMoveList sl;
 
     [SerializeField] GameObject PauseMenuUI, MovelistUI, OptionsUI;
     public static bool gameIsPaused = false;
@@ -34,6 +35,7 @@ public class PauseMenuController : MonoBehaviour
 
     void Start()
     {
+        sl = GetComponent<ShowMoveList>();
 
         indicators.isOn = GameHandler.indicators ? true : false;
         checkmark.SetActive(GameHandler.indicators ? true : false);
@@ -342,6 +344,8 @@ public class PauseMenuController : MonoBehaviour
         MovelistUI.gameObject.SetActive(false);
         OptionsUI.gameObject.SetActive(false);
 
+        sl.CloseMoveList();
+
         activeMenu = Menu.PauseMenu;
 
         DisableHighlights(Menu.PauseMenu);
@@ -389,6 +393,8 @@ public class PauseMenuController : MonoBehaviour
     public void Movelist()
     {
         timer = 1f;
+
+        sl.ShowButtons();
 
         PauseMenuUI.gameObject.SetActive(false);
         MovelistUI.gameObject.SetActive(true);

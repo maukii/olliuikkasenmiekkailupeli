@@ -40,9 +40,9 @@ public class SwordColor : MonoBehaviour {
         {
             if (inside != hac.GetInside() || hanging != hac.GetHanging())
             {
-                inside = hac.GetInside();
-                hanging = hac.GetHanging();
-                if(hanging == inside)
+                inside = hac.GetInsideForIndicators();
+                hanging = hac.GetHangingForIndicators();
+                if (hanging == inside)
                 {
                     swordShade = 1;
                 }

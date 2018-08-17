@@ -17,6 +17,10 @@ public class HandAnimationControl : MonoBehaviour
     public int AddStanceId = 1;
     float hanging;
     float inside;
+    int insideForIndicators;
+    int hangingForIndicators;
+    int previosInside;
+    int previosHanging;
     float height;
     bool deflect = false;
     bool interrupt = false;
@@ -699,7 +703,8 @@ public class HandAnimationControl : MonoBehaviour
 
         anim.SetBool("Strong", true);
         anim.SetBool("SwingDia", true);
-
+        previosHanging = (int)hanging;
+        previosInside = (int)inside;
     }
     void Weak()
     {
@@ -713,7 +718,8 @@ public class HandAnimationControl : MonoBehaviour
 
         anim.SetBool("Strong", true);
         anim.SetBool("SwingHor", true);
-
+        previosHanging = (int)hanging;
+        previosInside = (int)inside;
     }
     void WeakHor()
     {
@@ -774,6 +780,14 @@ public class HandAnimationControl : MonoBehaviour
         hanging = value;
         anim.SetFloat("Hanging", value);
     }
+    public int GetInsideForIndicators()
+    {
+        return insideForIndicators;
+    }
+    public int GetHangingForIndicators()
+    {
+        return hangingForIndicators;
+    }
     public float GetInside()
     {
         inside = anim.GetFloat("Inside");
@@ -830,6 +844,16 @@ public class HandAnimationControl : MonoBehaviour
         if(asi.IsTag("Swing"))
         {
             Inputframe = false;
+        }
+        if (Inputframe || asi.IsTag("PullBack")|| !anim.GetBool("Strong"))
+        {
+            hangingForIndicators = previosHanging;
+            insideForIndicators = previosInside;
+        }
+        else
+        {
+            hangingForIndicators = (int)hanging;
+            insideForIndicators = (int)inside;
         }
     }
 }

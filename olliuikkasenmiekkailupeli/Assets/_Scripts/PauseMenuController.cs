@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
 {
-    ShowMoveList sl;
+    [SerializeField] GameObject P1, P2;
+    [SerializeField] GameObject[] controllerInputs = new GameObject[2], keyboardAndMouse = new GameObject[2], keyboardOnly = new GameObject[2];
+    public bool P1_Left;
 
     [SerializeField] GameObject PauseMenuUI, MovelistUI, OptionsUI;
     public static bool gameIsPaused = false;
@@ -35,7 +37,8 @@ public class PauseMenuController : MonoBehaviour
 
     void Start()
     {
-        sl = GetComponent<ShowMoveList>();
+        P1 = GameObject.FindGameObjectWithTag("Player 1");
+        P1_Left = P1.GetComponent<AlternativeMovement5>().GetFacingRight(1) ? true : false;
 
         indicators.isOn = GameHandler.indicators ? true : false;
         checkmark.SetActive(GameHandler.indicators ? true : false);
@@ -337,14 +340,14 @@ public class PauseMenuController : MonoBehaviour
 
     public void Back(int num)
     {
+        DisableMovelist();
+
         index = num;
         timer = 1f;
 
         PauseMenuUI.gameObject.SetActive(true);
         MovelistUI.gameObject.SetActive(false);
         OptionsUI.gameObject.SetActive(false);
-
-        sl.CloseMoveList();
 
         activeMenu = Menu.PauseMenu;
 
@@ -394,7 +397,54 @@ public class PauseMenuController : MonoBehaviour
     {
         timer = 1f;
 
-        sl.ShowButtons();
+        DisableMovelist();
+
+        if(P1_Left)
+        {
+            if(InputManager.IM.isKeyboardAndMouseP1)
+            {
+                keyboardAndMouse[0].SetActive(true);
+            }
+            else if(!InputManager.IM.isOnlyKeyboard && !InputManager.IM.isKeyboardAndMouseP1)
+            {
+                controllerInputs[0].SetActive(true);
+            }
+            if (InputManager.IM.isKeyboardAndMouseP2)
+            {
+                keyboardAndMouse[1].SetActive(true);
+            }
+            else if (!InputManager.IM.isKeyboardAndMouseP2 && !InputManager.IM.isOnlyKeyboard)
+            {
+                controllerInputs[1].SetActive(true);
+            }
+        }
+        if(!P1_Left)
+        {
+            if (InputManager.IM.isKeyboardAndMouseP1)
+            {
+                keyboardAndMouse[1].SetActive(true);
+            }
+            else if (!InputManager.IM.isOnlyKeyboard && !InputManager.IM.isKeyboardAndMouseP1)
+            {
+                controllerInputs[1].SetActive(true);
+            }
+            if (InputManager.IM.isKeyboardAndMouseP2)
+            {
+                keyboardAndMouse[0].SetActive(true);
+            }
+            else if(!InputManager.IM.isKeyboardAndMouseP2 && !InputManager.IM.isOnlyKeyboard)
+            {
+                controllerInputs[0].SetActive(true);
+            }
+        }
+
+        if(InputManager.IM.isOnlyKeyboard)
+        {
+            for (int i = 0; i < keyboardOnly.Length; i++)
+            {
+                keyboardOnly[i].gameObject.SetActive(true);
+            }
+        }
 
         PauseMenuUI.gameObject.SetActive(false);
         MovelistUI.gameObject.SetActive(true);
@@ -403,6 +453,24 @@ public class PauseMenuController : MonoBehaviour
 
         Debug.Log("Movelist");
         canInteract = false;
+    }
+
+    public void DisableMovelist()
+    {
+        for (int i = 0; i < keyboardOnly.Length; i++)
+        {
+            keyboardOnly[i].gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < keyboardAndMouse.Length; i++)
+        {
+            keyboardAndMouse[i].gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < controllerInputs.Length; i++)
+        {
+            controllerInputs[i].gameObject.SetActive(false);
+        }
     }
 
     public void Options()

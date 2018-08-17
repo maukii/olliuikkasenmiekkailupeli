@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour        //  MUUTEN OK, MUTTA LISÄÄ NÄPPIS+HIIRI-JUTUT PHASE 1, 2, 3 JA 4  !!!!!!!!!!!!!!!!!!!!!
 {
-    public bool pause;
+
 
     public float defaultTimer, timer, timer2;
     public float defaultInputTimer, inputTimerP1 = 0.5f, inputTimerP2 = 0.5f;
@@ -56,7 +56,6 @@ public class TutorialManager : MonoBehaviour        //  MUUTEN OK, MUTTA LISÄÄ
 
 	void Update ()
     {
-        pause = PauseMenuController.gameIsPaused;
 
         if (MainMenuController.MMC.isTutorial && GameHandler.instance.BattleStarted)
         {
@@ -259,71 +258,86 @@ public class TutorialManager : MonoBehaviour        //  MUUTEN OK, MUTTA LISÄÄ
                 TutorialTextController.TTC.texts[0].SetActive(false);
 
                 //LAITA NÄPPIS+HIIRI-JUTUT
-
-                if (Input.GetKeyDown(KeyCode.R))
+                if(InputManager.IM.isOnlyKeyboard)
                 {
-                    P1_OK = true;
+                    if (Input.GetKeyDown(KeyCode.R))
+                    {
+                        P1_OK = true;
+                    }
+
+                    if (P1_OK && Input.GetKeyDown(KeyCode.F))
+                    {
+                        P1_OK = false;
+                        P1Clear = true;
+                    }
+                }
+                else if(InputManager.IM.isKeyboardAndMouseP1)
+                {
+                    if (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(1))
+                    {
+                        P1_OK = true;
+                    }
+
+                    if (P1_OK && InputManager.IM.isKeyboardAndMouseP1 && Input.GetKeyDown(KeyCode.F))
+                    {
+                        P1_OK = false;
+                        P1Clear = true;
+                    }
+                }
+                else if(!InputManager.IM.isOnlyKeyboard && !InputManager.IM.isKeyboardAndMouseP1)
+                {
+                    if (InputManager.IM.P1_Triggers < 0)
+                    {
+                        P1_OK = true;
+                    }
+
+                    if (P1_OK && InputManager.IM.P1_RB)
+                    {
+                        P1_OK = false;
+                        P1Clear = true;
+                    }
                 }
 
-                if (P1_OK && Input.GetKeyDown(KeyCode.F))
+                if(InputManager.IM.isOnlyKeyboard)
                 {
-                    P1_OK = false;
-                    P1Clear = true;
+                    if (Input.GetKeyDown(KeyCode.RightShift))
+                    {
+                        P2_OK = true;
+                    }
+
+                    if (P2_OK && Input.GetKeyDown(KeyCode.RightControl))
+                    {
+                        P2_OK = false;
+                        P2Clear = true;
+                    }
                 }
 
-                if (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(1))
+                else if(InputManager.IM.isKeyboardAndMouseP2)
                 {
-                    P1_OK = true;
+                    if (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(1))
+                    {
+                        P2_OK = true;
+                    }
+
+                    if (P2_OK && InputManager.IM.isKeyboardAndMouseP2 && Input.GetKeyDown(KeyCode.F))
+                    {
+                        P2_OK = false;
+                        P2Clear = true;
+                    }
                 }
 
-                if (P1_OK && InputManager.IM.isKeyboardAndMouseP1 && Input.GetKeyDown(KeyCode.F))
+                else if(!InputManager.IM.isOnlyKeyboard && !InputManager.IM.isKeyboardAndMouseP2)
                 {
-                    P1_OK = false;
-                    P1Clear = true;
-                }
+                    if (InputManager.IM.P2_Triggers < 0)
+                    {
+                        P2_OK = true;
+                    }
 
-                if (InputManager.IM.P1_Triggers < 0)
-                {
-                    P1_OK = true;
-                }
-
-                if (P1_OK && InputManager.IM.P1_RB)
-                {
-                    P1_OK = false;
-                    P1Clear = true;
-                }
-
-                if (Input.GetKeyDown(KeyCode.RightShift))
-                {
-                    P2_OK = true;
-                }
-
-                if (P2_OK && Input.GetKeyDown(KeyCode.RightControl))
-                {
-                    P2_OK = false;
-                    P2Clear = true;
-                }
-
-                if (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(1))
-                {
-                    P2_OK = true;
-                }
-
-                if (P2_OK && InputManager.IM.isKeyboardAndMouseP2 && Input.GetKeyDown(KeyCode.F))
-                {
-                    P2_OK = false;
-                    P2Clear = true;
-                }
-
-                if (InputManager.IM.P2_Triggers < 0)
-                {
-                    P2_OK = true;
-                }
-
-                if (P2_OK && InputManager.IM.P2_RB)
-                {
-                    P2_OK = false;
-                    P2Clear = true;
+                    if (P2_OK && InputManager.IM.P2_RB)
+                    {
+                        P2_OK = false;
+                        P2Clear = true;
+                    }
                 }
 
                 if (P1Clear && P2Clear)
@@ -351,41 +365,53 @@ public class TutorialManager : MonoBehaviour        //  MUUTEN OK, MUTTA LISÄÄ
             {
                 //LAITA NÄPPIS+HIIRI-JUTUT
 
-                if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.F))
+                if(InputManager.IM.isOnlyKeyboard)
                 {
-                    inputTimerP1 -= Time.deltaTime;
+                    if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.F))
+                    {
+                        inputTimerP1 -= Time.deltaTime;
+                    }
                 }
-
-                else if (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButton(1) || InputManager.IM.isKeyboardAndMouseP1 && Input.GetKey(KeyCode.F))
+                else if(InputManager.IM.isKeyboardAndMouseP1)
                 {
-                    inputTimerP1 -= Time.deltaTime;
+                    if (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButton(1) || InputManager.IM.isKeyboardAndMouseP1 && Input.GetKey(KeyCode.F))
+                    {
+                        inputTimerP1 -= Time.deltaTime;
+                    }
                 }
-
-                else if (InputManager.IM.P1_Triggers < 0 || InputManager.IM.P1_RB)
+                else if(InputManager.IM.isOnlyKeyboard || InputManager.IM.isKeyboardAndMouseP1)
                 {
-                    inputTimerP1 -= Time.deltaTime;
+                    if (InputManager.IM.P1_Triggers < 0 || InputManager.IM.P1_RB)
+                    {
+                        inputTimerP1 -= Time.deltaTime;
+                    }
                 }
-
                 else
                 {
                     inputTimerP1 = defaultInputTimer;
                 }
 
-                if (Input.GetKey(KeyCode.RightShift) || Input.GetKey(KeyCode.RightControl))
+                if(InputManager.IM.isOnlyKeyboard)
                 {
-                    inputTimerP2 -= Time.deltaTime;
+                    if (Input.GetKey(KeyCode.RightShift) || Input.GetKey(KeyCode.RightControl))
+                    {
+                        inputTimerP2 -= Time.deltaTime;
+                    }
                 }
-
-                else if (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButton(1) || InputManager.IM.isKeyboardAndMouseP2 && Input.GetKey(KeyCode.F))
+                else if(InputManager.IM.isKeyboardAndMouseP2)
                 {
-                    inputTimerP2 -= Time.deltaTime;
+                    if (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButton(1) || InputManager.IM.isKeyboardAndMouseP2 && Input.GetKey(KeyCode.F))
+                    {
+                        inputTimerP2 -= Time.deltaTime;
+                    }
                 }
-
-                else if (InputManager.IM.P2_Triggers < 0 || InputManager.IM.P2_RB)
+                else if(!InputManager.IM.isOnlyKeyboard || !InputManager.IM.isKeyboardAndMouseP2)
                 {
-                    inputTimerP2 -= Time.deltaTime;
+                    if (InputManager.IM.P2_Triggers < 0 || InputManager.IM.P2_RB)
+                    {
+                        inputTimerP2 -= Time.deltaTime;
+                    }
                 }
-
                 else
                 {
                     inputTimerP2 = defaultInputTimer;
@@ -438,7 +464,7 @@ public class TutorialManager : MonoBehaviour        //  MUUTEN OK, MUTTA LISÄÄ
 
                 //LAITA NÄPPIS+HIIRI-JUTUT
 
-                if (Input.GetKeyUp(KeyCode.X) || InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(1))
+                if ((Input.GetKeyUp(KeyCode.X) && InputManager.IM.isOnlyKeyboard) || (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(1)))
                 {
                     P1_OK = true;
                 }
@@ -448,7 +474,7 @@ public class TutorialManager : MonoBehaviour        //  MUUTEN OK, MUTTA LISÄÄ
                     P1_OK = true;
                 }
 
-                if (Input.GetKeyUp(KeyCode.P) || InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(1))
+                if ((Input.GetKeyUp(KeyCode.P) && InputManager.IM.isOnlyKeyboard) || (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(1)))
                 {
                     P2_OK = true;
                 }
@@ -482,12 +508,12 @@ public class TutorialManager : MonoBehaviour        //  MUUTEN OK, MUTTA LISÄÄ
 
                 //LAITA NÄPPIS+HIIRI-JUTUT
 
-                if (Input.GetKeyUp(KeyCode.C) || InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(2))
+                if ((Input.GetKeyUp(KeyCode.C) && InputManager.IM.isOnlyKeyboard) || (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(2)))
                 {
                     P1Clear = true;
                 }
 
-                if (Input.GetKeyUp(KeyCode.I) || InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(2))
+                if ((Input.GetKeyUp(KeyCode.I) && InputManager.IM.isOnlyKeyboard) || (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(2)))
                 {
                     P2Clear = true;
                 }

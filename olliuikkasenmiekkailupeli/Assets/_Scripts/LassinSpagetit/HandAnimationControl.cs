@@ -21,6 +21,7 @@ public class HandAnimationControl : MonoBehaviour
     int hangingForIndicators;
     int previosInside;
     int previosHanging;
+    bool startSwing = false;
     float height;
     bool deflect = false;
     bool interrupt = false;
@@ -705,6 +706,7 @@ public class HandAnimationControl : MonoBehaviour
         anim.SetBool("SwingDia", true);
         previosHanging = (int)hanging;
         previosInside = (int)inside;
+        startSwing = true;
     }
     void Weak()
     {
@@ -720,6 +722,7 @@ public class HandAnimationControl : MonoBehaviour
         anim.SetBool("SwingHor", true);
         previosHanging = (int)hanging;
         previosInside = (int)inside;
+        startSwing = true;
     }
     void WeakHor()
     {
@@ -836,6 +839,7 @@ public class HandAnimationControl : MonoBehaviour
         if(asi.IsTag("Swing") || asi.IsTag("PullBack"))
         {
             swordSwinging = true;
+            
         }
         else
         {
@@ -844,8 +848,9 @@ public class HandAnimationControl : MonoBehaviour
         if(asi.IsTag("Swing"))
         {
             Inputframe = false;
+            startSwing = false;
         }
-        if (Inputframe || asi.IsTag("PullBack")|| !anim.GetBool("Strong"))
+        if (Inputframe || asi.IsTag("PullBack")|| !anim.GetBool("Strong") && startSwing)
         {
             hangingForIndicators = previosHanging;
             insideForIndicators = previosInside;

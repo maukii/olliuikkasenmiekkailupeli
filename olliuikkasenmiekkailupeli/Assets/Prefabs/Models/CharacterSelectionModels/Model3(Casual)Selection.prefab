@@ -235,7 +235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1171071681718414
 GameObject:
   m_ObjectHideFlags: 1
@@ -410,7 +410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1273020919152736
 GameObject:
   m_ObjectHideFlags: 1
@@ -865,7 +865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1669827362368310
 GameObject:
   m_ObjectHideFlags: 1
@@ -3497,6 +3497,7 @@ MonoBehaviour:
   PlayerNumber: 1
   AdditiveStanceInput: 1
   AdditiveInverted: 1
+  AddStanceId: 1
   HeightSpeed: 3
   xLimit: 5
   controllerLayout: 3

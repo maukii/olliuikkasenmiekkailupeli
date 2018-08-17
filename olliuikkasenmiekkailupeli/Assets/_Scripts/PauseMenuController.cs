@@ -29,13 +29,14 @@ public class PauseMenuController : MonoBehaviour
 
     [SerializeField] GameObject[] players = new GameObject[2];
 
+    [SerializeField] Toggle indicators;
+    [SerializeField] GameObject checkmark;
+
     void Start()
     {
 
-        foreach (Slider slider in volumeSliders)
-        {
-            slider.value = 0.1f;
-        }
+        indicators.isOn = GameHandler.indicators ? true : false;
+        checkmark.SetActive(GameHandler.indicators ? true : false);
 
         PauseMenuUI.gameObject.SetActive(false);
         MovelistUI.gameObject.SetActive(false);
@@ -273,37 +274,56 @@ public class PauseMenuController : MonoBehaviour
         {
             activeNode = optionsNodes[index];
 
-            if (activeNode == optionsNodes[0]) // volume
+            if (activeNode == optionsNodes[0]) // toggle
+            {
+                if ((InputManager.IM.P1_A || InputManager.IM.P2_A || Input.GetKeyDown(KeyCode.Return)) && canInteract)
+                {
+                    if (indicators.isOn)
+                    {
+                        indicators.isOn = false;
+                        checkmark.SetActive(false);
+                        GameHandler.indicators = false;
+                    }
+                    else
+                    {
+                        indicators.isOn = true;
+                        checkmark.SetActive(true);
+                        GameHandler.indicators = true;
+                    }
+                    canInteract = false;
+                }
+            }
+            else if (activeNode == optionsNodes[1]) // volume
             {
                 if (hor >= .5f && volumeSliders[0].value < 1 && canInteract)
                 {
                     AudioManager.instance.AddVolume(0);
                     canInteract = false;
-                    volumeSliders[index].value = AudioManager.instance.musicVolumePercent;
+                    volumeSliders[0].value = AudioManager.instance.musicVolumePercent;
                 }
                 if (hor <= -.5 && volumeSliders[0].value > 0 && canInteract)
                 {
                     AudioManager.instance.LessVolume(0);
                     canInteract = false;
-                    volumeSliders[index].value = AudioManager.instance.musicVolumePercent;
+                    volumeSliders[0].value = AudioManager.instance.musicVolumePercent;
                 }
             }
-            else if (activeNode == optionsNodes[1]) // sfx
+            else if (activeNode == optionsNodes[2]) // sfx
             {
                 if (hor >= .5f && volumeSliders[1].value < 1 && canInteract)
                 {
                     AudioManager.instance.AddVolume(1);
                     canInteract = false;
-                    volumeSliders[index].value = AudioManager.instance.sfxVolumePercent;
+                    volumeSliders[1].value = AudioManager.instance.sfxVolumePercent;
                 }
                 if (hor <= -.5f && volumeSliders[1].value > 0 && canInteract)
                 {
                     AudioManager.instance.LessVolume(1);
                     canInteract = false;
-                    volumeSliders[index].value = AudioManager.instance.sfxVolumePercent;
+                    volumeSliders[1].value = AudioManager.instance.sfxVolumePercent;
                 }
             }
-            else if (activeNode == optionsNodes[2])
+            else if (activeNode == optionsNodes[3])
             {
                 if ((InputManager.IM.P1_A || InputManager.IM.P2_A || Input.GetKeyDown(KeyCode.Return)) && canInteract)
                 {
@@ -352,8 +372,6 @@ public class PauseMenuController : MonoBehaviour
 
     public void Resume()
     {
-        Debug.Log("Resume");
-
         for (int i = 0; i < players.Length; i++)
         {
             Animator anim = players[i].gameObject.GetComponent<AlternativeMovement5>().GetActiveAnimator();

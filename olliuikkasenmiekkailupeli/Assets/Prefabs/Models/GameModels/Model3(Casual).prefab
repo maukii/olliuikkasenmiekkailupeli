@@ -468,7 +468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1336234320838254
 GameObject:
   m_ObjectHideFlags: 1
@@ -661,7 +661,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1480969169813974
 GameObject:
   m_ObjectHideFlags: 1
@@ -774,7 +774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1543844867918176
 GameObject:
   m_ObjectHideFlags: 0
@@ -3452,7 +3452,7 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1480473979427708}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 795253ed216a92343aa311b2e46709c0, type: 3}
+  m_Avatar: {fileID: 9000000, guid: ce6f4928d7d6ca240a810d140be41a0c, type: 3}
   m_Controller: {fileID: 9100000, guid: 6f606b3a68ad2e548839b267c14ec146, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -3670,7 +3670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DEBUG_NoInput: 0
   DEBUG_testscene: 0
-  PlayerNumber: 2
+  PlayerNumber: 1
   AdditiveStanceInput: 1
   AdditiveInverted: 1
   AddStanceId: 1

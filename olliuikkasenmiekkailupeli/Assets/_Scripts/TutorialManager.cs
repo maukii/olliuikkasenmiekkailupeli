@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
-    public float defaultTimer, timer = 5f;
+    public bool pause;
+
+    public float defaultTimer, timer, timer2;
     public float defaultInputTimer, inputTimerP1 = 0.5f, inputTimerP2 = 0.5f;
     public float defaultTextTimer, textTimer;
 
@@ -43,6 +45,8 @@ public class TutorialManager : MonoBehaviour
         TM = this;
         tutorialNotStarted = true;
 
+        timer = 5f;
+        timer2 = timer;
         textTimer = 1f;
 
         defaultTimer = timer;
@@ -52,6 +56,8 @@ public class TutorialManager : MonoBehaviour
 
 	void Update ()
     {
+        pause = PauseMenuController.gameIsPaused;
+
         if (MainMenuController.MMC.isTutorial && GameHandler.instance.BattleStarted)
         {
             tutorialNotStarted = false;
@@ -591,13 +597,14 @@ public class TutorialManager : MonoBehaviour
         {
             TutorialTextController.TTC.texts[10].SetActive(true); //"Your sword's blade can be divided to roughly two parts in lengthwise: the strong of the blade(The half closer to your hand, used for parrying) and the weak of the blade(the half further from the hand, used for attacking)"
 
-            timer -= Time.deltaTime;
+            timer2 -= Time.deltaTime;
 
-            if (timer < 4)
+            if (timer2 < 4)
             {
                 if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
                 {
                     timer = defaultTimer;
+                    timer2 = defaultTimer;
                     phase9 = true;
                 }
             }
@@ -724,6 +731,8 @@ public class TutorialManager : MonoBehaviour
 
         if (phase14)
         {
+            timer2 = defaultTimer;
+
             if (animP1.GetBool("forward") || animP1.GetBool("back"))
             {
                 P1_OK = true;
@@ -742,6 +751,7 @@ public class TutorialManager : MonoBehaviour
                 if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
                 {
                     timer = defaultTimer;
+                    timer2 = defaultTimer;
                     phase15 = true;
                 }
             }
@@ -749,16 +759,16 @@ public class TutorialManager : MonoBehaviour
 
         if (phase15 && SceneManager.GetActiveScene().name == "TutorialScene")
         {
-            timer -= defaultTimer;
+            timer2 -= Time.deltaTime;
 
             TutorialTextController.TTC.texts[17].SetActive(false);
             TutorialTextController.TTC.texts[18].SetActive(true); //"The ideal distance from your opponent is from where you can hit your opponent by lunging but can’t be reached when standing in normally. This is called being at measure."
             
-            if (timer < 0)
+            if (timer2 < 4)
             {
                 if (canInteractText && Input.GetKeyUp(KeyCode.Return) || canInteractText && InputManager.IM.GetA(1) || canInteractText && InputManager.IM.GetA(2))
                 {
-                    timer = defaultTimer;
+                    timer2 = defaultTimer;
                     tutorialClear = true;        //Move to duel mode
                 }
             }
@@ -786,16 +796,19 @@ public class TutorialManager : MonoBehaviour
     {
         if (tutorialClear)
         {
+            phase15 = false;
             deathLock = false;
             TutorialTextController.TTC.texts[18].SetActive(false);
             TutorialTextController.TTC.texts[19].SetActive(true); //"I hope you swift deaths."
 
-            LevelChanger.instance.FadeToMain();
             timer -= Time.deltaTime;
 
             if (timer < 0)
             {
-                SceneManager.LoadScene(3);
+                timer = defaultTimer;
+                timer2 = defaultTimer;
+                LevelChanger.instance.FadeToMain();
+                //SceneManager.LoadScene(3);
             }
         }
     }

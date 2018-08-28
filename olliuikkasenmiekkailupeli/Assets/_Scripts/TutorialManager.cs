@@ -273,12 +273,12 @@ public class TutorialManager : MonoBehaviour        //  MUUTEN OK, MUTTA LISÄÄ
                 }
                 else if(InputManager.IM.isKeyboardAndMouseP1)
                 {
-                    if (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(1))
+                    if (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(0))
                     {
                         P1_OK = true;
                     }
 
-                    if (P1_OK && InputManager.IM.isKeyboardAndMouseP1 && Input.GetKeyDown(KeyCode.F))
+                    if (P1_OK && InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(1))
                     {
                         P1_OK = false;
                         P1Clear = true;
@@ -314,12 +314,12 @@ public class TutorialManager : MonoBehaviour        //  MUUTEN OK, MUTTA LISÄÄ
 
                 else if(InputManager.IM.isKeyboardAndMouseP2)
                 {
-                    if (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(1))
+                    if (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(0))
                     {
                         P2_OK = true;
                     }
 
-                    if (P2_OK && InputManager.IM.isKeyboardAndMouseP2 && Input.GetKeyDown(KeyCode.F))
+                    if (P2_OK && InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(1))
                     {
                         P2_OK = false;
                         P2Clear = true;
@@ -374,12 +374,12 @@ public class TutorialManager : MonoBehaviour        //  MUUTEN OK, MUTTA LISÄÄ
                 }
                 else if(InputManager.IM.isKeyboardAndMouseP1)
                 {
-                    if (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButton(1) || InputManager.IM.isKeyboardAndMouseP1 && Input.GetKey(KeyCode.F))
+                    if (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButton(1) || InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButton(0))
                     {
                         inputTimerP1 -= Time.deltaTime;
                     }
                 }
-                else if(InputManager.IM.isOnlyKeyboard || InputManager.IM.isKeyboardAndMouseP1)
+                else if(!InputManager.IM.isOnlyKeyboard || !InputManager.IM.isKeyboardAndMouseP1)
                 {
                     if (InputManager.IM.P1_Triggers < 0 || InputManager.IM.P1_RB)
                     {
@@ -400,7 +400,7 @@ public class TutorialManager : MonoBehaviour        //  MUUTEN OK, MUTTA LISÄÄ
                 }
                 else if(InputManager.IM.isKeyboardAndMouseP2)
                 {
-                    if (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButton(1) || InputManager.IM.isKeyboardAndMouseP2 && Input.GetKey(KeyCode.F))
+                    if (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButton(1) || InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButton(0))
                     {
                         inputTimerP2 -= Time.deltaTime;
                     }
@@ -464,7 +464,7 @@ public class TutorialManager : MonoBehaviour        //  MUUTEN OK, MUTTA LISÄÄ
 
                 //LAITA NÄPPIS+HIIRI-JUTUT
 
-                if ((Input.GetKeyUp(KeyCode.X) && InputManager.IM.isOnlyKeyboard) || (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(1)))
+                if ((Input.GetKeyUp(KeyCode.X) && InputManager.IM.isOnlyKeyboard) || (InputManager.IM.isKeyboardAndMouseP1 && Input.GetKeyDown(KeyCode.LeftShift)))
                 {
                     P1_OK = true;
                 }
@@ -474,7 +474,7 @@ public class TutorialManager : MonoBehaviour        //  MUUTEN OK, MUTTA LISÄÄ
                     P1_OK = true;
                 }
 
-                if ((Input.GetKeyUp(KeyCode.P) && InputManager.IM.isOnlyKeyboard) || (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(1)))
+                if ((Input.GetKeyUp(KeyCode.P) && InputManager.IM.isOnlyKeyboard) || (InputManager.IM.isKeyboardAndMouseP2 && Input.GetKeyDown(KeyCode.LeftShift)))
                 {
                     P2_OK = true;
                 }
@@ -508,12 +508,12 @@ public class TutorialManager : MonoBehaviour        //  MUUTEN OK, MUTTA LISÄÄ
 
                 //LAITA NÄPPIS+HIIRI-JUTUT
 
-                if ((Input.GetKeyUp(KeyCode.C) && InputManager.IM.isOnlyKeyboard) || (InputManager.IM.isKeyboardAndMouseP1 && Input.GetMouseButtonDown(2)))
+                if ((Input.GetKeyUp(KeyCode.C) && InputManager.IM.isOnlyKeyboard) || (InputManager.IM.isKeyboardAndMouseP1 && Input.GetKeyDown(KeyCode.Space)))
                 {
                     P1Clear = true;
                 }
 
-                if ((Input.GetKeyUp(KeyCode.K) && InputManager.IM.isOnlyKeyboard) || (InputManager.IM.isKeyboardAndMouseP2 && Input.GetMouseButtonDown(2)))
+                if ((Input.GetKeyUp(KeyCode.K) && InputManager.IM.isOnlyKeyboard) || (InputManager.IM.isKeyboardAndMouseP2 && Input.GetKeyDown(KeyCode.Space)))
                 {
                     P2Clear = true;
                 }

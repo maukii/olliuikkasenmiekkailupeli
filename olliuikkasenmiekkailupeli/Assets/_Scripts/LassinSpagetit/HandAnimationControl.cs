@@ -305,24 +305,24 @@ public class HandAnimationControl : MonoBehaviour
                         Inputframe = false;
                         Weak();
                     } 
-                    if(Input.GetKeyDown(KeyCode.Space))
+                    if(Input.GetKeyDown(KeyCode.Space) && !TutorialManager.TM.guardLock)
                     {
                         AddStanceId = AdditiveInverted ? AddStanceId - 1 : AddStanceId + 1;
                     }
-                    if(Input.GetKeyDown(KeyCode.LeftShift))
+                    if(Input.GetKeyDown(KeyCode.LeftShift) && !TutorialManager.TM.guardLock)
                     {
                         AddStanceId = AdditiveInverted ? AddStanceId + 1 : AddStanceId - 1;
                     }
-                    if (Input.GetMouseButton(1) && !swordSwinging && !TutorialManager.TM.guardLock)
+                    if (Input.GetMouseButton(1) && !swordSwinging )
                     {
                         //SwapHanging();
                         SwingHor();
                     }
-                    else if(Input.GetMouseButtonUp(1) && !swordSwinging && !TutorialManager.TM.guardLock)
+                    else if(Input.GetMouseButtonUp(1) && !swordSwinging)
                     {
                         WeakHor();
                     }
-                    else if (Input.GetMouseButtonUp(1) && !swordSwinging && Inputframe && !TutorialManager.TM.guardLock) // COMMENTS BELOW WAS USING WRONG INPUTS ??
+                    else if (Input.GetMouseButtonUp(1) && !swordSwinging && Inputframe) // COMMENTS BELOW WAS USING WRONG INPUTS ??
                     {
                         WeakHor();
                     }

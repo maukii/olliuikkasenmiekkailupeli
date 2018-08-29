@@ -58,8 +58,8 @@ public class TestMenuScript : MonoBehaviour
 
         if(InputManager.IM.isOnlyKeyboard)
         {
-            L_CharacterChoose.text = "A and D to change model";      
-            R_CharacterChoose.text = "Arrows to change model";       
+            L_CharacterChoose.text = "A and D to change character and press Q";      
+            R_CharacterChoose.text = "Arrows to change character and press Enter";       
         }
     }
 

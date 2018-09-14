@@ -342,15 +342,15 @@ public class CollisionHandler : MonoBehaviour {
         int otherplayer = player - 1 == -1 ? 1 : 0;
         if(hanging[otherplayer] == 1)
         {
-            NoGuardCollision = StepDistance >= 10 ? true : false;
-            NoStrongCollision = StepDistance >= 10 ? true : false;
-            NoCollision = StepDistance >= 10 ? true : false;
+            NoGuardCollision = StepDistance >= 11 ? true : false;
+            NoStrongCollision = StepDistance >= 11 ? true : false;
+            NoCollision = StepDistance >= 11 ? true : false;
         }
         else
         {
-            NoGuardCollision = StepDistance >= 10 ? true : false;
-            NoStrongCollision = StepDistance >= 10 ? true : false;
-            NoCollision = StepDistance >= 12 ? true : false;
+            NoGuardCollision = StepDistance >= 11 ? true : false;
+            NoStrongCollision = StepDistance >= 11 ? true : false;
+            NoCollision = StepDistance >= 13 ? true : false;
         }
         
         return true;
@@ -519,8 +519,8 @@ public class CollisionHandler : MonoBehaviour {
     {
         
         int otherplayer = player - 1 == -1 ? 1 : 0;
-        SetInterruptTimer(player, 0.6f);
-        SetInterruptTimer(otherplayer, 0.5f);
+        SetInterruptTimer(player, 0.55f);
+        SetInterruptTimer(otherplayer, 0.45f);
         //anim[player].SetBool("ALight", true);
         anim[otherplayer].SetBool("Deflect", true);
         if (!strongCollision)

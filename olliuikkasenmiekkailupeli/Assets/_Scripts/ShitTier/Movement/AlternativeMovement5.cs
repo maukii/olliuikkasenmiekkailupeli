@@ -415,16 +415,29 @@ public class AlternativeMovement5 : MonoBehaviour
                 //    holdingForward = false;
                 //}
             }
-            else if (lunged && !jumped)
+            else if (lunged && !jumped && playerDistance > playerMinDistance +0.4f)
             {
-                if ((otherPlayerAnim.GetBool("Lunged") && playerDistance > playerMinDistance + extraDistance) || !otherPlayerAnim.GetBool("Lunged"))
+                if ((otherPlayerAnim.GetBool("Lunged") && playerDistance > playerMinDistance + extraDistance + 0.4f) || !otherPlayerAnim.GetBool("Lunged") && !otherPlayerAnim.GetBool("JumpFW"))
                 {
                     //anim.CrossFade("Lunge2", .5f);
                     anim.SetBool("JumpFW", true);
                     firstF = false;
                     holdingForward = false;
+
                 }
+
             }
+            else if (lunged && !jumped && playerDistance <= playerMinDistance + 0.4f)
+            {
+               
+                    //anim.CrossFade("Lunge2", .5f);
+                    anim.SetBool("JumpFW", false);
+                    anim.SetBool("TryToMoveForward", false);
+                    firstF = false;
+                    holdingForward = false;
+
+            }
+
         }     
 
         #endregion

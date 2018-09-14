@@ -153,8 +153,8 @@ public class CollisionDamage : MonoBehaviour {
     void PlayDamageAnimation(Bodyparts body, int player)
     {
         //Play
-        int bodypart = (int)body;
 
+        int bodypart = (int)body;
         var anim = (player == 0 ? P1 : P2).GetComponent<AlternativeMovement5>().GetActiveAnimator();
         anim.SetInteger("Bodypart", bodypart);
         anim.SetTrigger("TakeDamage");

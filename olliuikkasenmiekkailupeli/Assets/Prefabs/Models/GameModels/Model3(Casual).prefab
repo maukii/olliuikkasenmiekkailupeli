@@ -661,7 +661,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1480969169813974
 GameObject:
   m_ObjectHideFlags: 1
@@ -1378,7 +1378,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1960275720740186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0124, y: 0.0001, z: 0.0001}
+  m_LocalPosition: {x: -0.0155, y: 0.0006, z: 0.0004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4875268807695512}
@@ -1556,7 +1556,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1839307598261206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0287, y: 0.0049, z: 0.0001}
+  m_LocalPosition: {x: -0.03249, y: 0.00473, z: 0.00111}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4875268807695512}
@@ -1600,7 +1600,7 @@ Transform:
   m_GameObject: {fileID: 1738646335933752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.15, y: 1, z: 1}
   m_Children:
   - {fileID: 4557974648964700}
   - {fileID: 4807610358408800}
@@ -1703,7 +1703,7 @@ Transform:
   m_LocalRotation: {x: -0.000000026077025, y: 0.000000059604645, z: -0.00000001862645,
     w: 1}
   m_LocalPosition: {x: -0.0030380343, y: -0.000070605274, z: 0.000000008717179}
-  m_LocalScale: {x: 0.9999999, y: 1.0000002, z: 1.0000002}
+  m_LocalScale: {x: 1.15, y: 1.0000002, z: 1.0000002}
   m_Children:
   - {fileID: 4989340063115976}
   m_Father: {fileID: 4875268807695512}
@@ -3670,7 +3670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DEBUG_NoInput: 0
   DEBUG_testscene: 0
-  PlayerNumber: 1
+  PlayerNumber: 2
   AdditiveStanceInput: 1
   AdditiveInverted: 1
   AddStanceId: 1

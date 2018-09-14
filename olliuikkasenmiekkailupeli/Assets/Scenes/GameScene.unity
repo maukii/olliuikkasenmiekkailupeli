@@ -3455,7 +3455,7 @@ Prefab:
     - target: {fileID: 224686438094169540, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 224686438094169540, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
@@ -3540,7 +3540,7 @@ Prefab:
     - target: {fileID: 224768770377509670, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 224768770377509670, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
@@ -3560,7 +3560,7 @@ Prefab:
     - target: {fileID: 224573340271616478, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 224573340271616478, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
@@ -3585,7 +3585,7 @@ Prefab:
     - target: {fileID: 224003871122288056, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 224003871122288056, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
@@ -3595,7 +3595,7 @@ Prefab:
     - target: {fileID: 224393342912431622, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 224393342912431622, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
@@ -3605,7 +3605,7 @@ Prefab:
     - target: {fileID: 224654561625949608, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 224654561625949608, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
@@ -3615,7 +3615,7 @@ Prefab:
     - target: {fileID: 224795584076239458, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 224795584076239458, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
@@ -3625,7 +3625,7 @@ Prefab:
     - target: {fileID: 224604845343094520, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 224604845343094520, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
@@ -3635,7 +3635,7 @@ Prefab:
     - target: {fileID: 224811051579522120, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 224811051579522120, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
@@ -3645,7 +3645,7 @@ Prefab:
     - target: {fileID: 224912272334062284, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 224912272334062284, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
@@ -3655,7 +3655,7 @@ Prefab:
     - target: {fileID: 224609288723573546, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
       propertyPath: m_RootOrder
-      value: 19
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 224609288723573546, guid: 52d988f36a2e1164690ead9acb78f29b,
         type: 2}
@@ -15041,6 +15041,11 @@ Prefab:
         type: 2}
       propertyPath: CollisionTimeStrong
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114297569818067576, guid: 852c08df0ef0e754f923a4ee72e95154,
+        type: 2}
+      propertyPath: heightOffsetMult
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 852c08df0ef0e754f923a4ee72e95154, type: 2}

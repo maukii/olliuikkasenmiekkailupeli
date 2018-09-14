@@ -207,6 +207,7 @@ public class AlternativeMovement5 : MonoBehaviour
             anim.SetBool("Lunged", false);
             anim.SetBool("Jumped", false);
             anim.SetBool("TryToMoveForward", false);
+            anim.SetBool("JumpFW", false);
         }
     }
 
@@ -305,15 +306,17 @@ public class AlternativeMovement5 : MonoBehaviour
             else if (Input.GetAxis(horizontal) >= .1f && playerDistance <= playerMinDistance)
             {
                 forward = false;
-                anim.SetBool("TryToMoveForward", true);
+                
 
-                if (playerIndex == 1)
+                if (playerDistance > playerMinDistance + 0.2f)
                 {
-                    // P2 jumps back
+                    anim.SetBool("TryToMoveForward", true);
+                    anim.SetBool("HalfStep", true);
                 }
                 else
                 {
-                    // P1 jumps back
+                    anim.SetBool("TryToMoveForward", true);
+                    anim.SetBool("HalfStep", false);
                 }
             }
             else
@@ -401,6 +404,23 @@ public class AlternativeMovement5 : MonoBehaviour
                 {
                     //anim.CrossFade("Lunge2", .5f);
                     anim.SetBool("Lunged", true);
+                    firstF = false;
+                    holdingForward = false;
+                }
+                //if ((otherPlayerAnim.GetBool("Lunged") && playerDistance > playerMinDistance + extraDistance) || !otherPlayerAnim.GetBool("Lunged"))
+                //{
+                //    //anim.CrossFade("Lunge2", .5f);
+                //    anim.SetBool("Lunged", true);
+                //    firstF = false;
+                //    holdingForward = false;
+                //}
+            }
+            else if (lunged && !jumped)
+            {
+                if ((otherPlayerAnim.GetBool("Lunged") && playerDistance > playerMinDistance + extraDistance) || !otherPlayerAnim.GetBool("Lunged"))
+                {
+                    //anim.CrossFade("Lunge2", .5f);
+                    anim.SetBool("JumpFW", true);
                     firstF = false;
                     holdingForward = false;
                 }

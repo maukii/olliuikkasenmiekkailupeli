@@ -78,6 +78,7 @@ public class CollisionHandler : MonoBehaviour {
     #endregion
 
     public static int deflectsP1 = 0, deflectsP2 = 0;
+    public int parried;
 
     void Start () {
         sc = gameObject.GetComponent<StepCounter>();
@@ -95,38 +96,41 @@ public class CollisionHandler : MonoBehaviour {
         interruptTimer[0] = 0;
         calculateCollision[0] = false;
         calculateCollision[1] = false;
+        parried = -1;
+
     }
 	
 	void Update () {
         UpdateVariables();
         
-        if(asi[0].IsTag("Swing") && asi[1].IsTag("Swing"))
+        if(asi[0].IsTag("Swing") && asi[1].IsTag("Swing") && parried == -1)
         {
             AttackBoth(WhoHitFirst);
         }
-        else if (asi[0].IsTag("Swing"))
+        else if (asi[0].IsTag("Swing") && parried == -1)
         {
             Attack(0);
             WhoHitFirst = 0;
         }
-        else if (asi[1].IsTag("Swing"))
+        else if (asi[1].IsTag("Swing") && parried == -1)
         {
             Attack(1);
             WhoHitFirst = 1;
         }
-        if (!asi[0].IsTag("Swing"))
+        if (!asi[0].IsTag("Swing") && parried == -1)
         {
             calculateCollision[0] = true;
             cd.NoDamage(0);
         }
-        if (!asi[1].IsTag("Swing"))
+        if (!asi[1].IsTag("Swing") && parried == -1)
         {
             calculateCollision[1] = true;
             cd.NoDamage(1);
         }
         Timer();
 
-        if((deflectsP1 == 5 && deflectsP2 == 5) && !earned)
+
+        if ((deflectsP1 == 5 && deflectsP2 == 5) && !earned)
         {
             AchievementManager.instance.SetProgressToAchievement("Parry!", 1);
             earned = true;
@@ -179,10 +183,12 @@ public class CollisionHandler : MonoBehaviour {
                     CalculateStrength(player);
                     if (!miss)
                     {
+                        AudioManager.instance.PlaySwordsSwingSound();
                         if (CheckQuard(player))
                         {
                             cd.NoDamage(player);
                             Deflect(player);
+                            //AudioManager.instance.PlaySwordClashSound();
                         }
                         else
                         {
@@ -190,7 +196,7 @@ public class CollisionHandler : MonoBehaviour {
                             cd.ApplyDamage(player, damage);
                             QuardBreak(player);
                         }
-                        AudioManager.instance.PlaySwordClashSound();
+                        
                     }
                     else
                     {
@@ -513,19 +519,22 @@ public class CollisionHandler : MonoBehaviour {
     {
         
         int otherplayer = player - 1 == -1 ? 1 : 0;
-        SetInterruptTimer(player, 0.1f + collisionStrength / 100);
-        SetInterruptTimer(otherplayer, 0.1f + collisionStrength / 100);
-        anim[player].SetBool("ALight", true);
+        SetInterruptTimer(player, 0.6f);
+        SetInterruptTimer(otherplayer, 0.5f);
+        //anim[player].SetBool("ALight", true);
         anim[otherplayer].SetBool("Deflect", true);
         if (!strongCollision)
         {
+            anim[player].SetBool("ALight", true);
             anim[otherplayer].SetBool("light", true);
             MakeSparks(hc.GetTip(otherplayer+1), transform.rotation);
+            AudioManager.instance.PlaySwordClashSound();
         }
         else
         {
+            parried = player;
             anim[otherplayer].SetBool("light", false);
-            MakeSparks(hc.GetMiddle(otherplayer+1), transform.rotation);
+            //MakeSparks(hc.GetMiddle(otherplayer+1), transform.rotation);
         }
 
         if(!earned)
@@ -545,19 +554,19 @@ public class CollisionHandler : MonoBehaviour {
         if (!strongCollision)
         {
             anim[otherplayer].SetBool("light", true);
-            MakeSparks(hc.GetTip(otherplayer+1), transform.rotation);
+            MakeSparks(hc.GetTip(otherplayer + 1), transform.rotation);
         }
         else
         {
             anim[otherplayer].SetBool("light", false);
-            MakeSparks(hc.GetMiddle(otherplayer+1), transform.rotation);
+            MakeSparks(hc.GetMiddle(otherplayer + 1), transform.rotation);
         }
         if (handGuardHit)
         {
             cd.DoDamage(CollisionDamage.Bodyparts.Hand, 1, otherplayer);
         }
-        SetInterruptTimer(player, 0.1f + collisionStrength /2 / 100);
-        SetInterruptTimer(otherplayer, 0.1f + collisionStrength / 100);
+        SetInterruptTimer(player, 0.2f);
+        SetInterruptTimer(otherplayer, 0.7f);
 
         if (player == 0)
             deflectsP1 = 0;
@@ -641,6 +650,13 @@ public class CollisionHandler : MonoBehaviour {
                 anim[i].SetBool("ALight", false);
                 ph[i].swoosh = true;
                 
+            }
+            if (parried != -1 && interruptTimer[parried] < 0.5f)
+            {
+                anim[parried].SetBool("ALight", true);
+                MakeSparks(hc.GetTip(parried + 1), transform.rotation);
+                parried = -1;
+                AudioManager.instance.PlaySwordClashSound();
             }
         }
     }

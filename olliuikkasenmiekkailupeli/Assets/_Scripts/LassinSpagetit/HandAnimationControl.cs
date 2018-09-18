@@ -204,13 +204,9 @@ public class HandAnimationControl : MonoBehaviour
                         Swing();
                         Debug.Log("swing");
                     }
-                    else if (Input.GetKeyDown(KeyCode.R) && !swordSwinging)
+                    else if (Input.GetKeyUp(KeyCode.R) && Inputframe)
                     {
-                        Weak();
-                        Debug.Log("weak");
-                    }
-                    else if (Input.GetKeyUp(KeyCode.R) && !swordSwinging && Inputframe)
-                    {
+                        Inputframe = false;
                         Weak();
                         Debug.Log("weak");
                     }
@@ -221,13 +217,9 @@ public class HandAnimationControl : MonoBehaviour
                         SwingHor();
                         Debug.Log("swinghor");
                     }
-                    else if (Input.GetKeyDown(KeyCode.F) && !swordSwinging)
+                    else if (Input.GetKeyUp(KeyCode.F) && Inputframe)
                     {
-                        Weak();
-                        Debug.Log("weak");
-                    }
-                    else if (Input.GetKeyUp(KeyCode.F) && !swordSwinging && Inputframe)
-                    {
+                        Inputframe = false;
                         WeakHor();
                         Debug.Log("weakhor");
                     }
@@ -252,27 +244,24 @@ public class HandAnimationControl : MonoBehaviour
 
                     if (Input.GetKeyDown(KeyCode.RightShift) && !swordSwinging)
                     {
+                        Inputframe = true;
                         Swing();
                     }
-                    else if (Input.GetKeyUp(KeyCode.RightShift) && !swordSwinging)
+                    else if (Input.GetKeyUp(KeyCode.RightShift) && Inputframe)
                     {
-                        Weak();
-                    }
-                    else if (Input.GetKeyUp(KeyCode.RightShift) && !swordSwinging && Inputframe)
-                    {
+                        Inputframe = false;
                         Weak();
                     }
 
                     if (Input.GetKeyDown(KeyCode.RightControl) && !swordSwinging)
                     {
+                        Inputframe = true;
                         SwingHor();
+
                     }
-                    else if (Input.GetKeyUp(KeyCode.RightControl) && !swordSwinging)
+                    else if (Input.GetKeyUp(KeyCode.RightControl) && Inputframe)
                     {
-                        WeakHor();
-                    }
-                    else if (Input.GetKeyUp(KeyCode.RightControl) && !swordSwinging && Inputframe)
-                    {
+                        Inputframe = false;
                         WeakHor();
                     }
 
@@ -295,12 +284,7 @@ public class HandAnimationControl : MonoBehaviour
                         Inputframe = true;
                         Swing();
                     }
-                    else if (Input.GetMouseButtonUp(0) && !swordSwinging)
-                    {
-                        Inputframe = false;
-                        Weak();
-                    }
-                    else if (Input.GetMouseButtonUp(0) && !swordSwinging && Inputframe)
+                    else if (Input.GetMouseButtonUp(0) && Inputframe)
                     {
                         Inputframe = false;
                         Weak();
@@ -316,14 +300,12 @@ public class HandAnimationControl : MonoBehaviour
                     if (Input.GetMouseButton(1) && !swordSwinging )
                     {
                         //SwapHanging();
+                        Inputframe = true;
                         SwingHor();
                     }
-                    else if(Input.GetMouseButtonUp(1) && !swordSwinging)
+                    else if (Input.GetMouseButtonUp(1) && Inputframe) // COMMENTS BELOW WAS USING WRONG INPUTS ??
                     {
-                        WeakHor();
-                    }
-                    else if (Input.GetMouseButtonUp(1) && !swordSwinging && Inputframe) // COMMENTS BELOW WAS USING WRONG INPUTS ??
-                    {
+                        Inputframe = false;
                         WeakHor();
                     }
                     //if (Input.GetMouseButtonDown(2) && !TutorialManager.TM.guardLock) 
@@ -836,7 +818,7 @@ public class HandAnimationControl : MonoBehaviour
     void AnimationStateUpdate()
     {
         asi = anim.GetCurrentAnimatorStateInfo(1);
-        if(asi.IsTag("Swing") || asi.IsTag("PullBack"))
+        if(asi.IsTag("Swing") || asi.IsTag("PullBack") || startSwing)
         {
             swordSwinging = true;
             

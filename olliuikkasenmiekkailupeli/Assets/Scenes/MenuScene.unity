@@ -1797,6 +1797,16 @@ Prefab:
       propertyPath: m_Type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114606704568982832, guid: 488d22487ffe68f41b7a96a8dbfd031a,
+        type: 2}
+      propertyPath: m_Text
+      value: Additional voices
+      objectReference: {fileID: 0}
+    - target: {fileID: 114568440238780852, guid: 488d22487ffe68f41b7a96a8dbfd031a,
+        type: 2}
+      propertyPath: m_Text
+      value: Markus Ranki
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 488d22487ffe68f41b7a96a8dbfd031a, type: 2}
   m_IsPrefabParent: 0
@@ -13026,7 +13036,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4c9d40932f6dd754c8e2ca9ad4c79024, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b91fd81033c324c4e8552989c85018e0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

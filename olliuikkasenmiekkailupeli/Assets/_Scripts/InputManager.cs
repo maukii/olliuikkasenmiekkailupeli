@@ -541,7 +541,7 @@ public class InputManager : MonoBehaviour
             //P2_RT = Input.GetAxis("Xbox_P2_RT");
             //P2_LB = Input.GetKey(KeyCode.Joystick2Button4);
             //P2_RB = Input.GetKey(KeyCode.Joystick2Button5);
-            P2_A = Input.GetKey(KeyCode.KeypadEnter);
+            P2_A = Input.GetKey(KeyCode.Return);
             P2_B = Input.GetKey(KeyCode.Keypad0);
             //P2_X = Input.GetKey(KeyCode.Joystick2Button2);
             //P2_Y = Input.GetKey(KeyCode.Joystick2Button3);

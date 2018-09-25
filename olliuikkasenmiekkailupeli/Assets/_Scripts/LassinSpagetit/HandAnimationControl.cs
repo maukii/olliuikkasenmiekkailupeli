@@ -380,7 +380,10 @@ public class HandAnimationControl : MonoBehaviour
             {
                 ControllerInputs();
             }            
-
+            if(startSwing && !anim.GetBool("SwingDia") && !anim.GetBool("SwingHor"))
+            {
+                startSwing = false;
+            }
             if (swordSwinging && anim.GetBool("SwingDia"))
             {
                 SwapInside();
